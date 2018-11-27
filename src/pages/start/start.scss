@@ -1,0 +1,28 @@
+start {
+    .logo {
+        margin: 50px auto 20px;
+        text-align: center;
+        color: #ffffff;
+        width: 183px;
+        h4 {
+            font-weight: normal;
+            width: 183px;
+            height: 30px;
+            font-size: 30px;
+            text-align: center;
+        }
+    }
+    .describe {
+        font-size: 18px;
+        color: white;
+        width: 300px;
+        margin: 0 auto 20px;
+        margin-top: calc(100% - 100px);
+        line-height: 1.44;
+    }
+    .intro-bg {
+        object-fit: contain;
+        background-image: url('../assets/imgs/bg.jpg');
+        background-size: cover;
+    }
+}

@@ -1,0 +1,29 @@
+<ion-content padding>
+  <button ion-button navPop>Go Back</button>
+  <h4> Sign Up </h4>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Registration ID</ion-label>
+      <ion-input type="text"></ion-input>
+      <p> Example: PIBAXXXXX, CIBXXXXX, HKFIXXXX</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Match passowrd</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <p> Term of usage </p>
+  <div class="fake-term">
+    sdfadlfja;ldskfja
+    <button ion-button color="light" block round (click)="showTermsModel()"> show Terms </button>
+  </div>
+
+
+</ion-content>
