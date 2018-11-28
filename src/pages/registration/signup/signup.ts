@@ -1,3 +1,4 @@
+import { RegistrationModel } from './../../../model/RegistrationModel';
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, ViewController } from 'ionic-angular';
 
@@ -8,11 +9,17 @@ import { IonicPage, ModalController, ViewController } from 'ionic-angular';
 })
 
 export class SignupPage {
-  constructor(public modalCtrl: ModalController) {}
+  constructor(public modalCtrl: ModalController, public registrationModel: RegistrationModel) {}
 
   showTermsModel() {
     //let termsModel = this.modalCtrl.create(Terms)
     //termsModel.present()
+  }
+
+  public register (password:string) {
+    
+    console.log('password: ',password)
+    //this.registrationModel.registrationNum = 
   }
 }
 
