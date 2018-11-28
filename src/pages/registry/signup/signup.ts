@@ -11,8 +11,8 @@ export class SignupPage {
   constructor(public modalCtrl: ModalController) {}
 
   showTermsModel() {
-    let termsModel = this.modalCtrl.create(Terms)
-    termsModel.present()
+    //let termsModel = this.modalCtrl.create(Terms)
+    //termsModel.present()
   }
 }
 
