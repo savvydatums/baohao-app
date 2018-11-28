@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'login',
@@ -7,15 +8,24 @@ import { NavController } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController) {
+  credentialsForm: FormGroup;
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private formBuilder: FormBuilder) {
+
+    this.credentialsForm = this.formBuilder.group({
+      registrationID: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
-  public signin () {
-    //this.navCtrl.push(); // change to sign in
+  onSignIn() {
+    console.log('registrationID: ', this.credentialsForm.controls['registrationID'].value);
+    console.log('password: ', this.credentialsForm.controls['password'].value);
   }
 
-  public forgetPass() {
-    //this.navCtrl.push(HomePage);
+  onForgotPassword() {
+    
   }
-
 }
