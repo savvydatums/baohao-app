@@ -8,7 +8,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { StartPage } from '../pages/start/start';
-import { Terms } from '../pages/registry/signup/signup'
+import { Terms } from '../pages/registration/signup/signup'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
