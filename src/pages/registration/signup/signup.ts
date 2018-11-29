@@ -1,3 +1,4 @@
+import { PasswordValidation } from '../../../utils/Validators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationModel } from './../../../model/RegistrationModel';
 import { Component } from '@angular/core';
@@ -18,7 +19,9 @@ export class SignupPage {
     this.registrationForm = this.formBuilder.group({
       registrationId: ['', Validators.required],
       password: ['', Validators.required],
-      passwordMatch: ['', Validators.required]
+      confirmPassword: ['', Validators.required]
+    }, {
+      validator: PasswordValidation.matchPassword // your validation method
     });
   }
 
