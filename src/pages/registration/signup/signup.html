@@ -1,29 +1,31 @@
 <ion-content padding>
   <button ion-button navPop>Go Back</button>
-  <h4> Sign Up </h4>
-  <ion-list>
-    <ion-item>
-      <ion-label floating>Registration ID<br/>Example: PIBAXXXXX, CIBXXXXX, HKFIXXXX</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-    <p> </p>
 
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input type="password" ng-model="password"></ion-input>
-    </ion-item>
+  <form [formGroup]="registrationForm">
+    <h4> Sign Up </h4>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Registration ID<br/>Example: PIBAXXXXX, CIBXXXXX, HKFIXXXX</ion-label>
+        <ion-input type="text" [formControl]="registrationForm.controls['registrationId']"></ion-input>
+      </ion-item>
+      <p> </p>
 
-    <ion-item>
-      <ion-label floating>Match passowrd</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
-  </ion-list>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" [formControl]="registrationForm.controls['password']"></ion-input>
+      </ion-item>
 
-  <p> Term of usage </p>
-  <div class="fake-term">
-      <button ion-button color="light" block round (click)="register(password)">Register</button>
-    <!--<button ion-button color="light" block round (click)="showTermsModel()"> show Terms </button>-->
-  </div>
+      <ion-item>
+        <ion-label floating>Match password</ion-label>
+        <ion-input type="password" [formControl]="registrationForm.controls['passwordMatch']"></ion-input>
+      </ion-item>
+    </ion-list>
 
+    <p> Term of usage </p>
+    <div class="fake-term">
+        <button ion-button color="light" block round (click)="openModal()">Show Terms</button>
+        <button ion-button color="light" block round (click)="onRegister()">Register</button>
+    </div>
 
+  </form>
 </ion-content>

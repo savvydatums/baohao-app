@@ -1,6 +1,6 @@
 export class RegistrationModel {
 
-    public registrationNum:number;
+    public registrationId:number;
     public password:string;
     public lastname:string;
     public firstname:string;

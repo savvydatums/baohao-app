@@ -1,6 +1,7 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationModel } from './../../../model/RegistrationModel';
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, ViewController } from 'ionic-angular';
+import { IonicPage, ModalController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -9,29 +10,28 @@ import { IonicPage, ModalController, ViewController } from 'ionic-angular';
 })
 
 export class SignupPage {
-  constructor(public modalCtrl: ModalController, public registrationModel: RegistrationModel) {}
 
-  showTermsModel() {
-    //let termsModel = this.modalCtrl.create(Terms)
-    //termsModel.present()
+  registrationForm: FormGroup;
+
+  constructor(public modalCtrl: ModalController, public registrationModel: RegistrationModel, private formBuilder: FormBuilder) {
+
+    this.registrationForm = this.formBuilder.group({
+      registrationId: ['', Validators.required],
+      password: ['', Validators.required],
+      passwordMatch: ['', Validators.required]
+    });
   }
 
-  public register (password:string) {
-    
-    console.log('password: ',password)
-    //this.registrationModel.registrationNum = 
+
+  public onRegister () {
+    this.registrationModel.registrationId = this.registrationForm.controls['registrationId'].value
+    this.registrationModel.password = this.registrationForm.controls['password'].value
+
+    console.log(this.registrationModel);
   }
-}
 
-@Component({
-  selector: 'registry',
-  templateUrl: './terms.html'
-})
-
-export class Terms {
-  constructor(public viewCtrl: ViewController) {}
-
-  dismiss() {
-    this.viewCtrl.dismiss();
+  public openModal(){ 
+    var termsModal = this.modalCtrl.create('TermsModalPage'); 
+    termsModal.present(); 
   }
 }
