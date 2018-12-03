@@ -17,9 +17,16 @@ start {
         color: white;
         width: 300px;
         margin: 0 auto 20px;
-        margin-top: calc(100% - 100px);
+        margin-top: calc(100% - 120px);
         line-height: 1.44;
     }
+
+    .button-md {
+        width: 300px;
+        margin: 0 auto;
+        display: inherit;
+    }
+
     .intro-bg {
         object-fit: contain;
         background-image: url('../assets/imgs/bg.jpg');
