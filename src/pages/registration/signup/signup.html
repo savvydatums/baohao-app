@@ -1,5 +1,7 @@
 <ion-content padding>
-  <button ion-button navPop>Go Back</button>
+    <div class="head-nav">
+    <ion-icon class="back" name="arrow-back" navPush="WelcomePage"></ion-icon>
+  </div>
 
   <form [formGroup]="registrationForm">
     <h4> Sign Up </h4>
@@ -24,7 +26,7 @@
     <div *ngIf="registrationForm.controls.confirmPassword.dirty">
     <div class="error" *ngIf="registrationForm.controls.confirmPassword.errors">Password doesn't match</div>
     </div>
-    
+
     <p> Term of usage </p>
     <div class="fake-term">
         <button ion-button color="light" block round (click)="openModal()">Show Terms</button>
