@@ -1,17 +1,16 @@
-import { UserDetailsPage } from './../user-details/user-details';
 import { PasswordValidation } from '../../../utils/Validators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegistrationModel } from './../../../model/RegistrationModel';
+import { RegistrationModel } from '../../../model/RegistrationModel';
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
   selector: 'registration',
-  templateUrl: './signup.html'
+  templateUrl: './user-details.html'
 })
 
-export class SignupPage {
+export class UserDetailsPage {
 
   registrationForm: FormGroup;
 
@@ -25,20 +24,5 @@ export class SignupPage {
     }, {
       validator: PasswordValidation.matchPassword // your validation method
     });
-  }
-
-
-  public onRegister () {
-    this.registrationModel.registrationId = this.registrationForm.controls['registrationId'].value
-    this.registrationModel.password = this.registrationForm.controls['password'].value
-
-    console.log(this.registrationModel);
-
-    this.navController.push(UserDetailsPage);
-  }
-
-  public openModal(){ 
-    var termsModal = this.modalCtrl.create('TermsModalPage'); 
-    termsModal.present(); 
   }
 }

@@ -1,37 +1,41 @@
 <ion-content padding>
-  <a class="back" navPop> < </a> <!-- go back-->
-  <h4 class="title">Steps to get MyInsurBox services</h4>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <img src="assets/imgs/step-1.png" srcset="assets/imgs/step-1@2x.png 2x, assets/imgs/step-1@3x.png 3x" />
-      </ion-col>
-      <ion-col col-8>
-        <p>Step 1</p>
-        <h4>User Registration</h4>
-      </ion-col>
-    </ion-row>
+    <div class="head-nav">
+      <ion-icon class="back" name="arrow-back" navPush="WelcomePage"></ion-icon>
+    </div>
+  <div class="steps">
+    <h1 class="title">Steps to get MyInsurBox services</h1>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <img src="assets/imgs/step-1.png" srcset="assets/imgs/step-1@2x.png 2x, assets/imgs/step-1@3x.png 3x" />
+        </ion-col>
+        <ion-col col-8>
+          <p>Step 1</p>
+          <h4>User Registration</h4>
+        </ion-col>
+      </ion-row>
 
-    <ion-row>
-      <ion-col>
-        <img src="assets/imgs/step-2.png" srcset="assets/imgs/step-2@2x.png 2x, assets/imgs/step-2@3x.png 3x" />
-      </ion-col>
-      <ion-col col-8>
-        <p>Step 2</p>
-        <h4>Online Payment</h4>
-      </ion-col>
-    </ion-row>
+      <ion-row>
+        <ion-col>
+          <img src="assets/imgs/step-2.png" srcset="assets/imgs/step-2@2x.png 2x, assets/imgs/step-2@3x.png 3x" />
+        </ion-col>
+        <ion-col col-8>
+          <p>Step 2</p>
+          <h4>Online Payment</h4>
+        </ion-col>
+      </ion-row>
 
-    <ion-row>
-      <ion-col>
-        <img src="assets/imgs/step-3.png" srcset="assets/imgs/step-3@2x.png 2x, assets/imgs/step-3@3x.png 3x" />
-      </ion-col>
-      <ion-col col-8>
-        <p>Step 2</p>
-        <h4>Reservation of MyInsurBox’s Installation</h4>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+      <ion-row>
+        <ion-col>
+          <img src="assets/imgs/step-3.png" srcset="assets/imgs/step-3@2x.png 2x, assets/imgs/step-3@3x.png 3x" />
+        </ion-col>
+        <ion-col col-8>
+          <p>Step 3</p>
+          <h4>Reservation of MyInsurBox’s Installation</h4>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
-  <button ion-button color="light" block round navPush="SignupPage"> Continue </button>
+    <button ion-button color="light" block round navPush="SignupPage"> Continue </button>
+  </div>
 </ion-content>

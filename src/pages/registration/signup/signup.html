@@ -1,37 +1,49 @@
 <ion-content padding>
     <div class="head-nav">
-    <ion-icon class="back" name="arrow-back" navPush="WelcomePage"></ion-icon>
+      <ion-icon class="back" name="arrow-back" navPush="StepsPage"></ion-icon>
+    </div>
+    <div class="signup">
+
+      <form [formGroup]="registrationForm">
+        <h1> Sign Up </h1>
+        <ion-list>
+          <ion-item>
+            <ion-label floating>Registration ID</ion-label>
+            <ion-input type="text" [formControl]="registrationForm.controls['registrationId']"></ion-input>
+          </ion-item>
+          <p class="example">Example: PIBAXXXXX, CIBXXXXX, HKFIXXXX</p>
+
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" [formControl]="registrationForm.controls['password']"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Confirm password</ion-label>
+            <ion-input type="password" [formControl]="registrationForm.controls['confirmPassword']"></ion-input>
+          </ion-item>
+        </ion-list>
+
+        <div *ngIf="registrationForm.controls.confirmPassword.dirty">
+        <div class="error" *ngIf="registrationForm.controls.confirmPassword.errors">Password doesn't match</div>
+        </div>
+
+        <div class="terms">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum rutrum risus non ultrices. Vestibulum dapibus, neque a dictum pellentesque, mauris nisi facilisis dolor, quis tincidunt arcu justo non libero.</p>
+        </div>
+        <div class="terms-more">
+            <a (click)="openModal()">Full screen</a>
+        </div>
+
+        <div>
+          <ion-item no-lines>
+              <ion-label>You agree to our terms of usage</ion-label>
+              <ion-checkbox [formControl]="registrationForm.controls['acceptTerms']"></ion-checkbox>
+          </ion-item>
+        </div>  
+
+        <button ion-button color="light" block round (click)="onRegister()">Next</button>
+
+    </form>
   </div>
-
-  <form [formGroup]="registrationForm">
-    <h4> Sign Up </h4>
-    <ion-list>
-      <ion-item>
-        <ion-label floating>Registration ID<br/>Example: PIBAXXXXX, CIBXXXXX, HKFIXXXX</ion-label>
-        <ion-input type="text" [formControl]="registrationForm.controls['registrationId']"></ion-input>
-      </ion-item>
-      <p> </p>
-
-      <ion-item>
-        <ion-label floating>Password</ion-label>
-        <ion-input type="password" [formControl]="registrationForm.controls['password']"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label floating>Confirm password</ion-label>
-        <ion-input type="password" [formControl]="registrationForm.controls['confirmPassword']"></ion-input>
-      </ion-item>
-    </ion-list>
-
-    <div *ngIf="registrationForm.controls.confirmPassword.dirty">
-    <div class="error" *ngIf="registrationForm.controls.confirmPassword.errors">Password doesn't match</div>
-    </div>
-
-    <p> Term of usage </p>
-    <div class="fake-term">
-        <button ion-button color="light" block round (click)="openModal()">Show Terms</button>
-        <button ion-button color="light" block round (click)="onRegister()">Register</button>
-    </div>
-
-  </form>
 </ion-content>

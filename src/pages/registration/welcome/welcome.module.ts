@@ -10,4 +10,4 @@ import { WelcomePage } from './welcome';
     entryComponents: [WelcomePage]
 })
 
-export class RegistryModule{}
+export class WelcomeModule{}

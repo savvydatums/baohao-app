@@ -5,7 +5,7 @@ import { IonicPage, ModalController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'registry',
+  selector: 'registration',
   templateUrl: './group-reservation.html'
 })
 

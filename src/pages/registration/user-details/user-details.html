@@ -1,0 +1,15 @@
+<ion-content padding>
+    <div class="head-nav">
+      <ion-icon class="back" name="arrow-back" navPush="SignupPage"></ion-icon>
+    </div>
+    <div class="signup">
+
+      <form [formGroup]="registrationForm">
+        <h1> User Registration </h1>
+        
+
+        <button ion-button color="light" block round (click)="onRegister()">Next</button>
+
+    </form>
+  </div>
+</ion-content>

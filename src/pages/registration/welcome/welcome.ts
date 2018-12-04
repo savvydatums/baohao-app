@@ -3,7 +3,7 @@ import { IonicPage } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'registry',
+  selector: 'registration',
   templateUrl: './welcome.html'
 })
 
