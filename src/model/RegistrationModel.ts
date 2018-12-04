@@ -1,0 +1,17 @@
+export class RegistrationModel {
+
+    public registrationId:number;
+    public password:string;
+    public lastname:string;
+    public firstname:string;
+    public mobile:string;
+    public companyName:string;
+    public jobTitle:string;
+    public dob:string;
+
+    constructor() {
+        
+    }
+  
+  }
+  

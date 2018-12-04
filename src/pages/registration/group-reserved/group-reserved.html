@@ -1,0 +1,32 @@
+<ion-content padding class="group-reservation">
+  <div class="inner-90">
+    <img src="assets/imgs/subscribe.png" srcset="assets/imgs/subscribe@2x.png 2x, assets/imgs/subscribe@3x.png 3x" />
+    <h4> Your reservation ticket is <br> # 324532 </h4>
+    <p>
+      We have sent you an email confirmation for the MyInsurBox group reservation.
+      We will contact to you within 2 working days.
+      Please contact our customer service team through the following means for any question.
+    </p>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-8>
+          <span>an icon</span>
+          <a mailTo="support@baohetec.com">support@baohetec.com</a>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-8>
+          <span>an icon</span>
+          <a tel="852-5XXXXXX">852-5XXXXXX</a>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+    </ion-grid>
+    <p> Didn't get the email? </p>
+    <button ion-button color="light" block round (click)="onResendEmail()"> Resend </button>
+    <a > Back to app </a>
+  </div>
+</ion-content>

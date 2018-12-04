@@ -1,7 +1,11 @@
-registry {
-    .content {
-        object-fit: contain;
-        background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5796cc);
-        background-size: cover;
+
+.app-root {
+    .button-round-md {
+        border-radius: 6px;
+    }
+
+    a {
+      color: white;
+      font-weight: bold;
     }
 }

@@ -1,0 +1,51 @@
+registry {
+    .content {
+        object-fit: contain;
+        background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5796cc);
+        background-size: cover;
+         color: white;
+    }
+    .item-md{
+        background-color: transparent;
+        color: white;
+    }
+    .item-input .label-md {
+        color: white;
+    }
+    .back{
+        color: white;
+        text-decoration: none;
+        font-size: 28px;
+    }
+    ionic-textarea textarea {
+        height: 120px;
+        background: rgba(255, 255, 255, 0.3);
+    }
+    h4 {
+        font-size: 2.5rem;
+    }
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    .head-nav {
+        margin-bottom: 20px;
+    }
+    .inner-90 {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    // page difference
+    .welcome {
+        img {
+            margin: 50px auto;
+            display: inherit;
+        }
+    }
+
+    .group-reservation{
+        text-align: center;
+    }
+
+}

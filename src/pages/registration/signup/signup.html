@@ -1,0 +1,37 @@
+<ion-content padding>
+    <div class="head-nav">
+    <ion-icon class="back" name="arrow-back" navPush="WelcomePage"></ion-icon>
+  </div>
+
+  <form [formGroup]="registrationForm">
+    <h4> Sign Up </h4>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Registration ID<br/>Example: PIBAXXXXX, CIBXXXXX, HKFIXXXX</ion-label>
+        <ion-input type="text" [formControl]="registrationForm.controls['registrationId']"></ion-input>
+      </ion-item>
+      <p> </p>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" [formControl]="registrationForm.controls['password']"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Confirm password</ion-label>
+        <ion-input type="password" [formControl]="registrationForm.controls['confirmPassword']"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div *ngIf="registrationForm.controls.confirmPassword.dirty">
+    <div class="error" *ngIf="registrationForm.controls.confirmPassword.errors">Password doesn't match</div>
+    </div>
+
+    <p> Term of usage </p>
+    <div class="fake-term">
+        <button ion-button color="light" block round (click)="openModal()">Show Terms</button>
+        <button ion-button color="light" block round (click)="onRegister()">Register</button>
+    </div>
+
+  </form>
+</ion-content>

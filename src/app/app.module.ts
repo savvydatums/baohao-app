@@ -1,3 +1,4 @@
+
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -8,10 +9,10 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { StartPage } from '../pages/start/start';
-import { Terms } from '../pages/registry/signup/signup'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { RegistrationModel } from './../model/RegistrationModel';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabsPage,
 
-    Terms,
     LoginPage,
     StartPage
   ],
@@ -39,6 +39,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage
   ],
   providers: [
+    RegistrationModel,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
