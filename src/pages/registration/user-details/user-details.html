@@ -6,10 +6,67 @@
 
       <form [formGroup]="registrationForm">
         <h1> User Registration </h1>
-        
+        <ion-list>
+          <ion-item>
+            <ion-label floating>Last Name</ion-label>
+            <ion-input type="text" [formControl]="registrationForm.controls['lastname']"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>First Name</ion-label>
+            <ion-input type="text" [formControl]="registrationForm.controls['firstname']"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="text" [formControl]="registrationForm.controls['email']"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Mobile</ion-label>
+            <ion-input type="number" [formControl]="registrationForm.controls['mobile']"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Company Name</ion-label>
+            <ion-select [formControl]="registrationForm.controls['companyName']">
+              <ion-option value="AIA">AIA</ion-option>
+              <ion-option value="AXA">AXA</ion-option>
+              <ion-option value="Bupa">Bupa</ion-option>
+              <ion-option value="China Life">China Life</ion-option>
+              <ion-option value="Cigna">Cigna</ion-option>
+              <ion-option value="FTLife Insurance">FTLife Insurance</ion-option>
+              <ion-option value="FWD">FWD</ion-option>
+              <ion-option value="Manulife">Manulife</ion-option>
+              <ion-option value="Massmutual">Massmutual</ion-option>
+              <ion-option value="MetLife">MetLife</ion-option>
+              <ion-option value="Prudential">Prudential</ion-option>
+              <ion-option value="Sunlife">Sunlife</ion-option>
+              <ion-option value="Tahoe Life Insurance">Tahoe Life Insurance</ion-option>
+              <ion-option value="Others">Others</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Job Title</ion-label>
+            <ion-input type="text" [formControl]="registrationForm.controls['jobTitle']"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Date of Birth</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" [formControl]="registrationForm.controls['dob']"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Gender</ion-label>
+            <ion-select [formControl]="registrationForm.controls['gender']">
+              <ion-option value="Female">Female</ion-option>
+              <ion-option value="Male">Male</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
 
         <button ion-button color="light" block round (click)="onRegister()">Next</button>
-
     </form>
   </div>
 </ion-content>

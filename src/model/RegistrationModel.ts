@@ -4,14 +4,14 @@ export class RegistrationModel {
     public password:string;
     public lastname:string;
     public firstname:string;
+    public email:string;
     public mobile:string;
     public companyName:string;
     public jobTitle:string;
     public dob:string;
 
     constructor() {
-        
+
     }
-  
+
   }
-  
