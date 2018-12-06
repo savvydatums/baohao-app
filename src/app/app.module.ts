@@ -1,4 +1,3 @@
-
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -13,6 +12,7 @@ import { StartPage } from '../pages/start/start';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegistrationModel } from './../model/RegistrationModel';
+import { LoggedInUserModel } from './../model/LoggedInUserModel';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import { RegistrationModel } from './../model/RegistrationModel';
   ],
   providers: [
     RegistrationModel,
+    LoggedInUserModel,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

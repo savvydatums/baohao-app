@@ -31,14 +31,11 @@ export class SignupPage {
   public onRegister () {
     this.registrationModel.registrationId = this.registrationForm.controls['registrationId'].value
     this.registrationModel.password = this.registrationForm.controls['password'].value
-
-    console.log(this.registrationModel);
-
     this.navController.push(UserDetailsPage);
   }
 
   public openModal(){ 
     var termsModal = this.modalCtrl.create('TermsModalPage'); 
-    termsModal.present(); 
+    termsModal.present();
   }
 }

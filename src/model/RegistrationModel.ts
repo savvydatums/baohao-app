@@ -9,6 +9,7 @@ export class RegistrationModel {
     public companyName:string;
     public jobTitle:string;
     public dob:string;
+    public gender:string;
 
     constructor() {
 
