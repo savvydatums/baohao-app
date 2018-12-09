@@ -1,6 +1,6 @@
 import { TLoggedInUser } from './../../../model/types';
 import { LoggedInUserModel } from './../../../model/LoggedInUserModel';
-import { RegistrationAPI } from '../../../api/RegistrationAPI';
+//import { RegistrationAPI } from '../../../api/RegistrationAPI';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationModel } from '../../../model/RegistrationModel';
 import { Component } from '@angular/core';
@@ -19,10 +19,10 @@ export class UserDetailsPage {
   registrationForm: FormGroup;
 
   constructor(
-    public navController: NavController, 
-    public modalCtrl: ModalController, 
-    public registrationModel: RegistrationModel, 
-    public loggedInUserModel: LoggedInUserModel, 
+    public navController: NavController,
+    public modalCtrl: ModalController,
+    public registrationModel: RegistrationModel,
+    public loggedInUserModel: LoggedInUserModel,
     private formBuilder: FormBuilder) {
 
     this.registrationForm = this.formBuilder.group({
@@ -60,7 +60,7 @@ export class UserDetailsPage {
     RegistrationAPI.setNewUser(this.registrationModel)
     .then((success)=> {
         console.log(success);
-    }, 
+    },
     (error:any)=> {
       console.log(error);
     });
@@ -71,7 +71,7 @@ export class UserDetailsPage {
 
     this.loggedInUserModel.token = response.result.token;
     this.loggedInUserModel.userId = response.result.userId;
-    
+
     this.navController.push (ConfirmRegistrationPage);
   }
 }

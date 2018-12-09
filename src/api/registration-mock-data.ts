@@ -1,9 +1,15 @@
 import { TLoggedInUser } from "../model/types";
 
-/**  
+export const LoggedInStatus = {
+    'INACTIVE' : 'INACTIVE',
+    'ACTIVE': 'ACTIVE',
+    'PROCESSING' : 'PROCESSING'
+}
+
+/**
  * User Registration
  * METHOD: POST
- * PAYLOAD: 
+ * PAYLOAD:
   {
     registration_id: "string",
     password: "string",
@@ -17,9 +23,45 @@ import { TLoggedInUser } from "../model/types";
     gender: "string"
 };
 **/
+export const registrationMockResponse: TRegistered = {
+    result: { userId: 12345 },
+    error: null
+}
 
-// RESPONSE:
-export const registrationMockResponse:TLoggedInUser = {
-    result: { token: 'JKSHJFGBH3t47n34j4nj34', userId: 12345 },
+
+/**
+ * Group Registration
+ * METHOD: POST
+ * PAYLOAD:
+  {
+    name: "string",
+    email: "string",
+    mobile: "string",
+    message: "string"
+};
+**/
+
+export const groupRegistrationMockResponse: TGroupResigered = {
+    result: { ticket_number: '12345-XXXX-XXXX' },
+    error: null
+}
+
+
+/**
+ * Group Registration
+ * METHOD: POST
+ * PAYLOAD:
+  {
+    registration_id: "string",
+    password: "string"
+};
+**/
+
+export const LoggedInMockResponse: TLoggedInUser = {
+result : {
+    token: 'JKSHJFGBH3t47n34j4nj34',
+    userId: 12345,
+    status : LoggedInStatus.INACTIVE
+},
     error: null
 }

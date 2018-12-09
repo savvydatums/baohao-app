@@ -2,7 +2,7 @@
     "GLOBAL_TITLE": "MyInsurBox",
     "GLOBAL_SUBTITLE": "Powered by Baohe Tech.",
 
-    "START_DESC": "MyInsurBox is your data scientist in Big Data, helping you uncover every sales opportunity!",
+    "START_DESC": "MyInsurBox is Your tool to use Big Data to uncover sales opportunity!",
     "START_BUTTON": "Get Started",
 
     "LOGIN_REGISTRATION_ID": "Registration ID",
@@ -17,7 +17,8 @@
     "LOGIN_SIGN_UP_LINK": "Sign up",
 
     "WELCOME_TITLE": "Welcome to MyInsurBox",
-    "WELCOME_BODY": "<p>MyInsurBox aims at providing you a useful and affordable big data analytics service on individual level, assisting you to become a professional financial consultant in the age of Big Data.</p><p>Through AI technology, MyInsurBox helps you analyse your customer’s activity data from social media and convert it into your golden sales opportunities.</p>",
+    "WELCOME_BODY": "<p>Powered by proprietary AI technology, Myinsurbox provides you a powerful but affordable tool to understand and analyse Big Data that will help you generate new business opportunities </p>",
+
     "WELCOME_INDIVIDUAL_BUTTON": "Individual Signup",
     "WELCOME_GROUP_CTA": "Making a ",
     "WELCOME_GROUP_LINK": "Group Reservation"
