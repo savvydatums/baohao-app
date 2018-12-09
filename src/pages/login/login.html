@@ -4,19 +4,19 @@
       <img src="assets/imgs/baohe-logo.png"
         srcset="assets/imgs/baohe-logo@2x.png 2x,
         assets/imgs/baohe-logo@3x.png 3x" />
-      <h4 class="title">MyInsurBox</h4>
-      <p>Powered by Baohe Tech.</p>
+      <h4 class="title">{{ 'GLOBAL_TITLE' | translate }}</h4>
+      <p>{{ 'GLOBAL_SUBTITLE' | translate }}</p>
   </div>
   <form [formGroup]="credentialsForm">
  
     <ion-list>
         <ion-item>
-          <ion-label floating>Registration ID</ion-label>
+          <ion-label floating>{{ 'LOGIN_REGISTRATION_ID' | translate }}</ion-label>
           <ion-input type="text" [formControl]="credentialsForm.controls['registrationID']"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>Password</ion-label>
+          <ion-label floating>{{ 'LOGIN_PASSWORD' | translate }}</ion-label>
           <ion-input type="password" [formControl]="credentialsForm.controls['password']"></ion-input>
         </ion-item>
 
@@ -24,18 +24,18 @@
 
       <ion-item no-lines *ngIf="!credentialsForm.controls.registrationID.valid || !credentialsForm.controls.password.valid">
           <div class="error" *ngIf="!credentialsForm.controls.registrationID.valid && credentialsForm.controls.registrationID.dirty">
-            Please enter your registration ID
+              {{ 'LOGIN_ERROR_REGISTRATION_ID' | translate }}
           </div>
           <div class="error" *ngIf="!credentialsForm.controls.password.valid && credentialsForm.controls.password.dirty">
-              Please enter your password
+              {{ 'LOGIN_ERROR_PASSWORD' | translate }}
           </div>
       </ion-item>
 
-    <p class="forget" (click)="onForgotPassword()"> Forget Password? </p>
+    <p class="forget" (click)="onForgotPassword()">{{ 'LOGIN_FORGET_PASSWORD' | translate }}</p>
 
     <div class="sign-in-area">
-      <button ion-button color="light" block round (click)="onSignIn()">Sign in</button>
-      <p class="signup">Don't have an account ? <a navPush="WelcomePage">Sign up</a></p>
+      <button ion-button color="light" block round (click)="onSignIn()">{{ 'LOGIN_BUTTON' | translate }}</button>
+      <p class="signup">{{ 'LOGIN_SIGN_UP_CTA' | translate }}<a navPush="WelcomePage">{{ 'LOGIN_SIGN_UP_LINK' | translate }}</a></p>
     </div>
 
   </form>

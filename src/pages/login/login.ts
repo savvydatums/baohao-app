@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'login',
@@ -12,8 +13,9 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private formBuilder: FormBuilder) {
-
+              private formBuilder: FormBuilder,
+              public translate: TranslateService) {
+    
     this.credentialsForm = this.formBuilder.group({
       registrationID: ['', Validators.required],
       password: ['', Validators.required]

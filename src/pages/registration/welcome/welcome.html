@@ -3,16 +3,11 @@
     src="assets/imgs/chart.png"
     srcset="assets/imgs/chart@2x.png 2x, assets/imgs/chart@3x.png 3x" />
   <div class="inner-90">
-    <h1 class="title">Welcome to MyInsurBox</h1>
-    <p>
-      MyInsurBox aims at providing you a useful and affordable big data analytics service on individual level, assisting you
-      to become a professional financial consultant in the age of Big Data.
-      <br/><br/>
-      Through AI technology, MyInsurBox helps you analyse your customer’s activity data from social media and convert it into
-      your golden sales opportunities.
-    </p>
+    <h1 class="title">{{ 'WELCOME_TITLE' | translate }}</h1>
+    <div [innerHTML]="'WELCOME_BODY' | translate">
+    </div>
     <br/><br/><br/>
-    <button ion-button color="light" block round navPush="StepsPage"> Individual Signup </button>
-    <p> Making a <a navPush="GroupReservation"> Group Reservation </a> </p>
+    <button ion-button color="light" block round navPush="StepsPage">{{ 'WELCOME_INDIVIDUAL_BUTTON' | translate }}</button>
+    <p>{{ 'WELCOME_GROUP_CTA' | translate }}<a navPush="GroupReservation">{{ 'WELCOME_GROUP_LINK' | translate }}</a> </p>
   </div>
 </ion-content>

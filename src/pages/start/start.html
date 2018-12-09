@@ -1,13 +1,14 @@
 <ion-content padding class="intro-bg">
+  <div class="language"><a (click)="setLanguage('en')">EN</a> | <a (click)="setLanguage('cn')">中文</a></div>
   <div class="logo">
       <img src="assets/imgs/baohe-logo.png"
         srcset="assets/imgs/baohe-logo@2x.png 2x,
         assets/imgs/baohe-logo@3x.png 3x" />
-      <h4 class="title">MyInsurBox</h4>
-      <p>Powered by Baohe Tech.</p>
+      <h4 class="title">{{ 'GLOBAL_TITLE' | translate }}</h4>
+      <p>{{ 'GLOBAL_SUBTITLE' | translate }}</p>
   </div>
   <p class="describe">
-    MyInsurBox is your data scientist in Big Data, helping you uncover every sales opportunity!
+    {{ 'START_DESC' | translate }}
   </p>
-  <button ion-button round color="light" (click)="gotoLogin()">Get Start</button>
+  <button ion-button round color="light" (click)="gotoLogin()">{{ 'START_BUTTON' | translate }}</button>
 </ion-content>

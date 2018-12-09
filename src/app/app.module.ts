@@ -13,6 +13,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegistrationModel } from './../model/RegistrationModel';
 import { LoggedInUserModel } from './../model/LoggedInUserModel';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
 @NgModule({
   declarations: [
@@ -26,7 +29,15 @@ import { LoggedInUserModel } from './../model/LoggedInUserModel';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp, {preloadModules: true})
+    IonicModule.forRoot(MyApp, {preloadModules: true}),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (HttpLoaderFactory),
+        deps: [HttpClient]
+      }
+    }),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,3 +58,7 @@ import { LoggedInUserModel } from './../model/LoggedInUserModel';
   ]
 })
 export class AppModule {}
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/locale/', '.json');
+}

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'start',
@@ -8,7 +9,12 @@ import { LoginPage } from '../login/login';
 })
 export class StartPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public translate: TranslateService) {
+    translate.setDefaultLang('en');
+  }
+
+  public setLanguage(lan:string):void {
+    this.translate.use(lan);
   }
 
   public gotoLogin () {

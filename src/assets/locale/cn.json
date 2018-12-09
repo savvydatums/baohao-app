@@ -1,0 +1,18 @@
+{
+    "GLOBAL_TITLE": "MyInsurBox",
+    "GLOBAL_SUBTITLE": "Powered by Baohe Tech.",
+
+    "START_DESC": "MyInsurBox 是您的大數據分析師，助您洞悉每一個銷售機會",
+    "START_BUTTON": "Get Started",
+
+    "LOGIN_REGISTRATION_ID": "大數據分析師",
+    "LOGIN_PASSWORD": "大數據分析師",
+
+    "LOGIN_ERROR_REGISTRATION_ID": "大數據分析師",
+    "LOGIN_ERROR_PASSWORD": "大數據分析師",
+
+    "LOGIN_FORGET_PASSWORD": "大數據分析師",
+    "LOGIN_BUTTON": "大數據分析師",
+    "LOGIN_SIGN_UP_CTA": "大數據分析師? ",
+    "LOGIN_SIGN_UP_LINK": "大數據分析師"
+}
