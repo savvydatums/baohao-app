@@ -1,4 +1,5 @@
-import { TLoggedInUser } from "../model/types";
+import { TGroupRegistered } from './../model/types';
+import { TLoggedInUser, TRegistered } from "../model/types";
 
 export const LoggedInStatus = {
     'INACTIVE' : 'INACTIVE',
@@ -41,7 +42,7 @@ export const registrationMockResponse: TRegistered = {
 };
 **/
 
-export const groupRegistrationMockResponse: TGroupResigered = {
+export const groupRegistrationMockResponse: TGroupRegistered = {
     result: { ticket_number: '12345-XXXX-XXXX' },
     error: null
 }

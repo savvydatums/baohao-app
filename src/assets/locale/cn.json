@@ -19,6 +19,5 @@
     "WELCOME_TITLE": "Welcome to MyInsurBox",
     "WELCOME_BODY": "<p>MyInsurBox的宗旨是為您提供有效及可負擔的個人大數據分析，助您在大數據年代成為專業的理財顧問。</p><p>MyInsurBox透過人工智能技術，分析客户在社交媒體上的活動數據，轉化成您的黃金銷售機會。</p>",
     "WELCOME_INDIVIDUAL_BUTTON": "個人註冊",
-    "WELCOME_GROUP_CTA": "",
-    "WELCOME_GROUP_LINK": "團體註冊"
+    "WELCOME_GROUP_BUTTON": "團體註冊"
 }

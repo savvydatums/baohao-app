@@ -19,7 +19,6 @@
     "WELCOME_TITLE": "Welcome to MyInsurBox",
     "WELCOME_BODY": "<p>Powered by proprietary AI technology, Myinsurbox provides you a powerful but affordable tool to understand and analyse Big Data that will help you generate new business opportunities </p>",
 
-    "WELCOME_INDIVIDUAL_BUTTON": "Individual Signup",
-    "WELCOME_GROUP_CTA": "Making a ",
-    "WELCOME_GROUP_LINK": "Group Reservation"
+    "WELCOME_INDIVIDUAL_BUTTON": "Individual",
+    "WELCOME_GROUP_BUTTON": "Group"
 }

@@ -8,7 +8,7 @@ export type TRegistered = {
     error: null
 }
 
-export type TGroupResigered = {
+export type TGroupRegistered = {
     result: { ticket_number: string },
     error: null
 }

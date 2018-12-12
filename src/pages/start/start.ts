@@ -9,8 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class StartPage {
 
-  constructor(public navCtrl: NavController, public translate: TranslateService) {
-    translate.setDefaultLang('en');
+  constructor(public navCtrl: NavController, public translate: TranslateService) { 
   }
 
   public setLanguage(lan:string):void {

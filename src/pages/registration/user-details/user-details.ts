@@ -1,4 +1,4 @@
-import { TLoggedInUser } from './../../../model/types';
+import { TLoggedInUser, TRegistered } from './../../../model/types';
 import { LoggedInUserModel } from './../../../model/LoggedInUserModel';
 //import { RegistrationAPI } from '../../../api/RegistrationAPI';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -67,9 +67,7 @@ export class UserDetailsPage {
     */
 
     // For now just use mock data
-    const response:TLoggedInUser = registrationMockResponse;
-
-    this.loggedInUserModel.token = response.result.token;
+    const response:TRegistered = registrationMockResponse;
     this.loggedInUserModel.userId = response.result.userId;
 
     this.navController.push (ConfirmRegistrationPage);

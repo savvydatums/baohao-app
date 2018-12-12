@@ -4,7 +4,6 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { StartPage } from '../pages/start/start';
@@ -21,7 +20,6 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
   declarations: [
     MyApp,
     ContactPage,
-    HomePage,
     TabsPage,
 
     LoginPage,
@@ -46,7 +44,6 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
     MyApp,
     ContactPage,
-    HomePage,
     TabsPage
   ],
   providers: [
