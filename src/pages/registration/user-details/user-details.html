@@ -4,30 +4,31 @@
     </div>
     <div class="signup page-2">
         <form [formGroup]="registrationForm">
-          <h1> User Registration </h1>
+          <h1>{{ 'USER_DETAILS_TITLE' | translate }} </h1>
+          <img class="icon" src="assets/imgs/step-1.png" srcset="assets/imgs/step-1@2x.png 2x, assets/imgs/step-1@3x.png 3x" />
           <ion-list>
             <ion-item>
-              <ion-label floating>Last Name</ion-label>
+              <ion-label floating>{{ 'USER_DETAILS_LASTNAME' | translate }}</ion-label>
               <ion-input type="text" [formControl]="registrationForm.controls['lastname']"></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-label floating>First Name</ion-label>
+              <ion-label floating>{{ 'USER_DETAILS_LASTNAME' | translate }}</ion-label>
               <ion-input type="text" [formControl]="registrationForm.controls['firstname']"></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-label floating>Email</ion-label>
+              <ion-label floating>{{ 'USER_DETAILS_EMAIL' | translate }}</ion-label>
               <ion-input type="text" [formControl]="registrationForm.controls['email']"></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-label floating>Mobile</ion-label>
+              <ion-label floating>{{ 'USER_DETAILS_MOBILE' | translate }}</ion-label>
               <ion-input type="number" [formControl]="registrationForm.controls['mobile']"></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-label floating>Company Name</ion-label>
+              <ion-label floating>{{ 'USER_DETAILS_COMPANY_NAME' | translate }}</ion-label>
               <ion-select [formControl]="registrationForm.controls['companyName']">
                 <ion-option value="AIA">AIA</ion-option>
                 <ion-option value="AXA">AXA</ion-option>
@@ -47,24 +48,24 @@
             </ion-item>
 
             <ion-item>
-              <ion-label floating>Job Title</ion-label>
+              <ion-label floating>{{ 'USER_DETAILS_JOB_TITLE' | translate }}</ion-label>
               <ion-input type="text" [formControl]="registrationForm.controls['jobTitle']"></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-label floating>Date of Birth</ion-label>
+              <ion-label floating>{{ 'USER_DETAILS_DOB' | translate }}</ion-label>
               <ion-datetime displayFormat="MM/DD/YYYY" [formControl]="registrationForm.controls['dob']"></ion-datetime>
             </ion-item>
 
             <ion-item>
-              <ion-label floating>Gender</ion-label>
+              <ion-label floating>{{ 'USER_DETAILS_GENDER' | translate }}</ion-label>
               <ion-select [formControl]="registrationForm.controls['gender']">
-                <ion-option value="Female">Female</ion-option>
-                <ion-option value="Male">Male</ion-option>
+                <ion-option value="Female">{{ 'USER_DETAILS_OPTION_FEMALE' | translate }}</ion-option>
+                <ion-option value="Male">{{ 'USER_DETAILS_OPTION_MALE' | translate }}</ion-option>
               </ion-select>
             </ion-item>
           </ion-list>
       </form>
   </div>
-  <button ion-button color="light" block round (click)="onRegister()">Next</button>
+  <button ion-button color="light" block round (click)="onRegister()">{{ 'GLOBAL_NEXT_BUTTON_LABEL' | translate }}</button>
 </ion-content>

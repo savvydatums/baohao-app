@@ -1,3 +1,4 @@
+import { ActivatePage } from './../activate/activate';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -11,7 +12,7 @@ export class LoginPage {
 
   credentialsForm: FormGroup;
 
-  constructor(public navCtrl: NavController,
+  constructor(public navController: NavController,
               public navParams: NavParams,
               private formBuilder: FormBuilder,
               public translate: TranslateService) {
@@ -25,6 +26,8 @@ export class LoginPage {
   onSignIn() {
     console.log('registrationID: ', this.credentialsForm.controls['registrationID'].value);
     console.log('password: ', this.credentialsForm.controls['password'].value);
+
+    this.navController.push(ActivatePage);
   }
 
   onForgotPassword() {

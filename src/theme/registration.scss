@@ -1,4 +1,4 @@
-registration {
+registration, activate {
     .content {
         object-fit: contain;
         background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5796cc);
@@ -34,7 +34,7 @@ registration {
         line-height: 1.5;
     }
     .head-nav {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
     .inner-90 {
         width: 90%;
@@ -56,7 +56,7 @@ registration {
     }
 
     // page welcome
-    .welcome {
+    .welcome, .activate {
         img {
             margin: 50px auto;
             display: inherit;
@@ -68,9 +68,15 @@ registration {
         padding: 0 24px;
         p {
             margin: 0px 0px;
+            font-size: 1.3rem;
         }
-        h4 {
-            margin: 0px 0px;
+        h2 {
+            font-size: 1.7rem;
+            margin: 3px 0px;
+        }
+        h3{
+            font-size: 1.5rem;
+            margin: 3px 0px;
         }
         .row {
             margin: 10px 0px;
@@ -79,11 +85,14 @@ registration {
 
     // page signup
     .signup {
-
         padding: 0 24px;
-
         h1{
             margin: 0px;
+        }
+        .terms-label {
+            p {
+                padding: 10px 0px 0px 0px;
+            }
         }
 
         .terms {
@@ -91,7 +100,6 @@ registration {
             height: 180px;
             border-radius: 6px 6px 0px 0px;
             background-color: #ffffff;
-            margin:50px auto 0;
 
             p {
                 color: #666666;
@@ -132,6 +140,15 @@ registration {
 
         h1{
             color: #0e2f49;
+            float: left;
+            position: relative;
+            top: 10px;
+        }
+
+        img {
+            float: right;
+            top: -10px;
+            position: relative;
         }
 
         .item-md{
@@ -151,8 +168,7 @@ registration {
 
     }
 
-
-    .group-reservation{
+    .group-reservation, .confirm-registration{
         text-align: center;
 
         textarea::placeholder {
@@ -171,5 +187,8 @@ registration {
     .item-datetime .label-md {
         color: white;
     }
+}
 
+.text-center {
+    text-align: center;
 }

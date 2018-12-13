@@ -3,15 +3,16 @@
       <ion-icon class="back" name="arrow-back" navPush="WelcomePage"></ion-icon>
     </div>
   <div class="steps">
-    <h1 class="title">Steps to get MyInsurBox services</h1>
+    <h1 class="title">{{ 'STEPS_TITLE' | translate }}</h1>
     <ion-grid>
       <ion-row>
         <ion-col>
           <img src="assets/imgs/step-1.png" srcset="assets/imgs/step-1@2x.png 2x, assets/imgs/step-1@3x.png 3x" />
         </ion-col>
         <ion-col col-8>
-          <p>Step 1</p>
-          <h4>User Registration</h4>
+          <h3>{{ 'STEPS_LABEL_1' | translate }}</h3>
+          <h2>{{ 'STEPS_TITLE_1' | translate }}</h2>
+          <p>{{ 'STEPS_SUBTITLE_1' | translate }}</p>
         </ion-col>
       </ion-row>
 
@@ -20,8 +21,9 @@
           <img src="assets/imgs/step-2.png" srcset="assets/imgs/step-2@2x.png 2x, assets/imgs/step-2@3x.png 3x" />
         </ion-col>
         <ion-col col-8>
-          <p>Step 2</p>
-          <h4>Online Payment</h4>
+            <h3>{{ 'STEPS_LABEL_2' | translate }}</h3>
+            <h2>{{ 'STEPS_TITLE_2' | translate }}</h2>
+            <p>{{ 'STEPS_SUBTITLE_2' | translate }}</p>
         </ion-col>
       </ion-row>
 
@@ -30,12 +32,13 @@
           <img src="assets/imgs/step-3.png" srcset="assets/imgs/step-3@2x.png 2x, assets/imgs/step-3@3x.png 3x" />
         </ion-col>
         <ion-col col-8>
-          <p>Step 3</p>
-          <h4>Reservation of MyInsurBox’s Installation</h4>
+          <h3>{{ 'STEPS_LABEL_3' | translate }}</h3>
+          <h2>{{ 'STEPS_TITLE_3' | translate }}</h2>
+          <p>{{ 'STEPS_SUBTITLE_3' | translate }}</p>
         </ion-col>
       </ion-row>
     </ion-grid>
 
-    <button ion-button color="light" block round navPush="SignupPage"> Continue </button>
+    <button ion-button color="light" block round navPush="SignupPage"> {{ 'GLOBAL_CONTINUE_BUTTON_LABEL' | translate }} </button>
   </div>
 </ion-content>

@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { UserDetailsPage } from './user-details';
-import { HttpLoaderFactory } from '../../../app/app.module';
+import { ActivatePage } from './activate';
+import { HttpLoaderFactory } from '../../app/app.module';
 
 @NgModule({
     declarations: [
-        UserDetailsPage
+        ActivatePage
     ],
     imports: [
-        IonicPageModule.forChild(UserDetailsPage),
+        IonicPageModule.forChild(ActivatePage),
         TranslateModule.forChild({
             loader: {
                 provide: TranslateLoader,
@@ -19,9 +19,9 @@ import { HttpLoaderFactory } from '../../../app/app.module';
               }
         })
     ],
-    entryComponents : [
-        UserDetailsPage
+    entryComponents: [
+        ActivatePage
     ]
 })
 
-export class UserDetailsModule{}
+export class ActivateModule{}

@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationModel } from './../../../model/RegistrationModel';
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -15,7 +16,12 @@ export class SignupPage {
 
   registrationForm: FormGroup;
 
-  constructor(public navController: NavController, public modalCtrl: ModalController, public registrationModel: RegistrationModel, private formBuilder: FormBuilder) {
+  constructor(
+              public navController: NavController, 
+              public modalCtrl: ModalController, 
+              public registrationModel: RegistrationModel, 
+              public translate: TranslateService,
+              private formBuilder: FormBuilder) {
 
     this.registrationForm = this.formBuilder.group({
       registrationId: ['', Validators.required],

@@ -4,17 +4,36 @@
       <img
         src="assets/imgs/subscribe.png"
         srcset="assets/imgs/subscribe@2x.png 2x, assets/imgs/subscribe@3x.png 3x" />
-      <h1 class="title">Thank you for register myInsurBox Service.</h1>
-      <p>
-        We have sent you an email conﬁrmation for the MyInsurBox service subscription. <br/>
-        Please contact our customer service team through the following means for any question.
-      </p>
-      <div class="bottom">
-        <p class="small-print"> Didn’t get the email? </p>
-        <button ion-button color="light" block round (click)="onResend()">
-          Resend Email
-        </button>
-      </div>
+      <h1 class="title">{{ 'CONFIRM_REGISTRATION_TITLE' | translate }}</h1>
+      <p [innerHTML]="'CONFIRM_REGISTRATION_BODY' | translate"></p>
+      <div>
+        <ion-grid>
+            <ion-row>
+              <ion-col col-2></ion-col>
+              <ion-col col-8>
+                <span><img class="icon" src="assets/imgs/icon-email-dark.png"
+                  srcset="assets/imgs/icon-email-dark@2x.png 2x, assets/imgs/icon-email-dark@3x.png 3x" /></span>
+                <a mailTo="support@baohetec.com">support@baohetec.com</a>
+              </ion-col>
+              <ion-col col-2></ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-2></ion-col>
+              <ion-col col-8>
+                <span><img class="icon" src="assets/imgs/icon-phone-dark.png"
+                    srcset="assets/imgs/icon-phone-dark@2x.png 2x, assets/imgs/icon-phone-dark@3x.png 3x" /></span>
+                <a tel="852-5XXXXXX">852-5XXXXXX</a>
+              </ion-col>
+              <ion-col col-2></ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="bottom">
+            <p class="small-print"> {{ 'CONFIRM_REGISTRATION_NO_EMAIL' | translate }} </p>
+            <button ion-button color="light" block round (click)="onResend()">
+                {{ 'CONFIRM_REGISTRATION_RESEND_EMAIL' | translate }}
+            </button>
+          </div>
     </div>
   </div>
 </ion-content>

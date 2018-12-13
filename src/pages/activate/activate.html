@@ -1,0 +1,12 @@
+<ion-content padding class="activate">
+  <img
+    src="assets/imgs/account.png"
+    srcset="assets/imgs/account@2x.png 2x, assets/imgs/account@3x.png 3x" />
+  <div class="inner-90">
+    <h1 class="title">{{ 'ACTIVATE_TITLE' | translate }}</h1>
+    <div [innerHTML]="'ACTIVATE_BODY' | translate">
+    </div>
+    <br/><br/><br/>
+    <button ion-button color="light" round navPush="Payment">{{ 'GLOBAL_CONTINUE_BUTTON_LABEL' | translate }}</button>
+  </div>
+</ion-content>

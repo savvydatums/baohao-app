@@ -8,31 +8,31 @@
       srcset="assets/imgs/appointment@2x.png 2x, assets/imgs/appointment@3x.png 3x" />
 
     <form [formGroup]="">
-      <h4> Make an appointment </h4>
-      <p>Some text about group reservation and appointment.</p>
+      <h4> {{ 'GROUP_RESERVATION_TITLE' | translate }}</h4>
+      <p>{{ 'GROUP_RESERVATION_BODY' | translate }}</p>
       <ion-list>
         <ion-item>
-          <ion-label floating>Name</ion-label>
+          <ion-label floating>{{ 'GROUP_RESERVATION_NAME_LABEL' | translate }}</ion-label>
           <ion-input type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>Email</ion-label>
+          <ion-label floating>{{ 'GROUP_RESERVATION_EMAIL_LABEL' | translate }}</ion-label>
           <ion-input type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>Mobile</ion-label>
+          <ion-label floating>{{ 'GROUP_RESERVATION_MOBILE_LABEL' | translate }}</ion-label>
           <ion-input type="tel"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>Message</ion-label>
+          <ion-label floating>{{ 'GROUP_RESERVATION_MESSAGE_LABEL' | translate }}</ion-label>
           <ion-textarea row="8"></ion-textarea>
         </ion-item>
       </ion-list>
 
-      <button ion-button color="light" block round navPush="GroupReserved"> Submit </button>
+      <button ion-button color="light" block round navPush="GroupReserved"> {{ 'GLOBAL_SUBMIT_BUTTON_LABEL' | translate }} </button>
     </form>
   </div>
 </ion-content>

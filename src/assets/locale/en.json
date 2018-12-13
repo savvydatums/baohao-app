@@ -1,16 +1,17 @@
 {
     "GLOBAL_TITLE": "MyInsurBox",
     "GLOBAL_SUBTITLE": "Powered by Baohe Tech.",
+    "GLOBAL_NEXT_BUTTON_LABEL": "Next",
+    "GLOBAL_CONTINUE_BUTTON_LABEL": "Continue",
+    "GLOBAL_SUBMIT_BUTTON_LABEL": "Submit",
 
     "START_DESC": "MyInsurBox is Your tool to use Big Data to uncover sales opportunity!",
     "START_BUTTON": "Get Started",
 
     "LOGIN_REGISTRATION_ID": "Registration ID",
     "LOGIN_PASSWORD": "Password",
-
     "LOGIN_ERROR_REGISTRATION_ID": "Please enter your registration ID",
     "LOGIN_ERROR_PASSWORD": "Please enter your password",
-
     "LOGIN_FORGET_PASSWORD": "Forget Password?",
     "LOGIN_BUTTON": "SIGN IN",
     "LOGIN_SIGN_UP_CTA": "Don't have an account? ",
@@ -18,7 +19,61 @@
 
     "WELCOME_TITLE": "Welcome to MyInsurBox",
     "WELCOME_BODY": "<p>Powered by proprietary AI technology, Myinsurbox provides you a powerful but affordable tool to understand and analyse Big Data that will help you generate new business opportunities </p>",
-
     "WELCOME_INDIVIDUAL_BUTTON": "Individual",
-    "WELCOME_GROUP_BUTTON": "Group"
+    "WELCOME_GROUP_BUTTON": "Group",
+
+    "STEPS_TITLE": "Steps to get MyInsurBox services",
+    "STEPS_LABEL_1": "Step 1",
+    "STEPS_TITLE_1": "User Registration",
+    "STEPS_SUBTITLE_1": "We need to confirm your email address to create an account for you.",
+    "STEPS_LABEL_2": "Step 2",
+    "STEPS_TITLE_2": "Online Payment",
+    "STEPS_SUBTITLE_2": "By successfully creating an account, we now can safely collect payment.",
+    "STEPS_LABEL_3": "Step 3",
+    "STEPS_TITLE_3": "Reservation of MyInsurBox’s Installation",
+    "STEPS_SUBTITLE_3": "By successfully creating an account, we now can safely collect payment.",
+
+    "SIGNUP_TITLE": "Sign Up",
+    "SIGNUP_REGISTRATION_LABEL": "Registration ID",
+    "SIGNUP_REGISTRATION_EXAMPLE": "Example: PIBAXXXXX, CIBXXXXX, HKFIXXXX",
+    "SIGNUP_PASSWORD_LABEL": "Password",
+    "SIGNUP_CONFIRM_PASSWORD_LABEL": "Confirm password",
+    "SIGNUP_PASSWORD_ERROR": "Password doesn't match",
+    "SIGNUP_TERMS_CONTENT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum rutrum risus non ultrices. Vestibulum dapibus, neque a dictum pellentesque, mauris nisi facilisis dolor, quis tincidunt arcu justo non libero.",
+    "SIGNUP_FULL_SCREEN_LABEL": "Full screen",
+    "SIGNUP_TERMS_LABEL": "Terms of usage",
+    "SIGNUP_TERMS_AGREE_LABEL": "You agree to our terms of usage",
+
+    "USER_DETAILS_TITLE": "User Registration",
+    "USER_DETAILS_LASTNAME": "Last Name",
+    "USER_DETAILS_FIRSTNAME": "First Name",
+    "USER_DETAILS_EMAIL": "Email",
+    "USER_DETAILS_MOBILE": "Mobile",
+    "USER_DETAILS_COMPANY_NAME": "Company Name",
+    "USER_DETAILS_JOB_TITLE": "Job Title",
+    "USER_DETAILS_DOB": "Date of Birth",
+    "USER_DETAILS_GENDER": "Gender",
+    "USER_DETAILS_OPTION_FEMALE": "Female",
+    "USER_DETAILS_OPTION_MALE": "Male",
+
+    "CONFIRM_REGISTRATION_TITLE": "Thank you for register myInsurBox Service.",
+    "CONFIRM_REGISTRATION_BODY": "We have sent you an email conﬁrmation for the MyInsurBox service subscription. Please contact our customer service team through the following means for any question.",
+    "CONFIRM_REGISTRATION_NO_EMAIL": "Didn’t get the email?",
+    "CONFIRM_REGISTRATION_RESEND_EMAIL": "Resend Confirmation Email",
+
+    "GROUP_RESERVATION_TITLE": "Make an appointment ",
+    "GROUP_RESERVATION_BODY": "Some text about group reservation and appointment.",
+    "GROUP_RESERVATION_NAME_LABEL": "Name",
+    "GROUP_RESERVATION_EMAIL_LABEL": "Email",
+    "GROUP_RESERVATION_MOBILE_LABEL": "Mobile",
+    "GROUP_RESERVATION_MESSAGE_LABEL": "Message",
+    
+    "GROUP_RESERVED_TICKET": "Your reservation ticket is <br> # 324532 ",
+    "GROUP_RESERVED_BODY": "We have sent you an email confirmation for the MyInsurBox group reservation.<br/>We will contact to you within 2 working days.<br/>Please contact our customer service team through the following means for any question.",
+    "GROUP_RESERVED_NO_EMAIL": "Didn’t get the email?",
+    "GROUP_RESERVED_RESEND_EMAIL": "Resend",
+
+    "ACTIVATE_TITLE": "Activate your account",
+    "ACTIVATE_BODY": "<p>Your account is inactive. Please continue to make payment and reservation.</p><p>So we can prepare your personalize MyInsurBox for you.</p>"
+
 }

@@ -5,44 +5,45 @@
     <div class="signup">
 
       <form [formGroup]="registrationForm">
-        <h1> Sign Up </h1>
+        <h1> {{ 'SIGNUP_TITLE' | translate }} </h1>
         <ion-list>
           <ion-item>
-            <ion-label floating>Registration ID</ion-label>
+            <ion-label floating>{{ 'SIGNUP_REGISTRATION_LABEL' | translate }}</ion-label>
             <ion-input type="text" [formControl]="registrationForm.controls['registrationId']"></ion-input>
           </ion-item>
-          <p class="example">Example: PIBAXXXXX, CIBXXXXX, HKFIXXXX</p>
+          <p class="example">{{ 'SIGNUP_REGISTRATION_EXAMPLE' | translate }}</p>
 
           <ion-item>
-            <ion-label floating>Password</ion-label>
+            <ion-label floating>{{ 'SIGNUP_PASSWORD_LABEL' | translate }}</ion-label>
             <ion-input type="password" [formControl]="registrationForm.controls['password']"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-label floating>Confirm password</ion-label>
+            <ion-label floating>{{ 'SIGNUP_CONFIRM_PASSWORD_LABEL' | translate }}</ion-label>
             <ion-input type="password" [formControl]="registrationForm.controls['confirmPassword']"></ion-input>
           </ion-item>
         </ion-list>
 
         <div *ngIf="registrationForm.controls.confirmPassword.dirty">
-        <div class="error" *ngIf="registrationForm.controls.confirmPassword.errors">Password doesn't match</div>
+        <div class="error" *ngIf="registrationForm.controls.confirmPassword.errors">{{ 'SIGNUP_PASSWORD_ERROR' | translate }}</div>
         </div>
 
+        <div class="terms-label"><p>{{ 'SIGNUP_TERMS_LABEL' | translate }}</p></div>
         <div class="terms">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum rutrum risus non ultrices. Vestibulum dapibus, neque a dictum pellentesque, mauris nisi facilisis dolor, quis tincidunt arcu justo non libero.</p>
+            <p>{{ 'SIGNUP_TERMS_CONTENT' | translate }}</p>
         </div>
         <div class="terms-more">
-            <a (click)="openModal()">Full screen</a>
+            <a (click)="openModal()">{{ 'SIGNUP_FULL_SCREEN_LABEL' | translate }}</a>
         </div>
 
         <div>
           <ion-item no-lines>
-              <ion-label>You agree to our terms of usage</ion-label>
+              <ion-label>{{ 'SIGNUP_TERMS_AGREE_LABEL' | translate }}</ion-label>
               <ion-checkbox [formControl]="registrationForm.controls['acceptTerms']"></ion-checkbox>
           </ion-item>
         </div>  
 
-        <button ion-button color="light" block round (click)="onRegister()">Next</button>
+        <button ion-button color="light" block round (click)="onRegister()">{{ 'GLOBAL_NEXT_BUTTON_LABEL' | translate }}</button>
 
     </form>
   </div>
