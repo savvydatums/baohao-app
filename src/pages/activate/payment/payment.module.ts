@@ -2,15 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ActivatePage } from './activate';
-import { HttpLoaderFactory } from '../../app/app.module';
+import { PaymentPage } from './payment';
+import { HttpLoaderFactory } from '../../../app/app.module';
 
 @NgModule({
     declarations: [
-        ActivatePage
+        PaymentPage
     ],
     imports: [
-        IonicPageModule.forChild(ActivatePage),
+        IonicPageModule.forChild(PaymentPage),
         TranslateModule.forChild({
             loader: {
                 provide: TranslateLoader,
@@ -20,8 +20,8 @@ import { HttpLoaderFactory } from '../../app/app.module';
         })
     ],
     entryComponents: [
-        ActivatePage
+        PaymentPage
     ]
 })
 
-export class ActivateModule{}
+export class PaymentModule{}

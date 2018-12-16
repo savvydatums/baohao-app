@@ -1,4 +1,4 @@
-import { TLoggedInUser, TRegistered } from './../../../model/types';
+import { TRegistered } from './../../../model/types';
 import { LoggedInUserModel } from './../../../model/LoggedInUserModel';
 //import { RegistrationAPI } from '../../../api/RegistrationAPI';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';

@@ -1,4 +1,4 @@
-import { ActivatePage } from './../activate/activate';
+import { ActivatePage } from '../activate/intro/activate';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -16,7 +16,7 @@ export class LoginPage {
               public navParams: NavParams,
               private formBuilder: FormBuilder,
               public translate: TranslateService) {
-    
+
     this.credentialsForm = this.formBuilder.group({
       registrationID: ['', Validators.required],
       password: ['', Validators.required]
@@ -31,6 +31,6 @@ export class LoginPage {
   }
 
   onForgotPassword() {
-    
+
   }
 }
