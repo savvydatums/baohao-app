@@ -1,4 +1,4 @@
-import { ActivatePage } from '../activate/intro/activate';
+import { PaymentPage } from '../activate/payment/payment';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -27,7 +27,7 @@ export class LoginPage {
     console.log('registrationID: ', this.credentialsForm.controls['registrationID'].value);
     console.log('password: ', this.credentialsForm.controls['password'].value);
 
-    this.navController.push(ActivatePage);
+    this.navController.push(PaymentPage);
   }
 
   onForgotPassword() {

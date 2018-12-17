@@ -10,5 +10,47 @@
     }
     .item-md{
         padding: 0 0px;
+        color: white;
+        &.item-input.item-input-has-focus {
+            .label-md[floating] {
+                color: white;
+            }
+            .item-inner {
+                border-bottom-color: white;
+                box-shadow: inset 0 -1px 0 0 white;
+            }
+        }
+        &.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) {
+            .item-inner {
+                border-bottom-color: #fcff3b;
+                box-shadow: inset 0 -1px 0 0 #fcff3b;
+            }
+        }
     }
+    .list-md {
+        .item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus):last-child {
+            border-bottom-color: #fcff3b;
+            box-shadow: inset 0 -1px 0 0 #fcff3b;
+        }
+        .item-input.item-input-has-focus:last-child {
+            border-bottom-color: white;
+            box-shadow: inset 0 -1px 0 0 white;
+        }
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.select-icon-inner{
+    color: white;
+}
+
+.fix-bottom {
+    position: absolute;
+    width: 90%;
+    bottom: 0;
+    padding: 20px 20px 40px;
+    text-align: center;
 }

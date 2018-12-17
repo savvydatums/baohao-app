@@ -2,6 +2,7 @@ start {
     .language {
         float: right;
         color: #ffffff;
+        font-size: 1.6rem;
     }
     .logo {
         margin: 50px auto 20px;
@@ -20,14 +21,14 @@ start {
         font-size: 18px;
         color: white;
         width: 300px;
-        margin: 0 auto 20px;
-        margin-top: calc(100% - 120px);
+        margin: calc(100% - 120px) auto 20px;
         line-height: 1.44;
+        text-align: center;
     }
 
-    .button-md {
+    .button {
         width: 300px;
-        margin: 0 auto;
+        margin: 20px auto 0;
         display: inherit;
     }
 

@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegistrationModel } from './../model/RegistrationModel';
 import { LoggedInUserModel } from './../model/LoggedInUserModel';
+import { AppointmentModel } from './../model/AppointmentModel';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
@@ -49,6 +50,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
   providers: [
     RegistrationModel,
     LoggedInUserModel,
+    AppointmentModel,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

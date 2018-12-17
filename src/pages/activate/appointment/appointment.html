@@ -1,0 +1,38 @@
+<ion-content padding class="appointment">
+  <div class="inner-90">
+    <img src="assets/imgs/appointment.png"
+        srcset="assets/imgs/appointment@2x.png 2x, assets/imgs/appointment@3x.png 3x" />
+
+    <form [formGroup]="appointmentForm">
+      <h4> {{ 'APPOINTMENT_TITLE' | translate }}</h4>
+      <p [innerHTML]="'APPOINTMENT_BODY' | translate "></p>
+      <ion-list>
+        <ion-item>
+          <ion-label floating>{{ 'APPOINTMEYT_TIME_TEXT' | translate }}</ion-label>
+          <ion-select [formControl]="appointmentForm.controls['time']">
+            <ion-option value="9:30-10:00"> 9:30 - 10:00</ion-option>
+            <ion-option value="10:00–10:30">10:00 – 10:30</ion-option>
+            <ion-option value="10:30–11:00">10:30 – 11:00</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>{{ 'APPOINTMENT_LOCATION_TEXT' | translate }}</ion-label>
+          <ion-select [formControl]="appointmentForm.controls['location']">
+            <ion-option value="location-1">Location 1</ion-option>
+            <ion-option value="location-2">Location 2</ion-option>
+            <ion-option value="location-3">Location 3</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>{{ 'APPOINTMENT_MOBILE_TEXT' | translate }}</ion-label>
+          <ion-input type="tel" [formControl]="appointmentForm.controls['mobile']"></ion-input>
+        </ion-item>
+      </ion-list>
+    </form>
+  </div>
+  <div class="fix-bottom">
+    <button ion-button color="light" block round navPush="ActivatedPage" (click)="onActivate()"> {{ 'APPOINTMENT_SUBMIT' | translate }} </button>
+  </div>
+</ion-content>

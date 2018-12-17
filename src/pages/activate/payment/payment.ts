@@ -4,12 +4,12 @@ import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
-  selector: 'payment',
+  selector : 'activate',
   templateUrl: './payment.html'
 })
 
 export class PaymentPage {
   constructor(public translate: TranslateService) {
-    
+
   }
 }

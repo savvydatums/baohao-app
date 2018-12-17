@@ -67,13 +67,29 @@
     "GROUP_RESERVATION_EMAIL_LABEL": "Email",
     "GROUP_RESERVATION_MOBILE_LABEL": "Mobile",
     "GROUP_RESERVATION_MESSAGE_LABEL": "Message",
-    
+
     "GROUP_RESERVED_TICKET": "Your reservation ticket is <br> # 324532 ",
     "GROUP_RESERVED_BODY": "We have sent you an email confirmation for the MyInsurBox group reservation.<br/>We will contact to you within 2 working days.<br/>Please contact our customer service team through the following means for any question.",
     "GROUP_RESERVED_NO_EMAIL": "Didn’t get the email?",
     "GROUP_RESERVED_RESEND_EMAIL": "Resend",
 
     "ACTIVATE_TITLE": "Activate your account",
-    "ACTIVATE_BODY": "<p>Your account is inactive. Please continue to make payment and reservation.</p><p>So we can prepare your personalize MyInsurBox for you.</p>"
+    "ACTIVATE_BODY": "<p>Your account is inactive. Please continue to make payment and reservation.</p><p>So we can prepare your personalize MyInsurBox for you.</p>",
 
+    "PAYMENT_SMALL_TEXT": "Make a Payment",
+    "PAYMENT_PRICE": "$3500",
+    "PAYMENT_POINT_1": "<p><b>90 days</b> data storage</p>",
+    "PAYMENT_POINT_2": "<p><b>Free</b> MyInsurBox Device <br/>($500 deposit required)</p>",
+    "PAYMENT_POINT_3": "<p><b>Unlimited</b> Sales Opportunities <br/> Recommanded by AI</p>",
+    "PAYMENT_POINT_4": "<p><b>Unlimited</b> User Defined Keyword Search </p>",
+    "PAYMENT_POINT_5": "<p><b>One Stop Shop</b> on Insurance Product Information</p>",
+    "PAYMENT_REF_TEXT": "Referral Code",
+    "PAYMENT_CHECKOUT": "CHECKOUT",
+
+    "APPOINTMENT_TITLE": "Make an appointment",
+    "APPOINTMENT_BODY": "We are setting up your personal MyInsurBox device and service subscription. <br/>Please let us know the best time to contact you within the next 2 working days.",
+    "APPOINTMEYT_TIME_TEXT": "Time",
+    "APPOINTMENT_LOCATION_TEXT": "Location",
+    "APPOINTMENT_MOBILE_TEXT": "Mobile Number",
+    "APPOINTMENT_SUBMIT": "Submit"
 }
