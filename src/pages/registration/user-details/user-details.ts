@@ -34,7 +34,7 @@ export class UserDetailsPage {
       ])],
       mobile: ['', Validators.compose([
         Validators.required,
-        Validators.maxLength(10),
+        Validators.maxLength(15),
         Validators.minLength(7),
       ])],
       companyName: ['', Validators.required],

@@ -1,5 +1,5 @@
+import { GroupRegistrationModel } from './../../../model/GroupRegistrationModel';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegistrationModel } from './../../../model/RegistrationModel';
 import { Component } from '@angular/core';
 import { IonicPage, ModalController } from 'ionic-angular';
 
@@ -13,21 +13,32 @@ export class GroupReservation {
 
   registrationForm: FormGroup;
 
-  constructor(public modalCtrl: ModalController, public registrationModel: RegistrationModel, private formBuilder: FormBuilder) {
+  constructor(public modalCtrl: ModalController, public registrationModel: GroupRegistrationModel, private formBuilder: FormBuilder) {
 
     this.registrationForm = this.formBuilder.group({
-      registrationId: ['', Validators.required],
-      password: ['', Validators.required],
-      passwordMatch: ['', Validators.required]
+      name: ['', Validators.required],
+      email: ['', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ])],
+      mobile: ['', Validators.compose([
+        Validators.required,
+        Validators.maxLength(15),
+        Validators.minLength(7),
+      ])],
+      message: ['', Validators.required],
     });
   }
 
 
   public onRegister () {
-    this.registrationModel.registrationId = this.registrationForm.controls['registrationId'].value
-    this.registrationModel.password = this.registrationForm.controls['password'].value
 
-    console.log(this.registrationModel);
+    if (!this.registrationForm.valid) return;
+
+    this.registrationModel.name = this.registrationForm.controls['name'].value
+    this.registrationModel.email = this.registrationForm.controls['email'].value
+    this.registrationModel.mobile = this.registrationForm.controls['mobile'].value
+    this.registrationModel.message = this.registrationForm.controls['message'].value
   }
 
   public openModal(){

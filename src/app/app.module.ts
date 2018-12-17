@@ -1,3 +1,4 @@
+import { GroupRegistrationModel } from './../model/GroupRegistrationModel';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -49,6 +50,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
   ],
   providers: [
     RegistrationModel,
+    GroupRegistrationModel,
     LoggedInUserModel,
     AppointmentModel,
     StatusBar,

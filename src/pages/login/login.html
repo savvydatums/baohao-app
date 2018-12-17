@@ -19,7 +19,6 @@
           <ion-label floating>{{ 'LOGIN_PASSWORD' | translate }}</ion-label>
           <ion-input type="password" [formControl]="credentialsForm.controls['password']"></ion-input>
         </ion-item>
-
       </ion-list>
 
       <ion-item no-lines *ngIf="!credentialsForm.controls.registrationID.valid || !credentialsForm.controls.password.valid">
