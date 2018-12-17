@@ -1,7 +1,10 @@
+import { GroupReserved } from './../group-reserved/group-reserved';
+import { groupRegistrationMockResponse } from './../../../api/registration-mock-data';
+import { TGroupRegistered } from './../../../model/types';
 import { GroupRegistrationModel } from './../../../model/GroupRegistrationModel';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
-import { IonicPage, ModalController } from 'ionic-angular';
+import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -13,7 +16,7 @@ export class GroupReservation {
 
   registrationForm: FormGroup;
 
-  constructor(public modalCtrl: ModalController, public registrationModel: GroupRegistrationModel, private formBuilder: FormBuilder) {
+  constructor(public modalCtrl: ModalController, public navController:NavController, public registrationModel: GroupRegistrationModel, private formBuilder: FormBuilder) {
 
     this.registrationForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -39,6 +42,23 @@ export class GroupReservation {
     this.registrationModel.email = this.registrationForm.controls['email'].value
     this.registrationModel.mobile = this.registrationForm.controls['mobile'].value
     this.registrationModel.message = this.registrationForm.controls['message'].value
+
+    /*
+    * API call for posting registration
+    RegistrationAPI.setNewUser(this.registrationModel)
+    .then((success)=> {
+        console.log(success);
+    },
+    (error:any)=> {
+      console.log(error);
+    });
+    */
+
+    // For now just use mock data
+    const response:TGroupRegistered = groupRegistrationMockResponse;
+    this.registrationModel.ticketNumber = response.result.ticket_number;
+
+    this.navController.push(GroupReserved);
   }
 
   public openModal(){

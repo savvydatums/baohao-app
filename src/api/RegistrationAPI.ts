@@ -17,4 +17,14 @@ export class RegistrationAPI extends Comms {
             .catch(reject);
         });
     }
+
+    public static setNewGroupReservation(registrationData:any):Promise<{}> {
+        return new Promise((resolve, reject)=>{
+            this.postData(`${this.serverUrl}/groupregister`, registrationData)
+            .then((response:any)=> {
+                resolve(response);
+            })
+            .catch(reject);
+        });
+    }
 }

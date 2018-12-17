@@ -4,6 +4,7 @@ export class GroupRegistrationModel {
     public email:string;
     public mobile:string;
     public message:string;
+    public ticketNumber:string;
 
     constructor() {
 

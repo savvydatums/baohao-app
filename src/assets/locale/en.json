@@ -72,7 +72,7 @@
     "GROUP_RESERVATION_ERROR_MOBILE": "Please enter a valid mobile phone number",
     "GROUP_RESERVATION_ERROR_MESSAGE": "Please enter a valid message",
 
-    "GROUP_RESERVED_TICKET": "Your reservation ticket is <br> # 324532 ",
+    "GROUP_RESERVED_TICKET": "Your reservation ticket is:",
     "GROUP_RESERVED_BODY": "We have sent you an email confirmation for the MyInsurBox group reservation.<br/>We will contact to you within 2 working days.<br/>Please contact our customer service team through the following means for any question.",
     "GROUP_RESERVED_NO_EMAIL": "Didn’t get the email?",
     "GROUP_RESERVED_RESEND_EMAIL": "Resend",

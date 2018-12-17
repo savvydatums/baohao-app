@@ -13,36 +13,36 @@
       <ion-list>
         <ion-item>
           <ion-label floating>{{ 'GROUP_RESERVATION_NAME_LABEL' | translate }}</ion-label>
-          <ion-input type="text" [formControl]="registrationForm.controls['name']"></ion-input>
+          <ion-input type="text" formControlName="name"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label floating>{{ 'GROUP_RESERVATION_EMAIL_LABEL' | translate }}</ion-label>
-          <ion-input type="text" [formControl]="registrationForm.controls['email']"></ion-input>
+          <ion-input type="text" formControlName="email"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label floating>{{ 'GROUP_RESERVATION_MOBILE_LABEL' | translate }}</ion-label>
-          <ion-input type="tel" [formControl]="registrationForm.controls['mobile']"></ion-input>
+          <ion-input type="tel" formControlName="mobile"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label floating>{{ 'GROUP_RESERVATION_MESSAGE_LABEL' | translate }}</ion-label>
-          <ion-textarea row="8" [formControl]="registrationForm.controls['message']"></ion-textarea>
+          <ion-textarea row="8" formControlName="message"></ion-textarea>
         </ion-item>
       </ion-list>
 
       <ion-item no-lines *ngIf="!registrationForm.valid">
-          <div class="error" *ngIf="!registrationForm.controls.name.valid && registrationForm.controls.name.dirty && registrationForm.controls.name.touched">
+          <div class="error" *ngIf="registrationForm.controls.name.invalid && (registrationForm.controls.name.dirty || registrationForm.controls.name.touched)">
               {{ 'GROUP_RESERVATION_ERROR_NAME' | translate }}
           </div>
-          <div class="error" *ngIf="!registrationForm.controls.email.valid && registrationForm.controls.email.dirty && registrationForm.controls.email.touched">
+          <div class="error" *ngIf="registrationForm.controls.email.invalid && (registrationForm.controls.email.dirty || registrationForm.controls.email.touched)">
               {{ 'GROUP_RESERVATION_ERROR_EMAIL' | translate }}
           </div>
-          <div class="error" *ngIf="!registrationForm.controls.mobile.valid && registrationForm.controls.mobile.dirty && registrationForm.controls.mobile.touched">
+          <div class="error" *ngIf="registrationForm.controls.mobile.invalid && (registrationForm.controls.mobile.dirty || registrationForm.controls.mobile.touched)">
               {{ 'GROUP_RESERVATION_ERROR_MOBILE' | translate }}
           </div>
-          <div class="error" *ngIf="!registrationForm.controls.message.valid && registrationForm.controls.message.dirty && registrationForm.controls.message.touched">
+          <div class="error" *ngIf="registrationForm.controls.message.invalid && (registrationForm.controls.message.dirty || registrationForm.controls.message.touched)">
               {{ 'GROUP_RESERVATION_ERROR_MESSAGE' | translate }}
           </div>
       </ion-item>
