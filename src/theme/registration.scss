@@ -1,11 +1,8 @@
 registration, activate {
     .content {
-        object-fit: contain;
-        background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5796cc);
-        background-size: cover;
-        color: white;
-        padding: 0 16px;
+      @extend %background-green;
     }
+
     .item-md{
         background-color: transparent;
         color: white;
@@ -166,29 +163,6 @@ registration, activate {
             color: #454545;
         }
 
-    }
-
-    .group-reservation, .confirm-registration{
-        text-align: center;
-        .inner-90 {
-            margin-top: 10%;
-        }
-
-        textarea::placeholder {
-            color: #ffffff;
-            opacity: 0.7;
-        }
-        a { font-size: 16px; }
-
-        .grid {
-            text-align: left;
-            margin: 15% auto 20%;
-        }
-
-        .icon {
-            position: relative;
-            top: 8px;
-        }
     }
 
     .item-input .label-md,

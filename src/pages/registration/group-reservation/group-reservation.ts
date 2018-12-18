@@ -1,10 +1,10 @@
-import { GroupReserved } from './../group-reserved/group-reserved';
 import { groupRegistrationMockResponse } from './../../../api/registration-mock-data';
 import { TGroupRegistered } from './../../../model/types';
 import { GroupRegistrationModel } from './../../../model/GroupRegistrationModel';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import { ConfirmComponent } from '../../../components/confirm/confirm.component'
 
 @IonicPage()
 @Component({
@@ -16,7 +16,12 @@ export class GroupReservation {
 
   registrationForm: FormGroup;
 
-  constructor(public modalCtrl: ModalController, public navController:NavController, public registrationModel: GroupRegistrationModel, private formBuilder: FormBuilder) {
+  constructor(
+    public modalCtrl: ModalController,
+    public navCtrl: NavController,
+    public registrationModel: GroupRegistrationModel,
+    private formBuilder: FormBuilder)
+  {
 
     this.registrationForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -58,11 +63,21 @@ export class GroupReservation {
     const response:TGroupRegistered = groupRegistrationMockResponse;
     this.registrationModel.ticketNumber = response.result.ticket_number;
 
-    this.navController.push(GroupReserved);
+    this.confirmed(response.result.ticket_number);
   }
 
-  public openModal(){
-    var termsModal = this.modalCtrl.create('TermsModalPage');
-    termsModal.present();
+  private confirmed(ticket_number) {
+    this.navCtrl.push(
+      ConfirmComponent, {
+        ticketNumber: ticket_number,
+        bodyText: true,
+        emailText: true,
+        resendCallback: this.callback.bind(this)
+      })
+  }
+
+  public callback() {
+    // here has email payload and url
+    console.log('from callback in group-reservation', this.registrationModel)
   }
 }

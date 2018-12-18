@@ -4,26 +4,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { ContactPage } from '../pages/contact/contact';
-import { TabsPage } from '../pages/tabs/tabs';
+// import { ContactPage } from '../pages/contact/contact'; // placeholder -> contact
+// import { TabsPage } from '../pages/tabs/tabs'; // placeholder -> dashboard
 import { LoginPage } from '../pages/login/login';
 import { StartPage } from '../pages/start/start';
+import { ConfirmComponent } from '../components/confirm/confirm.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegistrationModel } from './../model/RegistrationModel';
 import { LoggedInUserModel } from './../model/LoggedInUserModel';
 import { AppointmentModel } from './../model/AppointmentModel';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
 @NgModule({
   declarations: [
     MyApp,
-    ContactPage,
-    TabsPage,
-
+    ConfirmComponent,
     LoginPage,
     StartPage
   ],
@@ -41,12 +40,11 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    ConfirmComponent,
     LoginPage,
     StartPage,
 
     MyApp,
-    ContactPage,
-    TabsPage
   ],
   providers: [
     RegistrationModel,

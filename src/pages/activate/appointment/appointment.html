@@ -10,18 +10,14 @@
         <ion-item>
           <ion-label floating>{{ 'APPOINTMEYT_TIME_TEXT' | translate }}</ion-label>
           <ion-select [formControl]="appointmentForm.controls['time']">
-            <ion-option value="9:30-10:00"> 9:30 - 10:00</ion-option>
-            <ion-option value="10:00–10:30">10:00 – 10:30</ion-option>
-            <ion-option value="10:30–11:00">10:30 – 11:00</ion-option>
+            <ion-option *ngFor="let time of times" value="{{time}}"> {{ time }} </ion-option>
           </ion-select>
         </ion-item>
 
         <ion-item>
           <ion-label floating>{{ 'APPOINTMENT_LOCATION_TEXT' | translate }}</ion-label>
           <ion-select [formControl]="appointmentForm.controls['location']">
-            <ion-option value="location-1">Location 1</ion-option>
-            <ion-option value="location-2">Location 2</ion-option>
-            <ion-option value="location-3">Location 3</ion-option>
+            <ion-option *ngFor="let location of locations" value="{{location}}"> {{ location }} </ion-option>
           </ion-select>
         </ion-item>
 
@@ -33,6 +29,6 @@
     </form>
   </div>
   <div class="fix-bottom">
-    <button ion-button color="light" block round navPush="ActivatedPage" (click)="onActivate()"> {{ 'APPOINTMENT_SUBMIT' | translate }} </button>
+    <button ion-button color="light" block round (click)="onActivate()"> {{ 'APPOINTMENT_SUBMIT' | translate }} </button>
   </div>
 </ion-content>

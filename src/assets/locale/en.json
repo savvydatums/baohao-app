@@ -56,11 +56,6 @@
     "USER_DETAILS_OPTION_FEMALE": "Female",
     "USER_DETAILS_OPTION_MALE": "Male",
 
-    "CONFIRM_REGISTRATION_TITLE": "Thank you for register myInsurBox Service.",
-    "CONFIRM_REGISTRATION_BODY": "We have sent you an email conﬁrmation for the MyInsurBox service subscription. Please contact our customer service team through the following means for any question.",
-    "CONFIRM_REGISTRATION_NO_EMAIL": "Didn’t get the email?",
-    "CONFIRM_REGISTRATION_RESEND_EMAIL": "Resend Confirmation Email",
-
     "GROUP_RESERVATION_TITLE": "Make an appointment ",
     "GROUP_RESERVATION_BODY": "Some text about group reservation and appointment.",
     "GROUP_RESERVATION_NAME_LABEL": "Name",
@@ -71,11 +66,6 @@
     "GROUP_RESERVATION_ERROR_EMAIL": "Please enter a valid email",
     "GROUP_RESERVATION_ERROR_MOBILE": "Please enter a valid mobile phone number",
     "GROUP_RESERVATION_ERROR_MESSAGE": "Please enter a valid message",
-
-    "GROUP_RESERVED_TICKET": "Your reservation ticket is:",
-    "GROUP_RESERVED_BODY": "We have sent you an email confirmation for the MyInsurBox group reservation.<br/>We will contact to you within 2 working days.<br/>Please contact our customer service team through the following means for any question.",
-    "GROUP_RESERVED_NO_EMAIL": "Didn’t get the email?",
-    "GROUP_RESERVED_RESEND_EMAIL": "Resend",
 
     "ACTIVATE_TITLE": "Activate your account",
     "ACTIVATE_BODY": "<p>Your account is inactive. Please continue to make payment and reservation.</p><p>So we can prepare your personalize MyInsurBox for you.</p>",
@@ -95,5 +85,14 @@
     "APPOINTMEYT_TIME_TEXT": "Time",
     "APPOINTMENT_LOCATION_TEXT": "Location",
     "APPOINTMENT_MOBILE_TEXT": "Mobile Number",
-    "APPOINTMENT_SUBMIT": "Submit"
+    "APPOINTMENT_SUBMIT": "Submit",
+
+    "CONFIRM": {
+        "TICKET_TITLE": "Your reservation ticket is:",
+        "TITLE": "Thank you for registration our service.",
+        "BODY": "Thanks for your subscription, our customer representative will contact you soon for final confirmation",
+        "EMAIL_SENT_INFO": "We have sent you an email confirmation for the MyInsurBox reservation.<br/><br/>Please contact our customer service team through the following means for any question.",
+        "NO_EMAIL": "Didn’t get the email?",
+        "RESEND_EMAIL": "Resend"
+    }
 }

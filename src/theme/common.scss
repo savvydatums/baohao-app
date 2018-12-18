@@ -54,3 +54,30 @@
     padding: 20px 20px 40px;
     text-align: center;
 }
+
+// confirm component
+confirm {
+    text-align: center;
+    .content {
+        @extend %background-green;
+    }
+    .inner-90 {
+        margin-top: 10%;
+    }
+
+    textarea::placeholder {
+        color: #ffffff;
+        opacity: 0.7;
+    }
+    a { font-size: 16px; }
+
+    .grid {
+        text-align: left;
+        margin: 15% auto 20%;
+    }
+
+    .icon {
+        position: relative;
+        top: 8px;
+    }
+}

@@ -5,8 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationModel } from '../../../model/RegistrationModel';
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
-import { ConfirmRegistrationPage } from '../confirm-registration/confirm-registration';
 import { registrationMockResponse } from '../../../api/registration-mock-data';
+import { ConfirmComponent } from '../../../components/confirm/confirm.component';
 
 @IonicPage()
 @Component({
@@ -69,7 +69,21 @@ export class UserDetailsPage {
     // For now just use mock data
     const response:TRegistered = registrationMockResponse;
     this.loggedInUserModel.userId = response.result.userId;
+    this.confirmed();
+  }
 
-    this.navController.push (ConfirmRegistrationPage);
+  private confirmed() {
+    this.navController.push(
+      ConfirmComponent, {
+        titleText: true,
+        bodyText: false,
+        emailText: true,
+        resendCallback: this.callback.bind(this)
+      })
+  }
+
+  public callback() {
+    // here has email payload and url
+    console.log('from callback in individual-registration', this.registrationModel)
   }
 }

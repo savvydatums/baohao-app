@@ -1,0 +1,38 @@
+<ion-content padding class="group-reservation">
+  <div class="inner-90">
+    <img src="assets/imgs/subscribe.png" srcset="assets/imgs/subscribe@2x.png 2x, assets/imgs/subscribe@3x.png 3x" />
+    <div *ngIf="ticketNumber">
+        <h4 [innerHTML]="'CONFIRM.TICKET_TITLE' | translate"> </h4>
+        <h4> {{ ticketNumber }} </h4>
+    </div>
+    <h4 *ngIf="titleText" [innerHTML]="'CONFIRM.TITLE' | translate"> </h4>
+    <p *ngIf="bodyText" [innerHTML]="'CONFIRM.BODY' | translate"></p>
+    <p *ngIf="emailText" [innerHTML]="'CONFIRM.EMAIL_SENT_INFO' | translate"></p>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-8>
+          <span><img class="icon" src="assets/imgs/icon-email-dark.png" srcset="assets/imgs/icon-email-dark@2x.png 2x, assets/imgs/icon-email-dark@3x.png 3x" /></span>
+          <a mailTo="support@baohetec.com">support@baohetec.com</a>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-8>
+          <span><img class="icon" src="assets/imgs/icon-phone-dark.png" srcset="assets/imgs/icon-phone-dark@2x.png 2x, assets/imgs/icon-phone-dark@3x.png 3x" /></span>
+          <a tel="852-5XXXXXX">852-5XXXXXX</a>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <p> {{ 'CONFIRM.NO_EMAIL' | translate }} </p>
+    <button ion-button color="light" block round (click)="onResendEmail()">
+        {{ 'CONFIRM.RESEND_EMAIL' | translate }}
+    </button>
+    <a (click)="redirectToApp()"> Back to App </a>
+  </div>
+
+</ion-content>

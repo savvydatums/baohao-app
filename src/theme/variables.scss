@@ -41,6 +41,14 @@ $colors: (
   dark:       #222
 );
 
+%background-green {
+    object-fit: contain;
+    background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5796cc);
+    background-size: cover;
+    color: white;
+    padding: 0 16px;
+}
+
 
 // App iOS Variables
 // --------------------------------------------------
