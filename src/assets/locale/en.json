@@ -8,15 +8,18 @@
     "START_DESC": "MyInsurBox is Your tool to use Big Data to uncover sales opportunity!",
     "START_BUTTON": "Get Started",
 
-    "LOGIN_REGISTRATION_ID": "Registration ID",
-    "LOGIN_PASSWORD": "Password",
-    "LOGIN_ERROR_REGISTRATION_ID": "Please enter your registration ID",
-    "LOGIN_ERROR_PASSWORD": "Please enter your password",
-    "LOGIN_FORGET_PASSWORD": "Forget Password?",
-    "LOGIN_BUTTON": "SIGN IN",
-    "LOGIN_SIGN_UP_CTA": "Don't have an account? ",
-    "LOGIN_SIGN_UP_LINK": "Sign up",
-
+    "LOGIN" : {
+        "REGISTRATION_ID": "Registration ID",
+        "PASSWORD": "Password",
+        "ERROR_REGISTRATION_ID": "Please enter your registration ID",
+        "ERROR_PASSWORD": "Please enter your password",
+        "ERROR_GENERAL": "Please enter a valid registration ID and password",
+        "FORGET_PASSWORD": "Forget Password?",
+        "BUTTON": "SIGN IN",
+        "SIGN_UP_CTA": "Don't have an account? ",
+        "SIGN_UP_LINK": "Sign up"
+    },
+    
     "WELCOME_TITLE": "Welcome to MyInsurBox",
     "WELCOME_BODY": "<p>Powered by proprietary AI technology, Myinsurbox provides you a powerful but affordable tool to understand and analyse Big Data that will help you generate new business opportunities </p>",
     "WELCOME_INDIVIDUAL_BUTTON": "Individual",
@@ -43,6 +46,14 @@
     "SIGNUP_FULL_SCREEN_LABEL": "Full screen",
     "SIGNUP_TERMS_LABEL": "Terms of usage",
     "SIGNUP_TERMS_AGREE_LABEL": "You agree to our terms of usage",
+
+    "PASSWORD_RESET" : {
+        "TITLE": "Reset Password",
+        "RESET_LABEL": "Please enter your registration ID which can be found in your welcome email.",
+        "REGISTRATION_ID_LABEL": "Registration ID",
+        "SUBMITTED_LABEL": "An email will been sent to the registered email address.",
+        "BUTTON_LABEL": "Reset"
+    },
 
     "INDIVIDUAL_RESERVATION" : {
         "TITLE": "User Registration",

@@ -29,6 +29,6 @@
     </form>
   </div>
   <div class="fix-bottom">
-    <button ion-button color="light" block round (click)="onActivate()"> {{ 'APPOINTMENT_SUBMIT' | translate }} </button>
+    <button ion-button color="light" block round (click)="onActivate()" [disabled]="!appointmentForm.valid"> {{ 'APPOINTMENT_SUBMIT' | translate }} </button>
   </div>
 </ion-content>
