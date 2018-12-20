@@ -1,6 +1,4 @@
 import { LoginPage } from './../../login/login';
-import { IndividualReservationPage } from '../individual-reservation/individual-reservation';
-import { PasswordValidation } from '../../../utils/Validators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationModel } from '../../../model/RegistrationModel';
 import { Component } from '@angular/core';

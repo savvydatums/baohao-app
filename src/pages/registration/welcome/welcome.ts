@@ -1,5 +1,6 @@
+import { LoginPage } from './../../login/login';
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
@@ -9,7 +10,12 @@ import { TranslateService } from '@ngx-translate/core';
 })
 
 export class WelcomePage {
-  constructor(public translate: TranslateService) {
-    
-  }
+	constructor(
+		public translate: TranslateService,
+		public navCtrl: NavController) {
+	}
+
+  	public gotoLogin () {
+		this.navCtrl.push(LoginPage);
+	}
 }
