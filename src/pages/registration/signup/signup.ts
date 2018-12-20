@@ -27,7 +27,7 @@ export class SignupPage {
       registrationId: ['', Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
-      acceptTerms: [false, Validators.required]
+      acceptTerms: [false, Validators.requiredTrue]
     }, {
       validator: PasswordValidation.matchPassword
     });

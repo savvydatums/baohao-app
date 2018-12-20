@@ -9,18 +9,18 @@
         <ion-list>
           <ion-item>
             <ion-label floating>{{ 'SIGNUP_REGISTRATION_LABEL' | translate }}</ion-label>
-            <ion-input type="text" [formControl]="registrationForm.controls['registrationId']"></ion-input>
+            <ion-input type="text" formControlName="registrationId"></ion-input>
           </ion-item>
           <p class="example">{{ 'SIGNUP_REGISTRATION_EXAMPLE' | translate }}</p>
 
           <ion-item>
             <ion-label floating>{{ 'SIGNUP_PASSWORD_LABEL' | translate }}</ion-label>
-            <ion-input type="password" [formControl]="registrationForm.controls['password']"></ion-input>
+            <ion-input type="password" formControlName="password"></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label floating>{{ 'SIGNUP_CONFIRM_PASSWORD_LABEL' | translate }}</ion-label>
-            <ion-input type="password" [formControl]="registrationForm.controls['confirmPassword']"></ion-input>
+            <ion-input type="password" formControlName="confirmPassword"></ion-input>
           </ion-item>
         </ion-list>
 
@@ -39,7 +39,7 @@
         <div>
           <ion-item no-lines>
               <ion-label>{{ 'SIGNUP_TERMS_AGREE_LABEL' | translate }}</ion-label>
-              <ion-checkbox [formControl]="registrationForm.controls['acceptTerms']"></ion-checkbox>
+              <ion-checkbox formControlName="acceptTerms" required></ion-checkbox>
           </ion-item>
         </div>  
 
