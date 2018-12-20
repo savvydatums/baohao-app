@@ -1,4 +1,4 @@
-import { UserDetailsPage } from './../user-details/user-details';
+import { IndividualReservationPage } from './../individual-reservation/individual-reservation';
 import { PasswordValidation } from '../../../utils/Validators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationModel } from './../../../model/RegistrationModel';
@@ -29,7 +29,7 @@ export class SignupPage {
       confirmPassword: ['', Validators.required],
       acceptTerms: [false, Validators.required]
     }, {
-      validator: PasswordValidation.matchPassword // your validation method
+      validator: PasswordValidation.matchPassword
     });
   }
 
@@ -37,7 +37,7 @@ export class SignupPage {
   public onRegister () {
     this.registrationModel.registrationId = this.registrationForm.controls['registrationId'].value
     this.registrationModel.password = this.registrationForm.controls['password'].value
-    this.navController.push(UserDetailsPage);
+    this.navController.push(IndividualReservationPage);
   }
 
   public openModal(){ 

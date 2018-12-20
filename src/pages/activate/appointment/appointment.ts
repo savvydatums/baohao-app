@@ -17,8 +17,8 @@ const times = ['9:30 - 10:00', '10:00 – 10:30', '10:30 – 11:00'];
 export class Appointment {
 
   appointmentForm: FormGroup;
-  locations: Array;
-  times: Array;
+  locations: string[];
+  times: string[];
 
   constructor(
     public navCtrl: NavController,

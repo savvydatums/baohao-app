@@ -43,7 +43,7 @@
           </ion-item>
         </div>  
 
-        <button ion-button color="light" block round (click)="onRegister()">{{ 'GLOBAL_NEXT_BUTTON_LABEL' | translate }}</button>
+        <button ion-button color="light" block round (click)="onRegister()" [disabled]="!registrationForm.valid">{{ 'GLOBAL_NEXT_BUTTON_LABEL' | translate }}</button>
 
     </form>
   </div>

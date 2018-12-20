@@ -2,15 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { UserDetailsPage } from './user-details';
+import { IndividualReservationPage } from './individual-reservation';
 import { HttpLoaderFactory } from '../../../app/app.module';
 
 @NgModule({
     declarations: [
-        UserDetailsPage
+        IndividualReservationPage
     ],
     imports: [
-        IonicPageModule.forChild(UserDetailsPage),
+        IonicPageModule.forChild(IndividualReservationPage),
         TranslateModule.forChild({
             loader: {
                 provide: TranslateLoader,
@@ -20,8 +20,8 @@ import { HttpLoaderFactory } from '../../../app/app.module';
         })
     ],
     entryComponents : [
-        UserDetailsPage
+        IndividualReservationPage
     ]
 })
 
-export class UserDetailsModule{}
+export class IndividualReservationModule{}
