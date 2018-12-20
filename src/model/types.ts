@@ -4,11 +4,16 @@ export type TLoggedInUser = {
 }
 
 export type TRegistered = {
-    result: { userId: number },
+    result: { userId: number, emailId: number },
     error: null
 }
 
 export type TGroupRegistered = {
-    result: { ticket_number: string },
+    result: { ticket_number: string, emailId: number },
+    error: null
+}
+
+export type TResendEmail = {
+    result: { email_status: string },
     error: null
 }

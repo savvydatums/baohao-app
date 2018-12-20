@@ -1,5 +1,4 @@
 import { TRegistered } from '../../../model/types';
-import { LoggedInUserModel } from '../../../model/LoggedInUserModel';
 //import { RegistrationAPI } from '../../../api/RegistrationAPI';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationModel } from '../../../model/RegistrationModel';
@@ -22,7 +21,6 @@ export class IndividualReservationPage {
 		public navController: NavController,
 		public modalCtrl: ModalController,
 		public registrationModel: RegistrationModel,
-		public loggedInUserModel: LoggedInUserModel,
 		private formBuilder: FormBuilder) {
 
 		this.registrationForm = this.formBuilder.group({
@@ -68,7 +66,8 @@ export class IndividualReservationPage {
 
 		// For now just use mock data
 		const response:TRegistered = registrationMockResponse;
-		this.loggedInUserModel.userId = response.result.userId;
+		this.registrationModel.userId = response.result.userId;
+		this.registrationModel.emailId = response.result.emailId;
 		this.confirmed();
 	}
 
@@ -78,12 +77,23 @@ export class IndividualReservationPage {
 			titleText: true,
 			bodyText: false,
 			emailText: true,
-			resendCallback: this.callback.bind(this)
+			resendCallback: this.resendEmail.bind(this)
 		})
 	}
 
-	public callback() {
+	public resendEmail() {
 		// here has email payload and url
-		console.log('from callback in individual-registration', this.registrationModel)
+
+		/*
+		* API call for resending email
+		RegistrationAPI.setResendEmail(this.registrationModel.emailId)
+		.then((success)=> {
+			console.log(success);
+		},
+		(error:any)=> {
+		console.log(error);
+		});
+		*/
+		console.log('from resendEmail in group-reservation', this.registrationModel.emailId)
 	}
 }

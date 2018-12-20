@@ -61,6 +61,7 @@ export class GroupReservation {
 		// For now just use mock data
 		const response:TGroupRegistered = groupRegistrationMockResponse;
 		this.registrationModel.ticketNumber = response.result.ticket_number;
+		this.registrationModel.emailId = response.result.emailId;
 
 		this.confirmed(response.result.ticket_number);
 	}
@@ -71,12 +72,23 @@ export class GroupReservation {
 			ticketNumber: ticket_number,
 			bodyText: true,
 			emailText: true,
-			resendCallback: this.callback.bind(this)
+			resendCallback: this.resendEmail.bind(this)
 		})
 	}
 
-	public callback() {
+	public resendEmail() {
 		// here has email payload and url
-		console.log('from callback in group-reservation', this.registrationModel)
+
+		/*
+		* API call for resending email
+		RegistrationAPI.setResendEmail(this.registrationModel.emailId)
+		.then((success)=> {
+			console.log(success);
+		},
+		(error:any)=> {
+		console.log(error);
+		});
+		*/
+		console.log('from resendEmail in group-reservation', this.registrationModel.emailId)
 	}
 }

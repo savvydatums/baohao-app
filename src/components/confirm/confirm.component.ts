@@ -16,6 +16,7 @@ export class ConfirmComponent {
     bodyText: boolean;
     emailText: boolean;
     resendEmail: Function;
+    showEmailSent: boolean = false;
 
     constructor(
         public navCtrl: NavController,
@@ -34,6 +35,7 @@ export class ConfirmComponent {
 
     public onResendEmail() {
         this.resendEmail();
+        this.showEmailSent = true;
     }
 
     public redirectToApp() {

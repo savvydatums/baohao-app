@@ -1,4 +1,4 @@
-import { TGroupRegistered } from './../model/types';
+import { TGroupRegistered, TResendEmail } from './../model/types';
 import { TLoggedInUser, TRegistered } from "../model/types";
 
 export const LoggedInStatus = {
@@ -25,7 +25,7 @@ export const LoggedInStatus = {
 };
 **/
 export const registrationMockResponse: TRegistered = {
-    result: { userId: 12345 },
+    result: { userId: 12345, emailId:43210 },
     error: null
 }
 
@@ -43,7 +43,7 @@ export const registrationMockResponse: TRegistered = {
 **/
 
 export const groupRegistrationMockResponse: TGroupRegistered = {
-    result: { ticket_number: '12345-XXXX-XXXX' },
+    result: { ticket_number: '12345-XXXX-XXXX', emailId:43210 },
     error: null
 }
 
@@ -65,4 +65,21 @@ result : {
     status : LoggedInStatus.INACTIVE
 },
     error: null
+}
+
+/**
+ * Resend Password
+ * METHOD: POST
+ * PAYLOAD:
+  {
+    emailId: number
+    
+};
+**/
+
+export const ResendEmailMockResponse: TResendEmail = {
+    result : {
+        email_status: "complete"
+    },
+        error: null
 }

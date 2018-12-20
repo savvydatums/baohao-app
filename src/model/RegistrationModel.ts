@@ -1,6 +1,7 @@
 export class RegistrationModel {
 
-    public registrationId:number;
+    // user set from form
+    public registrationId:string;
     public password:string;
     public lastname:string;
     public firstname:string;
@@ -10,6 +11,10 @@ export class RegistrationModel {
     public jobTitle:string;
     public dob:string;
     public gender:string;
+    
+    // set by backend
+    public userId:number;
+    public emailId:number;
 
     constructor() {
 
