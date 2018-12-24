@@ -96,16 +96,20 @@
         }
     },
 
-    "GROUP_RESERVATION_TITLE": "Make an appointment ",
-    "GROUP_RESERVATION_BODY": "Some text about group reservation and appointment.",
-    "GROUP_RESERVATION_NAME_LABEL": "Name",
-    "GROUP_RESERVATION_EMAIL_LABEL": "Email",
-    "GROUP_RESERVATION_MOBILE_LABEL": "Mobile",
-    "GROUP_RESERVATION_MESSAGE_LABEL": "Message",
-    "GROUP_RESERVATION_ERROR_NAME": "Please enter a valid name",
-    "GROUP_RESERVATION_ERROR_EMAIL": "Please enter a valid email",
-    "GROUP_RESERVATION_ERROR_MOBILE": "Please enter a valid mobile phone number",
-    "GROUP_RESERVATION_ERROR_MESSAGE": "Please enter a valid message",
+    "GROUP_RESERVATION": {
+        "TITLE": "Make an appointment",
+        "BODY": "If you would like to subscribe Group Purchase service, please let us know the best time for our MyInsurBox’s business representative to contact you within the next 2 working days.",
+        "NAME_LABEL": "Name",
+        "EMAIL_LABEL": "Email",
+        "MOBILE_LABEL": "Mobile",
+        "LOCATION_LABEL": "Location",
+        "TIME_LABEL": "Time",
+        "ERROR_NAME": "Please enter a valid name",
+        "ERROR_EMAIL": "Please enter a valid email",
+        "ERROR_MOBILE": "Please enter a valid mobile phone number",
+        "ERROR_TIME": "Please choose a time",
+        "ERROR_LOCATION": "Please choose a location"
+    },
 
     "ACTIVATE_TITLE": "Activate your account",
     "ACTIVATE_BODY": "<p>Your account is inactive. Please continue to make payment and reservation.</p><p>So we can prepare your personalize MyInsurBox for you.</p>",

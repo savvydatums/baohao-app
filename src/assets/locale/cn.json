@@ -3,7 +3,7 @@
     "GLOBAL_SUBTITLE": "Powered by Baohe Tech.",
     "GLOBAL_NEXT_BUTTON_LABEL": "下一步",
     "GLOBAL_CONTINUE_BUTTON_LABEL": "繼續",
-    "GLOBAL_SUBMIT_BUTTON_LABEL": "送出",
+    "GLOBAL_SUBMIT_BUTTON_LABEL": "提交",
 
     "START_DESC": "MyInsurBox 是您的大數據分析師，助您洞悉每一個銷售機會",
     "START_BUTTON": "開始",
@@ -95,5 +95,20 @@
             "Tahoe Life Insurance": "泰禾人壽保險",
             "Others": "其他"
         }
+    },
+
+    "GROUP_RESERVATION": {
+        "TITLE": "預約會面",
+        "BODY": "如果您想訂購團購服務，請告知我們在未來兩個工作天內MyInsurBox營業代表與您聯繫的最佳時間。",
+        "NAME_LABEL": "姓名",
+        "EMAIL_LABEL": "Email",
+        "MOBILE_LABEL": "手機號碼",
+        "LOCATION_LABEL": "地點",
+        "TIME_LABEL": "時間",
+        "ERROR_NAME": "請輸入姓名",
+        "ERROR_EMAIL": "請輸入Email",
+        "ERROR_MOBILE": "請輸入有效電話號碼",
+        "ERROR_TIME": "請選擇時間",
+        "ERROR_LOCATION": "請選擇地點"
     }
 }

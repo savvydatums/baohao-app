@@ -5,48 +5,65 @@
 
 	<div class="inner-90 group-reservation">
 		<img src="assets/imgs/appointment.png"
-		srcset="assets/imgs/appointment@2x.png 2x, assets/imgs/appointment@3x.png 3x" />
+			srcset="assets/imgs/appointment@2x.png 2x, assets/imgs/appointment@3x.png 3x" />
 
 		<form [formGroup]="registrationForm">
-		<h4> {{ 'GROUP_RESERVATION_TITLE' | translate }}</h4>
-		<p>{{ 'GROUP_RESERVATION_BODY' | translate }}</p>
+		<h4> {{ 'GROUP_RESERVATION.TITLE' | translate }}</h4>
+		<p>{{ 'GROUP_RESERVATION.BODY' | translate }}</p>
+
 		<ion-list>
 			<ion-item>
-			<ion-label floating>{{ 'GROUP_RESERVATION_NAME_LABEL' | translate }}</ion-label>
+			<ion-label floating>{{ 'GROUP_RESERVATION.NAME_LABEL' | translate }}</ion-label>
 			<ion-input type="text" formControlName="name"></ion-input>
 			</ion-item>
 
 			<ion-item>
-			<ion-label floating>{{ 'GROUP_RESERVATION_EMAIL_LABEL' | translate }}</ion-label>
+			<ion-label floating>{{ 'GROUP_RESERVATION.EMAIL_LABEL' | translate }}</ion-label>
 			<ion-input type="email" formControlName="email"></ion-input>
 			</ion-item>
 
 			<ion-item>
-			<ion-label floating>{{ 'GROUP_RESERVATION_MOBILE_LABEL' | translate }}</ion-label>
+			<ion-label floating>{{ 'GROUP_RESERVATION.MOBILE_LABEL' | translate }}</ion-label>
 			<ion-input type="tel" formControlName="mobile"></ion-input>
 			</ion-item>
 
 			<ion-item>
-			<ion-label floating>{{ 'GROUP_RESERVATION_MESSAGE_LABEL' | translate }}</ion-label>
-			<ion-textarea row="8" formControlName="message"></ion-textarea>
+			<ion-label floating>{{ 'GROUP_RESERVATION.TIME_LABEL' | translate }}</ion-label>
+			<ion-select formControlName="time">
+				<ion-option *ngFor="let time of times" value="{{time}}"> {{ time }} </ion-option>
+			</ion-select>
+			</ion-item>
+
+			<ion-item>
+			<ion-label floating>{{ 'GROUP_RESERVATION.LOCATION_LABEL' | translate }}</ion-label>
+			<ion-select formControlName="location">
+				<ion-option *ngFor="let location of locations" value="{{location}}"> {{ location }} </ion-option>
+			</ion-select>
 			</ion-item>
 		</ion-list>
 
-		<ion-item no-lines *ngIf="!registrationForm.valid">
+		<div *ngIf="!registrationForm.valid">
 			<div class="error" *ngIf="registrationForm.controls.name.invalid && (registrationForm.controls.name.dirty || registrationForm.controls.name.touched)">
-				{{ 'GROUP_RESERVATION_ERROR_NAME' | translate }}
+				<ion-icon name="information-circle"></ion-icon>
+				{{ 'GROUP_RESERVATION.ERROR_NAME' | translate }}
 			</div>
 			<div class="error" *ngIf="registrationForm.controls.email.invalid && (registrationForm.controls.email.dirty || registrationForm.controls.email.touched)">
-				{{ 'GROUP_RESERVATION_ERROR_EMAIL' | translate }}
+				<ion-icon name="information-circle"></ion-icon>
+				{{ 'GROUP_RESERVATION.ERROR_EMAIL' | translate }}
 			</div>
 			<div class="error" *ngIf="registrationForm.controls.mobile.invalid && (registrationForm.controls.mobile.dirty || registrationForm.controls.mobile.touched)">
-				{{ 'GROUP_RESERVATION_ERROR_MOBILE' | translate }}
+				<ion-icon name="information-circle"></ion-icon>
+				{{ 'GROUP_RESERVATION.ERROR_MOBILE' | translate }}
 			</div>
-			<div class="error" *ngIf="registrationForm.controls.message.invalid && (registrationForm.controls.message.dirty || registrationForm.controls.message.touched)">
-				{{ 'GROUP_RESERVATION_ERROR_MESSAGE' | translate }}
+			<div class="error" *ngIf="registrationForm.controls.location.invalid && (registrationForm.controls.location.dirty || registrationForm.controls.location.touched)">
+				<ion-icon name="information-circle"></ion-icon>
+				{{ 'GROUP_RESERVATION.ERROR_TIME' | translate }}
 			</div>
-
-		</ion-item>
+			<div class="error" *ngIf="registrationForm.controls.time.invalid && (registrationForm.controls.time.dirty || registrationForm.controls.time.touched)">
+				<ion-icon name="information-circle"></ion-icon>
+				{{ 'GROUP_RESERVATION.ERROR_LOCATION' | translate }}
+			</div>
+		</div>
 
 		<button ion-button color="light" block round (click)="onRegister()" [disabled]="!registrationForm.valid"> {{ 'GLOBAL_SUBMIT_BUTTON_LABEL' | translate }} </button>
 		</form>

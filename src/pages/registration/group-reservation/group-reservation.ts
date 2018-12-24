@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { ConfirmComponent } from '../../../components/confirm/confirm.component'
 
+const locations = ['location-1', 'location-2', 'location-3'];
+const times = ['9:30 - 10:00', '10:00 – 10:30', '10:30 – 11:00'];
+
 @IonicPage()
 @Component({
   selector: 'registration',
@@ -15,6 +18,8 @@ import { ConfirmComponent } from '../../../components/confirm/confirm.component'
 export class GroupReservation {
 
 	registrationForm: FormGroup;
+	locations: string[];
+	times: string[];
 
 	constructor(
 		public modalCtrl: ModalController,
@@ -22,18 +27,22 @@ export class GroupReservation {
 		public registrationModel: GroupRegistrationModel,
 		private formBuilder: FormBuilder) {
 
+		this.locations = locations;
+		this.times = times;
+
 		this.registrationForm = this.formBuilder.group({
-		name: ['', Validators.required],
-		email: ['', Validators.compose([
-			Validators.required,
-			Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-		])],
-		mobile: ['', Validators.compose([
-			Validators.required,
-			Validators.maxLength(15),
-			Validators.minLength(7),
-		])],
-		message: ['', Validators.required],
+			name: ['', Validators.required],
+			email: ['', Validators.compose([
+				Validators.required,
+				Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+			])],
+			mobile: ['', Validators.compose([
+				Validators.required,
+				Validators.maxLength(15),
+				Validators.minLength(7),
+			])],
+			time: ['', Validators.required],
+			location: ['', Validators.required]
 		});
 	}
 
@@ -45,8 +54,9 @@ export class GroupReservation {
 		this.registrationModel.name = this.registrationForm.controls['name'].value
 		this.registrationModel.email = this.registrationForm.controls['email'].value
 		this.registrationModel.mobile = this.registrationForm.controls['mobile'].value
-		this.registrationModel.message = this.registrationForm.controls['message'].value
-
+		this.registrationModel.time = this.registrationForm.controls['time'].value
+		this.registrationModel.location = this.registrationForm.controls['location'].value
+		console.log('group reservation', this.registrationModel);
 		/*
 		* API call for posting registration
 		RegistrationAPI.setNewUser(this.registrationModel)

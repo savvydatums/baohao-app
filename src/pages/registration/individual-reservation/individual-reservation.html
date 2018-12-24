@@ -1,85 +1,85 @@
 <ion-content padding>
-		<div class="head-nav">
-			<ion-icon class="back" name="arrow-back" navPush="SignupPage"></ion-icon>
-		</div>
-		<div class="signup page-2">
-			<form [formGroup]="registrationForm">
-				<h1>{{ 'INDIVIDUAL_RESERVATION.TITLE' | translate }} </h1>
-				<img class="icon" src="assets/imgs/step-1.png" srcset="assets/imgs/step-1@2x.png 2x, assets/imgs/step-1@3x.png 3x" />
-				<ion-list>
-					<ion-item>
-						<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.LASTNAME' | translate }}</ion-label>
-						<ion-input type="text" formControlName="lastname"></ion-input>
-					</ion-item>
+	<div class="head-nav">
+		<ion-icon class="back" name="arrow-back" navPush="SignupPage"></ion-icon>
+	</div>
+	<div class="signup page-2">
+		<form [formGroup]="registrationForm">
+			<h1>{{ 'INDIVIDUAL_RESERVATION.TITLE' | translate }} </h1>
+			<img class="icon" src="assets/imgs/step-1.png" srcset="assets/imgs/step-1@2x.png 2x, assets/imgs/step-1@3x.png 3x" />
+			<ion-list>
+				<ion-item>
+					<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.LASTNAME' | translate }}</ion-label>
+					<ion-input type="text" formControlName="lastname"></ion-input>
+				</ion-item>
 
-					<ion-item>
-						<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.FIRSTNAME' | translate }}</ion-label>
-						<ion-input type="text" formControlName="firstname"></ion-input>
-					</ion-item>
+				<ion-item>
+					<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.FIRSTNAME' | translate }}</ion-label>
+					<ion-input type="text" formControlName="firstname"></ion-input>
+				</ion-item>
 
-					<ion-item>
-						<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.EMAIL' | translate }}</ion-label>
-						<ion-input type="text" formControlName="email"></ion-input>
-					</ion-item>
+				<ion-item>
+					<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.EMAIL' | translate }}</ion-label>
+					<ion-input type="text" formControlName="email"></ion-input>
+				</ion-item>
 
-					<ion-item>
-						<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.MOBILE' | translate }}</ion-label>
-						<ion-input type="tel" formControlName="mobile"></ion-input>
-					</ion-item>
+				<ion-item>
+					<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.MOBILE' | translate }}</ion-label>
+					<ion-input type="tel" formControlName="mobile"></ion-input>
+				</ion-item>
 
-					<ion-item>
-						<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.COMPANY_NAME' | translate }}</ion-label>
-						<ion-select formControlName="companyName">
-							<ion-option *ngFor="let company of companies" value="{{company.key}}">{{ company.name }}</ion-option>
-						</ion-select>
-					</ion-item>
+				<ion-item>
+					<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.COMPANY_NAME' | translate }}</ion-label>
+					<ion-select formControlName="companyName">
+						<ion-option *ngFor="let company of companies" value="{{company.key}}">{{ company.name }}</ion-option>
+					</ion-select>
+				</ion-item>
 
-					<ion-item>
-						<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.JOB_TITLE' | translate }}</ion-label>
-						<ion-input type="text" formControlName="jobTitle"></ion-input>
-					</ion-item>
+				<ion-item>
+					<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.JOB_TITLE' | translate }}</ion-label>
+					<ion-input type="text" formControlName="jobTitle"></ion-input>
+				</ion-item>
 
-					<ion-item>
-						<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.DOB' | translate }}</ion-label>
-						<ion-datetime displayFormat="MM/DD/YYYY" formControlName="dob"></ion-datetime>
-					</ion-item>
+				<ion-item>
+					<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.DOB' | translate }}</ion-label>
+					<ion-datetime displayFormat="MM/DD/YYYY" formControlName="dob"></ion-datetime>
+				</ion-item>
 
-					<ion-item>
-						<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.GENDER' | translate }}</ion-label>
-						<ion-select formControlName="gender">
-							<ion-option value="Female">{{ 'INDIVIDUAL_RESERVATION.OPTION_FEMALE' | translate }}</ion-option>
-							<ion-option value="Male">{{ 'INDIVIDUAL_RESERVATION.OPTION_MALE' | translate }}</ion-option>
-						</ion-select>
-					</ion-item>
+				<ion-item>
+					<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.GENDER' | translate }}</ion-label>
+					<ion-select formControlName="gender">
+						<ion-option value="Female">{{ 'INDIVIDUAL_RESERVATION.OPTION_FEMALE' | translate }}</ion-option>
+						<ion-option value="Male">{{ 'INDIVIDUAL_RESERVATION.OPTION_MALE' | translate }}</ion-option>
+					</ion-select>
+				</ion-item>
 
-					<div *ngIf="!registrationForm.valid">
-						<div class="error" *ngIf="registrationForm.controls.lastname.invalid && (registrationForm.controls.lastname.dirty || registrationForm.controls.lastname.touched)">
-							<ion-icon name="information-circle"></ion-icon>
-							{{ 'INDIVIDUAL_RESERVATION.ERROR_LASTNAME' | translate }}
-						</div>
-						<div class="error" *ngIf="registrationForm.controls.firstname.invalid && (registrationForm.controls.firstname.dirty || registrationForm.controls.firstname.touched)">
-							<ion-icon name="information-circle"></ion-icon>
-							{{ 'INDIVIDUAL_RESERVATION.ERROR_FIRSTNAME' | translate }}
-						</div>
-						<div class="error" *ngIf="registrationForm.controls.email.invalid && (registrationForm.controls.email.dirty || registrationForm.controls.email.touched)">
-							<ion-icon name="information-circle"></ion-icon>
-							{{ 'INDIVIDUAL_RESERVATION.ERROR_EMAIL' | translate }}
-						</div>
-						<div class="error" *ngIf="registrationForm.controls.mobile.invalid && (registrationForm.controls.mobile.dirty || registrationForm.controls.mobile.touched)">
-							<ion-icon name="information-circle"></ion-icon>
-						    {{ 'INDIVIDUAL_RESERVATION.ERROR_MOBILE' | translate }}
-						</div>
-						<div class="error" *ngIf="registrationForm.controls.companyName.invalid && (registrationForm.controls.companyName.dirty || registrationForm.controls.companyName.touched)">
-							<ion-icon name="information-circle"></ion-icon>
-							{{ 'INDIVIDUAL_RESERVATION.ERROR_COMPANY_NAME' | translate }}
-						</div>
-						<div class="error" *ngIf="registrationForm.controls.jobTitle.invalid && (registrationForm.controls.jobTitle.dirty || registrationForm.controls.jobTitle.touched)">
-							<ion-icon name="information-circle"></ion-icon>
-							{{ 'INDIVIDUAL_RESERVATION.ERROR_JOB_TITLE' | translate }}
-						</div>
+				<div *ngIf="!registrationForm.valid">
+					<div class="error" *ngIf="registrationForm.controls.lastname.invalid && (registrationForm.controls.lastname.dirty || registrationForm.controls.lastname.touched)">
+						<ion-icon name="information-circle"></ion-icon>
+						{{ 'INDIVIDUAL_RESERVATION.ERROR_LASTNAME' | translate }}
 					</div>
-				</ion-list>
-			</form>
+					<div class="error" *ngIf="registrationForm.controls.firstname.invalid && (registrationForm.controls.firstname.dirty || registrationForm.controls.firstname.touched)">
+						<ion-icon name="information-circle"></ion-icon>
+						{{ 'INDIVIDUAL_RESERVATION.ERROR_FIRSTNAME' | translate }}
+					</div>
+					<div class="error" *ngIf="registrationForm.controls.email.invalid && (registrationForm.controls.email.dirty || registrationForm.controls.email.touched)">
+						<ion-icon name="information-circle"></ion-icon>
+						{{ 'INDIVIDUAL_RESERVATION.ERROR_EMAIL' | translate }}
+					</div>
+					<div class="error" *ngIf="registrationForm.controls.mobile.invalid && (registrationForm.controls.mobile.dirty || registrationForm.controls.mobile.touched)">
+						<ion-icon name="information-circle"></ion-icon>
+					    {{ 'INDIVIDUAL_RESERVATION.ERROR_MOBILE' | translate }}
+					</div>
+					<div class="error" *ngIf="registrationForm.controls.companyName.invalid && (registrationForm.controls.companyName.dirty || registrationForm.controls.companyName.touched)">
+						<ion-icon name="information-circle"></ion-icon>
+						{{ 'INDIVIDUAL_RESERVATION.ERROR_COMPANY_NAME' | translate }}
+					</div>
+					<div class="error" *ngIf="registrationForm.controls.jobTitle.invalid && (registrationForm.controls.jobTitle.dirty || registrationForm.controls.jobTitle.touched)">
+						<ion-icon name="information-circle"></ion-icon>
+						{{ 'INDIVIDUAL_RESERVATION.ERROR_JOB_TITLE' | translate }}
+					</div>
+				</div>
+			</ion-list>
+		</form>
 	</div>
 	<button ion-button color="light" block round (click)="onRegister()" [disabled]="!registrationForm.valid">{{ 'GLOBAL_NEXT_BUTTON_LABEL' | translate }}</button>
 </ion-content>
