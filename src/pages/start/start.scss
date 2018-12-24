@@ -17,15 +17,18 @@ start {
             text-align: center;
         }
     }
-    .describe {
-        font-size: 18px;
-        color: white;
-        width: 300px;
-        margin: calc(100% - 120px) auto 20px;
-        line-height: 1.44;
-        text-align: center;
+    .bottom-fix {
+        position: absolute;
+        bottom: 10%;
+        left: calc(50% - 150px);
+        p {
+            font-size: 18px;
+            color: white;
+            width: 300px;
+            line-height: 1.44;
+            text-align: center;
+        }
     }
-
     .button {
         width: 300px;
         margin: 20px auto 0;

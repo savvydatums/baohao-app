@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { registrationMockResponse } from '../../../api/registration-mock-data';
 import { ConfirmComponent } from '../../../components/confirm/confirm.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -16,11 +17,13 @@ import { ConfirmComponent } from '../../../components/confirm/confirm.component'
 export class IndividualReservationPage {
 
 	registrationForm: FormGroup;
+	companies: Object;
 
 	constructor(
 		public navController: NavController,
 		public modalCtrl: ModalController,
 		public registrationModel: RegistrationModel,
+		public translate: TranslateService,
 		private formBuilder: FormBuilder) {
 
 		this.registrationForm = this.formBuilder.group({
@@ -42,6 +45,17 @@ export class IndividualReservationPage {
 		});
 	}
 
+	ngAfterViewInit() {
+		this.companies = this.fetchCompaniesFromLocale();
+	}
+
+	private fetchCompaniesFromLocale () {
+		const lang = this.translate.store.currentLang || this.translate.store.defaultLang
+		const companies = this.translate.store.translations[lang]['INDIVIDUAL_RESERVATION']['COMPANIES']
+		const output = Object.keys(companies).map(key => ({ key, name: companies[key] }));
+		return output
+	}
+
 	public onRegister () {
 
 		this.registrationModel.lastname = this.registrationForm.controls['lastname'].value;
@@ -60,7 +74,7 @@ export class IndividualReservationPage {
 			console.log(success);
 		},
 		(error:any)=> {
-		console.log(error);
+			console.log(error);
 		});
 		*/
 
@@ -68,6 +82,8 @@ export class IndividualReservationPage {
 		const response:TRegistered = registrationMockResponse;
 		this.registrationModel.userId = response.result.userId;
 		this.registrationModel.emailId = response.result.emailId;
+
+		console.log (this.registrationModel, );
 		this.confirmed();
 	}
 

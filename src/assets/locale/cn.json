@@ -1,23 +1,99 @@
 {
     "GLOBAL_TITLE": "MyInsurBox",
     "GLOBAL_SUBTITLE": "Powered by Baohe Tech.",
+    "GLOBAL_NEXT_BUTTON_LABEL": "下一步",
+    "GLOBAL_CONTINUE_BUTTON_LABEL": "繼續",
+    "GLOBAL_SUBMIT_BUTTON_LABEL": "送出",
 
     "START_DESC": "MyInsurBox 是您的大數據分析師，助您洞悉每一個銷售機會",
     "START_BUTTON": "開始",
 
-    "LOGIN_REGISTRATION_ID": "保險專員編號",
-    "LOGIN_PASSWORD": "密碼",
+    "LOGIN": {
+        "REGISTRATION_ID": "保險專員編號",
+        "PASSWORD": "密碼",
+        "ERROR_REGISTRATION_ID": "請輸入保險專員編號",
+        "ERROR_PASSWORD": "請輸入密碼",
+        "ERROR_GENERAL": "請輸入有效的保險專員編號及密碼",
+        "FORGET_PASSWORD": "忘記密碼?",
+        "BUTTON": "登入",
+        "SIGN_UP_CTA": "沒有帳號?",
+        "SIGN_UP_LINK": "註冊"
+    },
 
-    "LOGIN_ERROR_REGISTRATION_ID": "請輸入保險專員編號",
-    "LOGIN_ERROR_PASSWORD": "請輸入密碼",
+    "WELCOME": {
+        "TITLE": "Welcome to MyInsurBox",
+        "BODY": "<p>MyInsurBox的宗旨是為您提供有效及可負擔的個人大數據分析，助您在大數據年代成為專業的理財顧問。</p><p>MyInsurBox透過人工智能技術，分析客户在社交媒體上的活動數據，轉化成您的黃金銷售機會。</p>",
+        "INDIVIDUAL_BUTTON": "個人註冊",
+        "GROUP_BOOKING_TEXT": "團體預約 ? +15人以上"
+    },
 
-    "LOGIN_FORGET_PASSWORD": "忘記密碼",
-    "LOGIN_BUTTON": "登入",
-    "LOGIN_SIGN_UP_CTA": "沒有帳號? ",
-    "LOGIN_SIGN_UP_LINK": "註冊",
+    "STEPS" : {
+        "TITLE": "獲取MyInsurBox服務的步驟",
+        "LABEL_1": "第 1 步",
+        "TITLE_1": "用戶註冊",
+        "LABEL_2": "第 2 步",
+        "TITLE_2": "網上付款",
+        "LABEL_3": "第 3 步",
+        "TITLE_3": "預約安裝 MyInsurBox"
+    },
 
-    "WELCOME_TITLE": "Welcome to MyInsurBox",
-    "WELCOME_BODY": "<p>MyInsurBox的宗旨是為您提供有效及可負擔的個人大數據分析，助您在大數據年代成為專業的理財顧問。</p><p>MyInsurBox透過人工智能技術，分析客户在社交媒體上的活動數據，轉化成您的黃金銷售機會。</p>",
-    "WELCOME_INDIVIDUAL_BUTTON": "個人註冊",
-    "WELCOME_GROUP_BUTTON": "團體註冊"
+    "SIGNUP" : {
+        "TITLE": "註冊帳號",
+        "REGISTRATION_LABEL": "保險代理登記號碼",
+        "REGISTRATION_EXAMPLE": "例如: PIBAXXXXX, CIBXXXXX, HKFIXXXX",
+        "PASSWORD_LABEL": "密碼",
+        "CONFIRM_PASSWORD_LABEL": "確認密碼",
+        "PASSWORD_ERROR": "密碼配對不正確",
+        "TERMS_CONTENT": "here is the terms, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum rutrum risus non ultrices. Vestibulum dapibus, neque a dictum pellentesque, mauris nisi facilisis dolor, quis tincidunt arcu justo non libero.",
+        "FULL_SCREEN_LABEL": "全營幕顯示",
+        "TERMS_LABEL": "使用款條及同意",
+        "TERMS_AGREE_LABEL": "按此確認您同意本合約內容"
+    },
+
+    "PASSWORD_RESET": {
+        "TITLE": "重設密碼",
+        "RESET_LABEL": "請輸入您的保險專員編號與EMAIL",
+        "REGISTRATION_ID_LABEL": "保險專員編號",
+        "REGISTRATION_EMAIL_LABEL": "您的Email",
+        "SUBMITTED_LABEL": "系統將寄出信件到您的信箱裡，若未寄送需重新寄送",
+        "BUTTON_LABEL": "重設"
+    },
+
+    "INDIVIDUAL_RESERVATION" : {
+        "TITLE": "使用者註冊",
+        "LASTNAME": "姓",
+        "FIRSTNAME": "名",
+        "EMAIL": "Email",
+        "MOBILE": "手機號",
+        "COMPANY_NAME": "公司名稱",
+        "JOB_TITLE": "職稱",
+        "DOB": "生日",
+        "GENDER": "姓名",
+        "OPTION_FEMALE": "女",
+        "OPTION_MALE": "男",
+        "ERROR_LASTNAME": "請輸入有效的姓氏",
+        "ERROR_FIRSTNAME": "請輸入有效的名字",
+        "ERROR_EMAIL": "請輸入有效的EMAIL",
+        "ERROR_MOBILE": "請輸入有效的手機",
+        "ERROR_COMPANY_NAME": "請選公司名稱",
+        "ERROR_JOB_TITLE": "請輸入職稱",
+        "ERROR_DOB": "請輸入有效的生日",
+        "ERROR_GENDER": "請選擇性別",
+        "COMPANIES": {
+            "AIA": "友邦",
+            "AXA": "安盛",
+            "Bupa": "保柏",
+            "China Life": "中國人壽",
+            "Cigna": "信諾環球",
+            "FTLife Insurance": "富通",
+            "FWD": "富衛",
+            "Manulife": "宏利",
+            "Massmutual": "美國萬通",
+            "MetLife": "大都會",
+            "Prudential": "保誠",
+            "Sunlife": "永明",
+            "Tahoe Life Insurance": "泰禾人壽保險",
+            "Others": "其他"
+        }
+    }
 }

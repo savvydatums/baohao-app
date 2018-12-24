@@ -19,38 +19,41 @@
         "SIGN_UP_CTA": "Don't have an account? ",
         "SIGN_UP_LINK": "Sign up"
     },
-    
-    "WELCOME_TITLE": "Welcome to MyInsurBox",
-    "WELCOME_BODY": "<p>Powered by proprietary AI technology, Myinsurbox provides you a powerful but affordable tool to understand and analyse Big Data that will help you generate new business opportunities </p>",
-    "WELCOME_INDIVIDUAL_BUTTON": "Individual",
-    "WELCOME_GROUP_BUTTON": "Group",
+    "WELCOME": {
+        "TITLE": "Welcome to MyInsurBox",
+        "BODY": "<p>Powered by proprietary AI technology, Myinsurbox provides you a powerful but affordable tool to understand and analyse Big Data that will help you generate new business opportunities </p>",
+        "INDIVIDUAL_BUTTON": "Individual SignUp",
+        "GROUP_BOOKING_TEXT": "Reserve for a group ? +15"
+    },
 
-    "STEPS_TITLE": "Steps to get MyInsurBox services",
-    "STEPS_LABEL_1": "Step 1",
-    "STEPS_TITLE_1": "User Registration",
-    "STEPS_SUBTITLE_1": "We need to confirm your email address to create an account for you.",
-    "STEPS_LABEL_2": "Step 2",
-    "STEPS_TITLE_2": "Online Payment",
-    "STEPS_SUBTITLE_2": "By successfully creating an account, we now can safely collect payment.",
-    "STEPS_LABEL_3": "Step 3",
-    "STEPS_TITLE_3": "Reservation of MyInsurBox’s Installation",
-    "STEPS_SUBTITLE_3": "By successfully creating an account, we now can safely collect payment.",
+    "STEPS" : {
+        "TITLE": "Steps to get MyInsurBox services",
+        "LABEL_1": "Step 1",
+        "TITLE_1": "User Registration",
+        "LABEL_2": "Step 2",
+        "TITLE_2": "Online Payment",
+        "LABEL_3": "Step 3",
+        "TITLE_3": "Reservation of MyInsurBox’s Installation"
+    },
 
-    "SIGNUP_TITLE": "Sign Up",
-    "SIGNUP_REGISTRATION_LABEL": "Registration ID",
-    "SIGNUP_REGISTRATION_EXAMPLE": "Example: PIBAXXXXX, CIBXXXXX, HKFIXXXX",
-    "SIGNUP_PASSWORD_LABEL": "Password",
-    "SIGNUP_CONFIRM_PASSWORD_LABEL": "Confirm password",
-    "SIGNUP_PASSWORD_ERROR": "Password doesn't match",
-    "SIGNUP_TERMS_CONTENT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum rutrum risus non ultrices. Vestibulum dapibus, neque a dictum pellentesque, mauris nisi facilisis dolor, quis tincidunt arcu justo non libero.",
-    "SIGNUP_FULL_SCREEN_LABEL": "Full screen",
-    "SIGNUP_TERMS_LABEL": "Terms of usage",
-    "SIGNUP_TERMS_AGREE_LABEL": "You agree to our terms of usage",
+    "SIGNUP" : {
+        "TITLE": "Sign Up",
+        "REGISTRATION_LABEL": "Registration ID",
+        "REGISTRATION_EXAMPLE": "Example: PIBAXXXXX, CIBXXXXX, HKFIXXXX",
+        "PASSWORD_LABEL": "Password",
+        "CONFIRM_PASSWORD_LABEL": "Confirm password",
+        "PASSWORD_ERROR": "Password doesn't match",
+        "TERMS_CONTENT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum rutrum risus non ultrices. Vestibulum dapibus, neque a dictum pellentesque, mauris nisi facilisis dolor, quis tincidunt arcu justo non libero.",
+        "FULL_SCREEN_LABEL": "Full screen",
+        "TERMS_LABEL": "Terms of usage",
+        "TERMS_AGREE_LABEL": "You agree to our terms of usage"
+    },
 
     "PASSWORD_RESET" : {
         "TITLE": "Reset Password",
-        "RESET_LABEL": "Please enter your registration ID which can be found in your welcome email.",
+        "RESET_LABEL": "Please enter your registration ID and email",
         "REGISTRATION_ID_LABEL": "Registration ID",
+        "REGISTRATION_EMAIL_LABEL": "Your Email",
         "SUBMITTED_LABEL": "An email will been sent to the registered email address.",
         "BUTTON_LABEL": "Reset"
     },
@@ -74,7 +77,23 @@
         "ERROR_COMPANY_NAME": "Please select a company from list",
         "ERROR_JOB_TITLE": "Please enter a valid job title",
         "ERROR_DOB": "Please enter a valid Date of Birth",
-        "ERROR_GENDER": "Please select a gender from list"
+        "ERROR_GENDER": "Please select a gender from list",
+        "COMPANIES": {
+            "AIA": "AIA",
+            "AXA": "AXA",
+            "Bupa": "Bupa",
+            "China Life": "China Life",
+            "Cigna": "Cigna",
+            "FTLife Insurance": "FTLife Insurance",
+            "FWD": "FWD",
+            "Manulife": "Manulife",
+            "Massmutual": "Massmutual",
+            "MetLife": "MetLife",
+            "Prudential": "Prudential",
+            "Sunlife": "Sunlife",
+            "Tahoe Life Insurance": "Tahoe Life Insurance",
+            "Others": "Others"
+        }
     },
 
     "GROUP_RESERVATION_TITLE": "Make an appointment ",

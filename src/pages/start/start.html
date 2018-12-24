@@ -7,8 +7,8 @@
       <h4 class="title">{{ 'GLOBAL_TITLE' | translate }}</h4>
       <p>{{ 'GLOBAL_SUBTITLE' | translate }}</p>
   </div>
-  <p class="describe">
-    {{ 'START_DESC' | translate }}
-  </p>
-  <button ion-button round color="light" (click)="gotoLogin()">{{ 'START_BUTTON' | translate }}</button>
+  <div class="bottom-fix">
+    <p> {{ 'START_DESC' | translate }}</p>
+    <button ion-button round color="light" (click)="gotoLogin()">{{ 'START_BUTTON' | translate }}</button>
+  </div>
 </ion-content>

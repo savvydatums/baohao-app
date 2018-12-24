@@ -18,7 +18,7 @@
 
 			<ion-item>
 			<ion-label floating>{{ 'GROUP_RESERVATION_EMAIL_LABEL' | translate }}</ion-label>
-			<ion-input type="text" formControlName="email"></ion-input>
+			<ion-input type="email" formControlName="email"></ion-input>
 			</ion-item>
 
 			<ion-item>
@@ -45,7 +45,7 @@
 			<div class="error" *ngIf="registrationForm.controls.message.invalid && (registrationForm.controls.message.dirty || registrationForm.controls.message.touched)">
 				{{ 'GROUP_RESERVATION_ERROR_MESSAGE' | translate }}
 			</div>
-			
+
 		</ion-item>
 
 		<button ion-button color="light" block round (click)="onRegister()" [disabled]="!registrationForm.valid"> {{ 'GLOBAL_SUBMIT_BUTTON_LABEL' | translate }} </button>

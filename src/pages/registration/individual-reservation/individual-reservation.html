@@ -30,20 +30,7 @@
 					<ion-item>
 						<ion-label floating>{{ 'INDIVIDUAL_RESERVATION.COMPANY_NAME' | translate }}</ion-label>
 						<ion-select formControlName="companyName">
-							<ion-option value="AIA">AIA</ion-option>
-							<ion-option value="AXA">AXA</ion-option>
-							<ion-option value="Bupa">Bupa</ion-option>
-							<ion-option value="China Life">China Life</ion-option>
-							<ion-option value="Cigna">Cigna</ion-option>
-							<ion-option value="FTLife Insurance">FTLife Insurance</ion-option>
-							<ion-option value="FWD">FWD</ion-option>
-							<ion-option value="Manulife">Manulife</ion-option>
-							<ion-option value="Massmutual">Massmutual</ion-option>
-							<ion-option value="MetLife">MetLife</ion-option>
-							<ion-option value="Prudential">Prudential</ion-option>
-							<ion-option value="Sunlife">Sunlife</ion-option>
-							<ion-option value="Tahoe Life Insurance">Tahoe Life Insurance</ion-option>
-							<ion-option value="Others">Others</ion-option>
+							<ion-option *ngFor="let company of companies" value="{{company.key}}">{{ company.name }}</ion-option>
 						</ion-select>
 					</ion-item>
 
@@ -65,26 +52,32 @@
 						</ion-select>
 					</ion-item>
 
-					<ion-item no-lines *ngIf="!registrationForm.valid">
+					<div *ngIf="!registrationForm.valid">
 						<div class="error" *ngIf="registrationForm.controls.lastname.invalid && (registrationForm.controls.lastname.dirty || registrationForm.controls.lastname.touched)">
+							<ion-icon name="information-circle"></ion-icon>
 							{{ 'INDIVIDUAL_RESERVATION.ERROR_LASTNAME' | translate }}
 						</div>
 						<div class="error" *ngIf="registrationForm.controls.firstname.invalid && (registrationForm.controls.firstname.dirty || registrationForm.controls.firstname.touched)">
+							<ion-icon name="information-circle"></ion-icon>
 							{{ 'INDIVIDUAL_RESERVATION.ERROR_FIRSTNAME' | translate }}
 						</div>
 						<div class="error" *ngIf="registrationForm.controls.email.invalid && (registrationForm.controls.email.dirty || registrationForm.controls.email.touched)">
+							<ion-icon name="information-circle"></ion-icon>
 							{{ 'INDIVIDUAL_RESERVATION.ERROR_EMAIL' | translate }}
 						</div>
 						<div class="error" *ngIf="registrationForm.controls.mobile.invalid && (registrationForm.controls.mobile.dirty || registrationForm.controls.mobile.touched)">
+							<ion-icon name="information-circle"></ion-icon>
 						    {{ 'INDIVIDUAL_RESERVATION.ERROR_MOBILE' | translate }}
 						</div>
 						<div class="error" *ngIf="registrationForm.controls.companyName.invalid && (registrationForm.controls.companyName.dirty || registrationForm.controls.companyName.touched)">
+							<ion-icon name="information-circle"></ion-icon>
 							{{ 'INDIVIDUAL_RESERVATION.ERROR_COMPANY_NAME' | translate }}
 						</div>
 						<div class="error" *ngIf="registrationForm.controls.jobTitle.invalid && (registrationForm.controls.jobTitle.dirty || registrationForm.controls.jobTitle.touched)">
+							<ion-icon name="information-circle"></ion-icon>
 							{{ 'INDIVIDUAL_RESERVATION.ERROR_JOB_TITLE' | translate }}
 						</div>
-					</ion-item>
+					</div>
 				</ion-list>
 			</form>
 	</div>

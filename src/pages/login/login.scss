@@ -12,23 +12,43 @@ login {
             text-align: center;
         }
     }
+    form {
+        position: absolute;
+        bottom: 30px;
+        width: 92%;
+    }
+
     .list-md {
         width: 90%;
         margin: calc(100% - 250px) auto 0;
     }
+    .list-ios {
+        width: 90%;
+        margin: 20px auto;
+    }
 
-    .item-md {
+    .list-ios >.item-block:first-child { border: none; }
+
+    .item-md, .item-ios {
         background-color: transparent;
     }
+    .item-ios {
+        padding-left: 0;
+    }
 
-    .item-input .label-md {
+    .item-input .label-md,
+    .item-input .label-ios {
         color: white;
     }
+
     .forget {
-        width: 90%;
+        margin-right: 5%;
         color: white;
+        font-weight: bold;
         text-align: right;
+        text-decoration: underline;
     }
+
     .sign-in-area{
         width: 90%;
         margin: 20px auto 0;
@@ -46,4 +66,14 @@ login {
         background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5796cc);
         background-size: cover;
     }
+
+    .error {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px 20px;
+        color: white;
+        font-size: initial;
+        margin: 20px;
+        width: 90%;
+    }
+
 }

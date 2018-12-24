@@ -17,14 +17,18 @@ export class ResetPasswordPage {
   submitted:boolean = false;
 
   constructor(
-        public navController: NavController, 
-        public registrationModel: RegistrationModel, 
+        public navController: NavController,
+        public registrationModel: RegistrationModel,
 		public translate: TranslateService,
-		public navCtrl: NavController, 
+		public navCtrl: NavController,
         private formBuilder: FormBuilder) {
 
 		this.resetPasswordForm = this.formBuilder.group({
 			registrationID: ['', Validators.required],
+			registeredEmail: ['', Validators.compose([
+				Validators.required,
+				Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+			])],
 		});
 	}
 

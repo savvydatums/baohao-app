@@ -8,7 +8,7 @@
       color: white;
       font-weight: bold;
     }
-    .item-md{
+    .item-md, .item-ios{
         padding: 0 0px;
         color: white;
         &.item-input.item-input-has-focus {
@@ -27,7 +27,7 @@
             }
         }
     }
-    .list-md {
+    .list-md, .list-ios {
         .item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus):last-child {
             border-bottom-color: #fcff3b;
             box-shadow: inset 0 -1px 0 0 #fcff3b;
@@ -36,6 +36,20 @@
             border-bottom-color: white;
             box-shadow: inset 0 -1px 0 0 white;
         }
+    }
+
+    .list-ios >.item-block:first-child { border: none; }
+
+    .item-md, .item-ios {
+        background-color: transparent;
+    }
+    .item-ios {
+        padding-left: 0;
+    }
+
+    .item-input .label-md,
+    .item-input .label-ios {
+        color: white;
     }
 }
 

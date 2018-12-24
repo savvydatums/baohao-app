@@ -61,36 +61,66 @@ registration, activate {
         }
     }
 
+    .welcome {
+       .bottom-fix {
+            position: absolute;
+            bottom: 30px;
+            width: 83%;
+            p {
+                margin-top: 10px;
+                text-decoration: underline;
+                display: inline-block;
+            }
+       }
+    }
+
     // page steps
     .steps {
-        padding: 0 24px;
-        p {
-            margin: 0px 0px;
-            font-size: 1.3rem;
+        padding: 0 16px;
+        .title {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .grid {
+            margin-top: 5vh;
         }
         h2 {
-            font-size: 1.7rem;
+            font-size: 2.5rem;
             margin: 3px 0px;
         }
         h3{
             font-size: 1.5rem;
-            margin: 3px 0px;
+            margin: 8px 0px;
         }
         .row {
-            margin: 10px 0px;
+            height: 17vh;
+        }
+        .bottom-fix{
+            width: 83%;
+            position: absolute;
+            bottom: 30px;
         }
     }
 
     // page signup
     .signup {
         padding: 0 24px;
+
         h1{
             margin: 0px;
         }
+
         .terms-label {
             p {
                 padding: 10px 0px 0px 0px;
             }
+        }
+
+        .error {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            color: white;
+            font-size: initial;
         }
 
         .terms {
@@ -124,6 +154,14 @@ registration, activate {
                 font-weight: normal;
             }
         }
+        .terms-checkbox{
+            margin: 2px 0 20px;
+            p {
+                margin-left: 20px;
+                display: inline-block;
+                vertical-align: super;
+            }
+        }
 
         .item.item-md .checkbox-md {
             margin: 9px 20px 9px 4px;
@@ -133,8 +171,9 @@ registration, activate {
     .page-2 {
         border-radius: 6px;
         background-color: #ffffff;
-        color: #454545;
+        color: $dark;
         padding: 20px 24px;
+        margin-bottom: 20px;
 
         h1{
             color: #0e2f49;
@@ -149,19 +188,29 @@ registration, activate {
             position: relative;
         }
 
-        .item-md{
+        .item-md, .item-ios{
             background-color: transparent;
-            color: #454545;
+            color: $dark;
             padding: 0 0px;
         }
-        .item-input .label-md .item-select .item-datetime{
-            color:  #454545;
+        .item-input .item-select .item-datetime {
+            color:  $dark;
         }
 
         .item-input .label-md,
         .item-select .label-md,
-        .item-datetime .label-md {
-            color: #454545;
+        .item-datetime .label-md,
+        .item-input .label-ios,
+        .item-select .label-ios,
+        .item-datetime .label-ios {
+            color: $dark;
+        }
+        .error {
+            background: #37b2c5;
+            margin-top: 12px;
+        }
+        .list-ios {
+            margin-bottom: 0;
         }
 
     }
@@ -266,5 +315,9 @@ registration, activate {
             margin-top: 5%;
           }
         }
+    }
+
+    .reset-pass {
+
     }
 }
