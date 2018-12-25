@@ -6,18 +6,20 @@
     <div class="back-circle"></div>
     <img src="assets/imgs/credit-card.png"
       srcset="assets/imgs/credit-card@2x.png 2x, assets/imgs/credit-card@3x.png 3x" />
-    <h1>{{ 'PAYMENT_PRICE' | translate }}</h1>
-    <p>{{ 'PAYMENT_SMALL_TEXT' | translate }}</p>
-    </head>
-  <ul>
-    <li [innerHTML]="'PAYMENT_POINT_1' | translate"></li>
-    <li [innerHTML]="'PAYMENT_POINT_2' | translate"></li>
-    <li [innerHTML]="'PAYMENT_POINT_3' | translate"></li>
-    <li [innerHTML]="'PAYMENT_POINT_4' | translate"></li>
-    <li [innerHTML]="'PAYMENT_POINT_5' | translate"></li>
-  </ul>
-  <div class="referal">
-      <input class="code-input" type="text" placeholder="{{'PAYMENT_REF_TEXT' | translate}}"/>
-      <button ion-button color="light" round navPush="Appointment">{{ 'PAYMENT_CHECKOUT' | translate }}</button>
+    <h1>{{ 'PAYMENT.PRICE' | translate }}</h1>
+    <p>{{ 'PAYMENT.SMALL_TEXT' | translate }}</p>
+  </head>
+  <div class="content-wrapper">
+    <ul>
+      <li [innerHTML]="'PAYMENT.POINT_1' | translate"></li>
+      <li [innerHTML]="'PAYMENT.POINT_2' | translate"></li>
+      <li [innerHTML]="'PAYMENT.POINT_3' | translate"></li>
+      <li [innerHTML]="'PAYMENT.POINT_4' | translate"></li>
+      <li [innerHTML]="'PAYMENT.POINT_5' | translate"></li>
+    </ul>
+    <div class="referal">
+      <input class="code-input" type="text" placeholder="{{'PAYMENT.REF_TEXT' | translate}}"/>
+      <button ion-button color="light" round navPush="Appointment">{{ 'PAYMENT.CHECKOUT' | translate }}</button>
+    </div>
   </div>
 </ion-content>

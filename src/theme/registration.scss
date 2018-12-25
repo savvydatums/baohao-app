@@ -262,10 +262,12 @@ registration, activate {
             }
         }
         // points
-        ul {
-            width: 90%;
-            margin: 80% 10% 0px 10%;
+        .content-wrapper {
+            width: 91%;
+            top: 46%;
             list-style: none;
+            position: absolute;
+            left: 7%;
 
             li::before {
               content: "•";
@@ -278,6 +280,7 @@ registration, activate {
             }
 
             li {
+                list-style: none;
                 margin: 10px 0 15px;
                 p {
                     display: inline-block;
@@ -286,15 +289,13 @@ registration, activate {
                     vertical-align: top;
                 }
             }
-
-
         }
 
         .referal {
             background: #3994bd;
-            margin-top: 40px;
+            margin-top: 20px;
             width: 110%;
-            margin-left: -5%;
+            margin-left: -8%;
             text-align: center;
             padding: 20px;
             display: inline-block;

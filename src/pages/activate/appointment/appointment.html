@@ -4,31 +4,33 @@
         srcset="assets/imgs/appointment@2x.png 2x, assets/imgs/appointment@3x.png 3x" />
 
     <form [formGroup]="appointmentForm">
-      <h4> {{ 'APPOINTMENT_TITLE' | translate }}</h4>
-      <p [innerHTML]="'APPOINTMENT_BODY' | translate "></p>
+      <h4> {{ 'APPOINTMENT.TITLE' | translate }}</h4>
+      <p [innerHTML]="'APPOINTMENT.BODY' | translate "></p>
       <ion-list>
         <ion-item>
-          <ion-label floating>{{ 'APPOINTMEYT_TIME_TEXT' | translate }}</ion-label>
+          <ion-label floating>{{ 'APPOINTMENT.TIME_TEXT' | translate }}</ion-label>
           <ion-select [formControl]="appointmentForm.controls['time']">
             <ion-option *ngFor="let time of times" value="{{time}}"> {{ time }} </ion-option>
           </ion-select>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>{{ 'APPOINTMENT_LOCATION_TEXT' | translate }}</ion-label>
+          <ion-label floating>{{ 'APPOINTMENT.LOCATION_TEXT' | translate }}</ion-label>
           <ion-select [formControl]="appointmentForm.controls['location']">
             <ion-option *ngFor="let location of locations" value="{{location}}"> {{ location }} </ion-option>
           </ion-select>
         </ion-item>
 
         <ion-item>
-          <ion-label floating>{{ 'APPOINTMENT_MOBILE_TEXT' | translate }}</ion-label>
+          <ion-label floating>{{ 'APPOINTMENT.MOBILE_TEXT' | translate }}</ion-label>
           <ion-input type="tel" [formControl]="appointmentForm.controls['mobile']"></ion-input>
         </ion-item>
       </ion-list>
     </form>
   </div>
   <div class="fix-bottom">
-    <button ion-button color="light" block round (click)="onActivate()" [disabled]="!appointmentForm.valid"> {{ 'APPOINTMENT_SUBMIT' | translate }} </button>
+    <button ion-button color="light" block round (click)="onActivate()" [disabled]="!appointmentForm.valid">
+      {{ 'GLOBAL_SUBMIT_BUTTON_LABEL' | translate }}
+    </button>
   </div>
 </ion-content>

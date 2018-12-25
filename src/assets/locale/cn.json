@@ -110,5 +110,35 @@
         "ERROR_MOBILE": "請輸入有效電話號碼",
         "ERROR_TIME": "請選擇時間",
         "ERROR_LOCATION": "請選擇地點"
+    },
+
+    "PAYMENT": {
+        "SMALL_TEXT": "付款",
+        "PRICE": "$3500",
+        "POINT_1": "<p><b>九十天</b> 資料儲存</p>",
+        "POINT_2": "<p><b>免費</b> MyInsurBox設備一個 <br/> (須繳付$500按金)</p>",
+        "POINT_3": "<p><b>無限</b>個人工智能銷售機會推薦</p>",
+        "POINT_4": "<p><b>無限</b>無限個用戶自定關鍵字搜索</p>",
+        "POINT_5": "<p><b>一站式</b>保險產品參考資料</p>",
+        "REF_TEXT": "推薦人號碼",
+        "CHECKOUT": "付款"
+    },
+
+    "APPOINTMENT": {
+        "TITLE": "預約會面",
+        "BODY": "我們正在準備您的MyInsurBox服務訂閱，並會在兩個工作日內與您聯繫。",
+        "TIME_TEXT": "時間",
+        "LOCATION_TEXT": "地點",
+        "MOBILE_TEXT": "手機號碼"
+    },
+
+    "CONFIRM": {
+        "TICKET_TITLE": "您的預約參考編號是:",
+        "TITLE": "感謝您創建MyInsurBox的帳戶",
+        "BODY": "Thanks for your subscription, our customer representative will contact you soon for final confirmation",
+        "EMAIL_SENT_INFO": "我們已向您發送了團購訂購服務的預約確認電郵。如有任何疑問，請通過以下方式聯繫我們的客服團隊.",
+        "NO_EMAIL": "未有收到預約確認電郵?",
+        "RESEND_EMAIL": "重發",
+        "SENT_EMAIL": "請等五分鐘後重發信件"
     }
 }
