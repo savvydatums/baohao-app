@@ -67,6 +67,13 @@ login {
         background-size: cover;
     }
 
+    .bg-pattern {
+        position: fixed;
+        z-index: -1;
+        bottom: 15%;
+        right: 0;
+    }
+
     .error {
         background: rgba(255, 255, 255, 0.2);
         padding: 10px 20px;

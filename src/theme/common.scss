@@ -53,6 +53,29 @@
     }
 }
 
+.dark-text {
+    color: $dark;
+
+    .item-md, .item-ios {
+      background-color: transparent;
+      color: $dark;
+      padding: 0 0px;
+    }
+
+    .item-input .item-select .item-datetime {
+      color: $dark;
+    }
+
+    .item-input .label-md,
+    .item-select .label-md,
+    .item-datetime .label-md,
+    .item-input .label-ios,
+    .item-select .label-ios,
+    .item-datetime .label-ios {
+      color: $dark;
+    }
+}
+
 .text-center {
     text-align: center;
 }

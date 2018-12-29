@@ -177,7 +177,6 @@ registration, activate {
     .page-2 {
         border-radius: 6px;
         background-color: #ffffff;
-        color: $dark;
         padding: 20px 24px;
         margin-bottom: 20px;
 
@@ -194,23 +193,6 @@ registration, activate {
             position: relative;
         }
 
-        .item-md, .item-ios{
-            background-color: transparent;
-            color: $dark;
-            padding: 0 0px;
-        }
-        .item-input .item-select .item-datetime {
-            color:  $dark;
-        }
-
-        .item-input .label-md,
-        .item-select .label-md,
-        .item-datetime .label-md,
-        .item-input .label-ios,
-        .item-select .label-ios,
-        .item-datetime .label-ios {
-            color: $dark;
-        }
         .error {
             background: #37b2c5;
             margin-top: 12px;
@@ -321,6 +303,52 @@ registration, activate {
             text-align: left;
             margin-top: 5%;
           }
+        }
+    }
+
+    .processing {
+        .head-link {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            a {
+                padding: 5px;
+                display: inline-block;
+            }
+        }
+        .inner-90 {
+            margin-top: 10%;
+        }
+        .form-wrap {
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            padding-top: 20px;
+            overflow: hidden;
+        }
+        form {
+            padding: 0 20px;
+        }
+        h6 {
+            text-align: left;
+            font-weight: bold;
+            margin: 20px;
+            color: $dark;
+        }
+        .action-btn {
+            background-color: #f4f4f4;
+            padding: 10px;
+            font-size: 16px;
+            transition: background-color 0.5s ease-out;
+            cursor: pointer;
+            &:hover {
+                background-color: #ffb77a;
+                a { color: white; }
+            }
+            a {
+                color: $dark;
+                font-weight: normal;
+            }
         }
     }
 }

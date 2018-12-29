@@ -139,5 +139,15 @@
         "NO_EMAIL": "Didn’t get the email?",
         "RESEND_EMAIL": "Resend",
         "SENT_EMAIL": "Resent email. Please allow up to 5 mins."
+    },
+
+    "PROCESSING": {
+        "TITLE": "Your MyInsurBox is on the way",
+        "BODY": "Our support will contact you within <br/> 2 working days.",
+        "FORM_TITLE": "Your appointment time",
+        "TIME_LABEL": "Time",
+        "LOCATION_LABEL": "Location",
+        "CHANGE_APPOINTMENT_TEXT": "Change Your appointment",
+        "UPDATE_SUCCESS": "We have updated youur appointment"
     }
 }

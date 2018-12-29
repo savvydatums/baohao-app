@@ -1,5 +1,6 @@
 import { ResetPasswordPage } from './../registration/reset-password/reset-password';
 import { PaymentPage } from '../activate/payment/payment';
+import { ProcessingPage } from '../activate/processing/processing';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -12,7 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class LoginPage {
 
 	public credentialsForm: FormGroup;
-	public loginError: boolean = false; 
+	public loginError: boolean = false;
 
 	constructor(public navController: NavController,
 				public navParams: NavParams,
@@ -38,7 +39,7 @@ export class LoginPage {
 		const password = this.credentialsForm.controls['password'].value;
 
 		if (regID == 101 && password == 101) {
-			// Define different routes based on user deets here
+			this.navController.push(ProcessingPage);
 		} else {
 			this.navController.push(PaymentPage);
 		}

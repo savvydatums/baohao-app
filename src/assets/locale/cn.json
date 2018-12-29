@@ -135,10 +135,20 @@
     "CONFIRM": {
         "TICKET_TITLE": "您的預約參考編號是:",
         "TITLE": "感謝您創建MyInsurBox的帳戶",
-        "BODY": "Thanks for your subscription, our customer representative will contact you soon for final confirmation",
+        "BODY": "我們正在準備您的MyInsurBox服務訂閱，並會在兩個工作日內與您聯繫。",
         "EMAIL_SENT_INFO": "我們已向您發送了團購訂購服務的預約確認電郵。如有任何疑問，請通過以下方式聯繫我們的客服團隊.",
         "NO_EMAIL": "未有收到預約確認電郵?",
         "RESEND_EMAIL": "重發",
         "SENT_EMAIL": "請等五分鐘後重發信件"
+    },
+
+    "PROCESSING": {
+        "TITLE": "您的 MyInsurBox 正在路上",
+        "BODY": "我們正在準備您的MyInsurBox服務訂閱，並會在兩個工作日內與您聯繫。",
+        "FORM_TITLE": "您的預約會面時間",
+        "TIME_LABEL": "時間",
+        "LOCATION_LABEL": "地點",
+        "CHANGE_APPOINTMENT_TEXT": "更改您的會面",
+        "UPDATE_SUCCESS": "我們已更新您的會面時間與地點"
     }
 }
