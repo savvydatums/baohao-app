@@ -17,3 +17,13 @@ export type TResendEmail = {
     result: { email_status: string },
     error: null
 }
+
+export type TInsights = {
+    result : {
+        medical: object[],
+        savingAndLife: object[],
+        investment: object[],
+        general: object[]
+    },
+    error: null
+}

@@ -1,11 +1,10 @@
-import { TGroupRegistered, TResendEmail } from './../model/types';
-import { TLoggedInUser, TRegistered } from "../model/types";
+import {
+    TGroupRegistered,
+    TResendEmail,
+    TLoggedInUser,
+    TRegistered
+} from './../model/types';
 
-export const LoggedInStatus = {
-    'INACTIVE' : 'INACTIVE',
-    'ACTIVE': 'ACTIVE',
-    'PROCESSING' : 'PROCESSING'
-}
 
 /**
  * User Registration
@@ -47,33 +46,12 @@ export const groupRegistrationMockResponse: TGroupRegistered = {
     error: null
 }
 
-
-/**
- * Group Registration
- * METHOD: POST
- * PAYLOAD:
-  {
-    registration_id: "string",
-    password: "string"
-};
-**/
-
-export const LoggedInMockResponse: TLoggedInUser = {
-result : {
-    token: 'JKSHJFGBH3t47n34j4nj34',
-    userId: 12345,
-    status : LoggedInStatus.INACTIVE
-},
-    error: null
-}
-
 /**
  * Resend Password
  * METHOD: POST
  * PAYLOAD:
   {
     emailId: number
-    
 };
 **/
 
@@ -82,4 +60,47 @@ export const ResendEmailMockResponse: TResendEmail = {
         email_status: "complete"
     },
         error: null
+}
+
+/**
+ * UserLogin inactive, processing and active status
+ * METHOD: POST
+ * PAYLOAD:
+  {
+    registration_id: "string",
+    password: "string"
+};
+**/
+
+const LoggedInStatus = {
+    'INACTIVE': 'INACTIVE',
+    'ACTIVE': 'ACTIVE',
+    'PROCESSING': 'PROCESSING'
+}
+
+export const LoggedInMockInActiveResponse: TLoggedInUser = {
+    result: {
+        token: 'JKSHJFGBH3t47n34j4nj34',
+        userId: 12345,
+        status: LoggedInStatus.INACTIVE
+    },
+    error: null
+}
+
+export const LoggedInMockActiveResponse: TLoggedInUser = {
+    result: {
+        token: 'JKSHJFGBH3t47n34j4nj34',
+        userId: 12345,
+        status: LoggedInStatus.ACTIVE
+    },
+    error: null
+}
+
+export const LoggedInMockProcessingResponse : TLoggedInUser = {
+    result: {
+        token: 'JKSHJFGBH3t47n34j4nj34',
+        userId: 12345,
+        status: LoggedInStatus.PROCESSING
+    },
+    error: null
 }

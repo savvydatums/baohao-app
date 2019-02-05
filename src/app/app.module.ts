@@ -1,33 +1,36 @@
 import { GroupRegistrationModel } from './../model/GroupRegistrationModel';
+import { InsightsModel } from './../model/InsightsModel';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
-// import { ContactPage } from '../pages/contact/contact'; // placeholder -> contact
-// import { TabsPage } from '../pages/tabs/tabs'; // placeholder -> dashboard
+//import { DashboardPage } from '../pages/dashboard/index/index';
 import { LoginPage } from '../pages/login/login';
 import { StartPage } from '../pages/start/start';
 import { ConfirmComponent } from '../components/confirm/confirm.component';
-
+//import { DashboardHeaderComponent } from '../components/dashboard-header/dashboard-header.component'
+//import { DashboardHeaderModule } from '../components/dashboard-header/dashboard-header.component.module'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegistrationModel } from './../model/RegistrationModel';
 import { LoggedInUserModel } from './../model/LoggedInUserModel';
 import { AppointmentModel } from './../model/AppointmentModel';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
-import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
     MyApp,
     ConfirmComponent,
     LoginPage,
-    StartPage
+    StartPage,
+    //DashboardPage
   ],
   imports: [
     BrowserModule,
+    ComponentsModule,
     IonicModule.forRoot(MyApp, {preloadModules: true}),
     HttpClientModule,
     TranslateModule.forRoot({
@@ -36,14 +39,14 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
-    }),
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     ConfirmComponent,
     LoginPage,
     StartPage,
-
+    //DashboardPage,
     MyApp,
   ],
   providers: [
@@ -51,6 +54,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
     GroupRegistrationModel,
     LoggedInUserModel,
     AppointmentModel,
+    InsightsModel,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
