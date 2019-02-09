@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ListView } from '.';
 import { HttpLoaderFactory } from '../../../../app/app.module';
+import { ComponentsModule } from '../../../../components/components.module';
 
 @NgModule({
     declarations: [
         ListView
     ],
     imports: [
+        ComponentsModule,
         IonicPageModule.forChild(ListView),
         TranslateModule.forChild({
             loader: {

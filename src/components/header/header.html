@@ -1,4 +1,9 @@
-<!-- Generated template for the HeaderComponent component -->
-<div>
-  {{text}}
-</div>
+
+  <div class="left">
+    <ion-icon name="podium"></ion-icon>
+  </div>
+  <h3>Insights</h3>
+  <div class="right">
+    <ion-icon *ngIf="isPicture" name="list" (click)="renderTheme('list')"></ion-icon>
+    <ion-icon *ngIf="!isPicture" name="albums" (click)="renderTheme('picture')"></ion-icon>
+  </div>

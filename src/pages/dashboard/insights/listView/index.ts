@@ -1,21 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { InsightsModel } from './../../../../model/InsightsModel';
 import { TranslateService } from '@ngx-translate/core';
+import { HeaderComponent, THEME } from '../../../../components/header/header';
 
 @IonicPage({ name: "listView", segment: "listView" })
 @Component({
-  selector: 'dashboard',
+  selector: 'listView',
   templateUrl: 'index.html'
 })
 
 export class ListView {
 
   shownList : object[];
-  //@ViewChild(DashboardHeaderComponent) viewChild: DashboardHeaderComponent;
-
-  //title: string;
-  //currentPage: number;
+  @ViewChild(HeaderComponent) header: HeaderComponent;
 
   constructor(
     public navCtrl: NavController,
@@ -23,8 +21,9 @@ export class ListView {
     public translate: TranslateService
   ) {}
 
-  ngAfterViewInit () {
+  ionViewDidLoad () {
     this.getShowList()
+    this.header.setTheme(THEME.LIST);
     console.log ('showList', this.shownList)
   }
 

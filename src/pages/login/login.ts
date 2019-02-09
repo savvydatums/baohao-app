@@ -27,14 +27,15 @@ export class LoginPage {
 		});
 	}
 
+	ionViewDidLoad() {
+		setTimeout(() => this.navController.push(DashboardPage), 1000); // this is only for testing
+	}
+
   	onSignIn() {
 		if (this.credentialsForm.invalid) {
 			this.loginError = true;
 			return;
 		}
-
-		console.log('registrationID: ', this.credentialsForm.controls['registrationID'].value);
-		console.log('password: ', this.credentialsForm.controls['password'].value);
 
 		const regID = this.credentialsForm.controls['registrationID'].value;
 		const password = this.credentialsForm.controls['password'].value;

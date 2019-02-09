@@ -1,15 +1,12 @@
 import { GroupRegistrationModel } from './../model/GroupRegistrationModel';
 import { InsightsModel } from './../model/InsightsModel';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-//import { DashboardPage } from '../pages/dashboard/index/index';
 import { LoginPage } from '../pages/login/login';
 import { StartPage } from '../pages/start/start';
 import { ConfirmComponent } from '../components/confirm/confirm.component';
-//import { DashboardHeaderComponent } from '../components/dashboard-header/dashboard-header.component'
-//import { DashboardHeaderModule } from '../components/dashboard-header/dashboard-header.component.module'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RegistrationModel } from './../model/RegistrationModel';
@@ -25,8 +22,7 @@ import { ComponentsModule } from '../components/components.module';
     MyApp,
     ConfirmComponent,
     LoginPage,
-    StartPage,
-    //DashboardPage
+    StartPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +42,6 @@ import { ComponentsModule } from '../components/components.module';
     ConfirmComponent,
     LoginPage,
     StartPage,
-    //DashboardPage,
     MyApp,
   ],
   providers: [
@@ -58,7 +53,8 @@ import { ComponentsModule } from '../components/components.module';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}
 

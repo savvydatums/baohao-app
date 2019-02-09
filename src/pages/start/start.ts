@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
-//import { DashboardPage } from '../dashboard/index/index'
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -15,7 +14,7 @@ export class StartPage {
 
 
   ngAfterViewInit() {
-    //setTimeout(() => this.navCtrl.push(DashboardPage), 2000); // this is only for testing
+    setTimeout(() => this.gotoLogin(), 1000); // this is only for testing
   }
 
   public setLanguage(lan:string):void {

@@ -1,10 +1,9 @@
-import { Component, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { ListView } from '../insights/listView/index';
 import { ArchivePage } from '../archive/index';
 import { ProfilePage } from '../profile/index';
 import { InsightsModel } from '../../../model/InsightsModel';
 import { insightsMockResponse } from '../../../api/insights-mock-data';
-import { HeaderComponent } from '../../../components/header/header'
 import { IonicPage } from 'ionic-angular';
 
 @IonicPage({ name: "DashboardPage", segment: "DashboardPage"})
@@ -17,10 +16,6 @@ export class DashboardPage implements OnChanges {
   tabProfile = ProfilePage;
   tabInsight = ListView;
   tabArchive = ArchivePage;
-  @ViewChild(HeaderComponent) header: HeaderComponent;
-
-  title: string;
-  currentPage: number;
 
   constructor( public insightsModel: InsightsModel) {
 
@@ -32,10 +27,13 @@ export class DashboardPage implements OnChanges {
     this.insightsModel.savingAndLife = insightsMockResponse.result.savingAndLife;
     this.insightsModel.investment = insightsMockResponse.result.investment;
     this.insightsModel.general = insightsMockResponse.result.general;
-    this.header.setText('new text');
   }
 
   ngOnChanges(changes: SimpleChanges) {
     console.log('DashboardPage ngOnChanges', changes)
+  }
+
+  tabChange(event) {
+    console.log (event, this.tabProfile, this.tabInsight, this.tabArchive)
   }
 }
