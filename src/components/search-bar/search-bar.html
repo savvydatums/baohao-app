@@ -1,0 +1,16 @@
+<ion-icon name="search" (click)="toggleSearch()" *ngIf="!searchOpened"></ion-icon>
+<div *ngIf="searchOpened" class="search-wrap">
+  <ion-icon name="arrow-back" (click)="toggleSearch()"></ion-icon>
+  <input type="text" [value]="inputValue" />
+  <ion-icon name="search" (click)="onSearch"></ion-icon>
+</div>
+<ul class="categories" *ngIf="!searchOpened">
+  <li *ngFor="let key of objectKeys(categories)"
+    class="{{ selected === key ? 'active' : '' }}"
+    (click)="changeSelected(key)">
+    {{ key }} <b>{{ categories[key] }}</b>
+  </li>
+</ul>
+
+
+

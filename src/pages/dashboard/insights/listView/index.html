@@ -1,5 +1,9 @@
 <ion-header>
   <header></header>
+  <search-bar
+    *ngIf="categoriesCount"
+    [categories]="categoriesCount"
+    [selected]="selected"></search-bar>
 </ion-header>
 <ion-content>
   <ion-list *ngFor="let item of shownList">
@@ -8,7 +12,7 @@
         <ion-avatar item-start>
           <img src="{{ item.profileImage }}">
         </ion-avatar>
-        <h2>item.authorName</h2>
+        <h2>{{ item.authorName }}</h2>
       </ion-item>
       <ion-item-options side="right">
         <button ion-button> Archive </button>

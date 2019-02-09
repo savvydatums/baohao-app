@@ -8,6 +8,8 @@ import { HeaderComponent, THEME } from '../../../../components/header/header'
   templateUrl: 'index.html'
 })
 
+// https://ionicframework.com/docs/api/slides -> change style and action based on this
+// http://idangero.us/swiper/demos/ --> get it from here
 export class PictureView {
 
   @ViewChild(forwardRef(() => HeaderComponent))

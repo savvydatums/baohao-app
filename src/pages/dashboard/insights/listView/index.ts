@@ -3,6 +3,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { InsightsModel } from './../../../../model/InsightsModel';
 import { TranslateService } from '@ngx-translate/core';
 import { HeaderComponent, THEME } from '../../../../components/header/header';
+import { SearchBarComponent } from '../../../../components/search-bar/search-bar'
 
 @IonicPage({ name: "listView", segment: "listView" })
 @Component({
@@ -13,7 +14,12 @@ import { HeaderComponent, THEME } from '../../../../components/header/header';
 export class ListView {
 
   shownList : object[];
+  categoriesCount: object;
+  selected: string;
+  searchValue: string;
+
   @ViewChild(HeaderComponent) header: HeaderComponent;
+  @ViewChild(SearchBarComponent) searchBar: SearchBarComponent;
 
   constructor(
     public navCtrl: NavController,
@@ -22,17 +28,27 @@ export class ListView {
   ) {}
 
   ionViewDidLoad () {
-    this.getShowList()
+    this.getShowList();
     this.header.setTheme(THEME.LIST);
-    console.log ('showList', this.shownList)
+    this.categoriesCount = this.insights.getCategoriesCount();
+  }
+
+  ionViewWillEnter() {
+    this.configSearchBar();
   }
 
   public getShowList (listName?) {
-    // get the stuff from first Insights
     if (!listName) {
       this.shownList = this.insights.medicalList
+      this.selected = 'medicalList'
     } else {
       this.shownList = this.insights[listName]
+      this.selected = listName
     }
+  }
+
+  private configSearchBar():void {
+    this.searchBar.bindSearchCallBack(() => { console.log('input some search function callback') });
+    this.searchBar.bindCategoryCallback((key) => { this.selected = key });
   }
 }

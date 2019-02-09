@@ -1,0 +1,32 @@
+$darkColor: #246383;
+
+search-bar {
+    background: $darkColor;
+
+    width: 100%;
+    display: inline-block;
+    padding: 10px 0;
+    border-top: 1px solid white;
+
+    ion-icon[name='search']{
+        color: white;
+        position: absolute;
+        left: 10px;
+        font-size: 1.4em;
+        border-right: 1px solid white;
+        padding-right: 10px;
+    }
+    ul {
+      display: table-cell;
+    }
+    li {
+        color: white;
+        display: inline-block;
+        list-style: none;
+        float: left;
+        padding: 0px 7px 5px;
+        &.active{
+            border-bottom: 1px solid skyblue;
+        }
+    }
+}

@@ -17,7 +17,7 @@ export class HeaderComponent {
   isPicture: boolean;
 
   constructor(public navCtrl: NavController) {
-    console.log('Hello HeaderComponent Component');
+
   }
 
   public setTheme (theme:string) {

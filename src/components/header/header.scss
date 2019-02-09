@@ -1,3 +1,20 @@
-header {
+// Dashboard css
+$darkColor: #246383;
 
+header {
+  background: $darkColor;
+  color: white;
+
+  h3 {
+    display: inline-block;
+  }
+
+  .right {
+    display: inline-block;
+    float: right;
+  }
+
+  .left {
+    display: inline-block;
+  }
 }

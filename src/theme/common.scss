@@ -119,20 +119,9 @@ confirm {
     }
 }
 
-// Dashboard css
-$darkColor: #246383;
-header {
-    background: $darkColor;
-    color: white;
-
-    h3{
-        display: inline-block;
-    }
-    .right {
-        display: inline-block;
-        float: right;
-    }
-    .left {
-        display: inline-block;
+listview {
+    background-image: radial-gradient(circle at 105% 0, #1d7f8a, #3e6a90);
+    .content-md, .list-md ion-item-sliding {
+        background-color: transparent;
     }
 }
