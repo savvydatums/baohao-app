@@ -119,9 +119,160 @@ confirm {
     }
 }
 
+/** list of colors: **/
+
+// 'Sports': '#45f78f',
+// 'Entertainment': '#45f7ed',
+// 'Wine&Dine': '#7982ff',
+// 'Traveling': '#f36161',
+// 'Shopping': '#f7d945',
+// 'Health': '#45f78f',
+// 'Parenting': '#45f7ed',
+// 'Immigration': '#7982ff',
+// 'Remittance': '#f36161',
+// 'Medical': '#f7d945',
+// 'Housing': '#45f78f',
+// 'Vaccination': '#45f7ed',
+// 'Marriage': '#7982ff',
+// 'Pregnancy': '#f36161',
+// 'Hospital': '#f7d945',
+// 'Sick': '#45f78f',
+// 'Injury': '#45f7ed',
+// 'Accident': '#7982ff',
+// 'Claims': '#f36161',
+// 'Health': '#f7d945',
+// 'Conscious': '#45f78f',
+// 'Unhealthy': '#45f7ed',
+// 'Lifestyle': '#7982ff'
+.cat-marriage { background-color: #7982ff }
+.cat-lifestyle { background-color: #45f78f }
+.cat-sport { background-color: #f36161 }
+.cat-unhealthy { background-color: #45f7ed }
+
 listview {
     background-image: radial-gradient(circle at 105% 0, #1d7f8a, #3e6a90);
-    .content-md, .list-md ion-item-sliding {
+    .content-md, .content-ios,
+    .list-ios ion-item-sliding,
+    .list-md ion-item-sliding {
+        background-color: #27768d;
+    }
+
+    .item-ios ion-avatar[item-start], .item-md ion-avatar[item-start] {
+        margin: 8px 16px 8px;
+    }
+    .list-content {
+        font-size: 0.9em;
+        p {
+            color: white;
+            font-size: 1.2rem;
+        }
+    }
+    .list-label {
+        position: absolute;
+        right: 15px;
+        top: 20px;
+        font-size: 11px;
+
+        .category-label {
+            color: white;
+            padding: 4px 6px;
+            border-radius: 4px;
+            float: right;
+        }
+        span {
+            display: inline-block;
+        }
+        .date {
+            margin-top: 15px;
+        }
+    }
+    ion-list.list-ios, ion-list.list-md{
+        margin: 0;
+    }
+    ion-label.label-ios, ion-label.label-md {
+        margin: 20px 8px 20px 0;
+    }
+    .list-ios ion-item-options,
+    .list-md ion-item-options {
+        border-bottom: none;
+    }
+    .list-ios>.item-block:last-child,
+    .list-ios>.item-wrapper:last-child .item-block,
+    .list-md>.item-block:last-child,
+    .list-md>.item-wrapper:last-child .item-block {
+        border-bottom: 1px solid #0f6984;
+    }
+    ion-item-options .button-md,
+    ion-item-options .button-ios {
+        background-color: white;
+        color: black;
+        font-size: normal;
+        &:hover:not(.disable-hover) {
+            background-color: #259abd;
+        }
+    }
+}
+
+profile {
+    background-image: radial-gradient(circle at 105% 0, #1d7f8a, #3e6a90);
+    .content-ios, .content-md {
         background-color: transparent;
+        color: white;
+    }
+    .scroll-content {
+        padding: 20px;
+    }
+    .head {
+        position: relative;
+        img {
+            position: absolute;
+            right: 0;
+            top: -20px;
+            border-radius: 50%;
+            width: 70px;
+        }
+        h3 {
+            font-weight: bold;
+            margin: 25px 0 10px;
+        }
+    }
+    .row {
+        position: relative;
+        > p {
+            line-height: 0.5rem;
+        }
+        > p:not(:first-child){
+            margin-left: 20px;
+        }
+        button {
+           position: absolute;
+           right: 0;
+           padding: 0 1.3rem;
+           height: 2.4rem;
+           font-size: 1.2rem;
+           color: #247b8b;
+        }
+        .pass {
+            margin-top: 17px;
+        }
+    }
+    .sub-info {
+      border-top: 1px solid lighten(#1d7f8a, 20);
+      margin-top: 10px;
+      font-size: 1.3rem;
+      padding-top: 1rem;
+      color: lighten(#1d7f8a, 20);
+    }
+    .select-md .select-placeholder,
+    .item-input .label-md,
+    .item-select .label-md,
+    .item-datetime .label-md,
+    .select-md .select-icon .select-icon-inner {
+      color: white;
+    }
+    .error {
+        margin-top: 20px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.1);
     }
 }

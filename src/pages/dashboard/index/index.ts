@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { ListView } from '../insights/listView/index';
 import { ArchivePage } from '../archive/index';
 import { ProfilePage } from '../profile/index';
@@ -11,7 +11,7 @@ import { IonicPage } from 'ionic-angular';
   selector: 'dashboardPage',
   templateUrl: 'index.html'
 })
-export class DashboardPage implements OnChanges {
+export class DashboardPage {
 
   tabProfile = ProfilePage;
   tabInsight = ListView;
@@ -27,10 +27,6 @@ export class DashboardPage implements OnChanges {
     this.insightsModel.savingAndLife = insightsMockResponse.result.savingAndLife;
     this.insightsModel.investment = insightsMockResponse.result.investment;
     this.insightsModel.general = insightsMockResponse.result.general;
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log('DashboardPage ngOnChanges', changes)
   }
 
   tabChange(event) {

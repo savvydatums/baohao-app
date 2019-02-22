@@ -1,6 +1,19 @@
 <ion-header>
   <header></header>
+  <search-bar
+    *ngIf="categoriesCount"
+    [categories]="categoriesCount"
+    [selected]="selected">
+  </search-bar>
 </ion-header>
 <ion-content>
-    // here is some picture actions
+<ion-slides pager="true">
+    <ion-slide *ngFor="let item of insights.shownList">
+      <h2>{{ item.authorName }}</h2>
+      <p>{{ item.category }}</p>
+      <span>{{ item.category }}</span>
+      <img [src]="item.profileImage" />
+      {{ renderTimeStamp(item.timestamp) }}
+    </ion-slide>
+  </ion-slides>
 </ion-content>

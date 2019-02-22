@@ -1,6 +1,9 @@
 import { Component, ViewChild, forwardRef } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { HeaderComponent, THEME } from '../../../../components/header/header'
+import { SearchBarComponent } from '../../../../components/search-bar/search-bar';
+import { TranslateService } from '@ngx-translate/core';
+import { InsightsModel } from '../../../../model/InsightsModel';
 
 @IonicPage({ name: "pictureView", segment: "pictureView" })
 @Component({
@@ -12,15 +15,28 @@ import { HeaderComponent, THEME } from '../../../../components/header/header'
 // http://idangero.us/swiper/demos/ --> get it from here
 export class PictureView {
 
-  @ViewChild(forwardRef(() => HeaderComponent))
-  private header: HeaderComponent;
+  categoriesCount: object;
+  searchValue: string;
+  categoryColors: object;
 
-  constructor(public navCtrl: NavController) {
+  @ViewChild(forwardRef(() => HeaderComponent)) header
+  @ViewChild(forwardRef(() => SearchBarComponent)) searchBar
 
+  constructor(
+    public navCtrl: NavController,
+    public insights: InsightsModel,
+    public translate: TranslateService) {
   }
 
   ionViewDidLoad() {
+    this.insights.setShownContent();
     this.header.setTheme(THEME.PICTURE);
+    this.categoriesCount = this.insights.getCategoriesCount();
+  }
+
+  public renderTimeStamp(timestamp: number) {
+    const time = parseInt(timestamp + '000')
+    return new Date(time).toDateString()
   }
 
 }

@@ -16,6 +16,7 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { ComponentsModule } from '../components/components.module';
+import { ProfileModel } from '../model/ProfileModel';
 
 @NgModule({
   declarations: [
@@ -45,11 +46,12 @@ import { ComponentsModule } from '../components/components.module';
     MyApp,
   ],
   providers: [
-    RegistrationModel,
+    RegistrationModel, // this is all services
     GroupRegistrationModel,
     LoggedInUserModel,
     AppointmentModel,
     InsightsModel,
+    ProfileModel,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

@@ -1,32 +1,66 @@
 $darkColor: #246383;
+$borderLight: rgba(255, 255, 255, 0.2);
+$green: #c0e566;
 
 search-bar {
     background: $darkColor;
-
-    width: 100%;
+    width: 150%;
     display: inline-block;
-    padding: 10px 0;
-    border-top: 1px solid white;
+    padding: 10px 0 0;
+    border-top: 1px solid $borderLight;
+    overflow-x: scroll;
+    height: 40px;
 
-    ion-icon[name='search']{
-        color: white;
-        position: absolute;
-        left: 10px;
+    ion-icon {
+        cursor: pointer;
         font-size: 1.4em;
-        border-right: 1px solid white;
-        padding-right: 10px;
+        color: white;
+    }
+
+    > ion-icon[name='search']{
+        position: absolute;
+        left: 20px;
+        border-right: 1px solid $borderLight;
+        padding-right: 15px;
     }
     ul {
-      display: table-cell;
+        display: table-cell;
+        padding-left: 60px;
+        line-height: 1.5em;
     }
     li {
         color: white;
         display: inline-block;
         list-style: none;
         float: left;
-        padding: 0px 7px 5px;
+        padding: 0px 9px 9px;
+        border-bottom: 3px solid transparent;
         &.active{
-            border-bottom: 1px solid skyblue;
+            border-color: skyblue;
+        }
+        span {
+            color: $green;
+        }
+    }
+    .search-wrap {
+        ion-icon[name='arrow-back'] {
+            margin-left: 20px;
+            padding-right: 20px;
+            border-right: 1px solid $borderLight;
+        }
+
+        ion-icon[name='search'] {
+            position: absolute;
+            right: 10px;
+        }
+        input {
+            color: white;
+            margin-left: 10px;
+            background: transparent;
+            border: none;
+            &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+                color: rgba(255, 255, 255, 0.3);
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
 import { TRegistered } from '../../../model/types';
-//import { RegistrationAPI } from '../../../api/RegistrationAPI';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationModel } from '../../../model/RegistrationModel';
 import { Component } from '@angular/core';
@@ -7,6 +6,7 @@ import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { registrationMockResponse } from '../../../api/registration-mock-data';
 import { ConfirmComponent } from '../../../components/confirm/confirm.component';
 import { TranslateService } from '@ngx-translate/core';
+import { fetchCompaniesFromLocale } from '../../../utils/Data-Fetch'
 
 @IonicPage()
 @Component({
@@ -46,14 +46,8 @@ export class IndividualReservationPage {
 	}
 
 	ngAfterViewInit() {
-		this.companies = this.fetchCompaniesFromLocale();
-	}
-
-	private fetchCompaniesFromLocale () {
-		const lang = this.translate.store.currentLang || this.translate.store.defaultLang
-		const companies = this.translate.store.translations[lang]['INDIVIDUAL_RESERVATION']['COMPANIES']
-		const output = Object.keys(companies).map(key => ({ key, name: companies[key] }));
-		return output
+        const store = this.translate.store
+        this.companies = fetchCompaniesFromLocale (store.currentLang, store.defaultLang, store.translations )
 	}
 
 	public onRegister () {
@@ -83,7 +77,6 @@ export class IndividualReservationPage {
 		this.registrationModel.userId = response.result.userId;
 		this.registrationModel.emailId = response.result.emailId;
 
-		console.log (this.registrationModel, );
 		this.confirmed();
 	}
 

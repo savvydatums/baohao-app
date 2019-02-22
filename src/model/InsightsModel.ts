@@ -5,15 +5,28 @@ export class InsightsModel {
     public investment: object[];
     public general: object[];
 
+    public shownList: object[];
+    public selected: string;
+
     constructor() {}
 
     // show each categories and it's count
     public getCategoriesCount () {
         return {
-            medicalList: this.medicalList.length,
-            savingAndLife: this.savingAndLife.length,
-            investment: this.investment.length,
-            general : this.general.length
+            'Medical': this.medicalList.length,
+            'Saving & Life': this.savingAndLife.length,
+            'Investment': this.investment.length,
+            'General': this.general.length
+        }
+    }
+
+    public setShownContent (listName?) {
+        if (!listName) {
+            this.shownList = this.medicalList
+            this.selected = 'medicalList'
+        } else {
+            this.shownList = this[listName]
+            this.selected = listName
         }
     }
 }

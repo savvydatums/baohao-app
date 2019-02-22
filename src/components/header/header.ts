@@ -21,7 +21,6 @@ export class HeaderComponent {
   }
 
   public setTheme (theme:string) {
-    console.log (theme);
     if (theme === THEME.PICTURE) {
       this.isPicture = true;
     }

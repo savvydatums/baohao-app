@@ -58,8 +58,9 @@
         "BUTTON_LABEL": "Reset"
     },
 
-    "INDIVIDUAL_RESERVATION" : {
+    "PROFILE" : {
         "TITLE": "User Registration",
+        "REGISTRATION_ID": "Registration ID",
         "LASTNAME": "Last Name",
         "FIRSTNAME": "First Name",
         "EMAIL": "Email",
@@ -78,6 +79,8 @@
         "ERROR_JOB_TITLE": "Please enter a valid job title",
         "ERROR_DOB": "Please enter a valid Date of Birth",
         "ERROR_GENDER": "Please select a gender from list",
+        "UNCHANGABLE_SMALL_PRINT": "If need to change information above, please connect to customer support.",
+        "UPDATE_PASSWORD": "Change Password",
         "COMPANIES": {
             "AIA": "AIA",
             "AXA": "AXA",

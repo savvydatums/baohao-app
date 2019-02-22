@@ -59,7 +59,7 @@
         "BUTTON_LABEL": "重設"
     },
 
-    "INDIVIDUAL_RESERVATION" : {
+    "PROFILE" : {
         "TITLE": "使用者註冊",
         "LASTNAME": "姓",
         "FIRSTNAME": "名",

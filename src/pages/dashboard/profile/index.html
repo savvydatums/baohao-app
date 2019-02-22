@@ -1,6 +1,98 @@
 <ion-content>
-// here is about the profile
-  <ion-list>
-    <ion-list-header>Profile</ion-list-header>
-  </ion-list>
+	<div class="head">
+		<h3>Profile</h3>
+		<img *ngIf="profile.avatar" [src]="profile.avatar" />
+	</div>
+	<div class="row">
+		<p>{{ 'PROFILE.REGISTRATION_ID' | translate }}</p>
+		<p>{{ profile.registration_id }}</p>
+	</div>
+	<div class="row">
+		<p>{{ 'PROFILE.EMAIL' | translate }}</p>
+		<p>{{ profile.email }}</p>
+	</div>
+	<div class="row">
+		<p>{{ 'LOGIN.PASSWORD' | translate }}</p>
+		<p class="pass"> ********** </p>
+		<button ion-button color="light">
+			{{ 'PROFILE.UPDATE_PASSWORD' | translate }}
+		</button>
+	</div>
+	<p class="sub-info">
+		{{ 'PROFILE.UNCHANGABLE_SMALL_PRINT' | translate }}
+	</p>
+
+	<form [formGroup]="profileForm">
+	<ion-list>
+	  <ion-item>
+		<ion-label floating>{{ 'PROFILE.LASTNAME' | translate }} #</ion-label>
+		<ion-input type="text" formControlName="lastname" value="{{profile.lastname}}"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+		<ion-label floating>{{ 'PROFILE.FIRSTNAME' | translate }} #</ion-label>
+		<ion-input type="text" formControlName="firstname" value="{{profile.firstname}}"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+		<ion-label floating>{{ 'PROFILE.MOBILE' | translate }} #</ion-label>
+		<ion-input type="tel" formControlName="mobile" value="{{profile.mobile}}"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+		<ion-label floating>{{ 'PROFILE.COMPANY_NAME' | translate }} #</ion-label>
+<ion-select formControlName="company_name" value="{{profile.company_name}}">
+			<ion-option *ngFor="let company of companies" value="{{company.key}}">{{ company.name }}</ion-option>
+		</ion-select>
+	</ion-item>
+
+	<ion-item>
+		<ion-label floating>{{ 'PROFILE.JOB_TITLE' | translate }}</ion-label>
+		<ion-input type="text" formControlName="job_title" value="{{profile.job_title}}"></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-label floating>{{ 'PROFILE.DOB' | translate }} #</ion-label>
+		<ion-datetime displayFormat="MM/DD/YYYY" formControlName="birth"
+			[(ngModel)]="profile.birth"></ion-datetime>
+	</ion-item>
+
+	<ion-item>
+		<ion-label floating>{{ 'PROFILE.GENDER' | translate }} #</ion-label>
+		<ion-select formControlName="gender" value="{{profile.gender}}">
+			<ion-option value="F">{{ 'PROFILE.OPTION_FEMALE' | translate }}</ion-option>
+			<ion-option value="M">{{ 'PROFILE.OPTION_MALE' | translate }}</ion-option>
+		</ion-select>
+	</ion-item>
+
+	<div *ngIf="!profileForm.valid">
+		<div class="error" *ngIf="profileForm.controls.lastname.invalid && (profileForm.controls.lastname.dirty || profileForm.controls.lastname.touched)">
+			<ion-icon name="information-circle"></ion-icon>
+			{{ 'PROFILE.ERROR_LASTNAME' | translate }}
+		</div>
+		<div class="error" *ngIf="profileForm.controls.firstname.invalid && (profileForm.controls.firstname.dirty || profileForm.controls.firstname.touched)">
+			<ion-icon name="information-circle"></ion-icon>
+			{{ 'PROFILE.ERROR_FIRSTNAME' | translate }}
+		</div>
+		<div class="error" *ngIf="profileForm.controls.mobile.invalid && (profileForm.controls.mobile.dirty || profileForm.controls.mobile.touched)">
+			<ion-icon name="information-circle"></ion-icon>
+			{{ 'PROFILE.ERROR_MOBILE' | translate }}
+		</div>
+		<div class="error" *ngIf="profileForm.controls.company_name.invalid && (profileForm.controls.company_name.dirty || profileForm.controls.company_name.touched)">
+			<ion-icon name="information-circle"></ion-icon>
+			{{ 'PROFILE.ERROR_COMPANY_NAME' | translate }}
+		</div>
+		<div class="error" *ngIf="profileForm.controls.job_title.invalid && (profileForm.controls.job_title.dirty || profileForm.controls.job_title.touched)">
+			<ion-icon name="information-circle"></ion-icon>
+			{{ 'PROFILE.ERROR_JOB_TITLE' | translate }}
+		</div>
+	</div>
+	</ion-list>
+
+	<button ion-button color="light" block round (click)="onUpdate()" [disabled]="!profileForm.valid">
+	  {{ 'GLOBAL_SUBMIT_BUTTON_LABEL' | translate }}
+	</button>
+  </form>
+
+
 </ion-content>

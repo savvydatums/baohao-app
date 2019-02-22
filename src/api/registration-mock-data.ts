@@ -4,6 +4,7 @@ import {
     TLoggedInUser,
     TRegistered
 } from './../model/types';
+import { ResponseStatus, temp_cookie } from './Comms';
 
 
 /**
@@ -11,17 +12,33 @@ import {
  * METHOD: POST
  * PAYLOAD:
   {
-    registration_id: "string",
+    registration_id: "string", ==> equal 'username'
     password: "string",
     lastname: "string",
     firstname: "string",
     email: "string",
     mobile: "string",
-    company: "string",
-    jobtitle: "string",
-    dob: "string",
+    company_name: "string", // change
+    job_title: "string", // change
+    birth: "string", // dob change
     gender: "string"
 };
+
+https://13.70.23.104/wordpress/index.php/wp-json/wp/v2/users/register
+{
+  "registration_id": "testyuser_editor12", ==> // original username
+  "email":"222@mail.com",
+  "password": "P@ssw0rd",
+  "lastname": "string",
+  "firstname": "string",
+  "mobile": "string",
+  "company": "string",
+  "jobtitle": "string",
+  "dob": "string",
+  "gender": "string",
+  "role":"editor"
+}
+
 **/
 export const registrationMockResponse: TRegistered = {
     result: { userId: 12345, emailId:43210 },
@@ -71,36 +88,42 @@ export const ResendEmailMockResponse: TResendEmail = {
     password: "string"
 };
 **/
+// use this for login and get user Info
+// https://13.70.23.104/wordpress/index.php/api/auth/generate_auth_cookie
+// form data: {
+//     "username": "testyuser_editor2",
+//     "password": "P@ssw0rd",
+//     "seconds": "600",
+// }
 
+// this should get it from https://13.70.23.104/wordpress/index.php/api/auth/generate_auth_cookie
 const LoggedInStatus = {
-    'INACTIVE': 'INACTIVE',
-    'ACTIVE': 'ACTIVE',
-    'PROCESSING': 'PROCESSING'
+    'PENDING': 'PENDING', // status => inactive
+    'PROCESSING': 'PROCESSING', // payment succees --> not collected
+    'DENY': 'DENY', // => payment deny
+    'APPROVED': 'APPROVED', // status => approved -> has data
 }
 
 export const LoggedInMockInActiveResponse: TLoggedInUser = {
-    result: {
-        token: 'JKSHJFGBH3t47n34j4nj34',
-        userId: 12345,
-        status: LoggedInStatus.INACTIVE
+    user: {
+        status: LoggedInStatus.PENDING,
     },
-    error: null
+    cookie: temp_cookie,
+    status: ResponseStatus.OK
 }
 
 export const LoggedInMockActiveResponse: TLoggedInUser = {
-    result: {
-        token: 'JKSHJFGBH3t47n34j4nj34',
-        userId: 12345,
-        status: LoggedInStatus.ACTIVE
+    user: {
+        status: LoggedInStatus.APPROVED,
     },
-    error: null
+    cookie: temp_cookie,
+    status: ResponseStatus.OK
 }
 
 export const LoggedInMockProcessingResponse : TLoggedInUser = {
-    result: {
-        token: 'JKSHJFGBH3t47n34j4nj34',
-        userId: 12345,
-        status: LoggedInStatus.PROCESSING
+    user: {
+        status: LoggedInStatus.PROCESSING,
     },
-    error: null
+    cookie: temp_cookie,
+    status: ResponseStatus.OK
 }

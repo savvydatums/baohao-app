@@ -26,3 +26,11 @@ export class Comms {
           .then(response => response.json()) // parses response to JSON
     }
 }
+
+export const ResponseStatus = {
+    OK: 'ok',
+    ERROR: 'error'
+}
+
+// only for temp testing
+export const temp_cookie = "testyuser_editor2|1550548435|S5yFfbHpv67XmLK1ppi5NdH5OxDVwc8XG4xjJVYMFMv|7f91426d37d9967b2ecbff22438ccf6c48420fad3a7936ab0901b7478487519a"

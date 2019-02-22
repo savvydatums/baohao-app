@@ -16,10 +16,11 @@ export class SearchBarComponent {
   categoryCallback: Function;
   searchCallback: Function;
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController) {
+    this.inputValue = '';
+  }
 
   ionViewWillEnter() {
-    console.log('ionViewWillEnter', this.categories)
     this.searchOpened = false; // default
   }
   // maybe use service for that.
@@ -33,12 +34,16 @@ export class SearchBarComponent {
     this.categoryCallback = ck;
   }
 
+  public updateInput (event) {
+    this.inputValue = event.target.value;
+  }
+
   public changeSelected(key:string) {
     this.categoryCallback(key);
   }
 
   public onSearch() {
-    console.log(this.inputValue);
+    console.log(this.inputValue); // TODO, no value yet
     this.searchOpened = false;
   }
 
