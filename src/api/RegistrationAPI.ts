@@ -1,26 +1,27 @@
 import { Comms } from './Comms';
+import * as Routes from './routes';
 
 export class RegistrationAPI extends Comms {
 
-    private static serverUrl:string = '/'
+    serverUrl = '/'
 
     constructor() {
         super();
     }
 
-    public static setNewUser(registrationData:any):Promise<{}> {
+    public static createNewUser(registrationData:any):Promise<{}> {
         return new Promise((resolve, reject)=>{
-            this.postData(`${this.serverUrl}/register`, registrationData)
-            .then((response:any)=> {
-                resolve(response);
-            })
-            .catch(reject);
+            this.postData(Routes.register, registrationData)
+                .then((response)=> {
+                    resolve(response);
+                })
+                .catch(reject);
         });
     }
 
     public static setNewGroupReservation(registrationData:any):Promise<{}> {
         return new Promise((resolve, reject)=>{
-            this.postData(`${this.serverUrl}/groupregister`, registrationData)
+            this.postData(Routes.groupReserve, registrationData)
             .then((response:any)=> {
                 resolve(response);
             })
@@ -30,7 +31,7 @@ export class RegistrationAPI extends Comms {
 
     public static setResendEmail(emailId:string):Promise<{}> {
         return new Promise((resolve, reject)=>{
-            this.postData(`${this.serverUrl}/resendemail`, emailId)
+            this.postData(`resendemail`, emailId)
             .then((response:any)=> {
                 resolve(response);
             })
@@ -40,7 +41,7 @@ export class RegistrationAPI extends Comms {
 
     public static setResetPassword(registrationID:string):Promise<{}> {
         return new Promise((resolve, reject)=>{
-            this.postData(`${this.serverUrl}/resetpassword`, registrationID)
+            this.postData(Routes.resetPassword, registrationID)
             .then((response:any)=> {
                 resolve(response);
             })

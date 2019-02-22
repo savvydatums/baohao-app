@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, forwardRef } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { InsightsModel } from './../../../../model/InsightsModel';
 import { TranslateService } from '@ngx-translate/core';
@@ -18,8 +18,8 @@ export class ListView {
   searchValue: string;
   categoryColors: object;
 
-  @ViewChild(HeaderComponent) header: HeaderComponent;
-  @ViewChild(SearchBarComponent) searchBar: SearchBarComponent;
+    @ViewChild(forwardRef(() => HeaderComponent)) header
+    @ViewChild(forwardRef(() => SearchBarComponent)) searchBar
 
   constructor(
     public navCtrl: NavController,

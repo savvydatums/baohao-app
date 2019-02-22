@@ -4,6 +4,7 @@
     "GLOBAL_NEXT_BUTTON_LABEL": "Next",
     "GLOBAL_CONTINUE_BUTTON_LABEL": "Continue",
     "GLOBAL_SUBMIT_BUTTON_LABEL": "Submit",
+    "GLOBA_CANCEL_BUTTON_LABEL": "Cancel",
 
     "START_DESC": "MyInsurBox is Your tool to use Big Data to uncover sales opportunity!",
     "START_BUTTON": "Get Started",
@@ -40,6 +41,7 @@
         "TITLE": "Sign Up",
         "REGISTRATION_LABEL": "Registration ID",
         "REGISTRATION_EXAMPLE": "Example: PIBAXXXXX, CIBXXXXX, HKFIXXXX",
+        "REGISTRATION_ID_FAIL": "Registration ID doesn't match required formate.",
         "PASSWORD_LABEL": "Password",
         "CONFIRM_PASSWORD_LABEL": "Confirm password",
         "PASSWORD_ERROR": "Password doesn't match",

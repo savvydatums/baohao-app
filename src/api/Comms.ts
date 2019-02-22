@@ -1,7 +1,6 @@
-// TODO: haven't done real test
 export class Comms {
     protected static postData(url = ``, data = {}) {
-        return this.basic(url, {}, "POST");
+        return this.basic(url, data, "POST");
     }
 
     protected static getData(url = ``) {
@@ -28,7 +27,7 @@ export class Comms {
 }
 
 export const ResponseStatus = {
-    OK: 'ok',
+    SUCCESS: 200,
     ERROR: 'error'
 }
 

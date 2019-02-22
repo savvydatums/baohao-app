@@ -103,7 +103,7 @@ export class ProfilePage {
         const title = isFail ? 'Update Failed!' : 'Update Succeed!'
         const message = isFail ? 'we can not update it now, try again later': 'update succeed!'
 
-        const popup = this.alertCtrl.create({
+        const alert = this.alertCtrl.create({
             title: title,
             message: message,
             buttons: [{
@@ -111,7 +111,7 @@ export class ProfilePage {
             }]
         })
 
-        popup.present()
+        alert.present()
     }
 
 }

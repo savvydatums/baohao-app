@@ -9,7 +9,7 @@
         <ion-list>
           <ion-item>
             <ion-label floating>{{ 'SIGNUP.REGISTRATION_LABEL' | translate }}</ion-label>
-            <ion-input type="text" formControlName="registrationId"></ion-input>
+            <ion-input type="text" formControlName="registration_id"></ion-input>
           </ion-item>
           <p class="example">{{ 'SIGNUP.REGISTRATION_EXAMPLE' | translate }}</p>
 
@@ -23,6 +23,13 @@
             <ion-input type="password" formControlName="confirmPassword"></ion-input>
           </ion-item>
         </ion-list>
+
+        <div *ngIf="registrationForm.controls.registration_id.invalid && (registrationForm.controls.registration_id.dirty || registrationForm.controls.registration_id.touched)">
+          <div class="error" *ngIf="registrationForm.controls.registration_id.errors">
+            <ion-icon name="information-circle"></ion-icon>
+            {{ 'SIGNUP.REGISTRATION_ID_FAIL' | translate }}
+          </div>
+        </div>
 
         <div *ngIf="registrationForm.controls.confirmPassword.dirty">
           <div class="error" *ngIf="registrationForm.controls.confirmPassword.errors">

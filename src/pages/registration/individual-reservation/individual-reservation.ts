@@ -1,17 +1,17 @@
-import { TRegistered } from '../../../model/types';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationModel } from '../../../model/RegistrationModel';
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController } from 'ionic-angular';
-import { registrationMockResponse } from '../../../api/registration-mock-data';
+import { IonicPage, ModalController, NavController, AlertController } from 'ionic-angular';
 import { ConfirmComponent } from '../../../components/confirm/confirm.component';
 import { TranslateService } from '@ngx-translate/core';
 import { fetchCompaniesFromLocale } from '../../../utils/Data-Fetch'
+import { RegistrationAPI } from '../../../api/RegistrationAPI';
+import { ResponseStatus } from '../../../api/Comms';
 
 @IonicPage()
 @Component({
-    selector: 'registration',
-    templateUrl: './individual-reservation.html'
+	selector: 'registration',
+	templateUrl: './individual-reservation.html'
 })
 
 export class IndividualReservationPage {
@@ -24,7 +24,8 @@ export class IndividualReservationPage {
 		public modalCtrl: ModalController,
 		public registrationModel: RegistrationModel,
 		public translate: TranslateService,
-		private formBuilder: FormBuilder) {
+		private formBuilder: FormBuilder,
+		private alertCtrl: AlertController) {
 
 		this.registrationForm = this.formBuilder.group({
 			lastname: ['', Validators.required],
@@ -46,8 +47,8 @@ export class IndividualReservationPage {
 	}
 
 	ngAfterViewInit() {
-        const store = this.translate.store
-        this.companies = fetchCompaniesFromLocale (store.currentLang, store.defaultLang, store.translations )
+		const store = this.translate.store
+		this.companies = fetchCompaniesFromLocale (store.currentLang, store.defaultLang, store.translations )
 	}
 
 	public onRegister () {
@@ -61,48 +62,45 @@ export class IndividualReservationPage {
 		this.registrationModel.dob = this.registrationForm.controls['dob'].value;
 		this.registrationModel.gender = this.registrationForm.controls['gender'].value;
 
-		/*
-		* API call for posting registration
-		RegistrationAPI.setNewUser(this.registrationModel)
-		.then((success)=> {
-			console.log(success);
-		},
-		(error:any)=> {
-			console.log(error);
-		});
-		*/
+		// reassign
+		this.registrationModel.username = this.registrationModel.registration_id
 
-		// For now just use mock data
-		const response:TRegistered = registrationMockResponse;
-		this.registrationModel.userId = response.result.userId;
-		this.registrationModel.emailId = response.result.emailId;
+		// registrationID and password
+		console.log(this.registrationModel)
 
-		this.confirmed();
+		RegistrationAPI.createNewUser(this.registrationModel)
+			.then((result)=> {
+				console.log(result);
+				if (result.code == ResponseStatus.SUCCESS) {
+					this.confirmed();
+				} else {
+					this.showError(result.message);
+				}
+			},
+			(error:any)=> {
+				console.log(error);
+				this.showError(error);
+			});
 	}
 
 	private confirmed() {
 		this.navController.push(
-		ConfirmComponent, {
-			titleText: true,
-			bodyText: false,
-			emailText: true,
-			resendCallback: this.resendEmail.bind(this)
-		})
+			ConfirmComponent, {
+				titleText: true,
+				bodyText: false,
+				emailText: true
+			})
 	}
 
-	public resendEmail() {
-		// here has email payload and url
+	private showError (message) {
+		const alert = this.alertCtrl.create({
+			title: 'Create Account Failed!',
+			message: message,
+			buttons: [{
+				text: this.translate.translations.GLOBA_CANCEL_BUTTON_LABEL
+			}]
+		})
 
-		/*
-		* API call for resending email
-		RegistrationAPI.setResendEmail(this.registrationModel.emailId)
-		.then((success)=> {
-			console.log(success);
-		},
-		(error:any)=> {
-		console.log(error);
-		});
-		*/
-		console.log('from resendEmail in group-reservation', this.registrationModel.emailId)
+		alert.present()
 	}
 }

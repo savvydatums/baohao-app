@@ -17,31 +17,35 @@ export class SignupPage {
   registrationForm: FormGroup;
 
   constructor(
-              public navController: NavController, 
-              public modalCtrl: ModalController, 
-              public registrationModel: RegistrationModel, 
-              public translate: TranslateService,
-              private formBuilder: FormBuilder) {
+    public navController: NavController,
+    public modalCtrl: ModalController,
+    public registrationModel: RegistrationModel,
+    public translate: TranslateService,
+    private formBuilder: FormBuilder) {
 
     this.registrationForm = this.formBuilder.group({
-      registrationId: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
-      acceptTerms: [false, Validators.requiredTrue]
+        registration_id: ['',
+            Validators.compose([
+                Validators.required,
+                Validators.pattern(`^(PIBA|CIB|HKFI).*`)
+            ])],
+        password: ['', Validators.required],
+        confirmPassword: ['', Validators.required],
+        acceptTerms: [false, Validators.requiredTrue]
     }, {
-      validator: PasswordValidation.matchPassword
+        validator: PasswordValidation.matchPassword
     });
   }
 
 
   public onRegister () {
-    this.registrationModel.registrationId = this.registrationForm.controls['registrationId'].value
-    this.registrationModel.password = this.registrationForm.controls['password'].value
+    this.registrationModel.registration_id = this.registrationForm.controls.registration_id.value
+    this.registrationModel.password = this.registrationForm.controls.password.value
     this.navController.push(IndividualReservationPage);
   }
 
-  public openModal(){ 
-    var termsModal = this.modalCtrl.create('TermsModalPage'); 
+  public openModal(){
+    var termsModal = this.modalCtrl.create('TermsModalPage');
     termsModal.present();
   }
 }

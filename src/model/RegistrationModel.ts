@@ -1,7 +1,7 @@
 export class RegistrationModel {
 
     // user set from form
-    public registrationId:string;
+    public registration_id:string;
     public password:string;
     public lastname:string;
     public firstname:string;
@@ -12,9 +12,8 @@ export class RegistrationModel {
     public dob:string;
     public gender:string;
 
-    // set by backend
-    public userId:number;
-    public emailId:number;
+    // it is a duplication of backend needed
+    public username:string;
 
     constructor() {
 
