@@ -4,7 +4,9 @@ import { ArchivePage } from '../archive/index';
 import { ProfilePage } from '../profile/index';
 import { InsightsModel } from '../../../model/InsightsModel';
 import { insightsMockResponse } from '../../../api/insights-mock-data';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
+import { redirectIfNotLogin } from '../../../utils/login-util';
+import { ProfileModel } from '../../../model/ProfileModel';
 
 @IonicPage({ name: "DashboardPage", segment: "DashboardPage"})
 @Component({
@@ -13,23 +15,30 @@ import { IonicPage } from 'ionic-angular';
 })
 export class DashboardPage {
 
-  tabProfile = ProfilePage;
-  tabInsight = ListView;
-  tabArchive = ArchivePage;
+	tabProfile = ProfilePage;
+	tabInsight = ListView;
+	tabArchive = ArchivePage;
 
-  constructor( public insightsModel: InsightsModel) {
+  	constructor(
+		public navCtrl: NavController,
+		public insights: InsightsModel,
+		public profile: ProfileModel) {
 
-  }
+  	}
 
-  ngAfterViewInit() {
-    // insert all response data into here
-    this.insightsModel.medicalList = insightsMockResponse.result.medical;
-    this.insightsModel.savingAndLife = insightsMockResponse.result.savingAndLife;
-    this.insightsModel.investment = insightsMockResponse.result.investment;
-    this.insightsModel.general = insightsMockResponse.result.general;
-  }
+	ionViewDidLoad() {
+		redirectIfNotLogin(this.navCtrl, this.profile);
+	}
 
-  tabChange(event) {
-    console.log (event, this.tabProfile, this.tabInsight, this.tabArchive)
-  }
+  	ngAfterViewInit() {
+		// insert all response data into here
+		this.insights.medicalList = insightsMockResponse.result.medical;
+		this.insights.savingAndLife = insightsMockResponse.result.savingAndLife;
+		this.insights.investment = insightsMockResponse.result.investment;
+		this.insights.general = insightsMockResponse.result.general;
+  	}
+
+  	tabChange(event) {
+		console.log (event, this.tabProfile, this.tabInsight, this.tabArchive)
+  	}
 }

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, AlertController } from 'ionic-angular';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
-import { ProfileMockResponse, ProfileUpdateMockResponse } from '../../../api/profile-mock-data';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { fetchCompaniesFromLocale } from '../../../utils/Data-Fetch';
+import { UserAPI } from '../../../api/UserAPI';
 
 @IonicPage({ name: "profile", segment: "profile"})
 @Component({
@@ -16,6 +16,7 @@ export class ProfilePage {
 
 	profileForm: FormGroup;
     companies: Object;
+    isSubmitSuccess: boolean;
 
 	constructor(
 		public navCtrl: NavController,
@@ -36,7 +37,8 @@ export class ProfilePage {
             job_title: [''],
             birth: ['', Validators.required],
 			gender: ['', Validators.required]
-		});
+        });
+        this.isSubmitSuccess = false;
 	}
 
 	ngAfterViewInit() {
@@ -45,7 +47,7 @@ export class ProfilePage {
 			registration_id, lastname, firstname,
 			email, mobile, company_name, job_title, birth,
 			gender, avatar, registered
-		} = ProfileMockResponse.user // should come from Model when receive in initial called
+		} = this.profile // should come from Model when receive in initial called
 
 		this.profile.registration_id = registration_id
         this.profile.lastname = lastname
@@ -54,11 +56,10 @@ export class ProfilePage {
 		this.profile.mobile = mobile
 		this.profile.company_name = company_name
         this.profile.job_title = job_title
-        this.profile.birth = new Date(birth).toISOString()
+        this.profile.birth = birth && new Date(birth).toISOString()
 		this.profile.gender = gender
 		this.profile.avatar = avatar
         this.profile.registered = registered
-
 
         const store = this.translate.store
         this.companies = fetchCompaniesFromLocale(store.currentLang, store.defaultLang, store.translations)
@@ -81,22 +82,16 @@ export class ProfilePage {
             gender: controls.gender.value
         }
 
-        console.log('requestPayload', requestPayload, ProfileUpdateMockResponse)
+        console.log('requestPayload', requestPayload)
 
-        /*
-        * API call for posting update user info
-        * https://13.70.23.104/wordpress/index.php/api/auth/update_user
 		UserAPI.updateUser(requestPayload)
-		.then((success)=> {
-			console.log(success);
-		},
-		(error:any)=> {
-			console.log(error);
-		});
-        */
-        // show in page popup fail or succeed
-        //const response = ProfileUpdateMockResponse;
-        this.sendPopup(ProfileUpdateMockResponse.status == 'ok')
+            .then((result)=> {
+                console.log(result);
+                this.sendPopup(result.status !== 'ok')
+            },
+            (error:any)=> {
+                console.log(error);
+            });
     }
 
     private sendPopup (isFail) {

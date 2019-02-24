@@ -18,6 +18,16 @@ export class UserAPI extends Comms {
         });
     }
 
+    public static updateUser(userNewData): Promise<{}> {
+        return new Promise((resolve, reject) => {
+            this.postFormData(Routes.updateUserInfo, userNewData)
+                .then((response) => {
+                    resolve(response);
+                })
+                .catch(reject);
+        });
+    }
+
     public static setResetPassword(registrationID:string):Promise<{}> {
         return new Promise((resolve, reject)=>{
             this.postFormData(Routes.resetPassword, registrationID)

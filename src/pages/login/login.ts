@@ -75,7 +75,7 @@ export class LoginPage {
 	}
 
 	private goToPageBasedOnUserStatus (status) {
-		if (LoggedInStatus.PENDING === status) {
+		if (LoggedInStatus.PENDING !== status) { // temp
 			this.navController.push(PaymentPage);
 		} else {
 			this.navController.push(DashboardPage);
