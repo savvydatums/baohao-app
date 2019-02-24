@@ -1,10 +1,9 @@
 import {
     TGroupRegistered,
     TResendEmail,
-    TLoggedInUser,
     TRegistered
 } from './../model/types';
-import { ResponseStatus, temp_cookie } from './Comms';
+import { ResponseStatus, temp_cookie, LoggedInStatus } from './Comms';
 
 
 /**
@@ -97,33 +96,27 @@ export const ResendEmailMockResponse: TResendEmail = {
 // }
 
 // this should get it from https://13.70.23.104/wordpress/index.php/api/auth/generate_auth_cookie
-const LoggedInStatus = {
-    'PENDING': 'PENDING', // status => inactive
-    'PROCESSING': 'PROCESSING', // payment succees --> not collected
-    'DENY': 'DENY', // => payment deny
-    'APPROVED': 'APPROVED', // status => approved -> has data
-}
 
-export const LoggedInMockInActiveResponse: TLoggedInUser = {
+export const LoggedInMockInActiveResponse = {
     user: {
         status: LoggedInStatus.PENDING,
     },
     cookie: temp_cookie,
-    status: ResponseStatus.OK
+    status: ResponseStatus.SUCCESS
 }
 
-export const LoggedInMockActiveResponse: TLoggedInUser = {
+export const LoggedInMockActiveResponse = {
     user: {
         status: LoggedInStatus.APPROVED,
     },
     cookie: temp_cookie,
-    status: ResponseStatus.OK
+    status: ResponseStatus.SUCCESS
 }
 
-export const LoggedInMockProcessingResponse : TLoggedInUser = {
+export const LoggedInMockProcessingResponse  = {
     user: {
         status: LoggedInStatus.PROCESSING,
     },
     cookie: temp_cookie,
-    status: ResponseStatus.OK
+    status: ResponseStatus.SUCCESS
 }

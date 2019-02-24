@@ -1,13 +1,20 @@
-import { groupRegistrationMockResponse } from './../../../api/registration-mock-data';
-import { TGroupRegistered } from './../../../model/types';
+import { TFormResponse } from './../../../model/types';
 import { GroupRegistrationModel } from './../../../model/GroupRegistrationModel';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { ConfirmComponent } from '../../../components/confirm/confirm.component'
+import { RegistrationAPI } from '../../../api/RegistrationAPI';
 
 const locations = ['location-1', 'location-2', 'location-3'];
 const times = ['9:30 - 10:00', '10:00 – 10:30', '10:30 – 11:00'];
+const inputRef = {
+    "name": "input_1",
+    "email": "input_2",
+    "mobile": "input_3",
+    "time": "input_4",
+    "location": "input_5"
+};
 
 @IonicPage()
 @Component({
@@ -51,29 +58,37 @@ export class GroupReservation {
 
 		if (!this.registrationForm.valid) return;
 
-		this.registrationModel.name = this.registrationForm.controls['name'].value
-		this.registrationModel.email = this.registrationForm.controls['email'].value
-		this.registrationModel.mobile = this.registrationForm.controls['mobile'].value
-		this.registrationModel.time = this.registrationForm.controls['time'].value
-		this.registrationModel.location = this.registrationForm.controls['location'].value
+		const name = this.registrationModel.name = this.registrationForm.controls['name'].value
+		const email = this.registrationModel.email = this.registrationForm.controls['email'].value
+		const mobile = this.registrationModel.mobile = this.registrationForm.controls['mobile'].value
+		const time = this.registrationModel.time = this.registrationForm.controls['time'].value
+		const location = this.registrationModel.location = this.registrationForm.controls['location'].value
 		console.log('group reservation', this.registrationModel);
-		/*
-		* API call for posting registration
-		RegistrationAPI.setNewUser(this.registrationModel)
-		.then((success)=> {
-			console.log(success);
-		},
-		(error:any)=> {
-		console.log(error);
-		});
-		*/
 
-		// For now just use mock data
-		const response:TGroupRegistered = groupRegistrationMockResponse;
-		this.registrationModel.ticketNumber = response.result.ticket_number;
-		this.registrationModel.emailId = response.result.emailId;
+        // input reference
+        const payload = {
+            [inputRef.name]: name,
+            [inputRef.email]: email,
+            [inputRef.mobile]: mobile,
+            [inputRef.location]: location,
+            [inputRef.time]: time
+        }
 
-		this.confirmed(response.result.ticket_number);
+        RegistrationAPI.sendGroupReservation(payload)
+            .then((result: TFormResponse)=> {
+                console.log(result);
+
+                if (result.is_valid === true) {
+                    // For now just use mock data
+                    const ticket_number = 'Group:12345'
+                    this.confirmed(ticket_number);
+                } else {
+                    console.log ('error on submission, make appointment again ? what is the process? ')
+                }
+            },
+            (error:any)=> {
+                console.log(error);
+            });
 	}
 
 	private confirmed(ticket_number) {

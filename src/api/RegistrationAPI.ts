@@ -3,15 +3,13 @@ import * as Routes from './routes';
 
 export class RegistrationAPI extends Comms {
 
-    serverUrl = '/'
-
     constructor() {
         super();
     }
 
     public static createNewUser(registrationData:any):Promise<{}> {
         return new Promise((resolve, reject)=>{
-            this.postData(Routes.register, registrationData)
+            this.postJSONData(Routes.register, registrationData)
                 .then((response)=> {
                     resolve(response);
                 })
@@ -19,9 +17,9 @@ export class RegistrationAPI extends Comms {
         });
     }
 
-    public static setNewGroupReservation(registrationData:any):Promise<{}> {
+    public static sendGroupReservation(reserveData:any):Promise<{}> {
         return new Promise((resolve, reject)=>{
-            this.postData(Routes.groupReserve, registrationData)
+            this.postFormData(Routes.groupReserve, reserveData)
             .then((response:any)=> {
                 resolve(response);
             })
@@ -29,23 +27,13 @@ export class RegistrationAPI extends Comms {
         });
     }
 
-    public static setResendEmail(emailId:string):Promise<{}> {
-        return new Promise((resolve, reject)=>{
-            this.postData(`resendemail`, emailId)
-            .then((response:any)=> {
-                resolve(response);
-            })
-            .catch(reject);
-        });
-    }
-
-    public static setResetPassword(registrationID:string):Promise<{}> {
-        return new Promise((resolve, reject)=>{
-            this.postData(Routes.resetPassword, registrationID)
-            .then((response:any)=> {
-                resolve(response);
-            })
-            .catch(reject);
+    public static sendIndividualAppointment(appointmentData: any):Promise<{}> {
+        return new Promise((resolve, reject) => {
+            this.postFormData(Routes.individualReserve, appointmentData)
+                .then((response: any) => {
+                    resolve(response);
+                })
+                .catch(reject);
         });
     }
 }

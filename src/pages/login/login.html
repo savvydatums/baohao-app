@@ -12,17 +12,17 @@
     <ion-list>
       <ion-item>
         <ion-label floating>{{ 'LOGIN.REGISTRATION_ID' | translate }}</ion-label>
-        <ion-input type="text" [formControl]="credentialsForm.controls['registrationID']"></ion-input>
+        <ion-input type="text" [formControl]="credentialsForm.controls.registration_id"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label floating>{{ 'LOGIN.PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" [formControl]="credentialsForm.controls['password']"></ion-input>
+        <ion-input type="password" [formControl]="credentialsForm.controls.password"></ion-input>
       </ion-item>
     </ion-list>
 
-    <div *ngIf="!credentialsForm.controls.registrationID.valid || !credentialsForm.controls.password.valid">
-      <div class="error" *ngIf="!credentialsForm.controls.registrationID.valid && credentialsForm.controls.registrationID.dirty">
+    <div *ngIf="!credentialsForm.controls.registration_id.valid || !credentialsForm.controls.password.valid">
+      <div class="error" *ngIf="!credentialsForm.controls.registration_id.valid && credentialsForm.controls.registration_id.dirty">
           {{ 'LOGIN.ERROR_REGISTRATION_ID' | translate }}
       </div>
       <div class="error" *ngIf="!credentialsForm.controls.password.valid && credentialsForm.controls.password.dirty">

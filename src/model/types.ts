@@ -1,11 +1,23 @@
-export type TLoggedInUser = {
-    user: {
-        status: string, // show pending, approved or processing
-    },
-    cookie: string,
-    status: string,
-    error?: string|null,
+export type TLoginRequestPayload = {
+    registration_id: string;
+    password: string;
+    seconds: number;
 }
+
+export type TLoginResponse = {
+    status: string;
+    error?: string[];
+
+    cookie?: string;
+    cookie_name?: string;
+    user?: {
+        logged_in_status: string; // one of those PENDING | PROCESSING | DENY | APPROVED
+    }
+}
+
+export type TFormResponse = {
+    is_valid: boolean;
+} // try to get a confirmation as ticket number
 
 // ignore user info for now.
 // {

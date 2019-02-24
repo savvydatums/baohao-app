@@ -82,5 +82,27 @@ login {
         margin: 20px;
         width: 90%;
     }
+}
 
+.verify-email-alert {
+    .alert-head {
+        padding: 10px;
+    }
+
+    .alert-message {
+        padding: 10px 20px;
+        a {
+            background: #1d7f8a;
+            color: white;
+            display: block;
+            margin-top: 10px;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        strong {
+            display: block;
+            margin-bottom: 25px 0;
+        }
+    }
 }

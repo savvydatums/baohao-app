@@ -76,9 +76,7 @@ export class IndividualReservationPage {
 				} else {
 					this.showError(result.message);
 				}
-			},
-			(error:any)=> {
-				console.log(error);
+			},(error:any) => {
 				this.showError(error);
 			});
 	}
@@ -94,7 +92,7 @@ export class IndividualReservationPage {
 
 	private showError (message) {
 		const alert = this.alertCtrl.create({
-			title: 'Create Account Failed!',
+			title: this.translate.translations.CREATE_FAILED,
 			message: message,
 			buttons: [{
 				text: this.translate.translations.GLOBA_CANCEL_BUTTON_LABEL

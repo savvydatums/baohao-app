@@ -48,7 +48,9 @@
         "TERMS_CONTENT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum rutrum risus non ultrices. Vestibulum dapibus, neque a dictum pellentesque, mauris nisi facilisis dolor, quis tincidunt arcu justo non libero.",
         "FULL_SCREEN_LABEL": "Full screen",
         "TERMS_LABEL": "Terms of usage",
-        "TERMS_AGREE_LABEL": "You agree to our terms of usage"
+        "TERMS_AGREE_LABEL": "You agree to our terms of usage",
+        "CREATE_FAILED": "Create Account Failed!",
+        "EMAIL_NOT_VARIFIED_TITLE": "Email not Varify!"
     },
 
     "PASSWORD_RESET" : {
