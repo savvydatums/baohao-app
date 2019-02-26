@@ -17,6 +17,7 @@ export class ProfilePage {
 	profileForm: FormGroup;
     companies: Object;
     isSubmitSuccess: boolean;
+	newPassword: string|null;
 
 	constructor(
 		public navCtrl: NavController,
@@ -38,7 +39,8 @@ export class ProfilePage {
             birth: ['', Validators.required],
 			gender: ['', Validators.required]
         });
-        this.isSubmitSuccess = false;
+		this.isSubmitSuccess = false;
+		this.newPassword = null;
 	}
 
 	ngAfterViewInit() {
@@ -67,8 +69,6 @@ export class ProfilePage {
     }
 
     public onUpdate () {
-
-        console.log (this.profile)
         const controls = this.profileForm.controls
 
         const requestPayload = {
@@ -85,18 +85,18 @@ export class ProfilePage {
         console.log('requestPayload', requestPayload)
 
 		UserAPI.updateUser(requestPayload)
-            .then((result)=> {
+            .then((result:any)=> {
                 console.log(result);
                 this.sendPopup(result.status !== 'ok')
             },
             (error:any)=> {
-                console.log(error);
+				this.sendPopup(true, error)
             });
     }
 
-    private sendPopup (isFail) {
+    private sendPopup (isFail, info?) {
         const title = isFail ? 'Update Failed!' : 'Update Succeed!'
-        const message = isFail ? 'we can not update it now, try again later': 'update succeed!'
+		const message = isFail ? (info || 'we can not update it now, try again later') : 'update succeed!'
 
         const alert = this.alertCtrl.create({
             title: title,
@@ -107,6 +107,49 @@ export class ProfilePage {
         })
 
         alert.present()
-    }
+	}
 
+	public promptResetPassword () {
+		const alert = this.alertCtrl.create({
+			title: 'ResetPassword',
+			message: 'once reset, the next time you login, it will be using the new password.',
+			inputs: [{
+				name: 'new_password',
+				placeholder: 'New Password',
+				type: 'password'
+			}],
+			buttons: [{
+				text: 'Cancel'
+			},{
+				text: 'Submit',
+				handler: data => {
+				   	console.log(JSON.stringify(data)); //to see the object
+					this.submitNewPassword(data.new_password)
+				}
+			}],
+			cssClass: 'reset-popup',
+			enableBackdropDismiss: false
+		})
+
+		alert.present()
+	}
+
+	public submitNewPassword (newPass) {
+		if (newPass && newPass.length > 0) {
+			const payload = {
+				cookie: this.profile.cookie,
+				password: newPass
+			}
+
+			UserAPI.sendResetPassword(payload)
+				.then((result: any) => {
+					this.sendPopup(result.status !== 'ok')
+				},
+				(error: any) => {
+					this.sendPopup(true, error)
+				});
+		} else {
+			this.sendPopup(true, 'Input Field is empty')
+		}
+	}
 }

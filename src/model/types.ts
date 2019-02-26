@@ -1,7 +1,8 @@
 export type TLoginRequestPayload = {
     registration_id: string;
     password: string;
-    seconds: number;
+	seconds: string;
+	username?: string;
 }
 
 export type TLoginResponse = {
@@ -15,9 +16,14 @@ export type TLoginResponse = {
     }
 }
 
+export type TRegisteredResponse = {
+	code: number;
+	message: string;
+}
+
 export type TFormResponse = {
     is_valid: boolean;
-} // try to get a confirmation as ticket number
+}
 
 // ignore user info for now.
 // {
@@ -25,11 +31,6 @@ export type TFormResponse = {
 //     "cookie": "testyuser_editor2|1550548435|S5yFfbHpv67XmLK1ppi5NdH5OxDVwc8XG4xjJVYMFMv|7f91426d37d9967b2ecbff22438ccf6c48420fad3a7936ab0901b7478487519a",
 //     "cookie_name": "wordpress_logged_in_47d09ac172f64910fd18721af47ca0ff",
 // }
-
-export type TRegistered = {
-    result: { userId: number, emailId: number },
-    error: null
-}
 
 export type TGroupRegistered = {
     result: { ticket_number: string, emailId: number },

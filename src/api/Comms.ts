@@ -40,11 +40,10 @@ export class Comms {
 
     // this change to form data
     private static basic(url = ``, data = {}, method=``):Promise<{}> {
-        // Default options are marked with *
           return fetch(url, {
               method: method,
               referrer: "no-referrer",
-              body: data,
+              body: data
           })
           .then(response => response.json()) // parses response to JSON
     }

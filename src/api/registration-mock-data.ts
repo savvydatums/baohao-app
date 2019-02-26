@@ -1,7 +1,6 @@
 import {
     TGroupRegistered,
-    TResendEmail,
-    TRegistered
+    TResendEmail
 } from './../model/types';
 import { ResponseStatus, temp_cookie, LoggedInStatus } from './Comms';
 

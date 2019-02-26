@@ -27,7 +27,7 @@ export class DashboardPage {
   	}
 
 	ionViewDidLoad() {
-		redirectIfNotLogin(this.navCtrl, this.profile);
+		//redirectIfNotLogin(this.navCtrl, this.profile);
 	}
 
   	ngAfterViewInit() {

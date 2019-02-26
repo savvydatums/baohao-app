@@ -18,7 +18,7 @@ export class UserAPI extends Comms {
         });
     }
 
-    public static updateUser(userNewData): Promise<{}> {
+    public static updateUser(userNewData:any): Promise<{}> {
         return new Promise((resolve, reject) => {
             this.postFormData(Routes.updateUserInfo, userNewData)
                 .then((response) => {
@@ -28,9 +28,9 @@ export class UserAPI extends Comms {
         });
     }
 
-    public static setResetPassword(registrationID:string):Promise<{}> {
+    public static sendResetPassword(newPasswordPayload:any):Promise<{}> {
         return new Promise((resolve, reject)=>{
-            this.postFormData(Routes.resetPassword, registrationID)
+			this.postFormData(Routes.resetPassword, newPasswordPayload)
             .then((response:any)=> {
                 resolve(response);
             })

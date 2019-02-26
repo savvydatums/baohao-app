@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { fetchCompaniesFromLocale } from '../../../utils/Data-Fetch'
 import { RegistrationAPI } from '../../../api/RegistrationAPI';
 import { ResponseStatus } from '../../../api/Comms';
+import { TRegisteredResponse } from '../../../model/types';
 
 @IonicPage()
 @Component({
@@ -69,8 +70,7 @@ export class IndividualReservationPage {
 		console.log(this.registrationModel)
 
 		RegistrationAPI.createNewUser(this.registrationModel)
-			.then((result)=> {
-				console.log(result);
+			.then((result: TRegisteredResponse)=> {
 				if (result.code == ResponseStatus.SUCCESS) {
 					this.confirmed();
 				} else {
