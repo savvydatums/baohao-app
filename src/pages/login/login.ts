@@ -37,18 +37,19 @@ export class LoginPage {
 	}
 
 	ionViewDidLoad() {
-		//setTimeout(() => this.navController.push(DashboardPage), 1000); // this is only for testing
+		setTimeout(() => this.onSignIn(), 1000); // this is only for testing
 	}
 
   	public onSignIn() {
-		if (this.credentialsForm.invalid) {
-			this.loginError = true;
-			return;
-		}
+		// if (this.credentialsForm.invalid) {
+		// 	this.loginError = true;
+		// 	return;
+		// }
 
-		const registration_id = this.credentialsForm.controls.registration_id.value;
-		const password = this.credentialsForm.controls.password.value;
-
+		//const registration_id = this.credentialsForm.controls.registration_id.value;
+		//const password = this.credentialsForm.controls.password.value;
+		const registration_id = 'testing_jimmy';
+		const password = 'P@ssw0rd';
 
 		const requestData = {
 			registration_id,
@@ -60,7 +61,6 @@ export class LoginPage {
 		UserAPI.userLogin(requestData)
 			.then((result: TLoginResponse) => {
 				console.log(result);
-
 				if (result.status == 'ok') {
 					this.profile.setUserInfo(result.cookie, result.user)
 					this.goToPageBasedOnUserStatus(result.user.logged_in_status)
@@ -88,6 +88,9 @@ export class LoginPage {
 		// 	this.navController.push(PaymentPage);
 		// }
 	}
+
+	private
+
 
 	private verifyEmail (message) {
 		const lang = this.translate.currentLang || this.translate.defaultLang

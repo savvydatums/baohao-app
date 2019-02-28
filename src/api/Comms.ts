@@ -54,6 +54,10 @@ export const ResponseStatus = {
     ERROR: 'error'
 }
 
+export const InsightResponseStatus = {
+	SUCCESS : "ok"
+}
+
 export const LoggedInStatus = {
     'PENDING': 'PENDING', // status => inactive
     'PROCESSING': 'PROCESSING', // payment succees --> not collected

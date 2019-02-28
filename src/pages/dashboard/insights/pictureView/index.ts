@@ -15,28 +15,25 @@ import { InsightsModel } from '../../../../model/InsightsModel';
 // http://idangero.us/swiper/demos/ --> get it from here
 export class PictureView {
 
-  categoriesCount: object;
-  searchValue: string;
-  categoryColors: object;
+	searchValue: string;
+	categoryColors: object;
 
-  @ViewChild(forwardRef(() => HeaderComponent)) header
-  @ViewChild(forwardRef(() => SearchBarComponent)) searchBar
+	@ViewChild(forwardRef(() => HeaderComponent)) header
+	@ViewChild(forwardRef(() => SearchBarComponent)) searchBar
 
-  constructor(
-    public navCtrl: NavController,
-    public insights: InsightsModel,
-    public translate: TranslateService) {
-  }
+	constructor(
+		public navCtrl: NavController,
+		public insights: InsightsModel,
+		public translate: TranslateService) {
+	}
 
-  ionViewDidLoad() {
-    this.insights.setShownContent();
-    this.header.setTheme(THEME.PICTURE);
-    this.categoriesCount = this.insights.getCategoriesCount();
-  }
+	ionViewDidLoad() {
+		this.header.setTheme(THEME.PICTURE);
+	}
 
-  public renderTimeStamp(timestamp: number) {
-    const time = parseInt(timestamp + '000')
-    return new Date(time).toDateString()
-  }
+	public renderTimeStamp(timestamp: number) {
+		const time = parseInt(timestamp + '000')
+		return new Date(time).toDateString()
+	}
 
 }

@@ -23,7 +23,7 @@ export class IndividualReservationPage {
 	constructor(
 		public navController: NavController,
 		public modalCtrl: ModalController,
-		public registrationModel: RegistrationModel,
+		public registration: RegistrationModel,
 		public translate: TranslateService,
 		private formBuilder: FormBuilder,
 		private alertCtrl: AlertController) {
@@ -54,22 +54,22 @@ export class IndividualReservationPage {
 
 	public onRegister () {
 
-		this.registrationModel.lastname = this.registrationForm.controls['lastname'].value;
-		this.registrationModel.firstname = this.registrationForm.controls['firstname'].value;
-		this.registrationModel.email = this.registrationForm.controls['email'].value;
-		this.registrationModel.mobile = this.registrationForm.controls['mobile'].value;
-		this.registrationModel.companyName = this.registrationForm.controls['companyName'].value;
-		this.registrationModel.jobTitle = this.registrationForm.controls['jobTitle'].value;
-		this.registrationModel.dob = this.registrationForm.controls['dob'].value;
-		this.registrationModel.gender = this.registrationForm.controls['gender'].value;
+		this.registration.lastname = this.registrationForm.controls['lastname'].value;
+		this.registration.firstname = this.registrationForm.controls['firstname'].value;
+		this.registration.email = this.registrationForm.controls['email'].value;
+		this.registration.mobile = this.registrationForm.controls['mobile'].value;
+		this.registration.companyName = this.registrationForm.controls['companyName'].value;
+		this.registration.jobTitle = this.registrationForm.controls['jobTitle'].value;
+		this.registration.dob = this.registrationForm.controls['dob'].value;
+		this.registration.gender = this.registrationForm.controls['gender'].value;
 
 		// reassign
-		this.registrationModel.username = this.registrationModel.registration_id
+		this.registration.username = this.registration.registration_id
 
 		// registrationID and password
-		console.log(this.registrationModel)
+		console.log(this.registration)
 
-		RegistrationAPI.createNewUser(this.registrationModel)
+		RegistrationAPI.createNewUser(this.registration)
 			.then((result: TRegisteredResponse)=> {
 				if (result.code == ResponseStatus.SUCCESS) {
 					this.confirmed();

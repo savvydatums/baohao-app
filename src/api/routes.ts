@@ -1,5 +1,6 @@
 export const baseApiPath = 'https://baoheuat.eastasia.cloudapp.azure.com/wordpress/index.php/'
-export const authPath = `${baseApiPath}api/auth/`
+//export const baseApiPath = 'https://13.70.23.104/wordpress/index.php/'
+const authPath = `${baseApiPath}api/auth/`
 
 // form submission (group registration)
 export const groupReserve = `${baseApiPath}wp-json/gf/v2/forms/2/submissions`
@@ -13,3 +14,10 @@ export const login = `${authPath}generate_auth_cookie`
 export const getUserInfo = `${authPath}get_currentuserinfo`
 export const updateUserInfo = `${authPath}update_user`
 export const resetPassword = `${authPath}reset_password`
+
+// insights
+const insightPath = `${baseApiPath}api/es/`
+export const groupInsight = `${insightPath}get_group_insight`
+export const insightSummary = `${insightPath}get_insight_summary`
+export const insightByAuthorId = `${insightPath}get_insight_by_authorid`
+export const insightTotalAmount = `${insightPath}get_group_total_amount`

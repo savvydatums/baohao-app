@@ -7,7 +7,7 @@
     "GLOBA_CANCEL_BUTTON_LABEL": "Cancel",
 
     "START_DESC": "MyInsurBox is Your tool to use Big Data to uncover sales opportunity!",
-    "START_BUTTON": "Get Started",
+	"START_BUTTON": "Get Started",
 
     "LOGIN" : {
         "REGISTRATION_ID": "Registration ID",
@@ -156,5 +156,16 @@
         "LOCATION_LABEL": "Location",
         "CHANGE_APPOINTMENT_TEXT": "Change Your appointment",
         "UPDATE_SUCCESS": "We have updated youur appointment"
-    }
+	},
+
+	"INSIGHT": {
+		"GROUP": {
+			"employeeBenefits": "Employee Benefits",
+			"general": "General",
+			"investment": "Investment",
+			"medical": "Medical",
+			"others": "Others",
+			"savingAndLife": "Saving & Life"
+		}
+	}
 }

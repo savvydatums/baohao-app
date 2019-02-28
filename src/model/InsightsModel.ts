@@ -1,32 +1,54 @@
+export const groupIdMapping = {
+	medical: 1,
+	savingAndLife: 2,
+	investment: 3,
+	general: 4,
+	employeeBenefits: 5,
+	others: 6
+}
+
 export class InsightsModel {
 
-    public medicalList:object[];
-    public savingAndLife: object[];
-    public investment: object[];
-    public general: object[];
+	public currentGroupData:object[];
+	public currentGroupId: number;
+	public currentGroupName: string;
 
-    public shownList: object[];
-    public selected: string;
+	public summary: object;
+	public summaryInArray: object[];
 
-    constructor() {}
+    constructor() {
+		this.currentGroupId = 1; // default
+		this.summary = {}
+	}
 
-    // show each categories and it's count
-    public getCategoriesCount () {
-        return {
-            'Medical': this.medicalList.length,
-            'Saving & Life': this.savingAndLife.length,
-            'Investment': this.investment.length,
-            'General': this.general.length
-        }
-    }
+	public assignGroupData (results, groupId) {
+		console.log('getGroupInsight assign Data', results, groupId)
+		this.currentGroupData = results
+		this.currentGroupName = Object.keys(groupIdMapping)
+			.find(key => groupIdMapping[key] === parseInt(groupId))
+		this.currentGroupId = groupId
+	}
 
-    public setShownContent (listName?) {
-        if (!listName) {
-            this.shownList = this.medicalList
-            this.selected = 'medicalList'
-        } else {
-            this.shownList = this[listName]
-            this.selected = listName
-        }
-    }
+	public assignInsightSummary (results) {
+		console.log('assignSummarySimpleInfo assign Data', results)
+		this.summary = results
+		this.summaryInArray = []; // reset
+
+		for (let group in this.summary) {
+
+			let authors = []
+			for (let ppl in this.summary.author) {
+				authors.push(this.summary.author[ppl])
+			}
+
+			this.summaryInArray.push({
+				key: group,
+				amount: this.summary[group].amount,
+				author: authors,
+				categories: this.summary[group].categories || [],
+				groupId: this.summary[group].groupId
+			})
+		}
+
+	}
 }

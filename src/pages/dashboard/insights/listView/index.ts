@@ -14,37 +14,38 @@ import { keywordColors } from '../settings/settings';
 
 export class ListView {
 
-  categoriesCount: object;
-  searchValue: string;
-  categoryColors: object;
+	searchValue: string;
+	categoryColors: object;
 
-    @ViewChild(forwardRef(() => HeaderComponent)) header
-    @ViewChild(forwardRef(() => SearchBarComponent)) searchBar
+	@ViewChild(forwardRef(() => HeaderComponent)) header
+	@ViewChild(forwardRef(() => SearchBarComponent)) searchBar
 
-  constructor(
-    public navCtrl: NavController,
-    public insights: InsightsModel,
-    public translate: TranslateService,
-  ) {}
+	constructor(
+		public navCtrl: NavController,
+		public insights: InsightsModel,
+		public translate: TranslateService,
+	) {}
 
-  ionViewDidLoad () {
-    this.insights.setShownContent();
-    this.header.setTheme(THEME.LIST);
-    this.categoriesCount = this.insights.getCategoriesCount();
-  }
+	ionViewDidLoad () {
+		this.header.setTheme(THEME.LIST);
+	}
 
-  ionViewWillEnter() {
-    this.categoryColors = keywordColors;
-    this.configSearchBar();
-  }
+	ionViewWillEnter() {
+		this.categoryColors = keywordColors;
+		this.configSearchBar();
+	}
 
-  public renderTimeStamp (timestamp:number) {
-    const time = parseInt(timestamp + '000')
-    return new Date(time).toDateString()
-  }
+	public renderTimeStamp (timestamp:number) {
+		const time = parseInt(timestamp + '000')
+		return new Date(time).toDateString()
+	}
 
-  private configSearchBar():void {
-    this.searchBar.bindSearchCallBack(() => { console.log('input some search function callback') });
-    this.searchBar.bindCategoryCallback((key) => { this.insights.selected = key });
-  }
+	private configSearchBar():void {
+		// this.searchBar.bindSearchCallBack(() => {
+		// 	console.log('input some search function callback')
+		// });
+		// this.searchBar.bindCategoryCallback((key) => {
+		// 	console.log ('click', key)
+		// });
+	}
 }

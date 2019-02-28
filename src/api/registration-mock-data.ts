@@ -38,7 +38,7 @@ https://13.70.23.104/wordpress/index.php/wp-json/wp/v2/users/register
 }
 
 **/
-export const registrationMockResponse: TRegistered = {
+export const registrationMockResponse = {
     result: { userId: 12345, emailId:43210 },
     error: null
 }
