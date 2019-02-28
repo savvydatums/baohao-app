@@ -10,7 +10,8 @@
 		<ion-item-sliding>
 			<ion-item>
 				<ion-avatar item-start>
-					<img src="{{ item.profileImage }}">
+					<img *ngIf="item.source == 'fb'" src="assets/icon/facebook.svg">
+					<img *ngIf="item.source == 'wex'" src="assets/icon/wechat.svg">
 				</ion-avatar>
 				<div class="list-content">
 					<h3>{{ item.authorName }}</h3>
