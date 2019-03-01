@@ -6,8 +6,8 @@
 </div>
 <ul class="categories" *ngIf="!searchOpened">
 	<li *ngFor="let group of summary"
-		class="{{ selected === group.groupId ? 'active' : '' }}"
-		(click)="changeSelected(group.groupId)">
+		class="{{ selected == group.groupId ? 'active' : '' }}"
+		(click)="onGroupClick(group.groupId)">
 		{{ getGroupName(group.key) }} <span>{{ group.amount }}</span>
 	</li>
 </ul>

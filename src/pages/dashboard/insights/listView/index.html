@@ -6,8 +6,9 @@
 	</search-bar>
 </ion-header>
 <ion-content>
-	<ion-list *ngFor="let item of insights.currentGroupData">
-		<ion-item-sliding>
+	<ion-list>
+		<ion-item-sliding *ngFor="let item of insights.currentGroupData"
+			(click)="showInsightInfo(item)">
 			<ion-item>
 				<ion-avatar item-start>
 					<img *ngIf="item.source == 'fb'" src="assets/icon/facebook.svg">
@@ -20,9 +21,9 @@
 				<div class="list-label">
 					<div class="category-list">
 						<span *ngFor="let cat of item.categories"
-							class="{{ 'category-label cat-' + cat }}">
+							class="{{ 'keyword-label cat-' + cat }}">
 							{{ cat }}
-						</span><br/>
+						</span>
 					</div>
 					<span class="date">{{ renderTimeStamp(item.timestamp) }}</span>
 				</div>

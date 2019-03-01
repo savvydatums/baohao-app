@@ -21,7 +21,7 @@ import { ProfileModel } from '../model/ProfileModel';
 @NgModule({
   declarations: [
     MyApp,
-    ConfirmComponent,
+	ConfirmComponent,
     LoginPage,
     StartPage
   ],
@@ -40,7 +40,7 @@ import { ProfileModel } from '../model/ProfileModel';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    ConfirmComponent,
+	ConfirmComponent,
     LoginPage,
     StartPage,
     MyApp,

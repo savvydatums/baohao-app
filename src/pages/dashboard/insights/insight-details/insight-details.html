@@ -1,0 +1,14 @@
+<ion-content padding class="insight-content">
+	<p> Name: {{ insightData.authorName }}</p>
+	<p> Likes: {{ insightData.likes }}</p>
+	<p> Content: {{ insightData.content }}</p>
+	<div class="category-list" *ngFor="let cat of insightData.categories">
+		<p> {{ cat }}</p>
+	</div>
+	<p> Source: {{ insightData.source }}</p>
+	<p> Date: {{ renderTimeStamp(insightData.timestamp) }}</p>
+	<br/><br/><br/><br/><br/>
+	<button ion-button block round (click)="closeModal()">
+    	Close Details
+  	</button>
+</ion-content>

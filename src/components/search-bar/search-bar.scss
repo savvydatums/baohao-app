@@ -4,7 +4,7 @@ $green: #c0e566;
 
 search-bar {
     background: $darkColor;
-    width: 150%;
+    width: 100%;
     display: inline-block;
     padding: 10px 0 0;
     border-top: 1px solid $borderLight;
@@ -24,9 +24,11 @@ search-bar {
         padding-right: 15px;
     }
     ul {
-        display: table-cell;
-        padding-left: 60px;
-        line-height: 1.5em;
+		line-height: 1.5em;
+		width: max-content;
+		//position: absolute;
+		margin: 0;
+		padding-left: 60px;
     }
     li {
         color: white;

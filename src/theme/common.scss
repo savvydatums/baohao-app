@@ -169,11 +169,12 @@ listview {
         top: 20px;
         font-size: 11px;
 
-        .category-label {
+        .keyword-label {
             color: white;
-            padding: 4px 6px;
+            padding: 2px 6px;
             border-radius: 4px;
-            float: right;
+			float: right;
+			margin-left: 10px;
         }
         span {
             display: inline-block;
@@ -271,4 +272,17 @@ profile {
         padding: 10px;
         background: rgba(255, 255, 255, 0.1);
     }
+}
+
+.insight-header {
+	background: transparent;
+	color: white;
+}
+.insight-content {
+	background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5697cc);
+	color: white;
+
+	button {
+		background:#29567b;
+	}
 }

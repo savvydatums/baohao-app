@@ -89,9 +89,6 @@ export class LoginPage {
 		// }
 	}
 
-	private
-
-
 	private verifyEmail (message) {
 		const lang = this.translate.currentLang || this.translate.defaultLang
 		const alert = this.alertCtrl.create({

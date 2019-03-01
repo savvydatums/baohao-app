@@ -1,7 +1,7 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationModel } from '../../../model/RegistrationModel';
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { ConfirmComponent } from '../../../components/confirm/confirm.component';
 import { TranslateService } from '@ngx-translate/core';
 import { fetchCompaniesFromLocale } from '../../../utils/Data-Fetch'
@@ -22,7 +22,6 @@ export class IndividualReservationPage {
 
 	constructor(
 		public navController: NavController,
-		public modalCtrl: ModalController,
 		public registration: RegistrationModel,
 		public translate: TranslateService,
 		private formBuilder: FormBuilder,

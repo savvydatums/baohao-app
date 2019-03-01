@@ -1,5 +1,5 @@
 import { Component, ViewChild, forwardRef } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController } from 'ionic-angular';
 import { InsightsModel } from './../../../../model/InsightsModel';
 import { TranslateService } from '@ngx-translate/core';
 import { HeaderComponent, THEME } from '../../../../components/header/header';
@@ -24,6 +24,7 @@ export class ListView {
 		public navCtrl: NavController,
 		public insights: InsightsModel,
 		public translate: TranslateService,
+		public modalCtrl: ModalController,
 	) {}
 
 	ionViewDidLoad () {
@@ -47,5 +48,13 @@ export class ListView {
 		// this.searchBar.bindCategoryCallback((key) => {
 		// 	console.log ('click', key)
 		// });
+	}
+
+	public showInsightInfo(info) {
+		let insightModal = this.modalCtrl.create(
+			'InsightDetailsPage', { profile: info }
+		);
+
+		insightModal.present();
 	}
 }
