@@ -22,7 +22,8 @@ export type TRegisteredResponse = {
 }
 
 export type TFormResponse = {
-    is_valid: boolean;
+	is_valid: boolean;
+	confirmation_message:string;
 }
 
 // ignore user info for now.

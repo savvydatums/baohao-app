@@ -36,5 +36,5 @@ export class UserAPI extends Comms {
             })
             .catch(reject);
         });
-    }
+	}
 }

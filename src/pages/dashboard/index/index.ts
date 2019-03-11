@@ -40,7 +40,7 @@ export class DashboardPage {
 	private getGroupInfo (cookie, groupId) {
 		let self = this
 		InsightAPI.getGroupInsight(cookie, groupId)
-			.then(result => {
+			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
 					self.insights.assignGroupData(result.results, groupId)
 					self.getInsightSummary(cookie)
@@ -55,7 +55,7 @@ export class DashboardPage {
 
 	private getInsightSummary(cookie) {
 		InsightAPI.getInsightSummary(cookie)
-			.then(result => {
+			.then((result: any) => {
 				if(result.status == InsightResponseStatus.SUCCESS) {
 					this.insights.assignInsightSummary(result.results)
 					this.showLoading(false)
@@ -69,8 +69,6 @@ export class DashboardPage {
 
 	private showLoading (show) {
 		this.loading = show
-		// TODO: block with a loading screen
-		console.log('loading', show);
 	}
 
 	private showError (message) {

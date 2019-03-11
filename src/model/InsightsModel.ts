@@ -13,7 +13,7 @@ export class InsightsModel {
 	public currentGroupId: number;
 	public currentGroupName: string;
 
-	public summary: object;
+	public summary: any;
 	public summaryInArray: object[];
 
     constructor() {

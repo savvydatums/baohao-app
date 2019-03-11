@@ -41,6 +41,12 @@ export class ListView {
 		return new Date(time).toDateString()
 	}
 
+	public shortenContent (content) {
+		const lang = this.translate.currentLang || this.translate.defaultLang
+		let stringNumber = lang == 'en' ? 8 : 20
+		return content.substring(0, stringNumber);
+	}
+
 	private configSearchBar():void {
 		// this.searchBar.bindSearchCallBack(() => {
 		// 	console.log('input some search function callback')

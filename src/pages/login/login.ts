@@ -10,6 +10,7 @@ import { UserAPI } from '../../api/UserAPI';
 import { TLoginResponse } from '../../model/types';
 import { ProfileModel } from '../../model/ProfileModel';
 import { LoggedInStatus } from '../../api/Comms';
+import { ProcessingPage } from '../activate/processing/processing';
 
 const cookieTimes = 60 * 60;
 
@@ -46,10 +47,10 @@ export class LoginPage {
 		// 	return;
 		// }
 
-		//const registration_id = this.credentialsForm.controls.registration_id.value;
-		//const password = this.credentialsForm.controls.password.value;
+		// const registration_id = this.credentialsForm.controls.registration_id.value;
+		// const password = this.credentialsForm.controls.password.value;
 		const registration_id = 'testing_jimmy';
-		const password = 'P@ssw0rd';
+		const password = 'passw@rd';
 
 		const requestData = {
 			registration_id,
@@ -75,18 +76,25 @@ export class LoginPage {
 	}
 
 	private goToPageBasedOnUserStatus (status) {
-		if (LoggedInStatus.PENDING !== status) { // temp
-			this.navController.push(PaymentPage);
-		} else {
-			this.navController.push(DashboardPage);
+
+		switch (status) {
+			case LoggedInStatus.PENDING:
+				this.navController.push(PaymentPage);
+			break;
+
+			case LoggedInStatus.PROCESSING:
+				this.navController.push(ProcessingPage);
+			break;
+
+			case LoggedInStatus.APPROVED:
+				this.navController.push(DashboardPage);
+			break;
+
+			default:
+				this.navController.push(DashboardPage);
+			break;
 		}
-		// if (regID == 101 && password == 101) {
-		// 	this.navController.push(ProcessingPage); // no status for processing page yet
-		// } else if (regID == 102 && password == 102) {
-		// 	this.navController.push(DashboardPage);
-		// } else {
-		// 	this.navController.push(PaymentPage);
-		// }
+
 	}
 
 	private verifyEmail (message) {

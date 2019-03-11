@@ -125,25 +125,27 @@ confirm {
 .cat-entertainment { background-color: #45f7ed }
 .cat-wineDine { background-color: #7982ff }
 .cat-traveling { background-color: #f36161 }
-.cat-shopping { background-color: #f7d945 }
+.cat-shopping { background-color: #f7d945; color: black; }
 .cat-health { background-color: #45f78f }
 .cat-parenting { background-color: #45f7ed }
 .cat-immigration { background-color: #7982ff }
 .cat-remittance { background-color: #f36161 }
-.cat-medical { background-color: #f7d945 }
+.cat-medical { background-color: #f7d945; color: black; }
 .cat-housing { background-color: #45f78f }
 .cat-vaccination { background-color: #45f7ed }
 .cat-marriage { background-color: #7982ff }
 .cat-pregnancy { background-color: #f36161 }
-.cat-hospital { background-color: #f7d945 }
+.cat-hospital { background-color: #f7d945; color: black; }
 .cat-sick { background-color: #45f78f }
 .cat-injury { background-color: #45f7ed }
 .cat-accident { background-color: #7982ff }
 .cat-claims { background-color: #f36161 }
-.cat-health { background-color: #f7d945 }
+.cat-health { background-color: #f7d945; color: black; }
 .cat-conscious { background-color: #45f78f }
 .cat-unhealthy { background-color: #45f7ed }
 .cat-lifestyle { background-color: #7982ff }
+.cat-healthConscious { background-color: #f36161 }
+.cat-unhealthyLifestyle { background-color: #f36161 }
 
 listview {
     background-image: radial-gradient(circle at 105% 0, #1d7f8a, #3e6a90);
@@ -160,7 +162,8 @@ listview {
         font-size: 0.9em;
         p {
             color: white;
-            font-size: 1.2rem;
+			font-size: 1.2rem;
+			margin-top: 10px;
         }
     }
     .list-label {
@@ -180,14 +183,16 @@ listview {
             display: inline-block;
         }
         .date {
-            margin-top: 15px;
+			margin-top: 30px;
+			position: absolute;
+			right: 0;
         }
     }
     ion-list.list-ios, ion-list.list-md{
         margin: 0;
     }
     ion-label.label-ios, ion-label.label-md {
-        margin: 20px 8px 20px 0;
+        margin: 15px 8px 15px 0;
     }
     .list-ios ion-item-options,
     .list-md ion-item-options {
@@ -274,15 +279,31 @@ profile {
     }
 }
 
-.insight-header {
-	background: transparent;
-	color: white;
+dashboardpage {
+	.scroll-content{
+		background-image: radial-gradient(circle at 105% 0, #1d7f8a, #3e6a90);
+	}
 }
-.insight-content {
-	background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5697cc);
-	color: white;
 
-	button {
-		background:#29567b;
+.load-wrapper {
+	background:rgba(0, 0, 0, 0.5);
+	color: rgba(255, 255, 255, 0.8);
+	height: 100px;
+	width: 100px;
+	position: absolute;
+	left: 50%;
+	margin-left: -50px;
+	top: 50%;
+	margin-top: -50px;
+	text-align: center;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.contact-info {
+	margin-top: 50px;
+	a {
+		display: inline-block;
+		vertical-align: top;
 	}
 }

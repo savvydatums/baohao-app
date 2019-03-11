@@ -1,14 +1,23 @@
 <ion-content padding class="insight-content">
-	<p> Name: {{ insightData.authorName }}</p>
-	<p> Likes: {{ insightData.likes }}</p>
-	<p> Content: {{ insightData.content }}</p>
-	<div class="category-list" *ngFor="let cat of insightData.categories">
-		<p> {{ cat }}</p>
+	<h4> {{ insightData.authorName }}</h4>
+	<h3> Story </h3>
+	<div class="story-wrap">
+		<div class="story-item" *ngFor="let story of authorData">
+			<h4>{{ renderTimeStamp(story.timestamp) }}</h4>
+			<p> {{ story.content }} </p>
+			<div class="source-icon">
+				<img *ngIf="story.source == 'fb'" src="assets/icon/facebook.svg">
+				<img *ngIf="story.source == 'wex'" src="assets/icon/wechat.svg">
+			</div>
+			<div class="category-list">
+				<span *ngFor="let cat of story.categories" class="cat cat-{{cat}}"> {{ cat }}</span>
+				<div class="clear"></div>
+			</div>
+		</div>
 	</div>
-	<p> Source: {{ insightData.source }}</p>
-	<p> Date: {{ renderTimeStamp(insightData.timestamp) }}</p>
+
 	<br/><br/><br/><br/><br/>
 	<button ion-button block round (click)="closeModal()">
-    	Close Details
-  	</button>
+		Close Details
+	</button>
 </ion-content>

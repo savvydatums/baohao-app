@@ -1,46 +1,49 @@
 <ion-content padding class="processing">
-  <div class="head-link">
-    <a mailTo="support@baohetec.com">
-      <img class="icon" src="assets/imgs/icon-email-dark.png" srcset="assets/imgs/icon-email-dark@2x.png 2x, assets/imgs/icon-email-dark@3x.png 3x" />
-    </a>
-    <a tel="852-5XXXXXX">
-      <img class="icon" src="assets/imgs/icon-phone-dark.png" srcset="assets/imgs/icon-phone-dark@2x.png 2x, assets/imgs/icon-phone-dark@3x.png 3x" />
-    </a>
-  </div>
-  <div class="inner-90">
-    <img src="assets/imgs/image-on-the-way.png"
-        srcset="assets/imgs/image-on-the-way@2x.png 2x, assets/imgs/image-on-the-way@3x.png 3x" />
-    <h4> {{ 'PROCESSING.TITLE' | translate }}</h4>
-    <p [innerHTML]="'PROCESSING.BODY' | translate "></p>
+	<div class="inner-90">
+		<img src="assets/imgs/image-on-the-way.png"
+			srcset="assets/imgs/image-on-the-way@2x.png 2x, assets/imgs/image-on-the-way@3x.png 3x" />
+		<h4> {{ 'PROCESSING.TITLE' | translate }}</h4>
+		<p [innerHTML]="'PROCESSING.BODY' | translate "></p>
 
-    <div class="form-wrap">
-      <h6 [innerHTML]="'PROCESSING.FORM_TITLE' | translate "></h6>
-      <form [formGroup]="appointmentForm" class="dark-text">
-        <ion-list>
-          <ion-item>
-            <ion-label floating>{{ 'PROCESSING.TIME_LABEL' | translate }}</ion-label>
-            <ion-select [formControl]="appointmentForm.controls['time']" [disabled]="editable">
-              <ion-option *ngFor="let time of times" value="{{time}}"> {{ time }} </ion-option>
-            </ion-select>
-          </ion-item>
+		<div class="contact-info">
+			<p>
+				<span><img class="icon" src="assets/imgs/icon-email-dark.png" srcset="assets/imgs/icon-email-dark@2x.png 2x, assets/imgs/icon-email-dark@3x.png 3x" /></span>
+				<a mailTo="support@baohetec.com">support@baohetec.com</a>
+			</p>
+			<p>
+				<span><img class="icon" src="assets/imgs/icon-phone-dark.png" srcset="assets/imgs/icon-phone-dark@2x.png 2x, assets/imgs/icon-phone-dark@3x.png 3x" /></span>
+				<a tel="852-5XXXXXX">852-5XXXXXX</a>
+			</p>
+		</div>
 
-          <ion-item>
-            <ion-label floating>{{ 'PROCESSING.LOCATION_LABEL' | translate }}</ion-label>
-            <ion-select [formControl]="appointmentForm.controls['location']" [disabled]="editable">
-              <ion-option *ngFor="let location of locations" value="{{location}}"> {{ location }} </ion-option>
-            </ion-select>
-          </ion-item>
-        </ion-list>
-      </form>
-      <div class="action-btn">
-        <a *ngIf="editable" class="change-appointment" (click)="onEdit()" >{{ 'PROCESSING.CHANGE_APPOINTMENT_TEXT' | translate }}</a>
-        <a *ngIf="!editable"class="submit" (click)="onChange()">
-          <b>{{ 'GLOBAL_SUBMIT_BUTTON_LABEL' | translate }}</b>
-        </a>
-      </div>
-    </div>
-    <div *ngIf="submitted" class="success-msg">
-      {{ 'PROCESSING.UPDATE_SUCCESS' | translate }}
-    </div>
-  </div>
+		<!-- <div class="form-wrap">
+		<h6 [innerHTML]="'PROCESSING.FORM_TITLE' | translate "></h6>
+		<form [formGroup]="appointmentForm" class="dark-text">
+			<ion-list>
+			<ion-item>
+				<ion-label floating>{{ 'PROCESSING.TIME_LABEL' | translate }}</ion-label>
+				<ion-select [formControl]="appointmentForm.controls['time']" [disabled]="editable">
+				<ion-option *ngFor="let time of times" value="{{time}}"> {{ time }} </ion-option>
+				</ion-select>
+			</ion-item>
+
+			<ion-item>
+				<ion-label floating>{{ 'PROCESSING.LOCATION_LABEL' | translate }}</ion-label>
+				<ion-select [formControl]="appointmentForm.controls['location']" [disabled]="editable">
+				<ion-option *ngFor="let location of locations" value="{{location}}"> {{ location }} </ion-option>
+				</ion-select>
+			</ion-item>
+			</ion-list>
+		</form>
+		<div class="action-btn">
+			<a *ngIf="editable" class="change-appointment" (click)="onEdit()" >{{ 'PROCESSING.CHANGE_APPOINTMENT_TEXT' | translate }}</a>
+			<a *ngIf="!editable"class="submit" (click)="onChange()">
+			<b>{{ 'GLOBAL_SUBMIT_BUTTON_LABEL' | translate }}</b>
+			</a>
+		</div>
+		</div>
+		<div *ngIf="submitted" class="success-msg">
+		{{ 'PROCESSING.UPDATE_SUCCESS' | translate }}
+		</div> -->
+  	</div>
 </ion-content>

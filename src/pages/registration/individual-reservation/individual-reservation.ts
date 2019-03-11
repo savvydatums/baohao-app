@@ -48,7 +48,7 @@ export class IndividualReservationPage {
 
 	ngAfterViewInit() {
 		const store = this.translate.store
-		this.companies = fetchCompaniesFromLocale (store.currentLang, store.defaultLang, store.translations )
+		this.companies = fetchCompaniesFromLocale (store.currentLang, store.defaultLang, store.translations)
 	}
 
 	public onRegister () {

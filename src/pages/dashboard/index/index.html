@@ -1,5 +1,8 @@
-<ion-content *ngIf="loading" padding class="intro-bg">
-	<p> this is loading </p>
+<ion-content *ngIf="loading" class="loading">
+	<div class="load-wrapper">
+		<ion-spinner color="light"></ion-spinner>
+		<p> Loading </p>
+	</div>
 </ion-content>
 <ion-tabs *ngIf="!loading" selectedIndex="1" ionTabsDidChange="tabChange">
   <ion-tab [root]="tabProfile" tabTitle="Profile" tabIcon="person"></ion-tab>

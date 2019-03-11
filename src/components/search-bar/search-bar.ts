@@ -12,7 +12,7 @@ import { InsightResponseStatus } from '../../api/Comms';
 })
 export class SearchBarComponent {
 
-	@Input() summary: [];
+	@Input() summary: object[];
   	@Input() selected: string;
   	searchOpened: boolean;
   	inputValue: string;
@@ -37,7 +37,7 @@ export class SearchBarComponent {
 		let self = this
 
 		InsightAPI.getGroupInsight(this.profile.cookie, groupId)
-			.then(result => {
+			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
 					self.insights.assignGroupData(result.results, groupId)
 					self.navCtrl.setRoot(self.navCtrl.getActive().component);
