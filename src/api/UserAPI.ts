@@ -37,4 +37,14 @@ export class UserAPI extends Comms {
             .catch(reject);
         });
 	}
+
+	public static sendForgetPassword(username: string): Promise<{}> {
+		return new Promise((resolve, reject) => {
+			this.postFormData(Routes.forgetPassword, { username })
+				.then((response: any) => {
+					resolve(response);
+				})
+				.catch(reject);
+		});
+	}
 }

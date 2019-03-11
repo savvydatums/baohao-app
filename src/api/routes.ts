@@ -14,6 +14,7 @@ export const login = `${authPath}generate_auth_cookie`
 export const getUserInfo = `${authPath}get_currentuserinfo`
 export const updateUserInfo = `${authPath}update_user`
 export const resetPassword = `${authPath}reset_password`
+export const forgetPassword = `${baseApiPath}api/forgot_password/forgot_password`
 
 // insights
 const insightPath = `${baseApiPath}api/es/`

@@ -8,8 +8,8 @@ import { keywordColors } from '../settings/settings';
 
 @IonicPage({ name: "listView", segment: "listView" })
 @Component({
-  selector: 'listView',
-  templateUrl: 'index.html'
+	selector: 'listView',
+	templateUrl: 'index.html'
 })
 
 export class ListView {

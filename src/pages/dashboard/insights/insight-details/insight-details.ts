@@ -6,8 +6,8 @@ import { ProfileModel } from '../../../../model/ProfileModel';
 
 @IonicPage()
 @Component({
-  selector: 'page-insight-details',
-  templateUrl: 'insight-details.html',
+	selector: 'page-insight-details',
+	templateUrl: 'insight-details.html',
 })
 export class InsightDetailsPage {
 
@@ -24,12 +24,11 @@ export class InsightDetailsPage {
 	ionViewWillLoad() {
 		const authorInfo = this.navParams.get('profile');
 		this.insightData = authorInfo;
-		this.getAuthorInfo(this.profile.cookie, authorInfo.authorId, authorInfo.source );
-		console.log('ionViewDidLoad InsightDetailsPage', this.insightData);
+		this.getAuthorInfo(this.profile.cookie, authorInfo.authorId, authorInfo.source, authorInfo.categories[0]);
 	}
 
-	private getAuthorInfo (cookie, authorid, source) {
-		InsightAPI.getInsightByAuthorId(cookie, authorid, source)
+	private getAuthorInfo (cookie, authorid, source, category) {
+		InsightAPI.getInsightByAuthorId(cookie, authorid, source, category)
 			.then((result: any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
 					console.log('load author info', result);
