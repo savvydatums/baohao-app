@@ -47,4 +47,14 @@ export class UserAPI extends Comms {
 				.catch(reject);
 		});
 	}
+
+	public static logout(cookie: string): Promise<{}> {
+		return new Promise((resolve, reject) => {
+			this.postFormData(Routes.logout, { cookie })
+				.then((response: any) => {
+					resolve(response);
+				})
+				.catch(reject);
+		});
+	}
 }

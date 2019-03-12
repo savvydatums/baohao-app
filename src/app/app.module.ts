@@ -53,7 +53,7 @@ import { ProfileModel } from '../model/ProfileModel';
     InsightsModel,
     ProfileModel,
     StatusBar,
-    SplashScreen,
+	SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

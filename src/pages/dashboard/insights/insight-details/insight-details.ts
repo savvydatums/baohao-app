@@ -24,7 +24,8 @@ export class InsightDetailsPage {
 	ionViewWillLoad() {
 		const authorInfo = this.navParams.get('profile');
 		this.insightData = authorInfo;
-		this.getAuthorInfo(this.profile.cookie, authorInfo.authorId, authorInfo.source, authorInfo.categories[0]);
+		const category = authorInfo.categories[0];
+		this.getAuthorInfo(this.profile.cookie, authorInfo.authorId, authorInfo.source, category);
 	}
 
 	private getAuthorInfo (cookie, authorid, source, category) {

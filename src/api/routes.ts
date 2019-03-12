@@ -1,4 +1,4 @@
-export const baseApiPath = 'https://baoheuat.eastasia.cloudapp.azure.com/wordpress/index.php/'
+export const baseApiPath = 'https://baoheapi.tk/wordpress/index.php/'
 //export const baseApiPath = 'https://13.70.23.104/wordpress/index.php/'
 const authPath = `${baseApiPath}api/auth/`
 
@@ -15,6 +15,7 @@ export const getUserInfo = `${authPath}get_currentuserinfo`
 export const updateUserInfo = `${authPath}update_user`
 export const resetPassword = `${authPath}reset_password`
 export const forgetPassword = `${baseApiPath}api/forgot_password/forgot_password`
+export const logout = `${baseApiPath}api/logout_user/logout_user`
 
 // insights
 const insightPath = `${baseApiPath}api/es/`

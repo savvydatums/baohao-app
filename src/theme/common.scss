@@ -307,3 +307,18 @@ dashboardpage {
 		vertical-align: top;
 	}
 }
+
+.menu-content.menu-content-reveal.menu-content-open {
+	z-index: 2000;// put the content all the way to top
+}
+
+.side-nav {
+	background-color: #195a6f !important;
+	.item-ios {
+		padding-left: 16px;
+	}
+
+	.item-block .item-inner {
+	  border-color: #ffffff;
+	}
+}
