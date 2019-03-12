@@ -7,8 +7,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { ProfileModel } from '../model/ProfileModel';
 import { UserAPI } from '../api/UserAPI';
 import { LoginPage } from '../pages/login/login';
-import { FaqPage } from '../pages/dashboard/faq/faq';
-import { SupportPage } from '../pages/dashboard/support/support';
+import { FaqPage } from '../pages/dashboard/faq';
+import { SupportPage } from '../pages/dashboard/support';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,8 +29,6 @@ export class MyApp {
 		translate.setDefaultLang('en');
 
 		platform.ready().then(() => {
-			// Okay, so the platform is ready and our plugins are available.
-			// Here you can do any higher level native things you might need.
 			statusBar.styleDefault();
 			splashScreen.hide();
 		});

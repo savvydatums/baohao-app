@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { FaqPage } from './faq';
+import { FaqPage } from '.';
 
 @NgModule({
   declarations: [

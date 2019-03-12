@@ -322,3 +322,22 @@ dashboardpage {
 	  border-color: #ffffff;
 	}
 }
+
+
+.loading-s.loading-ios .loading-wrapper {
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+	.loading-content {
+		font-weight: normal;
+	}
+}
+
+support, faq {
+	background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5796cc);
+
+	.content-ios, .content-md, .toolbar-background-ios {
+		background-color: transparent;
+		color: white;
+		border: none;
+	}
+}

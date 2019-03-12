@@ -4,7 +4,8 @@
     "GLOBAL_NEXT_BUTTON_LABEL": "Next",
     "GLOBAL_CONTINUE_BUTTON_LABEL": "Continue",
     "GLOBAL_SUBMIT_BUTTON_LABEL": "Submit",
-    "GLOBA_CANCEL_BUTTON_LABEL": "Cancel",
+	"GLOBA_CANCEL_BUTTON_LABEL": "Cancel",
+	"GLOBA_SUBMIT_SUCCESS": "Your information has Submitted! Thank you for your support.",
 
     "START_DESC": "MyInsurBox is Your tool to use Big Data to uncover sales opportunity!",
 	"START_BUTTON": "Get Started",
@@ -167,5 +168,19 @@
 			"others": "Others",
 			"savingAndLife": "Saving & Life"
 		}
+	},
+
+	"SUPPORT": {
+		"BUG_REPORT_TITLE": "To Report Bug or Error",
+		"BUG_OPTION_LABEL": "Please select one of the following",
+		"BUG_REPORT_OPTIONS": [
+			"No result After 30 mins",
+			"No display",
+			"System hang up",
+			"Data not refreshing",
+			"Result not related",
+			"Others"
+		],
+		"Message": "If your bug is others, please explain what happen?"
 	}
 }
