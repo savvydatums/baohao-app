@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { ListView } from '../../pages/dashboard/insights/listView'
 import { PictureView } from '../../pages/dashboard/insights/pictureView'
+import { InsightsModel } from '../../model/InsightsModel';
 
 export const THEME = {
 	PICTURE: 'theme_picture',
@@ -16,8 +17,13 @@ export const THEME = {
 export class HeaderComponent {
 
 	isPicture: boolean;
-	constructor(public navCtrl: NavController) {}
+	constructor(
+		public navCtrl: NavController,
+		public modalCtrl: ModalController,
+		public insights: InsightsModel
+	) {}
 
+	// not done
 	public setTheme (theme:string) {
 		if (theme === THEME.PICTURE) {
 			this.isPicture = true;
@@ -28,6 +34,7 @@ export class HeaderComponent {
 		}
 	}
 
+	// not done
 	public renderTheme (theme:string) {
 		// TODO: add page transition when push https://ionicframework.com/docs/native/native-page-transitions/
 
@@ -38,4 +45,13 @@ export class HeaderComponent {
 			this.navCtrl.push(ListView, { currentSelect: 0 });
 		}
 	}
+
+	public getSummaryPopup () {
+		let insightModal = this.modalCtrl.create(
+			'InsightSummaryPage', { data: this.insights.summary }
+		);
+
+		insightModal.present();
+	}
+
 }

@@ -270,7 +270,7 @@ profile {
     .item-select .label-md,
     .item-datetime .label-md,
     .select-md .select-icon .select-icon-inner {
-      color: white;
+		color: white;
     }
     .error {
         margin-top: 20px;
@@ -340,4 +340,9 @@ support, faq {
 		color: white;
 		border: none;
 	}
+}
+
+.stripe-button-el {
+	margin: 0 10%;
+	width: 80%;
 }

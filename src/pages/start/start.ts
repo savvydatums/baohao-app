@@ -14,7 +14,7 @@ export class StartPage {
 
 
 	ngAfterViewInit() {
-		setTimeout(() => this.gotoLogin(), 1000); // this is only for testing
+		//setTimeout(() => this.gotoLogin(), 1000); // this is only for testing
 	}
 
 	public setLanguage(lan:string):void {
