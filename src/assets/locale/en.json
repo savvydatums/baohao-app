@@ -182,5 +182,11 @@
 			"Others"
 		],
 		"Message": "If your bug is others, please explain what happen?"
+	},
+
+	"INSIGHTS" : {
+		"SUMMARY" : {
+			"TITLE": "INSIGHT"
+		}
 	}
 }

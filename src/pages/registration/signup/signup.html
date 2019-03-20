@@ -36,6 +36,13 @@
             <ion-icon name="information-circle"></ion-icon>
             {{ 'SIGNUP.PASSWORD_ERROR' | translate }}
           </div>
+		</div>
+
+		<div *ngIf="registrationForm.controls.password.dirty">
+          <div class="error" *ngIf="registrationForm.controls.password.errors.incorrect">
+            <ion-icon name="information-circle"></ion-icon>
+            Password must include minimum 2 numbers and 2 letters
+          </div>
         </div>
 
         <div class="terms-label">

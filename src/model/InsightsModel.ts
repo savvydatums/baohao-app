@@ -30,7 +30,6 @@ export class InsightsModel {
 	}
 
 	public assignInsightSummary (results) {
-		console.log('assignSummarySimpleInfo assign Data', results)
 		this.summary = results
 		this.summaryInArray = []; // reset
 
@@ -49,6 +48,11 @@ export class InsightsModel {
 				groupId: this.summary[group].groupId
 			})
 		}
+
+		console.log('assignSummarySimpleInfo assign Data', results, this.summaryInArray)
+	}
+
+	public getAllInsights() {
 
 	}
 }

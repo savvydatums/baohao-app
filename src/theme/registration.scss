@@ -1,4 +1,10 @@
 registration, activate {
+	.item-ios.item-input.item-input-has-focus,
+	.item-md.item-input.item-input-has-focus {
+		.item-inner {
+			border-bottom-color: #c8c7cc;
+		}
+	}
     .content {
       @extend %background-green;
     }

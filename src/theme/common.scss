@@ -38,7 +38,9 @@
         }
     }
 
-    .list-ios >.item-block:first-child { border: none; }
+    .list-ios >.item-block:first-child {
+		border-top: none;
+	}
 
     .item-md, .item-ios {
         background-color: transparent;

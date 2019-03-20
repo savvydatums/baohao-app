@@ -42,15 +42,15 @@ export class LoginPage {
 	}
 
   	public onSignIn() {
-		// if (this.credentialsForm.invalid) {
-		// 	this.loginError = true;
-		// 	return;
-		// }
+		if (this.credentialsForm.invalid) {
+			this.loginError = true;
+			return;
+		}
 
-		// const registration_id = this.credentialsForm.controls.registration_id.value;
-		// const password = this.credentialsForm.controls.password.value;
-		const registration_id = 'testing_jimmy';
-		const password = 'passw@rd';
+		const registration_id = this.credentialsForm.controls.registration_id.value;
+		const password = this.credentialsForm.controls.password.value;
+		//const registration_id = 'testing_jimmy';
+		//const password = 'passw@rd';
 
 		const requestData = {
 			registration_id,

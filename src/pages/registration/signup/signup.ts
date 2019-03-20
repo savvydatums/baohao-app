@@ -33,8 +33,7 @@ export class SignupPage {
 				Validators.compose([
 					Validators.required,
 					Validators.minLength(8),
-					Validators.maxLength(20),
-					Validators.pattern(`/([a-zA-Z]{2,}.*?)([0-9]{2,}.*?)/g`)
+					Validators.maxLength(20)
 				])
 			],
 			confirmPassword: ['', Validators.required],
