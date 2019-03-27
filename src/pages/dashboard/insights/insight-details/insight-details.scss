@@ -1,23 +1,46 @@
-page-insight-details {
+// template
+.insight-content {
+	background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5697cc);
+	color: white;
+	position: relative;
+	border-radius: 15px;
+	top: 16px;
 
-	.insight-content {
-		background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5697cc);
-		color: white;
-		> h4 { text-align: center; }
-
-		button {
-			background: #29567b;
-		}
+	.title {
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		font-size: 16px;
+		margin: 0;
 	}
 
-	.story-wrap {
-		padding: 20px;
-		border-left: 2px solid white;
+	.left {
+		position: absolute;
+		left: 20px;
+		top: 5px;
+		cursor: pointer;
+		z-index: 30; // this is to ensure close button is clickable
+
+		ion-icon {
+			font-size: 3em;
+		}
+	}
+}
+
+
+insight-details {
+	.story-section {
+		margin-top: 40px;
 		margin-left: 20px;
 	}
 
+	.story-wrap {
+		padding: 1px 20px;
+		border-left: 2px solid rgba(255, 255, 255, 0.5);
+	}
+
 	.story-item {
-		margin: 20px 0 10px;
+		margin: 10px 0 30px;
 		position: relative;
 
 		.source-icon {
@@ -28,13 +51,5 @@ page-insight-details {
 			right: 0;
 			top: 0;
 		}
-		.category-list .cat{
-			padding: 4px 6px;
-			border-radius: 4px;
-			display: inline-block;
-			float: left;
-			margin-right: 6px;
-		}
-		.clear { clear: both;}
 	}
 }

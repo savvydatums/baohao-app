@@ -167,6 +167,9 @@
 			"medical": "Medical",
 			"others": "Others",
 			"savingAndLife": "Saving & Life"
+		},
+		"SUMMARY": {
+		  	"TITLE": "INSIGHT"
 		}
 	},
 
@@ -182,11 +185,5 @@
 			"Others"
 		],
 		"Message": "If your bug is others, please explain what happen?"
-	},
-
-	"INSIGHTS" : {
-		"SUMMARY" : {
-			"TITLE": "INSIGHT"
-		}
 	}
 }

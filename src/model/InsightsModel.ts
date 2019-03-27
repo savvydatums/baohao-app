@@ -3,13 +3,14 @@ export const groupIdMapping = {
 	savingAndLife: 2,
 	investment: 3,
 	general: 4,
-	employeeBenefits: 5,
-	others: 6
+	// employeeBenefits: 5,
+	// others: 6
 }
 
 export class InsightsModel {
 
-	public currentGroupData:object[];
+	public groupRawData: object[];
+	public currentGroupData: object[];
 	public currentGroupId: number;
 	public currentGroupName: string;
 
@@ -23,7 +24,7 @@ export class InsightsModel {
 
 	public assignGroupData (results, groupId) {
 		console.log('getGroupInsight assign Data', results, groupId)
-		this.currentGroupData = results
+		this.currentGroupData = this.groupRawData = results
 		this.currentGroupName = Object.keys(groupIdMapping)
 			.find(key => groupIdMapping[key] === parseInt(groupId))
 		this.currentGroupId = groupId
@@ -36,8 +37,8 @@ export class InsightsModel {
 		for (let group in this.summary) {
 
 			let authors = []
-			for (let ppl in this.summary.author) {
-				authors.push(this.summary.author[ppl])
+			for (let ppl in this.summary[group].author) {
+				authors.push(this.summary[group].author[ppl])
 			}
 
 			this.summaryInArray.push({
@@ -52,7 +53,9 @@ export class InsightsModel {
 		console.log('assignSummarySimpleInfo assign Data', results, this.summaryInArray)
 	}
 
-	public getAllInsights() {
-
+	public applyFilter(keyword) {
+		this.currentGroupData = this.groupRawData.filter((item:any) => {
+				return item.content.indexOf(keyword) !== -1
+			})
 	}
 }

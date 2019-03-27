@@ -11,6 +11,7 @@ import { TLoginResponse } from '../../model/types';
 import { ProfileModel } from '../../model/ProfileModel';
 import { LoggedInStatus } from '../../api/Comms';
 import { ProcessingPage } from '../activate/processing/processing';
+import { isDebug } from '../../utils/url-util';
 
 const cookieTimes = 60 * 60;
 
@@ -38,19 +39,27 @@ export class LoginPage {
 	}
 
 	ionViewDidLoad() {
-		setTimeout(() => this.onSignIn(), 1000); // this is only for testing
+		isDebug() &&setTimeout(() => this.onSignIn(), 1000); // this is only for testing
 	}
 
-  	public onSignIn() {
-		if (this.credentialsForm.invalid) {
-			this.loginError = true;
-			return;
-		}
+	public onSignIn() {
 
-		const registration_id = this.credentialsForm.controls.registration_id.value;
-		const password = this.credentialsForm.controls.password.value;
-		//const registration_id = 'testing_jimmy';
-		//const password = 'passw@rd';
+		let registration_id = ''
+		let password = ''
+
+		if (isDebug()){
+			registration_id = 'testing_jimmy';
+			password = 'passw@rd';
+
+		} else {
+			if (this.credentialsForm.invalid) {
+				this.loginError = true;
+				return;
+			}
+
+			registration_id = this.credentialsForm.controls.registration_id.value;
+			password = this.credentialsForm.controls.password.value;
+		}
 
 		const requestData = {
 			registration_id,

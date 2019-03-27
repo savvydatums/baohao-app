@@ -66,8 +66,13 @@ export class SearchBarComponent {
 	}
 
 	public onSearch() {
-		console.log(this.inputValue); // TODO, no value yet
+		console.log(this.inputValue);
 		this.searchOpened = false;
+		if (this.inputValue && this.inputValue.length > 0) {
+			this.insights.applyFilter(this.inputValue);
+		}
+
+		// TODO, next, apply search into current filter
 	}
 
 	public toggleSearch() {

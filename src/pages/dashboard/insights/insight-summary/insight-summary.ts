@@ -1,43 +1,53 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { InsightsModel } from '../../../../model/InsightsModel';
+import { InsightsModel } from '../../../../model/InsightsModel'
 import { Chart } from 'chart.js'
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core'
+import { ProfileModel } from '../../../../model/ProfileModel';
+import { getGroupTitleByKey } from '../../../../utils/Data-Fetch';
 
-@IonicPage({ name: "insightSummary", segment: "insightSummary"})
+@IonicPage()
 @Component({
-  selector: 'page-insight-summary',
-  templateUrl: 'insight-summary.html',
+	selector: 'insight-summary',
+	templateUrl: 'insight-summary.html',
 })
 export class InsightSummaryPage {
 
 	@ViewChild('barChartView') barChartView;
 	barChart: any;
+	currentInsight: object; // use in display page
+	insightData: any; // use in the chart
 
 	constructor(
 		public navCtrl: NavController,
 		public navParams: NavParams,
 		public insights: InsightsModel,
 		public translate: TranslateService,
+		public profile: ProfileModel,
 		private view: ViewController) {
 	}
 
+	ionViewWillEnter() {
+		this.currentInsight = this.insights.summaryInArray[0]
+	}
+
 	ionViewDidLoad() {
+		console.log(this.currentInsight)
+		this.insightData = this.getInsightsDataInArrays();
 
 		this.barChart = new Chart(this.barChartView.nativeElement, {
 			type: 'bar',
 			data: {
-				labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+				labels: this.insightData.labels,
 				datasets: [{
-					label: '# of Votes',
-					data: [12, 19, 3, 5, 2, 3],
+					data: this.insightData.data,
 					backgroundColor: [
-						'rgba(255, 99, 132, 0.2)',
-						'rgba(54, 162, 235, 0.2)',
-						'rgba(255, 206, 86, 0.2)',
-						'rgba(75, 192, 192, 0.2)',
-						'rgba(153, 102, 255, 0.2)',
-						'rgba(255, 159, 64, 0.2)'
+						'rgb(255, 99, 132)',
+						'rgb(54, 162, 235)',
+						'rgb(255, 206, 86)',
+						'rgb(75, 192, 192)',
+						'rgb(153, 102, 255)',
+						'rgb(255, 159, 64)'
 					]
 				}]
 			},
@@ -45,10 +55,29 @@ export class InsightSummaryPage {
 				scales: {
 					yAxes: [{
 						ticks: {
-							beginAtZero: true
+							beginAtZero: true,
+							fontColor: '#fff'
+						},
+						gridLines: {
+							display: false
+						},
+						barPercentage: 0.7
+					}],
+					xAxes: [{
+						gridLines: {
+							display: false
+						},
+						ticks :{
+							fontColor: '#fff'
 						}
 					}]
-				}
+				},
+				gridLines: {
+					offsetGridLines: false
+				},
+				maintainAspectRatio: false,
+				onClick: this.barClicked.bind(this),
+				legend: { display: false }
 			}
 		});
 	}
@@ -57,11 +86,10 @@ export class InsightSummaryPage {
 
 		let data = [];
 		let labels = [];
-		//let colors = [];
 
 		this.insights.summaryInArray.map ((item:any) => {
 			data.push(item.amount);
-			const label = this.translate.translations.INSIGHT.GROUP[item.key]
+			const label = getGroupTitleByKey(this.translate, item.key)
 			labels.push(label)
 		})
 
@@ -72,4 +100,16 @@ export class InsightSummaryPage {
 		this.view.dismiss()
 	}
 
+	barClicked(evt) {
+		const activeElement = this.barChart.getElementAtEvent(evt)
+
+		if (activeElement[0] && activeElement[0]._index) {
+			const activeIndex = activeElement[0]._index
+			this.currentInsight = this.insights.summaryInArray.filter((item:any) => (parseInt(item.groupId) -1) == activeIndex)[0]
+		}
+	}
+
+	getGroupTitle (key) {
+		return getGroupTitleByKey(this.translate, key)
+	}
 }

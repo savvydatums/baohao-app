@@ -1,23 +1,19 @@
 <ion-content padding class="insight-content">
-	<h4> {{ insightData.authorName }}</h4>
-	<h3> Story </h3>
-	<div class="story-wrap">
-		<div class="story-item" *ngFor="let story of authorData">
-			<h4>{{ renderTimeStamp(story.timestamp) }}</h4>
-			<p> {{ story.content }} </p>
-			<div class="source-icon">
-				<img *ngIf="story.source == 'fb'" src="assets/icon/facebook.svg">
-				<img *ngIf="story.source == 'wex'" src="assets/icon/wechat.svg">
-			</div>
-			<div class="category-list">
-				<span *ngFor="let cat of story.categories" class="cat cat-{{cat}}"> {{ cat }}</span>
-				<div class="clear"></div>
+	<div class="left" (click)="closeModal()">
+		<ion-icon name="close"></ion-icon>
+	</div>
+
+	<p class="title">{{ insightData.authorName }} #{{ currentKeyword }}</p>
+
+	<div class="story-section">
+		<h4> Story </h4>
+		<div class="story-wrap">
+			<div class="story-item" *ngFor="let story of authorData">
+				<h6>{{ renderTimeStamp(story.timestamp) }}</h6>
+				<p [innerHTML]="story.content"></p>
 			</div>
 		</div>
 	</div>
-
-	<br/><br/><br/><br/><br/>
-	<button ion-button block round (click)="closeModal()">
-		Close Details
-	</button>
+	<br/>
+	<!-- <h3> Recommendation: </h3> -->
 </ion-content>

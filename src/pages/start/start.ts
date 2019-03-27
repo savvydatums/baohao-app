@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { TranslateService } from '@ngx-translate/core';
+import { isDebug } from '../../utils/url-util';
 
 @Component({
 	selector: 'start',
@@ -12,9 +13,8 @@ export class StartPage {
 	constructor(public navCtrl: NavController, public translate: TranslateService) {
 	}
 
-
 	ngAfterViewInit() {
-		setTimeout(() => this.gotoLogin(), 1000); // this is only for testing
+		isDebug() && setTimeout(() => this.gotoLogin(), 1000);
 	}
 
 	public setLanguage(lan:string):void {

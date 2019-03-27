@@ -6,13 +6,14 @@ import { ProfileModel } from '../../../../model/ProfileModel';
 
 @IonicPage()
 @Component({
-	selector: 'page-insight-details',
+	selector: 'insight-details',
 	templateUrl: 'insight-details.html',
 })
 export class InsightDetailsPage {
 
 	public insightData: object;
 	public authorData: object;
+	public currentKeyword: string;
 
 	constructor(
 		public navCtrl: NavController,
@@ -22,17 +23,17 @@ export class InsightDetailsPage {
 	}
 
 	ionViewWillLoad() {
-		const authorInfo = this.navParams.get('profile');
-		this.insightData = authorInfo;
-		const category = authorInfo.categories[0];
-		this.getAuthorInfo(this.profile.cookie, authorInfo.authorId, authorInfo.source, category);
+		const authorInfo = this.navParams.get('profile')
+		this.insightData = authorInfo
+		const category = authorInfo.categories[0]
+		this.currentKeyword = category
+		this.getAuthorInfo(this.profile.cookie, authorInfo.authorId, authorInfo.source, category)
 	}
 
 	private getAuthorInfo (cookie, authorid, source, category) {
 		InsightAPI.getInsightByAuthorId(cookie, authorid, source, category)
 			.then((result: any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					console.log('load author info', result);
 					this.authorData = result.results;
 				} else {
 					//this.showError(result.message);
@@ -48,7 +49,13 @@ export class InsightDetailsPage {
 
 	public renderTimeStamp(timestamp: number) {
 		const time = parseInt(timestamp + '000')
-		return new Date(time).toDateString()
+		const year = new Date(time).getFullYear()
+		const month = new Date(time).getMonth() + 1
+		const date = new Date(time).getDate()
+		const hour = new Date(time).getHours()
+		const minutes = new Date(time).getMinutes()
+
+		return `${year} ${month} ${date} | ${hour}.${minutes}`
 	}
 
 	closeModal () {

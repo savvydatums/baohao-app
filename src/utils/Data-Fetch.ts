@@ -11,3 +11,8 @@ export const getTicketInfo = (ticketInfo) => {
 	var found = ticketInfo.match(regex);
 	return found[1].replace('\'>', '').replace('<', '')
 }
+
+export const getGroupTitleByKey = (translate, key) => {
+	const lang = translate.currentLang || translate.defaultLang
+	return translate.translations[lang].INSIGHT.GROUP[key]
+}
