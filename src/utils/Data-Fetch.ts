@@ -28,14 +28,10 @@ export const getTranslation = (translate, keyString) => {
 	const filter = (translateSection) => {
 		for (let key in translateSection) {
 			if (key == translateKeys[0]) {
-				//console.log (key)
-				// if there is more
 				if (translateKeys.length > 1) {
 					translateKeys.shift();
-					//console.log('bigger then one', objCut[key])
 					filter(translateSection[key])
 				} else {
-					//console.log('small then one', objCut[key])
 					finalInfo = translateSection[key]
 				}
 			}
