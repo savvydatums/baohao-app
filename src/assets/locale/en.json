@@ -10,6 +10,10 @@
     "START_DESC": "MyInsurBox is Your tool to use Big Data to uncover sales opportunity!",
 	"START_BUTTON": "Get Started",
 
+	"UPDATE_FAILED": "Update Failed!",
+	"UPDATE_SUCCEED": "Update Succeed!",
+	"UPDATE_PENDING_MESSAGE": "we can not update it now, try again later",
+
     "LOGIN" : {
         "REGISTRATION_ID": "Registration ID",
         "PASSWORD": "Password",
@@ -60,7 +64,9 @@
         "REGISTRATION_ID_LABEL": "Registration ID",
         "REGISTRATION_EMAIL_LABEL": "Your Email",
         "SUBMITTED_LABEL": "An email will been sent to the registered email address.",
-        "BUTTON_LABEL": "Reset"
+		"BUTTON_LABEL": "Reset",
+		"NEW_PASS_PLACEHOLDER": "New Password",
+		"RESET_INFO": "once reset, the next time you login, it will be using the new password."
     },
 
     "PROFILE" : {
@@ -168,8 +174,11 @@
 			"others": "Others",
 			"savingAndLife": "Saving & Life"
 		},
+		"AUTHORS": "Authors",
+		"CATEGORIES": "Categories",
+		"STORY": "story",
 		"SUMMARY": {
-		  	"TITLE": "INSIGHT"
+			"TITLE": "INSIGHT"
 		}
 	},
 

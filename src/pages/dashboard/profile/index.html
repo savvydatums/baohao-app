@@ -38,7 +38,7 @@
 
 	  <ion-item>
 		<ion-label floating>{{ 'PROFILE.COMPANY_NAME' | translate }} #</ion-label>
-            <ion-select formControlName="company_name" value="{{profile.company_name}}">
+		<ion-select formControlName="company_name" [(ngModel)]="profile.company_name">
 			<ion-option *ngFor="let company of companies" value="{{company.key}}">{{ company.name }}</ion-option>
 		</ion-select>
 	</ion-item>
@@ -56,7 +56,7 @@
 
 	<ion-item>
 		<ion-label floating>{{ 'PROFILE.GENDER' | translate }} #</ion-label>
-		<ion-select formControlName="gender" value="{{profile.gender}}">
+		<ion-select formControlName="gender" [(ngModel)]="profile.gender">
 			<ion-option value="Female">{{ 'PROFILE.OPTION_FEMALE' | translate }}</ion-option>
 			<ion-option value="Male">{{ 'PROFILE.OPTION_MALE' | translate }}</ion-option>
 		</ion-select>

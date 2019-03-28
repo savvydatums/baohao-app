@@ -1,7 +1,10 @@
 <ion-icon name="search" (click)="toggleSearch()" *ngIf="!searchOpened"></ion-icon>
 <div *ngIf="searchOpened" class="search-wrap">
 	<ion-icon name="arrow-back" (click)="toggleSearch()"></ion-icon>
-	<input #search type="text" (keyup)="updateInput($event)" placeholder="Search here...." />
+	<input #search type="text"
+		(keyup)="updateInput($event)"
+		(keyup.enter)="onSearch()"
+		placeholder="Search here...." />
 	<ion-icon name="search" (click)="onSearch()"></ion-icon>
 </div>
 <ul class="categories" *ngIf="!searchOpened">

@@ -36,6 +36,8 @@ export class InsightsModel {
 
 		for (let group in this.summary) {
 
+			if (!groupIdMapping[group]) { return false; }
+
 			let authors = []
 			for (let ppl in this.summary[group].author) {
 				authors.push(this.summary[group].author[ppl])
@@ -55,7 +57,7 @@ export class InsightsModel {
 
 	public applyFilter(keyword) {
 		this.currentGroupData = this.groupRawData.filter((item:any) => {
-				return item.content.indexOf(keyword) !== -1
-			})
+			return item.content.indexOf(keyword) !== -1
+		})
 	}
 }

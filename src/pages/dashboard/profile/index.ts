@@ -3,7 +3,7 @@ import {IonicPage, NavController, AlertController } from 'ionic-angular';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { fetchCompaniesFromLocale } from '../../../utils/Data-Fetch';
+import { fetchCompaniesFromLocale, getTranslation } from '../../../utils/Data-Fetch';
 import { UserAPI } from '../../../api/UserAPI';
 
 @IonicPage({ name: "profile", segment: "profile"})
@@ -95,14 +95,16 @@ export class ProfilePage {
     }
 
     private sendPopup (isFail, info?) {
-        const title = isFail ? 'Update Failed!' : 'Update Succeed!'
-		const message = isFail ? (info || 'we can not update it now, try again later') : 'update succeed!'
+
+		const successString = getTranslation(this.translate, 'UPDATE_SUCCEED')
+		const title = isFail ? getTranslation(this.translate, 'UPDATE_FAILED') : successString
+		const message = isFail ? (info || getTranslation(this.translate, 'UPDATE_PENDING_MESSAGE')) : successString
 
         const alert = this.alertCtrl.create({
             title: title,
             message: message,
             buttons: [{
-                text: 'Cancel'
+				text: getTranslation(this.translate, 'GLOBA_CANCEL_BUTTON_LABEL')
             }]
         })
 
@@ -111,17 +113,17 @@ export class ProfilePage {
 
 	public promptResetPassword () {
 		const alert = this.alertCtrl.create({
-			title: 'ResetPassword',
-			message: 'once reset, the next time you login, it will be using the new password.',
+			title: getTranslation(this.translate, 'PASSWORD_RESET.TITLE'),
+			message : getTranslation(this.translate, 'PASSWORD_RESET.RESET_INFO'),
 			inputs: [{
 				name: 'new_password',
-				placeholder: 'New Password',
+				placeholder: getTranslation(this.translate, 'PASSWORD_RESET.NEW_PASS_PLACEHOLDER'),
 				type: 'password'
 			}],
 			buttons: [{
-				text: 'Cancel'
+				text: getTranslation(this.translate, 'GLOBA_CANCEL_BUTTON_LABEL')
 			},{
-				text: 'Submit',
+				text: getTranslation(this.translate, 'GLOBAL_SUBMIT_BUTTON_LABEL'),
 				handler: data => {
 				   	console.log(JSON.stringify(data)); //to see the object
 					this.submitNewPassword(data.new_password)

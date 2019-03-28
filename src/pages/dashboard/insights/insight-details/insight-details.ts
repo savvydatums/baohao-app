@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import { InsightAPI } from '../../../../api/InsightAPI';
 import { InsightResponseStatus } from '../../../../api/Comms';
 import { ProfileModel } from '../../../../model/ProfileModel';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -19,6 +20,7 @@ export class InsightDetailsPage {
 		public navCtrl: NavController,
 		private view: ViewController,
 		public profile: ProfileModel,
+		public translate: TranslateService,
 		public navParams: NavParams) {
 	}
 

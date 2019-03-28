@@ -6,7 +6,7 @@
 	<p class="title">{{ insightData.authorName }} #{{ currentKeyword }}</p>
 
 	<div class="story-section">
-		<h4> Story </h4>
+		<h4> {{ 'INSIGHT.STORY' | translate }} </h4>
 		<div class="story-wrap">
 			<div class="story-item" *ngFor="let story of authorData">
 				<h6>{{ renderTimeStamp(story.timestamp) }}</h6>

@@ -14,14 +14,14 @@
 			<span>{{ currentInsight.amount }}</span>
 		</h3>
 		<div class="authors">
-			<h4>Authors</h4>
+			<h4>{{ 'INSIGHT.AUTHORS' | translate }}</h4>
 			<span *ngFor="let author of currentInsight.author">
 				{{ author.name }}
 			</span>
 		</div>
 
 		<div class="category-list">
-			<h4>Categories</h4>
+			<h4>{{ 'INSIGHT.CATEGORIES' | translate }}</h4>
 			<span
 				*ngFor="let cat of currentInsight.categories"
 				class="{{ 'keyword-label cat-' + cat }}">
