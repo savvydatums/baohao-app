@@ -1,5 +1,39 @@
+<ion-content *ngIf="loading" class="loading">
+	<div class="load-wrapper">
+		<ion-spinner name="crescent" color="light"></ion-spinner>
+		<p> Loading </p>
+	</div>
+</ion-content>
 <ion-content>
+	<ion-list-header>
+		<div class="left">
+		  <ion-icon menuToggle="left" name="menu"></ion-icon>
+		</div>
+		<h3>Archive </h3>
+	</ion-list-header>
 	<ion-list>
-		<ion-list-header>Archive page</ion-list-header>
+		  <ion-item-sliding *ngFor="let item of archive.list">
+		    <ion-item>
+		      <ion-avatar item-start>
+		        <img *ngIf="item.source == 'fb'" src="assets/icon/facebook.svg">
+		        <img *ngIf="item.source == 'wex'" src="assets/icon/wechat.svg">
+		      </ion-avatar>
+		      <div class="list-content">
+		        <h3>{{ item.authorName }}</h3>
+		        <p>{{ shortenContent(item.content) }}</p>
+		      </div>
+		      <div class="list-label">
+		        <div class="category-list">
+		          <span *ngFor="let cat of item.categories" class="{{ 'keyword-label cat-' + cat }}">
+		            {{ cat }}
+		          </span>
+		        </div>
+		        <span class="date">{{ renderTimeStamp(item.timestamp) }}</span>
+		      </div>
+		    </ion-item>
+		    <ion-item-options side="right">
+		      <button ion-button (click)="trashItem(item._id, item.source)"> Trash </button>
+		    </ion-item-options>
+		  </ion-item-sliding>
 	</ion-list>
 </ion-content>

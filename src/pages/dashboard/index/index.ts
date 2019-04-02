@@ -76,8 +76,4 @@ export class DashboardPage {
 	private showError (message) {
 		console.log ('error', message)
 	}
-
-  	tabChange(event) {
-		console.log (event, this.tabProfile, this.tabInsight, this.tabArchive)
-  	}
 }

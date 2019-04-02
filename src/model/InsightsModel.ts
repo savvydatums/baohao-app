@@ -12,16 +12,13 @@ export class InsightsModel {
 
 	public groupRawData: object[];
 	public currentGroupData: object[];
-	public currentGroupId: number|string;
+	public currentGroupId: number | string = groupIdMapping.all;
 	public currentGroupName: string;
 
-	public summary: any;
+	public summary: any = {};
 	public summaryInArray: object[];
 
-    constructor() {
-		this.currentGroupId = groupIdMapping.all; // default
-		this.summary = {}
-	}
+	constructor() {}
 
 	public assignGroupData (results, groupId) {
 		console.log('getGroupInsight assign Data', results, groupId)

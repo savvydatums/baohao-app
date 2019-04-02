@@ -9,18 +9,29 @@ import { SearchBarComponent } from '../../../../components/search-bar/search-bar
   templateUrl: 'index.html',
 })
 export class PotentialPage {
+
 	searchValue: string;
 	categoryColors: object;
+	loading = true;
 
 	@ViewChild(forwardRef(() => HeaderComponent)) header
 	@ViewChild(forwardRef(() => SearchBarComponent)) searchBar
 
+	constructor(
+		public navCtrl: NavController,
+		public navParams: NavParams) {
+	}
 
-	constructor(public navCtrl: NavController, public navParams: NavParams) {
+	ngAfterViewInit() {
+		this.showLoading(true)
 	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad PotentialPage');
+	}
+
+	private showLoading(show) {
+		this.loading = show
 	}
 
 }

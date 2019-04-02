@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { fetchCompaniesFromLocale, getTranslation } from '../../../utils/Data-Fetch';
 import { UserAPI } from '../../../api/UserAPI';
+import { sendGenericUpdateAlert } from '../../../utils/alert-generic';
 
 @IonicPage({ name: "profile", segment: "profile"})
 @Component({
@@ -82,34 +83,16 @@ export class ProfilePage {
             gender: controls.gender.value
         }
 
-        console.log('requestPayload', requestPayload)
-
 		UserAPI.updateUser(requestPayload)
             .then((result:any)=> {
-                console.log(result);
-                this.sendPopup(result.status !== 'ok')
+				console.log(result);
+				const isFail = result.status !== 'ok'
+				sendGenericUpdateAlert(this.alertCtrl, this.translate, isFail)
             },
             (error:any)=> {
-				this.sendPopup(true, error)
+				sendGenericUpdateAlert(this.alertCtrl, this.translate, true, error)
             });
     }
-
-    private sendPopup (isFail, info?) {
-
-		const successString = getTranslation(this.translate, 'UPDATE_SUCCEED')
-		const title = isFail ? getTranslation(this.translate, 'UPDATE_FAILED') : successString
-		const message = isFail ? (info || getTranslation(this.translate, 'UPDATE_PENDING_MESSAGE')) : successString
-
-        const alert = this.alertCtrl.create({
-            title: title,
-            message: message,
-            buttons: [{
-				text: getTranslation(this.translate, 'GLOBA_CANCEL_BUTTON_LABEL')
-            }]
-        })
-
-        alert.present()
-	}
 
 	public promptResetPassword () {
 		const alert = this.alertCtrl.create({
@@ -125,7 +108,6 @@ export class ProfilePage {
 			},{
 				text: getTranslation(this.translate, 'GLOBAL_SUBMIT_BUTTON_LABEL'),
 				handler: data => {
-				   	console.log(JSON.stringify(data)); //to see the object
 					this.submitNewPassword(data.new_password)
 				}
 			}],
@@ -145,13 +127,15 @@ export class ProfilePage {
 
 			UserAPI.sendResetPassword(payload)
 				.then((result: any) => {
-					this.sendPopup(result.status !== 'ok')
+					const isFail = result.status !== 'ok'
+					sendGenericUpdateAlert(this.alertCtrl, this.translate, isFail)
 				},
 				(error: any) => {
-					this.sendPopup(true, error)
+					sendGenericUpdateAlert(this.alertCtrl, this.translate, true, error)
 				});
 		} else {
-			this.sendPopup(true, 'Input Field is empty')
+			const message = 'Input Field is empty'
+			sendGenericUpdateAlert(this.alertCtrl, this.translate, true, message)
 		}
 	}
 }

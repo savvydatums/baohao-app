@@ -17,6 +17,7 @@ import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { ComponentsModule } from '../components/components.module';
 import { ProfileModel } from '../model/ProfileModel';
+import { ArchiveModel } from '../model/ArchiveModel';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ProfileModel } from '../model/ProfileModel';
     GroupRegistrationModel,
     LoggedInUserModel,
     AppointmentModel,
-    InsightsModel,
+	InsightsModel,
+	ArchiveModel,
     ProfileModel,
     StatusBar,
 	SplashScreen,

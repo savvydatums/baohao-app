@@ -55,7 +55,8 @@ export const ResponseStatus = {
 }
 
 export const InsightResponseStatus = {
-	SUCCESS : "ok"
+	SUCCESS : "ok",
+	UPDATED : "updated"
 }
 
 export const LoggedInStatus = {

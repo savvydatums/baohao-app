@@ -1,10 +1,14 @@
 import { Component, ViewChild, forwardRef } from '@angular/core';
-import { IonicPage, NavController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController, AlertController } from 'ionic-angular';
 import { InsightsModel } from './../../../../model/InsightsModel';
 import { TranslateService } from '@ngx-translate/core';
 import { HeaderComponent, THEME } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar'
 import { keywordColors } from '../settings/settings';
+import { ArchiveAPI } from '../../../../api/ArchiveAPI';
+import { ProfileModel } from '../../../../model/ProfileModel';
+import { InsightResponseStatus } from '../../../../api/Comms';
+import { sendGenericUpdateAlert } from '../../../../utils/alert-generic';
 
 @IonicPage({ name: "AllClient", segment: "AllClient" })
 @Component({
@@ -23,8 +27,10 @@ export class AllClient {
 	constructor(
 		public navCtrl: NavController,
 		public insights: InsightsModel,
+		public profile: ProfileModel,
 		public translate: TranslateService,
 		public modalCtrl: ModalController,
+		private alertCtrl: AlertController
 	) {}
 
 	ionViewDidLoad () {
@@ -33,7 +39,6 @@ export class AllClient {
 
 	ionViewWillEnter() {
 		this.categoryColors = keywordColors;
-		this.configSearchBar();
 	}
 
 	public renderTimeStamp (timestamp:number) {
@@ -47,15 +52,6 @@ export class AllClient {
 		return content.substring(0, stringNumber);
 	}
 
-	private configSearchBar():void {
-		// this.searchBar.bindSearchCallBack(() => {
-		// 	console.log('input some search function callback')
-		// });
-		// this.searchBar.bindCategoryCallback((key) => {
-		// 	console.log ('click', key)
-		// });
-	}
-
 	public showInsightInfo(info) {
 		let insightModal = this.modalCtrl.create(
 			'InsightDetailsPage', { profile: info }
@@ -65,11 +61,23 @@ export class AllClient {
 	}
 
 	public archiveItem(record_id, source) {
-		console.log('call archive', record_id, source)
+		ArchiveAPI.archiveItem(this.profile.cookie, record_id, source)
+			.then((result: any) => {
+				const isFail = result.status !== InsightResponseStatus.UPDATED
+				sendGenericUpdateAlert(this.alertCtrl, this.translate, isFail)
+			}, error => {
+				sendGenericUpdateAlert(this.alertCtrl, this.translate, true, error)
+			});
 	}
 
 	public trashItem (record_id, source) {
-		console.log('call trash', record_id, source)
+		ArchiveAPI.trashItem(this.profile.cookie, record_id, source)
+			.then((result: any) => {
+				const isFail = result.status !== InsightResponseStatus.UPDATED
+				sendGenericUpdateAlert(this.alertCtrl, this.translate, isFail)
+			}, error => {
+				sendGenericUpdateAlert(this.alertCtrl, this.translate, true, error)
+			});
 
 	}
 }

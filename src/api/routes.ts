@@ -23,3 +23,8 @@ export const groupInsight = `${insightPath}get_group_insight`
 export const insightSummary = `${insightPath}get_insight_summary`
 export const insightByAuthorId = `${insightPath}get_insight_by_authorid`
 export const insightTotalAmount = `${insightPath}get_group_total_amount`
+
+// archives
+export const archiveList = `${insightPath}get_archive_list`
+export const archiveItem = `${insightPath}archive`
+export const trashItem = `${insightPath}trash`
