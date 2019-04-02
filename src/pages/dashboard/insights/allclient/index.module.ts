@@ -2,17 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ListView } from '.';
+import { AllClient } from '.';
 import { HttpLoaderFactory } from '../../../../app/app.module';
 import { ComponentsModule } from '../../../../components/components.module';
 
 @NgModule({
     declarations: [
-        ListView
+        AllClient
     ],
     imports: [
         ComponentsModule,
-        IonicPageModule.forChild(ListView),
+        IonicPageModule.forChild(AllClient),
         TranslateModule.forChild({
             loader: {
                 provide: TranslateLoader,
@@ -22,8 +22,8 @@ import { ComponentsModule } from '../../../../components/components.module';
         })
     ],
     entryComponents : [
-        ListView
+        AllClient
     ]
 })
 
-export class ListViewModule {}
+export class AllClientModule {}

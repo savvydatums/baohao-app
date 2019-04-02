@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ListView } from '../insights/listView/index';
+import { AllClient } from '../insights/allclient/index';
 import { ArchivePage } from '../archive/index';
 import { ProfilePage } from '../profile/index';
 import { InsightsModel } from '../../../model/InsightsModel';
@@ -8,6 +8,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { InsightAPI } from '../../../api/InsightAPI';
 import { InsightResponseStatus } from '../../../api/Comms';
+import { PotentialPage } from '../insights/potential';
 
 @IonicPage({ name: "DashboardPage", segment: "DashboardPage"})
 @Component({
@@ -18,7 +19,8 @@ import { InsightResponseStatus } from '../../../api/Comms';
 export class DashboardPage {
 
 	tabProfile = ProfilePage;
-	tabInsight = ListView;
+	tabInsight = AllClient;
+	tabPotential = PotentialPage;
 	tabArchive = ArchivePage;
 	loading = true;
 

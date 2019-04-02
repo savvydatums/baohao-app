@@ -6,13 +6,13 @@ import { HeaderComponent, THEME } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar'
 import { keywordColors } from '../settings/settings';
 
-@IonicPage({ name: "listView", segment: "listView" })
+@IonicPage({ name: "AllClient", segment: "AllClient" })
 @Component({
-	selector: 'listView',
+	selector: 'AllClient',
 	templateUrl: 'index.html'
 })
 
-export class ListView {
+export class AllClient {
 
 	searchValue: string;
 	categoryColors: object;
@@ -62,5 +62,14 @@ export class ListView {
 		);
 
 		insightModal.present();
+	}
+
+	public archiveItem(record_id, source) {
+		console.log('call archive', record_id, source)
+	}
+
+	public trashItem (record_id, source) {
+		console.log('call trash', record_id, source)
+
 	}
 }

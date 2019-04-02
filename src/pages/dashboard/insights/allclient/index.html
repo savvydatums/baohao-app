@@ -30,8 +30,8 @@
 				</div>
 			</ion-item>
 			<ion-item-options side="right">
-				<button ion-button> Archive </button>
-				<button ion-button > Trash </button>
+				<button ion-button (click)="archiveItem(item._id, item.source)"> Archive </button>
+				<button ion-button (click)="trashItem(item._id, item.source)"> Trash </button>
 			</ion-item-options>
 		</ion-item-sliding>
 	</ion-list>

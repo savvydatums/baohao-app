@@ -1,4 +1,5 @@
 export const groupIdMapping = {
+	all: 'all',
 	medical: 1,
 	savingAndLife: 2,
 	investment: 3,
@@ -11,14 +12,14 @@ export class InsightsModel {
 
 	public groupRawData: object[];
 	public currentGroupData: object[];
-	public currentGroupId: number;
+	public currentGroupId: number|string;
 	public currentGroupName: string;
 
 	public summary: any;
 	public summaryInArray: object[];
 
     constructor() {
-		this.currentGroupId = 1; // default
+		this.currentGroupId = groupIdMapping.all; // default
 		this.summary = {}
 	}
 

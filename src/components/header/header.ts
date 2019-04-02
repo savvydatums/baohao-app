@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
-import { ListView } from '../../pages/dashboard/insights/listView'
-import { PictureView } from '../../pages/dashboard/insights/pictureView'
+import { AllClient } from '../../pages/dashboard/insights/allclient'
 import { InsightsModel } from '../../model/InsightsModel';
 
 export const THEME = {
-	PICTURE: 'theme_picture',
 	LIST: 'theme_list'
 }
 
@@ -25,9 +23,6 @@ export class HeaderComponent {
 
 	// not done
 	public setTheme (theme:string) {
-		if (theme === THEME.PICTURE) {
-			this.isPicture = true;
-		}
 
 		if (theme === THEME.LIST) {
 			this.isPicture = false;
@@ -40,9 +35,9 @@ export class HeaderComponent {
 
 		this.isPicture = theme === 'picture';
 		if (this.isPicture) {
-			this.navCtrl.push(PictureView);
+			//this.navCtrl.push();
 		} else {
-			this.navCtrl.push(ListView, { currentSelect: 0 });
+			this.navCtrl.push(AllClient, { currentSelect: 0 });
 		}
 	}
 

@@ -5,7 +5,7 @@ export class InsightAPI extends Comms {
 
     constructor() {
         super();
-    }
+	}
 
     public static getGroupInsight(cookie:string, group:number):Promise<{}> {
         return new Promise((resolve, reject)=>{
