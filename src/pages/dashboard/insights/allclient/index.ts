@@ -1,8 +1,8 @@
 import { Component, ViewChild, forwardRef } from '@angular/core';
 import { IonicPage, NavController, ModalController, AlertController } from 'ionic-angular';
-import { InsightsModel } from './../../../../model/InsightsModel';
+import { AllInsightsModel } from '../../../../model/AllInsightsModel';
 import { TranslateService } from '@ngx-translate/core';
-import { HeaderComponent, THEME } from '../../../../components/header/header';
+import { HeaderComponent } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar'
 import { keywordColors } from '../settings/settings';
 import { ArchiveAPI } from '../../../../api/ArchiveAPI';
@@ -26,16 +26,12 @@ export class AllClient {
 
 	constructor(
 		public navCtrl: NavController,
-		public insights: InsightsModel,
+		public insights: AllInsightsModel,
 		public profile: ProfileModel,
 		public translate: TranslateService,
 		public modalCtrl: ModalController,
 		private alertCtrl: AlertController
 	) {}
-
-	ionViewDidLoad () {
-		this.header.setTheme(THEME.LIST);
-	}
 
 	ionViewWillEnter() {
 		this.categoryColors = keywordColors;
@@ -59,6 +55,7 @@ export class AllClient {
 
 		insightModal.present();
 	}
+	// create insight url for this
 
 	public archiveItem(record_id, source) {
 		ArchiveAPI.archiveItem(this.profile.cookie, record_id, source)

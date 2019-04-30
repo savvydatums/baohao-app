@@ -1,7 +1,10 @@
 import { Component, ViewChild, forwardRef } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { HeaderComponent } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar';
+import { AllInsightsModel } from '../../../../model/AllInsightsModel';
+import { ProfileModel } from '../../../../model/ProfileModel';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage({ name: 'Potential', segment: 'potential'})
 @Component({
@@ -19,15 +22,15 @@ export class PotentialPage {
 
 	constructor(
 		public navCtrl: NavController,
-		public navParams: NavParams) {
+		public navParams: NavParams,
+		public insights: AllInsightsModel,
+		public profile: ProfileModel,
+		public translate: TranslateService,
+		public modalCtrl: ModalController) {
 	}
 
 	ngAfterViewInit() {
 		this.showLoading(true)
-	}
-
-	ionViewDidLoad() {
-		console.log('ionViewDidLoad PotentialPage');
 	}
 
 	private showLoading(show) {

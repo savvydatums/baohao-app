@@ -1,29 +1,34 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-
-/**
- * Generated class for the TermsModalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { IonicPage, NavParams, ViewController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'terms-page-modal',
+  selector: 'terms',
   templateUrl: 'terms.html',
 })
 export class TermsModalPage {
 
-  constructor(public navCtrl: NavController, public viewCtrl : ViewController, public navParams: NavParams) {
-  }
+	@ViewChild('ch') chRef: ElementRef;
+	@ViewChild('en') enRef: ElementRef;
 
-  public closeModal(){
-    this.viewCtrl.dismiss();
-  }
+	constructor(public viewCtrl : ViewController, public navParams: NavParams) {
+		// here has data
+		console.log('construct terms', navParams.get('lang'));
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TermsModalPage');
-  }
+	}
+
+	public closeModal(){
+		this.viewCtrl.dismiss();
+	}
+
+	ionViewDidLoad() {
+		if (this.navParams.get('lang') == 'en') {
+			this.chRef.nativeElement.style.display = 'none';
+			this.enRef.nativeElement.style.display = 'block';
+		} else {
+			this.enRef.nativeElement.style.display = 'none';
+			this.chRef.nativeElement.style.display = 'block';
+		}
+	}
 
 }

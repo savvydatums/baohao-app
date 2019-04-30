@@ -1,19 +1,16 @@
-export const groupIdMapping = {
-	all: 'all',
-	medical: 1,
-	savingAndLife: 2,
-	investment: 3,
-	general: 4,
-	// employeeBenefits: 5,
-	// others: 6
+export const insightTypes = {
+	all: 'notrash',
+	archive : 'onlyarchive'
 }
 
-export class InsightsModel {
+export class PotentialLeadsModel {
 
-	public groupRawData: object[];
+	public rawData: object[];
 	public currentGroupData: object[];
-	public currentGroupId: number | string = groupIdMapping.all;
+	public currentGroupId: number | string = insightTypes.all;
 	public currentGroupName: string;
+
+	public potentialLeads: object[];
 
 	public summary: any = {};
 	public summaryInArray: object[];
@@ -22,10 +19,14 @@ export class InsightsModel {
 
 	public assignGroupData (results, groupId) {
 		console.log('getGroupInsight assign Data', results, groupId)
-		this.currentGroupData = this.groupRawData = results
+		this.currentGroupData = this.rawData = results
 		this.currentGroupName = Object.keys(groupIdMapping)
 			.find(key => groupIdMapping[key] === parseInt(groupId))
 		this.currentGroupId = groupId
+	}
+
+	public assignPotentialLeads (results) {
+		this.potentialLeads = results
 	}
 
 	public assignInsightSummary (results) {
@@ -34,7 +35,7 @@ export class InsightsModel {
 
 		for (let group in this.summary) {
 
-			if (!groupIdMapping[group]) { return false; }
+			//if (!groupIdMapping[group]) { return false; }
 
 			let authors = []
 			for (let ppl in this.summary[group].author) {
@@ -54,7 +55,7 @@ export class InsightsModel {
 	}
 
 	public applyFilter(keyword) {
-		this.currentGroupData = this.groupRawData.filter((item:any) => {
+		this.currentGroupData = this.rawData.filter((item:any) => {
 			return item.content.indexOf(keyword) !== -1
 		})
 	}

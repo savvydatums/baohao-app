@@ -1,5 +1,6 @@
 import { GroupRegistrationModel } from './../model/GroupRegistrationModel';
-import { InsightsModel } from './../model/InsightsModel';
+import { AllInsightsModel } from '../model/AllInsightsModel';
+import { PotentialLeadsModel } from '../model/PotentialLeadsModel';
 import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -51,7 +52,8 @@ import { ArchiveModel } from '../model/ArchiveModel';
     GroupRegistrationModel,
     LoggedInUserModel,
     AppointmentModel,
-	InsightsModel,
+	AllInsightsModel,
+	PotentialLeadsModel,
 	ArchiveModel,
     ProfileModel,
     StatusBar,

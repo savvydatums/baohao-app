@@ -27,7 +27,7 @@ export class SignupPage {
 			registration_id: ['',
 				Validators.compose([
 					Validators.required,
-					Validators.pattern(`^(PIBA|CIB|HKFI).*`)
+				Validators.pattern(`^(PIBA|CIB|HKFI).*`)
 				])],
 			password: ['',
 				Validators.compose([
@@ -50,8 +50,9 @@ export class SignupPage {
 		this.navController.push(IndividualReservationPage);
 	}
 
-	public openModal(){
-		var termsModal = this.modalCtrl.create('TermsModalPage');
+	public openTerms(){
+		const lang = this.translate.currentLang || this.translate.defaultLang
+		const termsModal = this.modalCtrl.create('TermsModalPage', { lang });
 		termsModal.present();
 	}
 }

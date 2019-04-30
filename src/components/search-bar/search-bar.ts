@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
-import { InsightsModel } from '../../model/InsightsModel';
+import { AllInsightsModel } from '../../model/AllInsightsModel';
 import { InsightAPI } from '../../api/InsightAPI';
 import { ProfileModel } from '../../model/ProfileModel';
 import { InsightResponseStatus } from '../../api/Comms';
@@ -20,7 +20,7 @@ export class SearchBarComponent {
 
 	constructor(
 		public navCtrl: NavController,
-		public insights: InsightsModel,
+		public insights: AllInsightsModel,
 		public profile: ProfileModel,
 		public translate: TranslateService,
 		public loadingCtrl: LoadingController) {
@@ -35,13 +35,13 @@ export class SearchBarComponent {
 		this.inputValue = event.target.value;
 	}
 
-	public onGroupClick(groupId:number) {
+	public onGroupClick(groupId:string) {
 		let self = this
 
 		this.createLoader()
 		this.loader.present()
 
-		InsightAPI.getGroupInsight(this.profile.cookie, groupId)
+		InsightAPI.getAllClientInsight(this.profile.cookie, groupId)
 			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
 					self.insights.assignGroupData(result.results, groupId)

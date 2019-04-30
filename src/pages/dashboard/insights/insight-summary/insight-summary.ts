@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { InsightsModel } from '../../../../model/InsightsModel'
+import { AllInsightsModel } from '../../../../model/AllInsightsModel'
 import { Chart } from 'chart.js'
 import { TranslateService } from '@ngx-translate/core'
 import { ProfileModel } from '../../../../model/ProfileModel';
@@ -21,7 +21,7 @@ export class InsightSummaryPage {
 	constructor(
 		public navCtrl: NavController,
 		public navParams: NavParams,
-		public insights: InsightsModel,
+		public insights: AllInsightsModel,
 		public translate: TranslateService,
 		public profile: ProfileModel,
 		private view: ViewController) {

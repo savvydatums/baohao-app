@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AllClient } from '../insights/allclient/index';
 import { ArchivePage } from '../archive/index';
 import { ProfilePage } from '../profile/index';
-import { InsightsModel } from '../../../model/InsightsModel';
+import { AllInsightsModel, insightTypes } from '../../../model/AllInsightsModel';
 import { IonicPage, NavController } from 'ionic-angular';
 //import { redirectIfNotLogin } from '../../../utils/login-util';
 import { ProfileModel } from '../../../model/ProfileModel';
@@ -26,7 +26,7 @@ export class DashboardPage {
 
 	constructor(
 		public navCtrl: NavController,
-		public insights: InsightsModel,
+		public insights: AllInsightsModel,
 		public profile: ProfileModel) {
 	}
 
@@ -35,18 +35,17 @@ export class DashboardPage {
 	}
 
 	ngAfterViewInit() {
-		this.getGroupInfo(this.profile.cookie, this.insights.currentGroupId)
+		this.getPotentialLeads(this.profile.cookie, insightTypes.all)
 		this.showLoading(true)
 	}
 
-	private getGroupInfo (cookie, groupId) {
+	private getPotentialLeads (cookie, groupId) {
 		let self = this
-		InsightAPI.getGroupInsight(cookie, groupId)
+		InsightAPI.getPotentialInsight(cookie, groupId)
 			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					self.insights.assignGroupData(result.results, groupId)
-					self.getInsightSummary(cookie)
-					self.showLoading(false)
+					self.insights.assignPotentialLeads(result.results)
+					self.getClientInsights(this.profile.cookie, this.insights.currentGroupId)
 				} else {
 					this.showError(result.message);
 				}
@@ -55,12 +54,13 @@ export class DashboardPage {
 			});
 	}
 
-	private getInsightSummary(cookie) {
-		InsightAPI.getInsightSummary(cookie)
-			.then((result: any) => {
-				if(result.status == InsightResponseStatus.SUCCESS) {
-					this.insights.assignInsightSummary(result.results)
-					this.showLoading(false)
+	private getClientInsights (cookie, groupId) {
+		let self = this
+		InsightAPI.getAllClientInsight(cookie, groupId)
+			.then((result:any) => {
+				if (result.status == InsightResponseStatus.SUCCESS) {
+					self.insights.assignGroupData(result.results, groupId)
+					self.showLoading(false)
 				} else {
 					this.showError(result.message);
 				}

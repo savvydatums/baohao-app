@@ -1,12 +1,33 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title> potential page</ion-title>
-  </ion-navbar>
-
+  <header title="Potential Leads"></header>
+  <search-bar [summary]="insights.summaryInArray" [selected]="insights.currentGroupId">
+  </search-bar>
 </ion-header>
-
-
-<ion-content padding>
-
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of insights.currentGroupData" (click)="showInsightInfo(item)">
+      <ion-item>
+        <ion-avatar item-start>
+          <img *ngIf="item.source == 'fb'" src="assets/icon/facebook.svg">
+          <img *ngIf="item.source == 'wex'" src="assets/icon/wechat.svg">
+        </ion-avatar>
+        <div class="list-content">
+          <h3>{{ item.authorName }}</h3>
+          <p>shortenContent(item.content)</p>
+        </div>
+        <div class="list-label">
+          <div class="category-list">
+            <span *ngFor="let cat of item.categories" class="{{ 'keyword-label cat-' + cat }}">
+              {{ cat }}
+            </span>
+          </div>
+          <span class="date">renderTimeStamp(item.timestamp)</span>
+        </div>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button (click)="archiveItem(item._id, item.source)"> Archive </button>
+        <button ion-button (click)="trashItem(item._id, item.source)"> Trash </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

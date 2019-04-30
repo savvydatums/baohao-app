@@ -5,12 +5,16 @@
 	</div>
 </ion-content>
 <ion-content>
-	<ion-list-header>
+	<header>
 		<div class="left">
 		  <ion-icon menuToggle="left" name="menu"></ion-icon>
 		</div>
-		<h3>Archive </h3>
-	</ion-list-header>
+		<h3>Stared </h3>
+		<!-- <search-bar
+			[summary]="archive.list"
+			[selected]="insights.currentGroupId">
+	</search-bar>-->
+	</header>
 	<ion-list>
 		  <ion-item-sliding *ngFor="let item of archive.list">
 		    <ion-item>

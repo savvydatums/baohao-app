@@ -7,25 +7,25 @@ export class InsightAPI extends Comms {
         super();
 	}
 
-    public static getGroupInsight(cookie:string, group:number):Promise<{}> {
+	public static getAllClientInsight(cookie: string, querytype:string):Promise<{}> {
         return new Promise((resolve, reject)=>{
-			this.postFormData(Routes.groupInsight, { cookie, group })
+			this.postFormData(Routes.groupInsight, { cookie, querytype })
                 .then((response)=> {
                     resolve(response);
                 })
                 .catch(reject);
         });
-    }
+	}
 
-	public static getInsightSummary(cookie: string): Promise<{}> {
-        return new Promise((resolve, reject) => {
-			this.postFormData(Routes.insightSummary, { cookie })
-                .then((response) => {
-                    resolve(response);
-                })
-                .catch(reject);
-        });
-    }
+	public static getPotentialInsight(cookie: string, querytype: string): Promise<{}> {
+		return new Promise((resolve, reject) => {
+			this.postFormData(Routes.potentialInsight, { cookie, querytype })
+				.then((response) => {
+					resolve(response);
+				})
+				.catch(reject);
+		});
+	}
 
 	public static getInsightByAuthorId(cookie, authorid, source, category):Promise<{}> {
         return new Promise((resolve, reject)=>{

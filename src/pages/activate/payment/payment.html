@@ -18,7 +18,7 @@
 		<li [innerHTML]="'PAYMENT.POINT_5' | translate"></li>
 		</ul>
 		<div class="referal">
-			<form id="strip-form" action="https://13.70.23.104/stripe/charge.php" method="post">
+			<form id="strip-form" #stripForm action="https://13.70.23.104/stripe/charge.php?cookie={}" method="post">
 			</form>
 		</div>
 	</div>
