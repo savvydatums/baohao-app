@@ -12,7 +12,6 @@ export class TermsModalPage {
 	@ViewChild('en') enRef: ElementRef;
 
 	constructor(public viewCtrl : ViewController, public navParams: NavParams) {
-		// here has data
 		console.log('construct terms', navParams.get('lang'));
 
 	}

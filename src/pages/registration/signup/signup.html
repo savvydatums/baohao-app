@@ -41,15 +41,15 @@
 		<div *ngIf="registrationForm.controls.password.dirty">
           <div class="error" *ngIf="registrationForm.controls.password.errors">
             <ion-icon name="information-circle"></ion-icon>
-            Password must include minimum 2 numbers and 2 letters
+            {{ 'SIGNUP.PASSWORD_RULE_ERROR' | translate }}
           </div>
         </div>
 
         <div class="terms-label">
-          <p>{{ 'SIGNUP.TERMS_LABEL' | translate }}</p>
+        	<p>{{ 'SIGNUP.TERMS_LABEL' | translate }}</p>
         </div>
-        <div class="terms">
-            <p>{{ 'SIGNUP.TERMS_CONTENT' | translate }}</p>
+        <div class="terms-short">
+            <p [innerHTML]="'SIGNUP.TERMS_CONTENT_SHORT' | translate"></p>
         </div>
         <div class="terms-more">
             <a (click)="openTerms()">{{ 'SIGNUP.FULL_SCREEN_LABEL' | translate }}</a>

@@ -8,7 +8,6 @@ export class PotentialLeadsModel {
 	public rawData: object[];
 	public currentGroupData: object[];
 	public currentGroupId: number | string = insightTypes.all;
-	public currentGroupName: string;
 
 	public potentialLeads: object[];
 
@@ -20,8 +19,6 @@ export class PotentialLeadsModel {
 	public assignGroupData (results, groupId) {
 		console.log('getGroupInsight assign Data', results, groupId)
 		this.currentGroupData = this.rawData = results
-		this.currentGroupName = Object.keys(groupIdMapping)
-			.find(key => groupIdMapping[key] === parseInt(groupId))
 		this.currentGroupId = groupId
 	}
 

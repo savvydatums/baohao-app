@@ -1,44 +1,44 @@
 <ion-content padding class="intro-bg">
-  <img class="bg-pattern" src="assets/imgs/background-pattern.png" />
-  <div class="logo">
-      <img src="assets/imgs/baohe-logo.png"
-        srcset="assets/imgs/baohe-logo@2x.png 2x,
-        assets/imgs/baohe-logo@3x.png 3x" />
-      <h4 class="title">{{ 'GLOBAL_TITLE' | translate }}</h4>
-      <p>{{ 'GLOBAL_SUBTITLE' | translate }}</p>
-  </div>
+	<img class="bg-pattern" src="assets/imgs/background-pattern.png" />
+	<div class="logo">
+		<img src="assets/imgs/baohe-logo.png"
+			srcset="assets/imgs/baohe-logo@2x.png 2x,
+			assets/imgs/baohe-logo@3x.png 3x" />
+		<h4 class="title">{{ 'GLOBAL_TITLE' | translate }}</h4>
+		<p>{{ 'GLOBAL_SUBTITLE' | translate }}</p>
+	</div>
 
-  <form [formGroup]="credentialsForm">
-    <ion-list>
-      <ion-item>
-        <ion-label floating>{{ 'LOGIN.REGISTRATION_ID' | translate }}</ion-label>
-        <ion-input type="text" [formControl]="credentialsForm.controls.registration_id"></ion-input>
-      </ion-item>
+	<form [formGroup]="credentialsForm">
+	<ion-list>
+		<ion-item>
+			<ion-label floating>{{ 'LOGIN.REGISTRATION_ID' | translate }}</ion-label>
+			<ion-input type="text" [formControl]="credentialsForm.controls.registration_id"></ion-input>
+		</ion-item>
 
-      <ion-item>
-        <ion-label floating>{{ 'LOGIN.PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" [formControl]="credentialsForm.controls.password"></ion-input>
-      </ion-item>
-    </ion-list>
+		<ion-item>
+			<ion-label floating>{{ 'LOGIN.PASSWORD' | translate }}</ion-label>
+			<ion-input type="password" [formControl]="credentialsForm.controls.password"></ion-input>
+		</ion-item>
+	</ion-list>
 
-    <div *ngIf="!credentialsForm.controls.registration_id.valid || !credentialsForm.controls.password.valid">
-      <div class="error" *ngIf="!credentialsForm.controls.registration_id.valid && credentialsForm.controls.registration_id.dirty">
-          {{ 'LOGIN.ERROR_REGISTRATION_ID' | translate }}
-      </div>
-      <div class="error" *ngIf="!credentialsForm.controls.password.valid && credentialsForm.controls.password.dirty">
-          {{ 'LOGIN.ERROR_PASSWORD' | translate }}
-      </div>
-      <div class="error" *ngIf="loginError">
-          {{ 'LOGIN.ERROR_GENERAL' | translate }}
-      </div>
-    </div>
+	<div *ngIf="!credentialsForm.controls.registration_id.valid || !credentialsForm.controls.password.valid || loginError">
+		<div class="error" *ngIf="!credentialsForm.controls.registration_id.valid && credentialsForm.controls.registration_id.dirty">
+			{{ 'LOGIN.ERROR_REGISTRATION_ID' | translate }}
+		</div>
+		<div class="error" *ngIf="!credentialsForm.controls.password.valid && credentialsForm.controls.password.dirty">
+			{{ 'LOGIN.ERROR_PASSWORD' | translate }}
+		</div>
+		<div class="error" *ngIf="errorMsg.length > 0">
+			{{ errorMsg }}
+		</div>
+	</div>
 
-    <p class="forget" (click)="onForgotPassword()">{{ 'LOGIN.FORGET_PASSWORD' | translate }}</p>
+	<p class="forget" (click)="onForgotPassword()">{{ 'LOGIN.FORGET_PASSWORD' | translate }}</p>
 
-    <div class="sign-in-area">
-      <button ion-button color="light" block round (click)="onSignIn()">{{ 'LOGIN.BUTTON' | translate }}</button>
-      <p class="signup">{{ 'LOGIN.SIGN_UP_CTA' | translate }}<a navPush="WelcomePage">{{ 'LOGIN.SIGN_UP_LINK' | translate }}</a></p>
-    </div>
+	<div class="sign-in-area">
+		<button ion-button color="light" block round (click)="onSignIn()">{{ 'LOGIN.BUTTON' | translate }}</button>
+		<p class="signup">{{ 'LOGIN.SIGN_UP_CTA' | translate }}<a navPush="WelcomePage">{{ 'LOGIN.SIGN_UP_LINK' | translate }}</a></p>
+	</div>
 
-  </form>
+	</form>
 </ion-content>

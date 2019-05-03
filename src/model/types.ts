@@ -7,10 +7,10 @@ export type TLoginRequestPayload = {
 
 export type TLoginResponse = {
     status: string;
-    error?: string[];
+    error?: string;
 
     cookie?: string;
-    cookie_name?: string;
+	cookie_name?: string;
     user?: {
         logged_in_status: string; // one of those PENDING | PROCESSING | DENY | APPROVED
     }

@@ -1,6 +1,5 @@
 import { ResetPasswordPage } from './../registration/reset-password/reset-password';
 import { PaymentPage } from '../activate/payment/payment';
-// import { ProcessingPage } from '../activate/processing/processing';
 import { DashboardPage } from '../dashboard/index/index';
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
@@ -12,17 +11,18 @@ import { ProfileModel } from '../../model/ProfileModel';
 import { LoggedInStatus } from '../../api/Comms';
 import { ProcessingPage } from '../activate/processing/processing';
 import { isDebug } from '../../utils/url-util';
+import { getTranslation } from '../../utils/Data-Fetch';
 
 const cookieTimes = 60 * 60;
 
 @Component({
-  selector: 'login',
-  templateUrl: 'login.html'
+	selector: 'login',
+	templateUrl: 'login.html'
 })
 export class LoginPage {
 
 	public credentialsForm: FormGroup;
-	public loginError: boolean = false;
+	public errorMsg: string = '';
 
 	constructor(
 		public navController: NavController,
@@ -43,7 +43,6 @@ export class LoginPage {
 	}
 
 	public onSignIn() {
-
 		let registration_id = ''
 		let password = ''
 
@@ -53,7 +52,7 @@ export class LoginPage {
 
 		} else {
 			if (this.credentialsForm.invalid) {
-				this.loginError = true;
+				this.errorMsg = getTranslation(this.translate, 'LOGIN.ERROR_GENERAL');
 				return;
 			}
 
@@ -74,9 +73,8 @@ export class LoginPage {
 				if (result.status == 'ok') {
 					this.profile.setUserInfo(result.cookie, result.user)
 					this.goToPageBasedOnUserStatus(result.user.logged_in_status)
-					console.log(this.profile)
 				} else {
-					this.verifyEmail(result.error)
+					this.errorMsg = result.error;
 				}
 
 			},(error: any) => {
@@ -103,20 +101,6 @@ export class LoginPage {
 				this.navController.push(DashboardPage);
 			break;
 		}
-
-	}
-
-	private verifyEmail (message) {
-		const lang = this.translate.currentLang || this.translate.defaultLang
-		const alert = this.alertCtrl.create({
-			message: message[0],
-			buttons: [{
-				text: this.translate.translations[lang].GLOBA_CANCEL_BUTTON_LABEL
-			}],
-			cssClass: 'verify-email-alert'
-		})
-
-		alert.present()
 	}
 
 	public onForgotPassword() {

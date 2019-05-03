@@ -55,7 +55,6 @@ export class AllClient {
 
 		insightModal.present();
 	}
-	// create insight url for this
 
 	public archiveItem(record_id, source) {
 		ArchiveAPI.archiveItem(this.profile.cookie, record_id, source)

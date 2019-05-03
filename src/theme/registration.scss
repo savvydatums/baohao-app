@@ -135,11 +135,12 @@ registration, activate {
             }
         }
 
-        .terms {
+        .terms-short {
             width: 100%;
             height: 180px;
             border-radius: 6px 6px 0px 0px;
-            background-color: #ffffff;
+			background-color: #ffffff;
+			overflow: hidden;
 
             p {
                 color: #666666;
@@ -369,8 +370,5 @@ activate {
 			height: 100%;
 			border: none;
 		}
-		// .checkout-frame {
-		// 	display: none;
-		// }
 	}
 }
