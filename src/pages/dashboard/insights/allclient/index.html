@@ -1,8 +1,9 @@
 <ion-header>
 	<header title="Know your Client"></header>
 	<search-bar
-		[summary]="insights.summaryInArray"
-		[selected]="insights.currentGroupId">
+		[searchHandler]="searchHandler.bind(this)"
+		[selected]="insights.currentGroupId"
+		[filters]="searchFilters">
 	</search-bar>
 </ion-header>
 <ion-content>
@@ -17,21 +18,20 @@
 				</ion-avatar>
 				<div class="list-content">
 					<h3>{{ item.authorName }}</h3>
-					<p>{{ shortenContent(item.content) }}</p>
+					<p>{{ shortenContent(translate, item.content, 8, 20) }}</p>
 				</div>
 				<div class="list-label">
 					<div class="category-list">
-						<span *ngFor="let cat of item.categories"
-							class="{{ 'keyword-label cat-' + cat }}">
-							{{ cat }}
-						</span>
+					  <span class="{{ 'keyword-label cat-' + item.categories[0] }}">
+					    {{ item.categories[0] }}
+					  </span>
 					</div>
 					<span class="date">{{ renderTimeStamp(item.timestamp) }}</span>
 				</div>
 			</ion-item>
 			<ion-item-options side="right">
-				<button ion-button (click)="archiveItem(item._id, item.source)"> Archive </button>
-				<button ion-button (click)="trashItem(item._id, item.source)"> Trash </button>
+				<button ion-button (click)="starInsight(item._id, item.source, item.categories)"> Star </button>
+				<button ion-button (click)="trashInsight(item._id, item.source, item.categories)"> Trash </button>
 			</ion-item-options>
 		</ion-item-sliding>
 	</ion-list>

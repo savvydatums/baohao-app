@@ -2,9 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { AllInsightsModel } from '../../model/AllInsightsModel';
-import { InsightAPI } from '../../api/InsightAPI';
 import { ProfileModel } from '../../model/ProfileModel';
-import { InsightResponseStatus } from '../../api/Comms';
 
 @Component({
 	selector: 'search-bar',
@@ -12,8 +10,9 @@ import { InsightResponseStatus } from '../../api/Comms';
 })
 export class SearchBarComponent {
 
-	@Input() summary: object[];
+	@Input() searchHandler: Function;
 	@Input() selected: string;
+	@Input() filters: string[];
 	searchOpened: boolean;
 	inputValue: string;
 	loader: any;
@@ -35,52 +34,20 @@ export class SearchBarComponent {
 		this.inputValue = event.target.value;
 	}
 
-	public onGroupClick(groupId:string) {
-		let self = this
-
-		this.createLoader()
-		this.loader.present()
-
-		InsightAPI.getAllClientInsight(this.profile.cookie, groupId)
-			.then((result:any) => {
-				if (result.status == InsightResponseStatus.SUCCESS) {
-					self.insights.assignGroupData(result.results, groupId)
-					self.navCtrl.setRoot(self.navCtrl.getActive().component);
-					// self.getInsightSummary(cookie)
-				} else {
-					// this.showError(result.message);
-				}
-				this.loader.dismiss()
-			}, error => {
-				this.loader.dismiss()
-				// this.showError(error);
-			});
-	}
-
-	public createLoader() {
-		this.loader = this.loadingCtrl.create({
-			spinner: 'crescent',
-			content: "Loading...",
-			cssClass: 'loading-s'
-		});
+	public onFilterClick (item) {
+		if (this.selected == item) {
+			this.selected = null
+		} else {
+			this.selected = item;
+		}
+		this.searchHandler(this.inputValue, this.selected);
 	}
 
 	public onSearch() {
 		console.log(this.inputValue);
 		this.searchOpened = false;
 		if (this.inputValue && this.inputValue.length > 0) {
-			this.insights.applyFilter(this.inputValue);
+			this.searchHandler(this.inputValue, this.selected)
 		}
-
-		// TODO, next, apply search into current filter
-	}
-
-	public toggleSearch() {
-		this.searchOpened = !this.searchOpened;
-	}
-
-	public getGroupName(key) {
-		const lang = this.translate.currentLang || this.translate.defaultLang
-		return this.translate.translations[lang].INSIGHT.GROUP[key]
 	}
 }

@@ -29,7 +29,7 @@ export class InsightAPI extends Comms {
 
 	public static getInsightByAuthorId(cookie, authorid, source, category):Promise<{}> {
         return new Promise((resolve, reject)=>{
-			this.postFormData(Routes.insightByAuthorId, { cookie, authorid, source, categorie: category })
+			this.postFormData(Routes.insightByAuthorId, { cookie, authorid, source, category })
             .then((response:any)=> {
                 resolve(response);
             })

@@ -20,11 +20,9 @@ export const logout = `${baseApiPath}api/logout_user/logout_user`
 
 // insights
 const insightPath = `${baseApiPath}api/es/`
-export const groupInsight = `${insightPath}get_group_insight` // onlyarchive, no trash(default) v
-// export const insightSummary = `${insightPath}get_insight_summary` // no need
+export const groupInsight = `${insightPath}get_group_insight` // onlyarchive, no trash(default)
 export const insightByAuthorId = `${insightPath}get_insight_by_authorid`
 export const insightTotalAmount = `${insightPath}get_group_total_amount` // need change to by client ID
-
 export const editSearchPreference = `${insightPath}edit_customer_profile`
 export const totalAmountByAuthorId = `${insightPath}get_total_amount_by_authorid` // need to add
 // "cookie"(Str)  - Required
@@ -35,11 +33,9 @@ export const potentialInsight = `${insightPath}get_potential_insight` //[onlyarc
 
 // archives
 export const archiveList = `${insightPath}get_star_list` // get_star_list
-export const archiveItem = `${insightPath}archive` // has changed
-
+export const archiveItem = `${insightPath}star` // has changed
 export const trashItem = `${insightPath}trash` // changed
 
-
-//star
-//remove_star
+// star
+// remove_star
 // get_product_link ==> recommendation

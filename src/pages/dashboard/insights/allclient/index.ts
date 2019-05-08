@@ -4,15 +4,13 @@ import { AllInsightsModel } from '../../../../model/AllInsightsModel';
 import { TranslateService } from '@ngx-translate/core';
 import { HeaderComponent } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar'
-import { keywordColors } from '../settings/settings';
-import { ArchiveAPI } from '../../../../api/ArchiveAPI';
+import { keywordColors, insightFilters } from '../settings/settings';
 import { ProfileModel } from '../../../../model/ProfileModel';
-import { InsightResponseStatus } from '../../../../api/Comms';
-import { sendGenericUpdateAlert } from '../../../../utils/alert-generic';
+import { shortenContent, renderTimeStamp, starItem, trashItem} from '../../../../utils/insight-util';
 
 @IonicPage({ name: "AllClient", segment: "AllClient" })
 @Component({
-	selector: 'AllClient',
+	selector: 'insight-list',
 	templateUrl: 'index.html'
 })
 
@@ -20,6 +18,9 @@ export class AllClient {
 
 	searchValue: string;
 	categoryColors: object;
+	searchFilters: string[] = insightFilters;
+	renderTimeStamp: Function = renderTimeStamp;
+	shortenContent: Function = shortenContent;
 
 	@ViewChild(forwardRef(() => HeaderComponent)) header
 	@ViewChild(forwardRef(() => SearchBarComponent)) searchBar
@@ -37,17 +38,6 @@ export class AllClient {
 		this.categoryColors = keywordColors;
 	}
 
-	public renderTimeStamp (timestamp:number) {
-		const time = parseInt(timestamp + '000')
-		return new Date(time).toDateString()
-	}
-
-	public shortenContent (content) {
-		const lang = this.translate.currentLang || this.translate.defaultLang
-		let stringNumber = lang == 'en' ? 8 : 20
-		return content.substring(0, stringNumber);
-	}
-
 	public showInsightInfo(info) {
 		let insightModal = this.modalCtrl.create(
 			'InsightDetailsPage', { profile: info }
@@ -56,24 +46,11 @@ export class AllClient {
 		insightModal.present();
 	}
 
-	public archiveItem(record_id, source) {
-		ArchiveAPI.archiveItem(this.profile.cookie, record_id, source)
-			.then((result: any) => {
-				const isFail = result.status !== InsightResponseStatus.UPDATED
-				sendGenericUpdateAlert(this.alertCtrl, this.translate, isFail)
-			}, error => {
-				sendGenericUpdateAlert(this.alertCtrl, this.translate, true, error)
-			});
+	public starInsight(record_id, source, categories) {
+		return starItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories);
 	}
 
-	public trashItem (record_id, source) {
-		ArchiveAPI.trashItem(this.profile.cookie, record_id, source)
-			.then((result: any) => {
-				const isFail = result.status !== InsightResponseStatus.UPDATED
-				sendGenericUpdateAlert(this.alertCtrl, this.translate, isFail)
-			}, error => {
-				sendGenericUpdateAlert(this.alertCtrl, this.translate, true, error)
-			});
-
+	public trashInsight(record_id, source, categories) {
+		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories);
 	}
 }

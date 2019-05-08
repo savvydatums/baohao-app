@@ -23,3 +23,5 @@ export const keywordColors = {
   'unhealthy': '#45f7ed',
   'lifestyle': '#7982ff'
 }
+
+export const insightFilters = ['By Name', 'By Content'];

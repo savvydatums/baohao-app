@@ -6,7 +6,6 @@ search-bar {
     background: $darkColor;
     width: 100%;
     display: inline-block;
-    padding: 10px 0 0;
     border-top: 1px solid $borderLight;
     overflow-x: scroll;
     height: 40px;
@@ -17,49 +16,45 @@ search-bar {
         color: white;
     }
 
-    > ion-icon[name='search']{
-        position: absolute;
-        left: 20px;
-        border-right: 1px solid $borderLight;
-        padding-right: 15px;
-    }
-    ul {
+    ul.search-filter {
 		line-height: 1.5em;
-		width: max-content;
-		//position: absolute;
+		width: -moz-max-content;
 		margin: 0;
-		padding-left: 60px;
+		position: absolute;
+		right: 0;
+		padding: 0;
     }
     li {
         color: white;
         display: inline-block;
         list-style: none;
-        float: left;
-        padding: 0px 9px 9px;
-        border-bottom: 3px solid transparent;
+		float: left;
+		padding: 9px;
         &.active{
-            border-color: skyblue;
-        }
-        span {
-            color: $green;
+            background: skyblue;
         }
     }
-    .search-wrap {
-        ion-icon[name='arrow-back'] {
-            margin-left: 20px;
-            padding-right: 20px;
-            border-right: 1px solid $borderLight;
-        }
+	.search-wrap {
+		min-width: 80px;
+		width: 55%;
+		display: inline-block;
+		position: absolute;
+		padding: 10px 0 0;
 
-        ion-icon[name='search'] {
-            position: absolute;
-            right: 10px;
-        }
+		ion-icon[name='search'] {
+			position: absolute;
+			left: 10px;
+			margin-right: 10px;
+		}
+
         input {
             color: white;
-            margin-left: 10px;
+            margin-left: 40px;
             background: transparent;
-            border: none;
+			border: none;
+			padding-left: 10px;
+			border-left: 1px solid $borderLight;
+
             &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
                 color: rgba(255, 255, 255, 0.3);
             }

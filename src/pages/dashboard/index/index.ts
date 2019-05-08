@@ -9,6 +9,7 @@ import { ProfileModel } from '../../../model/ProfileModel';
 import { InsightAPI } from '../../../api/InsightAPI';
 import { InsightResponseStatus } from '../../../api/Comms';
 import { PotentialPage } from '../insights/potential';
+import { PotentialLeadsModel } from '../../../model/PotentialLeadsModel';
 
 @IonicPage({ name: "DashboardPage", segment: "DashboardPage"})
 @Component({
@@ -27,6 +28,7 @@ export class DashboardPage {
 	constructor(
 		public navCtrl: NavController,
 		public insights: AllInsightsModel,
+		public potential: PotentialLeadsModel,
 		public profile: ProfileModel) {
 	}
 
@@ -39,12 +41,12 @@ export class DashboardPage {
 		this.showLoading(true)
 	}
 
-	private getPotentialLeads (cookie, groupId) {
+	private getPotentialLeads (cookie, insightType) {
 		let self = this
-		InsightAPI.getPotentialInsight(cookie, groupId)
+		InsightAPI.getPotentialInsight(cookie, insightType)
 			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					self.insights.assignPotentialLeads(result.results)
+					self.potential.addData(result.results)
 					self.getClientInsights(this.profile.cookie, this.insights.currentGroupId)
 				} else {
 					this.showError(result.message);
@@ -54,12 +56,12 @@ export class DashboardPage {
 			});
 	}
 
-	private getClientInsights (cookie, groupId) {
+	private getClientInsights(cookie, insightType) {
 		let self = this
-		InsightAPI.getAllClientInsight(cookie, groupId)
+		InsightAPI.getAllClientInsight(cookie, insightType)
 			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					self.insights.assignGroupData(result.results, groupId)
+					self.insights.assignGroupData(result.results, insightType)
 					self.showLoading(false)
 				} else {
 					this.showError(result.message);

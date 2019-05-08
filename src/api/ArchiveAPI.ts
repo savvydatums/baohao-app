@@ -17,9 +17,9 @@ export class ArchiveAPI extends Comms {
 		});
 	}
 
-	public static archiveItem(cookie: string, record_id: string, source: string): Promise<{}> {
+	public static archiveItem(cookie: string, record_id: string, source: string, group: string, categorie: string[]): Promise<{}> {
 		return new Promise((resolve, reject) => {
-			this.postFormData(Routes.archiveItem, { cookie, record_id, source })
+			this.postFormData(Routes.archiveItem, { cookie, record_id, source, categorie })
 				.then((response) => {
 					resolve(response);
 				})
@@ -27,9 +27,9 @@ export class ArchiveAPI extends Comms {
 		});
 	}
 
-	public static trashItem(cookie: string, record_id: string, source: string): Promise<{}> {
+	public static trashItem(cookie : string, record_id : string, source : string, group : string, categorie : string[]) : Promise < {} > {
 		return new Promise((resolve, reject) => {
-			this.postFormData(Routes.trashItem, { cookie, record_id, source })
+			this.postFormData(Routes.trashItem, { cookie, record_id, source, categorie })
 				.then((response) => {
 					resolve(response);
 				})

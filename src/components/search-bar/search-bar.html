@@ -1,19 +1,14 @@
-<ion-icon name="search" (click)="toggleSearch()" *ngIf="!searchOpened"></ion-icon>
-<div *ngIf="searchOpened" class="search-wrap">
-	<ion-icon name="arrow-back" (click)="toggleSearch()"></ion-icon>
+<div class="search-wrap">
+	<ion-icon name="search"></ion-icon>
 	<input #search type="text"
 		(keyup)="updateInput($event)"
 		(keyup.enter)="onSearch()"
-		placeholder="Search here...." />
-	<ion-icon name="search" (click)="onSearch()"></ion-icon>
+		placeholder="Search Something...." />
 </div>
-<ul class="categories" *ngIf="!searchOpened">
-	<li *ngFor="let group of summary"
-		class="{{ selected == group.groupId ? 'active' : '' }}"
-		(click)="onGroupClick(group.groupId)">
-		{{ getGroupName(group.key) }} <span>{{ group.amount }}</span>
+<ul class="search-filter">
+	<li *ngFor="let item of filters"
+		class="{{ selected == item ? 'active' : '' }}"
+		(click)="onFilterClick(item)">
+		{{ item }}
 	</li>
 </ul>
-
-
-

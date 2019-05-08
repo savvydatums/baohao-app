@@ -1,13 +1,3 @@
-export const groupIdMapping = {
-	all: 'notrash',
-	medical: 1,
-	savingAndLife: 2,
-	investment: 3,
-	general: 4,
-	// employeeBenefits: 5,
-	// others: 6
-}
-
 export const insightTypes = {
 	all: 'notrash',
 	archive : 'onlyarchive'
@@ -16,11 +6,10 @@ export const insightTypes = {
 // AllInsights is know your client
 export class AllInsightsModel {
 
-	public groupRawData: object[];
+	public rawData: object[];
 
 	public currentGroupData: object[];
-	public currentGroupId: number | string = groupIdMapping.all;
-	public currentGroupName: string;
+	public currentGroupId: number | string = insightTypes.all;
 
 	public potentialLeads: object[];
 
@@ -31,9 +20,7 @@ export class AllInsightsModel {
 
 	public assignGroupData (results, groupId) {
 		console.log('getGroupInsight assign Data', results, groupId)
-		this.currentGroupData = this.groupRawData = results
-		this.currentGroupName = Object.keys(groupIdMapping)
-			.find(key => groupIdMapping[key] === parseInt(groupId))
+		this.currentGroupData = this.rawData = results
 		this.currentGroupId = groupId
 	}
 
@@ -67,7 +54,7 @@ export class AllInsightsModel {
 	}
 
 	public applyFilter(keyword) {
-		this.currentGroupData = this.groupRawData.filter((item:any) => {
+		this.currentGroupData = this.rawData.filter((item:any) => {
 			return item.content.indexOf(keyword) !== -1
 		})
 	}
