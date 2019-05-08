@@ -30,11 +30,13 @@ export const totalAmountByAuthorId = `${insightPath}get_total_amount_by_authorid
 // "source"(Str)  - Required [wex || fb]
 
 export const potentialInsight = `${insightPath}get_potential_insight` //[onlyarchive || notrash]
+export const productLinks = `${baseApiPath}/api/suggest_product_link/get_product_link`
 
 // archives
 export const archiveList = `${insightPath}get_star_list` // get_star_list
 export const archiveItem = `${insightPath}star` // has changed
 export const trashItem = `${insightPath}trash` // changed
+
 
 // star
 // remove_star

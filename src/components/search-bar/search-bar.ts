@@ -30,11 +30,7 @@ export class SearchBarComponent {
 	}
 
 	public onFilterClick (item) {
-		if (this.selected == item) {
-			this.selected = null
-		} else {
-			this.selected = item;
-		}
+		this.selected = (this.selected == item) ? null : item;
 		this.searchHandler(this.inputValue, this.selected);
 	}
 

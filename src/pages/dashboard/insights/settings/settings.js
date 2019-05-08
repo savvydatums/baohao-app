@@ -1,6 +1,6 @@
-import * as keywordsSettings from '/assets/json/keyword-settings.json'
+import * as keywords from '../../../../assets/json/keyword-settings'
 
-export const keywordsSettings = keywordSettings;
+export const keywordsSettings = keywords;
 
 export const insightSearchFilters = ['By Name', 'By Content'];
 export const insightFilterTypes = {

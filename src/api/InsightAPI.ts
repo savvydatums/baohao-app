@@ -46,4 +46,14 @@ export class InsightAPI extends Comms {
 				.catch(reject);
 		});
 	}
+
+	public static getRecommendation(cookie:string, group:string): Promise<{}> {
+		return new Promise((resolve, reject) => {
+			this.postFormData(Routes.productLinks, { cookie, group })
+				.then((response: any) => {
+					resolve(response);
+				})
+				.catch(reject);
+		});
+	}
 }

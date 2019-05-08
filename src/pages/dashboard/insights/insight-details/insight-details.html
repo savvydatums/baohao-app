@@ -1,19 +1,39 @@
-<ion-content padding class="insight-content">
+<ion-content padding class="insight-content" [ngStyle]="{ 'backgroundColor': info.color }">
 	<div class="left" (click)="closeModal()">
 		<ion-icon name="close"></ion-icon>
 	</div>
-
-	<p class="title">{{ insightData.authorName }} #{{ currentKeyword }}</p>
-	<img src="/assets/categories/all/accident.jpg" />
+	<h3 class="title">{{ insightData.authorName }} </h3>
+	<div class="keywords">
+		<span *ngFor="let keyword of insightData.categories">
+			# {{ keyword }}
+		</span>
+	</div>
+	<img src="{{ info.img }}" />
 	<div class="story-section">
 		<h4> {{ 'INSIGHT.STORY' | translate }} </h4>
-		<div class="story-wrap">
-			<div class="story-item" *ngFor="let story of authorData">
-				<h6>{{ renderTimeStamp(story.timestamp) }}</h6>
-				<p [innerHTML]="story.content"></p>
-			</div>
-		</div>
+		<p [innerHTML]="insightData.content"></p>
 	</div>
 	<br/>
-	<!-- <h3> Recommendation: </h3> -->
+	<div *ngIf="type == 'potential'">
+		<div class="">
+			<input type="checkbox" name="existing_customer" value="existing_customer" />
+			<label for="existing_customer">Current Customer</label>
+		</div>
+		<div class="">
+			<input type="checkbox" name="remove_two_months" value="remove_two_months" />
+			<label for="remove_two_months">Not to display {{ insightData.authorName }}’s posts in coming 2 months</label>
+		</div>
+	</div>
+	<div *ngIf="type !== 'potential'">
+		<button> Know more about {{ insightData.authorName }} </button>
+	</div>
+	<div *ngIf="recommendations.length > 0">
+		<h3> Recommendation: </h3>
+		<a ion-button *ngFor="let recommend of recommendations"
+			href = "{{ recommend.link }}"
+			target = "_blank"
+		>
+			{{ recommend.name }}
+		</a>
+	</div>
 </ion-content>
