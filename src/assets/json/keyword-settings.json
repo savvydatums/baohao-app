@@ -1,0 +1,92 @@
+{
+	"categories": {
+		"sports": {
+		    "img": "/assets/categories/all/sports.jpg",
+		    "color": "#4D8896"
+		},
+		"entertainment": {
+		    "img": "/assets/categories/all/entertainment.jpg",
+		    "color": "#9A5B3F"
+		},
+		"health": {
+		    "img": "/assets/categories/all/health.jpg",
+		    "color": "#85BC4A"
+		},
+		"hospital_sick": {
+		    "img": "/assets/categories/all/hospital_sick.jpg",
+		    "color": "#949494"
+		},
+		"housing": {
+		    "img": "/assets/categories/all/housing.jpg",
+		    "color": "#FF8F60"
+		},
+		"marriage": {
+		    "img": "/assets/categories/all/marriage.jpg",
+		    "color": "#EC88A3"
+		},
+		"medical": {
+		    "img": "/assets/categories/all/medical.jpg",
+		    "color": "#158CA7"
+		},
+		"migration": {
+		    "img": "/assets/categories/all/migration.jpg",
+		    "color": "#B2644F"
+		},
+		"parenting": {
+		    "img": "/assets/categories/all/parenting.jpg",
+		    "color": "#BD8C98"
+		  },
+		"remittance": {
+		    "img": "/assets/categories/all/remittance.jpg",
+		    "color": "#09385E"
+		},
+		"shopping": {
+		    "img": "/assets/categories/all/shopping.jpg",
+		    "color": "#FA5C61"
+		},
+		"traveling": {
+		    "img": "/assets/categories/all/traveling.jpg",
+		    "color": "#85BC4A"
+		},
+		"unhealthlifestyle": {
+		    "img": "/assets/categories/all/unhealthlifestyle.jpg",
+		    "color": "#697871"
+		},
+		"vaccination": {
+		    "img": "/assets/categories/all/vaccination.jpg",
+		    "color": "#7781DD"
+		},
+		"wine_dine": {
+		    "img": "/assets/categories/all/wine_dine.jpg",
+		    "color": "#DBA152"
+		},
+		"claims": {
+		    "img": "/assets/categories/all/claims.jpg",
+		    "color": "#3A6487"
+		},
+		"accident": {
+		    "img": "/assets/categories/all/accident.jpg",
+		    "color": "#CE9569"
+		}
+	},
+
+	"potential":{
+		"medical": {
+		    "img": "/assets/categories/potential/medical.jpg",
+		    "color": "#158CA7"
+		},
+		"general": {
+		    "img": "/assets/categories/potential/general.jpg",
+		    "color": "#EBBC1D"
+		},
+		"recuritment": {
+		    "img": "/assets/categories/potential/recuritment.jpg",
+		    "color": "#55697F"
+		},
+		"saving_life": {
+		    "img": "/assets/categories/potential/saving_life.jpg",
+		    "color": "#B8575F"
+		}
+	}
+
+}

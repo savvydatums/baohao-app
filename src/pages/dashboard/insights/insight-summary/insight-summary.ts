@@ -28,7 +28,7 @@ export class InsightSummaryPage {
 	}
 
 	ionViewWillEnter() {
-		this.currentInsight = this.insights.summaryInArray[0]
+		//this.currentInsight = this.insights.summaryInArray[0]
 	}
 
 	ionViewDidLoad() {
@@ -87,7 +87,7 @@ export class InsightSummaryPage {
 		let data = [];
 		let labels = [];
 
-		this.insights.summaryInArray.map ((item:any) => {
+		this.insights.filteredData.map ((item:any) => {
 			data.push(item.amount);
 			const label = getGroupTitleByKey(this.translate, item.key)
 			labels.push(label)
@@ -105,7 +105,7 @@ export class InsightSummaryPage {
 
 		if (activeElement[0] && activeElement[0]._index) {
 			const activeIndex = activeElement[0]._index
-			this.currentInsight = this.insights.summaryInArray.filter((item:any) => (parseInt(item.groupId) -1) == activeIndex)[0]
+			this.currentInsight = this.insights.filteredData.filter((item:any) => (parseInt(item.groupId) -1) == activeIndex)[0]
 		}
 	}
 

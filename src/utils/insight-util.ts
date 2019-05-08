@@ -16,6 +16,17 @@ export const renderTimeStamp = (timestamp: number) => {
 	return new Date(time).toDateString()
 }
 
+export const renderTimeStampInNumber = (timestamp : number) => {
+	const time = parseInt(timestamp + '000')
+	const year = new Date(time).getFullYear()
+	const month = new Date(time).getMonth() + 1
+	const date = new Date(time).getDate()
+	const hour = new Date(time).getHours()
+	const minutes = new Date(time).getMinutes()
+
+	return `${year} ${month} ${date} | ${hour}.${minutes}`
+}
+
 export const starItem = (cookie, alertCtrl, translate, record_id, source, group, category) => {
 	ArchiveAPI.archiveItem(cookie, record_id, source, group, category)
 		.then((result: any) => {

@@ -4,7 +4,7 @@ import { AllInsightsModel } from '../../../../model/AllInsightsModel';
 import { TranslateService } from '@ngx-translate/core';
 import { HeaderComponent } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar'
-import { keywordColors, insightFilters } from '../settings/settings';
+import { keywordColors, insightSearchFilters, insightType } from '../settings/settings';
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { shortenContent, renderTimeStamp, starItem, trashItem} from '../../../../utils/insight-util';
 
@@ -18,7 +18,7 @@ export class AllClient {
 
 	searchValue: string;
 	categoryColors: object;
-	searchFilters: string[] = insightFilters;
+	searchFilters: string[] = insightSearchFilters;
 	renderTimeStamp: Function = renderTimeStamp;
 	shortenContent: Function = shortenContent;
 
@@ -40,10 +40,14 @@ export class AllClient {
 
 	public showInsightInfo(info) {
 		let insightModal = this.modalCtrl.create(
-			'InsightDetailsPage', { profile: info }
+			'InsightDetailsPage', { info, type: insightType.all }
 		);
 
 		insightModal.present();
+	}
+
+	public searchHandler(keyword, filter) {
+		this.insights.applyFilter(keyword, filter);
 	}
 
 	public starInsight(record_id, source, categories) {

@@ -10,7 +10,7 @@ import { InsightAPI } from '../../../api/InsightAPI';
 import { InsightResponseStatus } from '../../../api/Comms';
 import { PotentialPage } from '../insights/potential';
 import { PotentialLeadsModel } from '../../../model/PotentialLeadsModel';
-import { insightTypes } from '../insights/settings/settings';
+import { insightFilterTypes } from '../insights/settings/settings';
 
 @IonicPage({ name: "DashboardPage", segment: "DashboardPage"})
 @Component({
@@ -38,7 +38,7 @@ export class DashboardPage {
 	}
 
 	ngAfterViewInit() {
-		this.getPotentialLeads(this.profile.cookie, insightTypes.all)
+		this.getPotentialLeads(this.profile.cookie, insightFilterTypes.all)
 		this.showLoading(true)
 	}
 
@@ -48,7 +48,7 @@ export class DashboardPage {
 			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
 					self.potential.addData(result.results)
-					self.getClientInsights(this.profile.cookie, this.insights.currentGroupId)
+					self.getClientInsights(this.profile.cookie, insightType)
 				} else {
 					this.showError(result.message);
 				}
@@ -62,7 +62,7 @@ export class DashboardPage {
 		InsightAPI.getAllClientInsight(cookie, insightType)
 			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					self.insights.assignGroupData(result.results, insightType)
+					self.insights.addData(result.results)
 					self.showLoading(false)
 				} else {
 					this.showError(result.message);

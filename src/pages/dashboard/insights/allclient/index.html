@@ -2,14 +2,14 @@
 	<header title="Know your Client"></header>
 	<search-bar
 		[searchHandler]="searchHandler.bind(this)"
-		[selected]="insights.currentGroupId"
+		[selected]="insights.filterType"
 		[filters]="searchFilters">
 	</search-bar>
 </ion-header>
 <ion-content>
 	<ion-list>
 		<ion-item-sliding
-			*ngFor="let item of insights.currentGroupData"
+			*ngFor="let item of insights.filteredData"
 			(click)="showInsightInfo(item)">
 			<ion-item>
 				<ion-avatar item-start>

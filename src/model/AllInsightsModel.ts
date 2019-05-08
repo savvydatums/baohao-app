@@ -1,61 +1,26 @@
-export const insightTypes = {
-	all: 'notrash',
-	archive : 'onlyarchive'
-}
+import { insightSearchFilters } from '../pages/dashboard/insights/settings/settings';
 
-// AllInsights is know your client
 export class AllInsightsModel {
 
 	public rawData: object[];
-
-	public currentGroupData: object[];
-	public currentGroupId: number | string = insightTypes.all;
-
-	public potentialLeads: object[];
-
-	public summary: any = {};
-	public summaryInArray: object[];
+	public filteredData: object[];
 
 	constructor() {}
 
-	public assignGroupData (results, groupId) {
-		console.log('getGroupInsight assign Data', results, groupId)
-		this.currentGroupData = this.rawData = results
-		this.currentGroupId = groupId
+	public addData(results) {
+		this.filteredData = this.rawData = results;
 	}
 
-	public assignPotentialLeads (results) {
-		this.potentialLeads = results
-	}
-
-	public assignInsightSummary (results) {
-		this.summary = results
-		this.summaryInArray = []; // reset
-
-		for (let group in this.summary) {
-
-			//if (!groupIdMapping[group]) { return false; }
-
-			let authors = []
-			for (let ppl in this.summary[group].author) {
-				authors.push(this.summary[group].author[ppl])
+	public applyFilter(keyword, filter) {
+		this.filteredData = this.rawData.filter((item:any) => {
+			if (filter == insightSearchFilters[0] && keyword.length > 0) {
+				return item.authorName.indexOf(keyword) !== -1
+			} else if (filter == insightSearchFilters[1] && keyword.length > 0) {
+				return item.content.indexOf(keyword) !== -1
+			} else {
+				console.log(item.content.indexOf(keyword), item.authorName.indexOf(keyword))
+				return item.content.indexOf(keyword) !== -1 || item.authorName.indexOf(keyword) !== -1
 			}
-
-			this.summaryInArray.push({
-				key: group,
-				amount: this.summary[group].amount,
-				author: authors,
-				categories: this.summary[group].categories || [],
-				groupId: this.summary[group].groupId
-			})
-		}
-
-		console.log('assignSummarySimpleInfo assign Data', results, this.summaryInArray)
-	}
-
-	public applyFilter(keyword) {
-		this.currentGroupData = this.rawData.filter((item:any) => {
-			return item.content.indexOf(keyword) !== -1
 		})
 	}
 }

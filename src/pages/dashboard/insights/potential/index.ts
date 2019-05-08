@@ -5,7 +5,7 @@ import { SearchBarComponent } from '../../../../components/search-bar/search-bar
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
 import { renderTimeStamp, shortenContent, starItem, trashItem } from '../../../../utils/insight-util';
-import { keywordColors, insightFilters } from '../settings/settings';
+import { keywordColors, insightSearchFilters, insightType } from '../settings/settings';
 import { PotentialLeadsModel } from '../../../../model/PotentialLeadsModel';
 
 @IonicPage({ name: 'Potential', segment: 'potential'})
@@ -17,7 +17,7 @@ export class PotentialPage {
 
 	searchValue: string;
 	categoryColors: object;
-	searchFilters: string[] = insightFilters;
+	searchFilters: string[] = insightSearchFilters;
 	renderTimeStamp: Function = renderTimeStamp;
 	shortenContent: Function = shortenContent;
 
@@ -39,8 +39,9 @@ export class PotentialPage {
 	}
 
 	public showPotentialLeads(info) {
+
 		let insightModal = this.modalCtrl.create(
-			'InsightDetailsPage', { profile: info }
+			'InsightDetailsPage', { info, type: insightType.potential }
 		);
 
 		insightModal.present();
