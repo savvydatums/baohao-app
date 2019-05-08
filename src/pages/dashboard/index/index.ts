@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AllClient } from '../insights/allclient/index';
 import { ArchivePage } from '../archive/index';
 import { ProfilePage } from '../profile/index';
-import { AllInsightsModel, insightTypes } from '../../../model/AllInsightsModel';
+import { AllInsightsModel } from '../../../model/AllInsightsModel';
 import { IonicPage, NavController } from 'ionic-angular';
 //import { redirectIfNotLogin } from '../../../utils/login-util';
 import { ProfileModel } from '../../../model/ProfileModel';
@@ -10,6 +10,7 @@ import { InsightAPI } from '../../../api/InsightAPI';
 import { InsightResponseStatus } from '../../../api/Comms';
 import { PotentialPage } from '../insights/potential';
 import { PotentialLeadsModel } from '../../../model/PotentialLeadsModel';
+import { insightTypes } from '../insights/settings/settings';
 
 @IonicPage({ name: "DashboardPage", segment: "DashboardPage"})
 @Component({

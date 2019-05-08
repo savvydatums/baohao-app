@@ -13,7 +13,6 @@ export class SearchBarComponent {
 	@Input() searchHandler: Function;
 	@Input() selected: string;
 	@Input() filters: string[];
-	searchOpened: boolean;
 	inputValue: string;
 	loader: any;
 
@@ -24,10 +23,6 @@ export class SearchBarComponent {
 		public translate: TranslateService,
 		public loadingCtrl: LoadingController) {
 		this.inputValue = '';
-	}
-
-	ionViewWillEnter() {
-		this.searchOpened = false; // default
 	}
 
 	public updateInput (event) {
@@ -44,10 +39,6 @@ export class SearchBarComponent {
 	}
 
 	public onSearch() {
-		console.log(this.inputValue);
-		this.searchOpened = false;
-		if (this.inputValue && this.inputValue.length > 0) {
-			this.searchHandler(this.inputValue, this.selected)
-		}
+		this.searchHandler(this.inputValue, this.selected)
 	}
 }

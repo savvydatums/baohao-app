@@ -25,3 +25,7 @@ export const keywordColors = {
 }
 
 export const insightFilters = ['By Name', 'By Content'];
+export const insightTypes = {
+	all: 'notrash',
+	archive : 'onlyarchive'
+}
