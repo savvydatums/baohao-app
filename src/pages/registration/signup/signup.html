@@ -48,8 +48,7 @@
         <div class="terms-label">
         	<p>{{ 'SIGNUP.TERMS_LABEL' | translate }}</p>
         </div>
-        <div class="terms-short">
-            <p [innerHTML]="'SIGNUP.TERMS_CONTENT_SHORT' | translate"></p>
+        <div class="terms-short" [innerHTML]="'SIGNUP.TERMS_CONTENT_SHORT' | translate">
         </div>
         <div class="terms-more">
             <a (click)="openTerms()">{{ 'SIGNUP.FULL_SCREEN_LABEL' | translate }}</a>
