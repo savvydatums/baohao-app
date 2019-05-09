@@ -6,7 +6,7 @@ import { HeaderComponent } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar'
 import { keywordColors, insightSearchFilters, insightType } from '../settings/settings';
 import { ProfileModel } from '../../../../model/ProfileModel';
-import { shortenContent, renderTimeStamp, starItem, trashItem} from '../../../../utils/insight-util';
+import { shortenContent, renderTimeStamp, starItem, trashItem, getKeywordInfo, getKeywordText} from '../../../../utils/insight-util';
 
 @IonicPage({ name: "AllClient", segment: "AllClient" })
 @Component({
@@ -16,11 +16,14 @@ import { shortenContent, renderTimeStamp, starItem, trashItem} from '../../../..
 
 export class AllClient {
 
+	type: string = insightType.all;
 	searchValue: string;
 	categoryColors: object;
 	searchFilters: string[] = insightSearchFilters;
 	renderTimeStamp: Function = renderTimeStamp;
 	shortenContent: Function = shortenContent;
+	//getKeywordInfo: Function = getKeywordInfo;
+	getKeywordText: Function = getKeywordText;
 
 	@ViewChild(forwardRef(() => HeaderComponent)) header
 	@ViewChild(forwardRef(() => SearchBarComponent)) searchBar
@@ -36,6 +39,14 @@ export class AllClient {
 
 	ionViewWillEnter() {
 		this.categoryColors = keywordColors;
+	}
+
+	public getKeywordColor(category) {
+		// getKeywordColor(type, item.categories[0]).color"
+		console.log(this.type, category)
+		const color = getKeywordInfo(this.type, category).color
+
+		return color
 	}
 
 	public showInsightInfo(info) {

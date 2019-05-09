@@ -121,35 +121,6 @@ confirm {
     }
 }
 
-/** list of colors: **/
-
-.cat-sports { background-color: #45f78f }
-.cat-entertainment { background-color: #45f7ed }
-.cat-wineDine { background-color: #7982ff }
-.cat-traveling { background-color: #f36161 }
-.cat-shopping { background-color: #f7d945; color: black; }
-.cat-health { background-color: #45f78f }
-.cat-parenting { background-color: #45f7ed }
-.cat-immigration { background-color: #7982ff }
-.cat-remittance { background-color: #f36161 }
-.cat-medical { background-color: #f7d945; color: black; }
-.cat-housing { background-color: #45f78f }
-.cat-vaccination { background-color: #45f7ed }
-.cat-marriage { background-color: #7982ff }
-.cat-pregnancy { background-color: #f36161 }
-.cat-hospital { background-color: #f7d945; color: black; }
-.cat-sick { background-color: #45f78f }
-.cat-injury { background-color: #45f7ed }
-.cat-accident { background-color: #7982ff }
-.cat-claims { background-color: #f36161 }
-.cat-health { background-color: #f7d945; color: black; }
-.cat-conscious { background-color: #45f78f }
-.cat-unhealthy { background-color: #45f7ed }
-.cat-lifestyle { background-color: #7982ff }
-.cat-healthConscious { background-color: #f36161 }
-.cat-unhealthyLifestyle { background-color: #f36161 }
-.cat-hospitalSickInjury {  background-color: #f36161 }
-
 // potential, know your client and archive style
 insight-list {
     background-image: radial-gradient(circle at 105% 0, #1d7f8a, #3e6a90);
@@ -173,21 +144,20 @@ insight-list {
     .list-label {
         position: absolute;
         right: 15px;
-        top: 20px;
+        top: 15px;
         font-size: 11px;
 
         .keyword-label {
             color: white;
-            padding: 2px 6px;
+            padding: 4px 10px;
             border-radius: 4px;
 			float: right;
-			margin-left: 10px;
         }
         span {
             display: inline-block;
         }
         .date {
-			margin-top: 30px;
+			top: 30px;
 			position: absolute;
 			right: 0;
         }

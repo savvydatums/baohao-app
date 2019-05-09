@@ -1,39 +1,54 @@
-<ion-content padding class="insight-content" [ngStyle]="{ 'backgroundColor': info.color }">
+<ion-content [ngStyle]="{ 'backgroundColor': info.color }">
 	<div class="left" (click)="closeModal()">
 		<ion-icon name="close"></ion-icon>
 	</div>
-	<h3 class="title">{{ insightData.authorName }} </h3>
-	<div class="keywords">
-		<span *ngFor="let keyword of insightData.categories">
-			# {{ keyword }}
-		</span>
+
+	<div class="hero">
+		<div class="background" [ngStyle]="{ 'backgroundImage': 'url( '+ info.img+')' }"></div>
+		<h3 >{{ insightData.authorName }} </h3>
+		<div class="keywords">
+		  <span *ngFor="let keyword of insightData.categories">
+		    # {{ getKeywordText(translate, type, keyword) }}
+		  </span>
+		</div>
 	</div>
-	<img src="{{ info.img }}" />
-	<div class="story-section">
-		<h4> {{ 'INSIGHT.STORY' | translate }} </h4>
-		<p [innerHTML]="insightData.content"></p>
-	</div>
-	<br/>
-	<div *ngIf="type == 'potential'">
-		<div class="">
+
+	<div class="content">
+		<div padding>
+			<h5>{{ renderTimeStamp(insightData.timestamp) }}</h5>
+			<p [innerHTML]="insightData.content"></p>
+		</div>
+		<div class="select" *ngIf="type == 'potential'" padding>
+			<div class="row">
 			<input type="checkbox" name="existing_customer" value="existing_customer" />
 			<label for="existing_customer">Current Customer</label>
-		</div>
-		<div class="">
+			</div>
+			<div class="row">
+			<ion-checkbox color="danger" value="remove_two_months"></ion-checkbox>
 			<input type="checkbox" name="remove_two_months" value="remove_two_months" />
-			<label for="remove_two_months">Not to display {{ insightData.authorName }}’s posts in coming 2 months</label>
+			<label for="remove_two_months">
+				Not to display {{ insightData.authorName }}’s
+				posts in coming 2 months
+			</label>
+			</div>
+			<ion-item>
+			<ion-label>Pepperoni</ion-label>
+			<ion-checkbox slot="end" value="pepperoni" checked></ion-checkbox>
+			</ion-item>
+
 		</div>
-	</div>
-	<div *ngIf="type !== 'potential'">
-		<button> Know more about {{ insightData.authorName }} </button>
-	</div>
-	<div *ngIf="recommendations.length > 0">
-		<h3> Recommendation: </h3>
-		<a ion-button *ngFor="let recommend of recommendations"
-			href = "{{ recommend.link }}"
-			target = "_blank"
-		>
-			{{ recommend.name }}
-		</a>
+		<div *ngIf="type !== 'potential'">
+		  <button> Know more about {{ insightData.authorName }} </button>
+		</div>
+		<div class="recommend" *ngIf="recommendations.length > 0">
+			<h4> Recommend Products: </h4>
+			<div class="boxes">
+				<a ion-button
+					*ngFor="let recommend of recommendations"
+					href="{{ recommend.link }}" target="_blank">
+					{{ recommend.name }}
+				</a>
+		  	</div>
+		</div>
 	</div>
 </ion-content>

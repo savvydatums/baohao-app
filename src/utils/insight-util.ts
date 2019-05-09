@@ -1,7 +1,7 @@
 import { ArchiveAPI } from "../api/ArchiveAPI";
 import { sendGenericUpdateAlert } from "./alert-generic";
 import { InsightResponseStatus } from "../api/Comms";
-
+import { keywordsSettings, insightType } from "../pages/dashboard/insights/settings/settings"
 
 // insight list util
 export const shortenContent = (translate, content, ensize: number, cnsize: number) => {
@@ -45,4 +45,15 @@ export const trashItem = (cookie, alertCtrl, translate, record_id, source, group
 		}, error => {
 			sendGenericUpdateAlert(alertCtrl, translate, true, error)
 		});
+}
+
+export const getKeywordInfo = (type, keyword) => {
+	console.assert(type === insightType.all || type === insightType.potential)
+	return keywordsSettings[type][keyword]
+}
+
+export const getKeywordText = (translate, type, keyword) => {
+	const info = getKeywordInfo(type, keyword)
+	const lang = translate.currentLang || translate.defaultLang
+	return info[lang]
 }

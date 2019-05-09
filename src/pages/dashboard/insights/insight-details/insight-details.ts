@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { renderTimeStampInNumber } from '../../../../utils/insight-util';
+import { renderTimeStampInNumber, getKeywordInfo, getKeywordText } from '../../../../utils/insight-util';
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
 import { InsightAPI } from '../../../../api/InsightAPI';
-import { keywordsSettings, insightType} from '../settings/settings';
+import { insightType} from '../settings/settings';
 import { TInsightPost } from '../../../../model/types';
 import { InsightResponseStatus } from '../../../../api/Comms';
 
@@ -20,6 +20,8 @@ export class InsightDetailsPage {
 	recommendations: object[] = [];
 	info: object;
 	renderTimeStamp: Function = renderTimeStampInNumber;
+	getKeywordInfo: Function = getKeywordInfo;
+	getKeywordText: Function = getKeywordText;
 
 	constructor(
 		public navCtrl: NavController,
@@ -32,8 +34,8 @@ export class InsightDetailsPage {
 	ionViewWillLoad() {
 		this.insightData = this.navParams.get('info')
 		this.type = this.navParams.get('type')
-		const mainCategory = this._getCategoryMapping(this.insightData.categories)
-		this.info = keywordsSettings[this.type][mainCategory]
+		const mainCategory = this.insightData.categories[0]
+		this.info = getKeywordInfo(this.type, mainCategory);
 
 		//this.getAuthorInfo(this.profile.cookie, authorInfo.authorId, authorInfo.source, category)
 		console.log(this.insightData, this.type, this.info, mainCategory)
@@ -41,10 +43,6 @@ export class InsightDetailsPage {
 			this._getRecommendation()
 		} else {
 		}
-	}
-
-	private _getCategoryMapping(categories) {
-		return categories[0].replace(" & ", "_").replace("/", "_")
 	}
 
 	private _getRecommendation () {
@@ -62,7 +60,7 @@ export class InsightDetailsPage {
 	}
 
 	// private getAuthorInfo (cookie, authorid, source, category) {
-	// 	InsightAPI.getInsightByAuthorId(cookie, authorid, source, category)
+	//	InsightAPI.getInsightByAuthorId(cookie, authorid, source, category)
 	// 		.then((result: any) => {
 	// 			if (result.status == InsightResponseStatus.SUCCESS) {
 	// 				this.authorData = result.results;

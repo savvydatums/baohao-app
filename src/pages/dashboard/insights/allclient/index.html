@@ -22,9 +22,10 @@
 				</div>
 				<div class="list-label">
 					<div class="category-list">
-					  <span class="{{ 'keyword-label cat-' + item.categories[0] }}">
-					    {{ item.categories[0] }}
-					  </span>
+						<span class="keyword-label"
+							[style.background-color]="getKeywordColor(item.categories[0])">
+							{{ getKeywordText(translate, type, item.categories[0]) }}
+						</span>
 					</div>
 					<span class="date">{{ renderTimeStamp(item.timestamp) }}</span>
 				</div>

@@ -4,7 +4,7 @@ import { HeaderComponent } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar';
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
-import { renderTimeStamp, shortenContent, starItem, trashItem } from '../../../../utils/insight-util';
+import { renderTimeStamp, shortenContent, starItem, trashItem, getKeywordInfo, getKeywordText } from '../../../../utils/insight-util';
 import { keywordColors, insightSearchFilters, insightType } from '../settings/settings';
 import { PotentialLeadsModel } from '../../../../model/PotentialLeadsModel';
 
@@ -15,11 +15,14 @@ import { PotentialLeadsModel } from '../../../../model/PotentialLeadsModel';
 })
 export class PotentialPage {
 
+	type: string = insightType.potential;
 	searchValue: string;
 	categoryColors: object;
 	searchFilters: string[] = insightSearchFilters;
 	renderTimeStamp: Function = renderTimeStamp;
 	shortenContent: Function = shortenContent;
+	getKeywordInfo: Function = getKeywordInfo;
+	getKeywordText: Function = getKeywordText;
 
 	@ViewChild(forwardRef(() => HeaderComponent)) header
 	@ViewChild(forwardRef(() => SearchBarComponent)) searchBar

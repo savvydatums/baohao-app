@@ -3,104 +3,110 @@
 		"sports": {
 			"img": "/assets/categories/all/sports.jpg",
 			"color": "#4D8896",
-			"cn": "運動",
+			"cn": "體育運動",
 			"en": "Sports"
 		},
 		"entertainment": {
 		    "img": "/assets/categories/all/entertainment.jpg",
 			"color": "#9A5B3F",
-			"cn": "娛樂",
+			"cn": "消閒娛樂",
 			"en": "Entertainment"
 		},
 		"health": {
 		    "img": "/assets/categories/all/health.jpg",
 			"color": "#85BC4A",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "健康",
+			"en": "Health"
 		},
 		"hospital_sick": {
 		    "img": "/assets/categories/all/hospital_sick.jpg",
 			"color": "#949494",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "生病",
+			"en": "Sick"
 		},
 		"housing": {
 		    "img": "/assets/categories/all/housing.jpg",
 			"color": "#FF8F60",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "房地產",
+			"en": "Housing"
 		},
 		"marriage": {
 		    "img": "/assets/categories/all/marriage.jpg",
 			"color": "#EC88A3",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "婚姻",
+			"en": "Marriage"
 		},
 		"medical": {
 		    "img": "/assets/categories/all/medical.jpg",
 			"color": "#158CA7",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "醫療",
+			"en": "Medical"
 		},
 		"migration": {
 		    "img": "/assets/categories/all/migration.jpg",
 			"color": "#B2644F",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "移民",
+			"en": "Migration"
 		},
 		"parenting": {
 		    "img": "/assets/categories/all/parenting.jpg",
 			"color": "#BD8C98",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "育兒",
+			"en": "Parenting"
 		  },
 		"remittance": {
 		    "img": "/assets/categories/all/remittance.jpg",
 			"color": "#09385E",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "匯款",
+			"en": "Remittance"
 		},
 		"shopping": {
 		    "img": "/assets/categories/all/shopping.jpg",
 			"color": "#FA5C61",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "購物",
+			"en": "Shopping"
 		},
 		"traveling": {
 		    "img": "/assets/categories/all/traveling.jpg",
 			"color": "#85BC4A",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "旅遊",
+			"en": "Traveling"
 		},
 		"unhealthlifestyle": {
 		    "img": "/assets/categories/all/unhealthlifestyle.jpg",
 			"color": "#697871",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "不健康生活",
+			"en": "Unhealthy Lifestyle"
 		},
 		"vaccination": {
 		    "img": "/assets/categories/all/vaccination.jpg",
 			"color": "#7781DD",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "疫苗接種",
+			"en": "Vaccination"
 		},
 		"wine_dine": {
 		    "img": "/assets/categories/all/wine_dine.jpg",
 			"color": "#DBA152",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "餐飲美酒",
+			"en": "Wine & Dine"
 		},
 		"claims": {
 		    "img": "/assets/categories/all/claims.jpg",
 			"color": "#3A6487",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "索賠",
+			"en": "Claims"
 		},
 		"accident": {
 		    "img": "/assets/categories/all/accident.jpg",
 			"color": "#CE9569",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "意外",
+			"en": "Accident"
+		},
+		"recruitment": {
+		    "img": "/assets/categories/potential/recuritment.jpg",
+			"color": "#55697F",
+			"cn": "招聘",
+			"en": "Recruitment"
 		}
 	},
 
@@ -108,27 +114,26 @@
 		"medical": {
 		    "img": "/assets/categories/potential/medical.jpg",
 			"color": "#158CA7",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "危疾或醫療",
+			"en": "CI / Medical"
 		},
 		"general": {
 		    "img": "/assets/categories/potential/general.jpg",
 			"color": "#EBBC1D",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "一般保險",
+			"en": "General"
 		},
 		"recuritment": {
 		    "img": "/assets/categories/potential/recuritment.jpg",
 			"color": "#55697F",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "招聘",
+			"en": "Recruitment"
 		},
 		"saving_life": {
 		    "img": "/assets/categories/potential/saving_life.jpg",
 			"color": "#B8575F",
-			"cn": "娛樂",
-			"en": "Entertainment"
+			"cn": "終身壽險或儲蓄",
+			"en": "Savings & Life"
 		}
 	}
-
 }

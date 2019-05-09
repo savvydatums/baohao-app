@@ -10,22 +10,23 @@
 	<ion-list>
 		<ion-item-sliding *ngFor="let item of potential.filteredData" (click)="showPotentialLeads(item)">
 			<ion-item>
-			<ion-avatar item-start>
-				<img *ngIf="item.source == 'fb'" src="assets/icon/facebook.svg">
-				<img *ngIf="item.source == 'wex'" src="assets/icon/wechat.svg">
-			</ion-avatar>
-			<div class="list-content">
-				<h3>{{ item.authorName }}</h3>
-				<p>{{ shortenContent(translate, item.content, 8, 20) }} </p>
-			</div>
-			<div class="list-label">
-				<div class="category-list">
-				<span class="{{ 'keyword-label cat-' + item.categories[0] }}">
-					{{ item.categories[0] }}
-				</span>
+				<ion-avatar item-start>
+					<img *ngIf="item.source == 'fb'" src="assets/icon/facebook.svg">
+					<img *ngIf="item.source == 'wex'" src="assets/icon/wechat.svg">
+				</ion-avatar>
+				<div class="list-content">
+					<h3>{{ item.authorName }}</h3>
+					<p>{{ shortenContent(translate, item.content, 8, 20) }} </p>
 				</div>
-				<span class="date">{{ renderTimeStamp(item.timestamp) }} </span>
-			</div>
+				<div class="list-label">
+					<div class="category-list">
+						<span class="keyword-label"
+							[style.background-color]="getKeywordInfo(type, item.categories[0]).color">
+							{{ getKeywordText(translate, type, item.categories[0]) }}
+						</span>
+					</div>
+					<span class="date">{{ renderTimeStamp(item.timestamp) }} </span>
+				</div>
 			</ion-item>
 			<ion-item-options side="right">
 				<button ion-button (click)="starInsight(item._id, item.source, item.categories)"> Star </button>
