@@ -17,9 +17,9 @@ export class ArchiveAPI extends Comms {
 		});
 	}
 
-	public static archiveItem(cookie: string, record_id: string, source: string, group: string, categorie: string[]): Promise<{}> {
+	public static archiveItem(cookie: string, record_id: string, source: string, group: string, category: string[]): Promise<{}> {
 		return new Promise((resolve, reject) => {
-			this.postFormData(Routes.archiveItem, { cookie, record_id, source, categorie })
+			this.postFormData(Routes.archiveItem, { cookie, record_id, source, group, category })
 				.then((response) => {
 					resolve(response);
 				})

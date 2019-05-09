@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
 import { renderTimeStampInNumber, getKeywordInfo, getKeywordText } from '../../../../utils/insight-util';
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
@@ -28,7 +28,8 @@ export class InsightDetailsPage {
 		private view: ViewController,
 		public profile: ProfileModel,
 		public translate: TranslateService,
-		public navParams: NavParams) {
+		public navParams: NavParams,
+		private alertCtrl: AlertController) {
 	}
 
 	ionViewWillLoad() {
@@ -36,12 +37,10 @@ export class InsightDetailsPage {
 		this.type = this.navParams.get('type')
 		const mainCategory = this.insightData.categories[0]
 		this.info = getKeywordInfo(this.type, mainCategory);
-
-		//this.getAuthorInfo(this.profile.cookie, authorInfo.authorId, authorInfo.source, category)
-		console.log(this.insightData, this.type, this.info, mainCategory)
 		if (this.type == insightType.potential) {
 			this._getRecommendation()
 		} else {
+
 		}
 	}
 
@@ -59,18 +58,35 @@ export class InsightDetailsPage {
 			})
 	}
 
-	// private getAuthorInfo (cookie, authorid, source, category) {
-	//	InsightAPI.getInsightByAuthorId(cookie, authorid, source, category)
-	// 		.then((result: any) => {
-	// 			if (result.status == InsightResponseStatus.SUCCESS) {
-	// 				this.authorData = result.results;
-	// 			} else {
-	// 				//this.showError(result.message);
-	// 			}
-	// 		}, error => {
-	// 			//this.showError(error);
-	// 		});
-	// }
+	public goToAuthorPage () {
+		// open another model
+		console.log('goToAuthorPage')
+	}
+
+	public openEditNote() {
+		const alert = this.alertCtrl.create({
+			title: 'Add a nick name',
+			inputs: [
+				{
+					name: 'nickname',
+					placeholder: 'nickname'
+				}
+			],
+			buttons: [{
+				text: 'cancel'
+			},
+			{
+				text: 'save',
+				handler: data => {
+					console.log ('data', data)
+					//InsightAPI.edit_user_profile();
+				}
+			}]
+		})
+
+		alert.present()
+
+	}
 
 	closeModal () {
 		this.view.dismiss()

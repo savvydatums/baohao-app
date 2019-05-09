@@ -1,6 +1,6 @@
 import { ArchiveAPI } from "../api/ArchiveAPI";
 import { sendGenericUpdateAlert } from "./alert-generic";
-import { InsightResponseStatus } from "../api/Comms";
+import { ResponseStatus } from "../api/Comms";
 import { keywordsSettings, insightType } from "../pages/dashboard/insights/settings/settings"
 
 // insight list util
@@ -30,7 +30,7 @@ export const renderTimeStampInNumber = (timestamp : number) => {
 export const starItem = (cookie, alertCtrl, translate, record_id, source, group, category) => {
 	ArchiveAPI.archiveItem(cookie, record_id, source, group, category)
 		.then((result: any) => {
-			const isFail = result.status !== InsightResponseStatus.UPDATED
+			const isFail = result.status === ResponseStatus.ERROR
 			sendGenericUpdateAlert(alertCtrl, translate, isFail)
 		}, error => {
 			sendGenericUpdateAlert(alertCtrl, translate, true, error)
@@ -40,7 +40,7 @@ export const starItem = (cookie, alertCtrl, translate, record_id, source, group,
 export const trashItem = (cookie, alertCtrl, translate, record_id, source, group, category) => {
 	ArchiveAPI.trashItem(cookie, record_id, source, group, category)
 		.then((result: any) => {
-			const isFail = result.status !== InsightResponseStatus.UPDATED
+			const isFail = result.status === ResponseStatus.ERROR
 			sendGenericUpdateAlert(alertCtrl, translate, isFail)
 		}, error => {
 			sendGenericUpdateAlert(alertCtrl, translate, true, error)

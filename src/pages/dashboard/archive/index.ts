@@ -1,20 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, forwardRef } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { InsightResponseStatus } from '../../../api/Comms';
 import { ArchiveAPI } from '../../../api/ArchiveAPI';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { ArchiveModel } from '../../../model/ArchiveModel';
 import { TranslateService } from '@ngx-translate/core';
+import { starFilters } from '../insights/settings/settings';
+import { shortenContent, renderTimeStamp } from '../../../utils/insight-util';
+import { HeaderComponent } from '../../../components/header/header';
+import { SearchBarComponent } from '../../../components/search-bar/search-bar';
 
 @IonicPage({ name: "archive", segment: "archive" })
 @Component({
-  selector: 'AllClient',
-  templateUrl: 'index.html'
+	selector: 'insight-list',
+	templateUrl: 'index.html'
 })
 
 export class ArchivePage {
 
+	//type: string = insightType.potential;
 	loading = true;
+	shortenContent: Function = shortenContent;
+	renderTimeStamp: Function = renderTimeStamp;
+	starFilters: string[] = starFilters;
+
+	@ViewChild(forwardRef(() => HeaderComponent)) header
+	@ViewChild(forwardRef(() => SearchBarComponent)) searchBar
 
 	constructor(
 		public navCtrl: NavController,
@@ -26,10 +37,6 @@ export class ArchivePage {
 	ngAfterViewInit() {
 		this.getArchiveData(this.profile.cookie)
 		this.showLoading(true)
-	}
-
-	ionViewDidLoad() {
-		console.log('ionViewDidLoad Archive page');
 	}
 
 	private getArchiveData (cookie) {
@@ -50,14 +57,7 @@ export class ArchivePage {
 		this.loading = show
 	}
 
-	public renderTimeStamp(timestamp: number) {
-		const time = parseInt(timestamp + '000')
-		return new Date(time).toDateString()
-	}
-
-	public shortenContent(content) {
-		const lang = this.translate.currentLang || this.translate.defaultLang
-		let stringNumber = lang == 'en' ? 8 : 20
-		return content.substring(0, stringNumber);
+	public searchHandler(keyword, filter) {
+		//this.insights.applyFilter(keyword, filter);
 	}
 }

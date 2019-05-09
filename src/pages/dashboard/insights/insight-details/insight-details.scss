@@ -20,7 +20,7 @@ insight-details {
 			height: 100%;
 			left: 0;
 			top: 0;
-			opacity: 0.8;
+			opacity: 0.5;
 			z-index: -1;
 		}
 
@@ -37,8 +37,14 @@ insight-details {
 			bottom: 15px;
 			span {
 				font-weight: bold;
-				text-shadow: 1px 1px 3px rgba(0,0,0, 0.3);
+				text-shadow: 1px 1px 3px rgba(0,0,0, 0.8);
 			}
+		}
+
+		ion-icon[name='brush'] {
+			font-size: 16px;
+			cursor: pointer;
+			&:hover { color: pink;}
 		}
 	}
 
@@ -48,7 +54,7 @@ insight-details {
 		left: 20px;
 		top: 5px;
 		cursor: pointer;
-		z-index: 30; // this is to ensure close button is clickable
+		z-index: 30;
 
 		ion-icon {
 			font-size: 3em;
@@ -64,40 +70,74 @@ insight-details {
 	.content {
 		text-align: center;
 		color: white;
-		> h5 {
-			border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-			padding-bottom: 2rem;
-		}
+		margin-bottom: 60px;
 		> div:first-child {
 			margin: 0 auto;
 			width: 80%;
+			h5 {
+				border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+				padding-bottom: 2rem;
+			}
 		}
 
 		.select{
 			background: rgba(0, 0, 0, 0.3);
-			.row {
-				padding: 10px;
-				width: 90%;
-				margin: 0 auto;
-				input { }
-				label {
-					text-align: left; }
+			padding: 15px 30px;
+			.item-inner {
+				border-bottom: none;
+			}
+			ion-label {
+				white-space: normal !important;
+				max-width: none !important;
+				width: 100%;
 			}
 		}
-		.recommend {
-			width: 90%;
-			.boxes {
 
+		.recommend {
+			width: 84%;
+			margin: 0 auto;
+			.boxes {
+				background: rgba(255, 255, 255, 0.8);
+				padding: 20px;
+				text-align: center;
+			}
+			a {
+				width: 100%;
+				font-weight: normal;
+				display: inline-block;
+				padding: 14px;
+				text-decoration: none;
+				box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+				margin-bottom: 12px;
+				line-height: 18px;
 			}
 		}
 	}
 
-	// 	.source-icon {
-	// 		height: 20px;
-	// 		width: 20px;
-	// 		display: inline-block;
-	// 		position: absolute;
-	// 		right: 0;
-	// 		top: 0;
-	// 	}
+	.know-more-wrap {
+		background: rgba(255, 255, 255, 0.3);
+		padding: 15px;
+		text-align: center;
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	.user-details-btn {
+		width: 100%;
+		padding: 15px;
+		font-size: 16px;
+
+	}
+
+	.source{
+		img {
+			width: 100%;
+			height: 100%;
+		}
+		height: 20px;
+		width: 20px;
+		position: absolute;
+		right: 15px;
+		top: 15px;
+	}
 }

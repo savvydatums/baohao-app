@@ -5,7 +5,9 @@ export const sendGenericUpdateAlert = (alertCtrl, translate, isFail, info?) => {
 
 	const successString = getTranslation(translate, 'UPDATE_SUCCEED')
 	const title = isFail ? getTranslation(translate, 'UPDATE_FAILED') : successString
-	const message = isFail ? (info || getTranslation(translate, 'UPDATE_PENDING_MESSAGE')) : successString
+	let message = isFail ? (info || getTranslation(translate, 'UPDATE_PENDING_MESSAGE')) : successString
+
+	if (message === title) {message = ''}
 
 	const alert = alertCtrl.create({
 		title: title,

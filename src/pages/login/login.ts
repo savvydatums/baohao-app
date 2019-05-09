@@ -2,7 +2,7 @@ import { ResetPasswordPage } from './../registration/reset-password/reset-passwo
 import { PaymentPage } from '../activate/payment/payment';
 import { DashboardPage } from '../dashboard/index/index';
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { UserAPI } from '../../api/UserAPI';
@@ -29,7 +29,6 @@ export class LoginPage {
 		public navParams: NavParams,
 		private formBuilder: FormBuilder,
 		public translate: TranslateService,
-		public alertCtrl: AlertController,
 		private profile: ProfileModel) {
 
 		this.credentialsForm = this.formBuilder.group({

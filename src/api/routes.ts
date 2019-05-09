@@ -23,7 +23,7 @@ const insightPath = `${baseApiPath}api/es/`
 export const groupInsight = `${insightPath}get_group_insight` // onlyarchive, no trash(default)
 export const insightByAuthorId = `${insightPath}get_insight_by_authorid`
 export const insightTotalAmount = `${insightPath}get_group_total_amount` // need change to by client ID
-export const editSearchPreference = `${insightPath}edit_customer_profile`
+export const editUserPreference = `${insightPath}edit_customer_profile`
 export const totalAmountByAuthorId = `${insightPath}get_total_amount_by_authorid` // need to add
 // "cookie"(Str)  - Required
 // "authorid"(Str)  - Required
@@ -40,4 +40,3 @@ export const trashItem = `${insightPath}trash` // changed
 
 // star
 // remove_star
-// get_product_link ==> recommendation

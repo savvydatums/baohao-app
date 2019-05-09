@@ -4,7 +4,7 @@ import { AllInsightsModel } from '../../../../model/AllInsightsModel';
 import { TranslateService } from '@ngx-translate/core';
 import { HeaderComponent } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar'
-import { keywordColors, insightSearchFilters, insightType } from '../settings/settings';
+import { insightSearchFilters, insightType } from '../settings/settings';
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { shortenContent, renderTimeStamp, starItem, trashItem, getKeywordInfo, getKeywordText} from '../../../../utils/insight-util';
 
@@ -22,7 +22,6 @@ export class AllClient {
 	searchFilters: string[] = insightSearchFilters;
 	renderTimeStamp: Function = renderTimeStamp;
 	shortenContent: Function = shortenContent;
-	//getKeywordInfo: Function = getKeywordInfo;
 	getKeywordText: Function = getKeywordText;
 
 	@ViewChild(forwardRef(() => HeaderComponent)) header
@@ -37,13 +36,7 @@ export class AllClient {
 		private alertCtrl: AlertController
 	) {}
 
-	ionViewWillEnter() {
-		this.categoryColors = keywordColors;
-	}
-
 	public getKeywordColor(category) {
-		// getKeywordColor(type, item.categories[0]).color"
-		console.log(this.type, category)
 		const color = getKeywordInfo(this.type, category).color
 
 		return color

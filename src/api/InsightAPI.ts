@@ -56,4 +56,18 @@ export class InsightAPI extends Comms {
 				.catch(reject);
 		});
 	}
+
+	public static edit_user_profile(
+		cookie:string, source:string, record_id:string, timestamp:string,
+		existing_customer:boolean|null, remove_two_months: boolean|null, nickname: string|null): Promise<{}>{
+
+		return new Promise((resolve, reject) => {
+			this.postFormData(Routes.editUserPreference,
+				{ cookie, source, record_id, timestamp, existing_customer, remove_two_months, nickname })
+				.then((response: any) => {
+					resolve(response);
+				})
+				.catch(reject);
+		});
+	}
 }

@@ -5,7 +5,7 @@ import { SearchBarComponent } from '../../../../components/search-bar/search-bar
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
 import { renderTimeStamp, shortenContent, starItem, trashItem, getKeywordInfo, getKeywordText } from '../../../../utils/insight-util';
-import { keywordColors, insightSearchFilters, insightType } from '../settings/settings';
+import { insightSearchFilters, insightType } from '../settings/settings';
 import { PotentialLeadsModel } from '../../../../model/PotentialLeadsModel';
 
 @IonicPage({ name: 'Potential', segment: 'potential'})
@@ -37,10 +37,6 @@ export class PotentialPage {
 		private alertCtrl: AlertController) {
 	}
 
-	ionViewWillEnter() {
-		this.categoryColors = keywordColors;
-	}
-
 	public showPotentialLeads(info) {
 
 		let insightModal = this.modalCtrl.create(
@@ -53,12 +49,12 @@ export class PotentialPage {
 		this.potential.applyFilter(keyword, filter);
 	}
 
-	public starInsight(record_id, source, categories) {
-		return starItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories);
+	public starInsight(record_id, source, group) {
+		return starItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, group, null);
 	}
 
-	public trashInsight(record_id, source, categories) {
-		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories);
+	public trashInsight(record_id, source, group) {
+		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, group, null);
 	}
 
 }

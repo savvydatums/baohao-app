@@ -8,8 +8,8 @@
 </ion-header>
 <ion-content>
 	<ion-list>
-		<ion-item-sliding *ngFor="let item of potential.filteredData" (click)="showPotentialLeads(item)">
-			<ion-item>
+		<ion-item-sliding *ngFor="let item of potential.filteredData">
+			<ion-item (click)="showPotentialLeads(item)">
 				<ion-avatar item-start>
 					<img *ngIf="item.source == 'fb'" src="assets/icon/facebook.svg">
 					<img *ngIf="item.source == 'wex'" src="assets/icon/wechat.svg">

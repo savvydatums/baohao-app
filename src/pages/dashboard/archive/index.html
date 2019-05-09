@@ -5,16 +5,11 @@
 	</div>
 </ion-content>
 <ion-content>
-	<header>
-		<div class="left">
-		  <ion-icon menuToggle="left" name="menu"></ion-icon>
-		</div>
-		<h3>Stared </h3>
-		<!-- <search-bar
-			[summary]="archive.list"
-			[selected]="insights.currentGroupId">
-	</search-bar>-->
-	</header>
+	<ion-header>
+		<header title="Stared"></header>
+		<search-bar [searchHandler]="searchHandler.bind(this)" [selected]="null" [filters]="starFilters">
+		</search-bar>
+	</ion-header>
 	<ion-list>
 		  <ion-item-sliding *ngFor="let item of archive.list">
 		    <ion-item>
@@ -24,7 +19,7 @@
 		      </ion-avatar>
 		      <div class="list-content">
 		        <h3>{{ item.authorName }}</h3>
-		        <p>{{ shortenContent(item.content) }}</p>
+		        <p>{{ shortenContent(translate, item.content, 8, 20) }}</p>
 		      </div>
 		      <div class="list-label">
 		        <div class="category-list">

@@ -22,4 +22,16 @@ export class UserDetailsPage {
     console.log('ionViewDidLoad UserDetailsPage');
   }
 
+  // private getAuthorInfo (cookie, authorid, source, category) {
+	//	InsightAPI.getInsightByAuthorId(cookie, authorid, source, category)
+	// 		.then((result: any) => {
+	// 			if (result.status == InsightResponseStatus.SUCCESS) {
+	// 				this.authorData = result.results;
+	// 			} else {
+	// 				//this.showError(result.message);
+	// 			}
+	// 		}, error => {
+	// 			//this.showError(error);
+	// 		});
+	// }
 }
