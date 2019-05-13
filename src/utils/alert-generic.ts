@@ -22,6 +22,18 @@ export const sendGenericUpdateAlert = (alertCtrl, translate, isFail, info?) => {
 	alert.present()
 }
 
+export const showError = (alertCtrl, translate, message) => {
+		const alert = alertCtrl.create({
+			title: translate.translations.CREATE_FAILED,
+			message: message,
+			buttons: [{
+				text: translate.translations.GLOBAL_CANCEL_BUTTON_LABEL
+			}]
+		})
+
+		alert.present()
+	}
+
 export const openEditNoteForNickName = (alertCtrl, translate, insightData, cookie) => {
 	const alert = alertCtrl.create({
 		title: 'Add a nick name',
@@ -40,7 +52,7 @@ export const openEditNoteForNickName = (alertCtrl, translate, insightData, cooki
 						const isFail = (result.status == ResponseStatus.ERROR)
 						sendGenericUpdateAlert(alertCtrl, translate, isFail)
 					}, error => {
-						console.log('updateUserPreference', error)
+						sendGenericUpdateAlert(alertCtrl, translate, true)
 					})
 			}
 		}]

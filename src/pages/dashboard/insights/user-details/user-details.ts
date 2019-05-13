@@ -7,7 +7,7 @@ import { ProfileModel } from '../../../../model/ProfileModel';
 import {Chart} from 'chart.js'
 import { createBarChartOptions } from '../../../../utils/graph-util';
 import { keywordsSettings } from '../settings/settings'
-import { openEditNoteForNickName } from '../../../../utils/alert-generic';
+import { openEditNoteForNickName, showError } from '../../../../utils/alert-generic';
 import { TranslateService } from '@ngx-translate/core';
 import { renderTimeStampInNumber } from '../../../../utils/insight-util';
 
@@ -52,10 +52,10 @@ export class UserDetailsPage {
 					this.userDetails.categorySummary = result.results
 					this.assignSummaryData(result.results, this.userDetails.categories[0])
 				} else {
-					//this.showError(result.message);
+					showError(this.alertCtrl, this.translate, result.message);
 				}
 			}, error => {
-				//this.showError(error);
+				showError(this.alertCtrl, this.translate, error);
 			});
 	}
 
@@ -67,7 +67,8 @@ export class UserDetailsPage {
 			ranked.push({
 				key,
 				amount: summaryData[key],
-				story: []
+				story: [],
+				settings: keywordsSettings.allClient[key]
 			})
 		}
 		ranked.sort((a, b) => (a.key.localeCompare(b.key))).sort((a, b) => (b.amount - a.amount));
@@ -87,10 +88,10 @@ export class UserDetailsPage {
 						}
 					})
 				} else {
-					//this.showError(result.message);
+					showError(this.alertCtrl, this.translate, result.message);
 				}
 			}, error => {
-				//this.showError(error);
+				showError(this.alertCtrl, this.translate, error);
 			});
 	}
 
@@ -109,31 +110,28 @@ export class UserDetailsPage {
 
 		this.summaryRanked.map ((item:any, key) => {
 			const withinRange = key < max && key >= min
-			const settings = keywordsSettings.allClient[item.key]
-
-			if (withinRange && settings) {
+			if (withinRange && item.settings) {
 				data.push(item.amount);
-				labels.push(settings.en);
-				colors.push(settings.color)
+				labels.push(item.settings.en);
+				colors.push(item.settings.color)
 			}
 		})
-		console.log(data, labels, colors, max, min)
 
-		return { data, labels, colors, callback: this.clicked.bind(this) }
+		return { data, labels, colors, callback: this.chartClicked.bind(this) }
 	}
 
-	clicked(evt) {
+	chartClicked(evt) {
 		const activeElement = this.barChart.getElementAtEvent(evt)
 		let barIndex = (activeElement[0] && activeElement[0]._index) ? activeElement[0]._index : null
 		let xIndex = this.barChart.scales['x-axis-0'].getValueForPixel(evt.x);
-		console.log(xIndex, 'get story')
-
 		let summaryRankedIndex = (this.currentPage - 1) * this.itemPerPage + (barIndex || xIndex)
 
-		// check wether clicked or not
+		// check wether clicked or not // Ruby, here the index sometimes wrong
 		this.selectedSummary = this.summaryRanked[summaryRankedIndex]
-		if (!this.selectedSummary.story && this.selectedSummary.amount > 0) {
-			// not always shown ?
+		//console.log(activeElement[0], barIndex, xIndex);
+		//console.log(this.summaryRanked, barIndex, xIndex, summaryRankedIndex, this.selectedSummary)
+
+		if (this.selectedSummary.story.length <= 0 && this.selectedSummary.amount > 0) {
 			this.getCategoryStory(this.profile.cookie, this.userDetails.authorId, this.userDetails.source, this.selectedSummary.key)
 		}
 	}

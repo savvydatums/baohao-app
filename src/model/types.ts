@@ -52,4 +52,5 @@ export type TInsightSummary = {
 	key: string;
 	amount: number;
 	story?: TInsightPost[];
+	settings?: object;
 }

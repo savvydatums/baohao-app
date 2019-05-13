@@ -5,22 +5,20 @@
 		</div>
 		<div class="title">
 			<h3>{{ userDetails.authorName }}</h3>
-			<h4>
+			<div>
 				<ion-icon
-					class="graph-control left"
 					*ngIf="currentPage > 1"
 					(click)="changePage(-1)"
 					name="arrow-dropleft-circle">
 				</ion-icon>
-				( {{ userDetails.nickName || 'add nickname' }} )
+				<h5>( {{ userDetails.nickName || 'add nickname' }} )</h5>
 				<ion-icon name="brush" (click)="openEditNote(alertCtrl, translate, userDetails, profile.cookie)"></ion-icon>
 				<ion-icon
-					class="graph-control right"
 					*ngIf="summaryRanked.length > (itemPerPage * currentPage)"
 					(click)="changePage(1)"
 					name="arrow-dropright-circle">
 				</ion-icon>
-			</h4>
+			</div>
 		</div>
 		<div class="source">
 			<img *ngIf="userDetails.source == 'fb'" src="assets/icon/facebook-w.svg">
@@ -31,15 +29,20 @@
 			<canvas #barChartView></canvas>
 		</div>
 	</div>
-	<div *ngIf="selectedSummary" class="story-section" [ngStyle]="{ 'backgroundColor': 'orange' }">
-		<h3>Story</h3>
-		<div class="story-no-data" *ngIf=" selectedSummary.amount == 0">
-			no data
+	<div *ngIf="selectedSummary" class="story-section" [ngStyle]="{ 'backgroundColor': selectedSummary.settings.color }">
+		<div class="background"
+			[ngStyle]="{ 'backgroundImage': 'url(' + selectedSummary.settings.img + ')' }">
 		</div>
-		<div class="story-wrapper" *ngIf="selectedSummary.amount > 0">
-			<div class="story" *ngFor="let story of selectedSummary.story">
-				{{ renderTimeStamp(story.timestamp) }}
-				<p [innerHTML]="story.content">
+		<div class="story-wrapper">
+			<h3> {{ selectedSummary.settings.cn }} Story</h3>
+			<h4 class="story-no-data" *ngIf=" selectedSummary.amount == 0">
+				No Data
+			</h4>
+			<div class="story-content" *ngIf="selectedSummary.amount > 0">
+				<div *ngFor="let story of selectedSummary.story">
+					{{ renderTimeStamp(story.timestamp) }}
+					<p [innerHTML]="story.content">
+				</div>
 			</div>
 		</div>
 	</div>

@@ -4,6 +4,7 @@ insight-details {
 		top: 0;
 		width: 100%;
 		text-align: center;
+		padding-bottom: 40px;
 
 		.chart-container {
 			position: relative;
@@ -11,29 +12,57 @@ insight-details {
 			min-height: 200px;
 			max-height: 400px;
 			width: 80%;
-			margin: 0 auto 50px;
+			margin: 0 auto;
 		}
-	}
-	.graph-control {
-		font-size: 2rem;
 	}
 	.title {
 		position: relative;
+		ion-icon {
+			font-size: 1.6rem;
+		}
 		h3 {
-			margin-top: 0;
-			padding-top: 30px;
+			margin: 0;
+			font-size: 1.8rem;
+			padding-top: 15px;
+		}
+		h5 {
+			margin: 0;
+			font-size: 14px;
+			display: inline-block;
 		}
 	}
 
 	.story-section {
-
-	}
-
-	.story-no-data {
-
+		position: relative;
+		padding: 20px;
+		.background {
+			top: 0;
+			left: 0;
+			opacity: 0.5;
+			width: 100%;
+			background-size: cover;
+			background-position: center;
+			position: absolute;
+			height: 200px;
+			z-index: 1;
+		}
 	}
 
 	.story-wrapper {
+		z-index: 8;
+		background: rgba(0,0,0, 0.5);
+		position: relative;
+		text-align: left;
+		margin-bottom: 50px;
+		padding-bottom: 20px;
+		h3 {
+			padding: 20px;
+		}
+	}
 
+	.story-content, .story-no-data {
+		padding: 20px;
+		border-left: 1px solid white;
+		margin-left: 20px;
 	}
 }
