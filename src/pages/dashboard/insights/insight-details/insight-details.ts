@@ -6,8 +6,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { InsightAPI } from '../../../../api/InsightAPI';
 import { insightType} from '../settings/settings';
 import { TInsightPost } from '../../../../model/types';
-import { InsightResponseStatus } from '../../../../api/Comms';
-import { openEditNoteForNickName } from '../../../../utils/alert-generic';
+import { InsightResponseStatus, ResponseStatus } from '../../../../api/Comms';
+import { openEditNoteForNickName, sendGenericUpdateAlert } from '../../../../utils/alert-generic';
 
 @IonicPage()
 @Component({
@@ -15,6 +15,9 @@ import { openEditNoteForNickName } from '../../../../utils/alert-generic';
 	templateUrl: 'insight-details.html',
 })
 export class InsightDetailsPage {
+
+	is_existing_customer: boolean = false;
+	is_remove_two_month: boolean = false;
 
 	insightData: TInsightPost;
 	type: string;
@@ -66,6 +69,23 @@ export class InsightDetailsPage {
 		);
 		insightModal.present();
 	}
+
+	public updateUserPreference () {
+		let exist = this.is_existing_customer == true ? true : null
+		let remove = this.is_remove_two_month == true ? true : null
+		let timestamp = this.is_remove_two_month == true ? new Date().getTime().toString() : null
+
+		InsightAPI.updateUserPreference(
+			this.profile.cookie, this.insightData.source, this.insightData.authorId,
+			null, exist, remove, timestamp)
+			.then((result: any) => {
+				const isFail = (result.status == ResponseStatus.ERROR)
+				sendGenericUpdateAlert(this.alertCtrl, this.translate, isFail)
+			}, error => {
+				sendGenericUpdateAlert(this.alertCtrl, this.translate, true)
+			})
+	}
+
 
 	closeModal () {
 		this.view.dismiss()
