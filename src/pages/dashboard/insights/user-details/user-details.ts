@@ -2,13 +2,14 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
 import { InsightAPI } from '../../../../api/InsightAPI';
 import { InsightResponseStatus } from '../../../../api/Comms';
-import { TInsightPost } from '../../../../model/types';
+import { TInsightPost, TInsightSummary } from '../../../../model/types';
 import { ProfileModel } from '../../../../model/ProfileModel';
 import {Chart} from 'chart.js'
 import { createBarChartOptions } from '../../../../utils/graph-util';
 import { keywordsSettings } from '../settings/settings'
 import { openEditNoteForNickName } from '../../../../utils/alert-generic';
 import { TranslateService } from '@ngx-translate/core';
+import { renderTimeStampInNumber } from '../../../../utils/insight-util';
 
 @IonicPage()
 @Component({
@@ -20,12 +21,14 @@ export class UserDetailsPage {
 	itemPerPage: number = 4;
 	currentPage: number = 1;
 	 // use pagination instead of top or all
-	summaryRanked: object[] = [];
+	summaryRanked: TInsightSummary[] = [];
 	userDetails: TInsightPost;
+	selectedSummary: TInsightSummary;
 
 	@ViewChild('barChartView') barChartView;
 	barChart: any;
 	openEditNote: Function = openEditNoteForNickName;
+	renderTimeStamp: Function = renderTimeStampInNumber;
 
 	constructor(
 		public navCtrl: NavController,
@@ -61,7 +64,6 @@ export class UserDetailsPage {
 		let ranked = [];
 
 		for (let key in summaryData) {
-			// summary: [{ key, amount, ?story }]
 			ranked.push({
 				key,
 				amount: summaryData[key],
@@ -79,7 +81,10 @@ export class UserDetailsPage {
 				if (result.status == InsightResponseStatus.SUCCESS) {
 					console.log('getAuthorInfo', result);
 					this.summaryRanked.map((item:any) => {
-						(item.key === category) && (item.story = result.results)
+						if (item.key === category) {
+							item.story = result.results
+							this.selectedSummary = item
+						}
 					})
 				} else {
 					//this.showError(result.message);
@@ -91,7 +96,6 @@ export class UserDetailsPage {
 
 	private createInsightGraph () {
 		const data = this.generateGraphData()
-		console.log('createInsightGraph', data)
 		this.barChart = new Chart(this.barChartView.nativeElement, createBarChartOptions(data));
 	}
 
@@ -115,16 +119,22 @@ export class UserDetailsPage {
 		})
 		console.log(data, labels, colors, max, min)
 
-		return { data, labels, colors, callback: this.barClicked.bind(this) }
+		return { data, labels, colors, callback: this.clicked.bind(this) }
 	}
 
-	barClicked(evt) {
+	clicked(evt) {
 		const activeElement = this.barChart.getElementAtEvent(evt)
+		let barIndex = (activeElement[0] && activeElement[0]._index) ? activeElement[0]._index : null
+		let xIndex = this.barChart.scales['x-axis-0'].getValueForPixel(evt.x);
+		console.log(xIndex, 'get story')
 
-		if (activeElement[0] && activeElement[0]._index) {
-			const activeIndex = activeElement[0]._index
-			console.log (activeIndex, 'get story')
-			//this.currentInsight = this.insights.filteredData.filter((item: any) => (parseInt(item.groupId) - 1) == activeIndex)[0]
+		let summaryRankedIndex = (this.currentPage - 1) * this.itemPerPage + (barIndex || xIndex)
+
+		// check wether clicked or not
+		this.selectedSummary = this.summaryRanked[summaryRankedIndex]
+		if (!this.selectedSummary.story && this.selectedSummary.amount > 0) {
+			// not always shown ?
+			this.getCategoryStory(this.profile.cookie, this.userDetails.authorId, this.userDetails.source, this.selectedSummary.key)
 		}
 	}
 

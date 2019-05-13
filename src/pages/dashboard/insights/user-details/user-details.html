@@ -31,7 +31,16 @@
 			<canvas #barChartView></canvas>
 		</div>
 	</div>
-	<div class="story-section" [ngStyle]="{ 'backgroundColor': 'orange' }">
-
+	<div *ngIf="selectedSummary" class="story-section" [ngStyle]="{ 'backgroundColor': 'orange' }">
+		<h3>Story</h3>
+		<div class="story-no-data" *ngIf=" selectedSummary.amount == 0">
+			no data
+		</div>
+		<div class="story-wrapper" *ngIf="selectedSummary.amount > 0">
+			<div class="story" *ngFor="let story of selectedSummary.story">
+				{{ renderTimeStamp(story.timestamp) }}
+				<p [innerHTML]="story.content">
+			</div>
+		</div>
 	</div>
 </ion-content>

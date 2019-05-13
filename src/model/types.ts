@@ -47,3 +47,9 @@ export type TInsightPost = {
 	timestamp: string;
 	_id: string;
 }
+
+export type TInsightSummary = {
+	key: string;
+	amount: number;
+	story?: TInsightPost[];
+}

@@ -2,7 +2,6 @@ insight-details {
 	.graph-section {
 		background: #646464;
 		top: 0;
-		position: absolute;
 		width: 100%;
 		text-align: center;
 
@@ -20,5 +19,21 @@ insight-details {
 	}
 	.title {
 		position: relative;
+		h3 {
+			margin-top: 0;
+			padding-top: 30px;
+		}
+	}
+
+	.story-section {
+
+	}
+
+	.story-no-data {
+
+	}
+
+	.story-wrapper {
+
 	}
 }
