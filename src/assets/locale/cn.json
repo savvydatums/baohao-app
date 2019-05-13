@@ -4,7 +4,8 @@
     "GLOBAL_NEXT_BUTTON_LABEL": "下一步",
     "GLOBAL_CONTINUE_BUTTON_LABEL": "繼續",
 	"GLOBAL_SUBMIT_BUTTON_LABEL": "提交",
-	"GLOBA_CANCEL_BUTTON_LABEL": "取消",
+	"GLOBAL_CANCEL_BUTTON_LABEL": "取消",
+	"GLOBA_OK_BUTTON_LABEL": "好的",
 	"GLOBA_SUBMIT_SUCCESS": "您的資訊已經送交，感謝您的支持。",
 
     "START_DESC": "MyInsurBox 是您的大數據分析師，助您洞悉每一個銷售機會",

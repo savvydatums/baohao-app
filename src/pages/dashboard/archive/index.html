@@ -6,7 +6,7 @@
 </ion-content>
 <ion-content>
 	<ion-header>
-		<header title="Stared"></header>
+		<header title="Starred"></header>
 		<search-bar [searchHandler]="searchHandler.bind(this)" [selected]="null" [filters]="starFilters">
 		</search-bar>
 	</ion-header>
@@ -31,7 +31,8 @@
 		      </div>
 		    </ion-item>
 		    <ion-item-options side="right">
-		      <button ion-button (click)="trashItem(item._id, item.source)"> Trash </button>
+				<button ion-button (click)="noStarItem(item._id, item.source)"> Not Starred </button>
+				<button ion-button (click)="trashItem(item._id, item.source)"> Trash </button>
 		    </ion-item-options>
 		  </ion-item-sliding>
 	</ion-list>

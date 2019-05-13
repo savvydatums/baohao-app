@@ -29,7 +29,7 @@ export class ArchiveAPI extends Comms {
 
 	public static trashItem(cookie : string, record_id : string, source : string, group : string, categorie : string[]) : Promise < {} > {
 		return new Promise((resolve, reject) => {
-			this.postFormData(Routes.trashItem, { cookie, record_id, source, categorie })
+			this.postFormData(Routes.trashItem, { cookie, record_id, source, group, categorie })
 				.then((response) => {
 					resolve(response);
 				})

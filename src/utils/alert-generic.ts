@@ -1,4 +1,6 @@
 import { getTranslation } from "./Data-Fetch";
+import { InsightAPI } from "../api/InsightAPI";
+import { ResponseStatus } from "../api/Comms";
 
 
 export const sendGenericUpdateAlert = (alertCtrl, translate, isFail, info?) => {
@@ -13,7 +15,34 @@ export const sendGenericUpdateAlert = (alertCtrl, translate, isFail, info?) => {
 		title: title,
 		message: message,
 		buttons: [{
-			text: getTranslation(translate, 'GLOBA_CANCEL_BUTTON_LABEL')
+			text: getTranslation(translate, 'GLOBA_OK_BUTTON_LABEL')
+		}]
+	})
+
+	alert.present()
+}
+
+export const openEditNoteForNickName = (alertCtrl, translate, insightData, cookie) => {
+	const alert = alertCtrl.create({
+		title: 'Add a nick name',
+		inputs: [{
+			name: 'nickname',
+			placeholder: 'nickname'
+		}],
+		buttons: [{
+			text: 'cancel'
+		},{
+			text: 'save',
+			handler: data => {
+				console.log('data', data)
+				InsightAPI.updateUserPreference(cookie, insightData.source, insightData.authorid, data.nickname)
+					.then((result: any) => {
+						const isFail = (result.status == ResponseStatus.ERROR)
+						sendGenericUpdateAlert(alertCtrl, translate, isFail)
+					}, error => {
+						console.log('updateUserPreference', error)
+					})
+			}
 		}]
 	})
 

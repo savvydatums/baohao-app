@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
+import { IonicPage, NavParams, ViewController, AlertController, ModalController } from 'ionic-angular';
 import { renderTimeStampInNumber, getKeywordInfo, getKeywordText } from '../../../../utils/insight-util';
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
@@ -7,6 +7,7 @@ import { InsightAPI } from '../../../../api/InsightAPI';
 import { insightType} from '../settings/settings';
 import { TInsightPost } from '../../../../model/types';
 import { InsightResponseStatus } from '../../../../api/Comms';
+import { openEditNoteForNickName } from '../../../../utils/alert-generic';
 
 @IonicPage()
 @Component({
@@ -22,14 +23,15 @@ export class InsightDetailsPage {
 	renderTimeStamp: Function = renderTimeStampInNumber;
 	getKeywordInfo: Function = getKeywordInfo;
 	getKeywordText: Function = getKeywordText;
+	openEditNote: Function = openEditNoteForNickName;
 
 	constructor(
-		public navCtrl: NavController,
 		private view: ViewController,
 		public profile: ProfileModel,
 		public translate: TranslateService,
 		public navParams: NavParams,
-		private alertCtrl: AlertController) {
+		private alertCtrl: AlertController,
+		private modalCtrl: ModalController) {
 	}
 
 	ionViewWillLoad() {
@@ -49,7 +51,6 @@ export class InsightDetailsPage {
 			.then((result: any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
 					this.recommendations = result.product_link;
-					console.log (this.recommendations)
 				} else {
 					console.log('_getRecommendation', result)
 				}
@@ -59,33 +60,11 @@ export class InsightDetailsPage {
 	}
 
 	public goToAuthorPage () {
-		// open another model
-		console.log('goToAuthorPage')
-	}
 
-	public openEditNote() {
-		const alert = this.alertCtrl.create({
-			title: 'Add a nick name',
-			inputs: [
-				{
-					name: 'nickname',
-					placeholder: 'nickname'
-				}
-			],
-			buttons: [{
-				text: 'cancel'
-			},
-			{
-				text: 'save',
-				handler: data => {
-					console.log ('data', data)
-					//InsightAPI.edit_user_profile();
-				}
-			}]
-		})
-
-		alert.present()
-
+		let insightModal = this.modalCtrl.create(
+			'UserDetailsPage', { info: this.insightData }
+		);
+		insightModal.present();
 	}
 
 	closeModal () {

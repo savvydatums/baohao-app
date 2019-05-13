@@ -22,20 +22,16 @@ export const logout = `${baseApiPath}api/logout_user/logout_user`
 const insightPath = `${baseApiPath}api/es/`
 export const groupInsight = `${insightPath}get_group_insight` // onlyarchive, no trash(default)
 export const insightByAuthorId = `${insightPath}get_insight_by_authorid`
-export const insightTotalAmount = `${insightPath}get_group_total_amount` // need change to by client ID
+export const insightTotalAmount = `${insightPath}get_group_total_amount`// not use
 export const editUserPreference = `${insightPath}edit_customer_profile`
-export const totalAmountByAuthorId = `${insightPath}get_total_amount_by_authorid` // need to add
-// "cookie"(Str)  - Required
-// "authorid"(Str)  - Required
-// "source"(Str)  - Required [wex || fb]
-
+export const totalAmountByAuthorId = `${insightPath}get_total_amount_by_authorid`
 export const potentialInsight = `${insightPath}get_potential_insight` //[onlyarchive || notrash]
 export const productLinks = `${baseApiPath}/api/suggest_product_link/get_product_link`
 
 // archives
-export const archiveList = `${insightPath}get_star_list` // get_star_list
-export const archiveItem = `${insightPath}star` // has changed
-export const trashItem = `${insightPath}trash` // changed
+export const archiveList = `${insightPath}get_star_list`
+export const archiveItem = `${insightPath}star`
+export const trashItem = `${insightPath}trash`
 
 
 // star

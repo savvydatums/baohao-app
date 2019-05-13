@@ -104,7 +104,7 @@ export class ProfilePage {
 				type: 'password'
 			}],
 			buttons: [{
-				text: getTranslation(this.translate, 'GLOBA_CANCEL_BUTTON_LABEL')
+				text: getTranslation(this.translate, 'GLOBAL_CANCEL_BUTTON_LABEL')
 			},{
 				text: getTranslation(this.translate, 'GLOBAL_SUBMIT_BUTTON_LABEL'),
 				handler: data => {

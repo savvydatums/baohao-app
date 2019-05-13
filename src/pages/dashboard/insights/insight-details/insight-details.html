@@ -10,7 +10,7 @@
 		</div>
 		<h3>
 			{{ insightData.authorName }}
-			<ion-icon name="brush" (click)="openEditNote()"></ion-icon>
+			<ion-icon name="brush" (click)="openEditNote(alertCtrl, translate, insightData, profile.cookie)"></ion-icon>
 		</h3>
 		<div class="keywords">
 		  <span *ngFor="let keyword of insightData.categories">

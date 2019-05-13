@@ -57,7 +57,15 @@ export class ArchivePage {
 		this.loading = show
 	}
 
-	public searchHandler(keyword, filter) {
+	public searchHandler (keyword, filter) {
 		//this.insights.applyFilter(keyword, filter);
+	}
+
+	public noStarItem() {
+
+	}
+
+	public trashItem() {
+
 	}
 }

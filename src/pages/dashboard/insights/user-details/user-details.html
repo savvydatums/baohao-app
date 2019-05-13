@@ -1,18 +1,37 @@
-<!--
-  Generated template for the UserDetailsPage page.
+<ion-content>
+	<div class="graph-section">
+		<div class="left" (click)="closeModal()">
+			<ion-icon name="close"></ion-icon>
+		</div>
+		<div class="title">
+			<h3>{{ userDetails.authorName }}</h3>
+			<h4>
+				<ion-icon
+					class="graph-control left"
+					*ngIf="currentPage > 1"
+					(click)="changePage(-1)"
+					name="arrow-dropleft-circle">
+				</ion-icon>
+				( {{ userDetails.nickName || 'add nickname' }} )
+				<ion-icon name="brush" (click)="openEditNote(alertCtrl, translate, userDetails, profile.cookie)"></ion-icon>
+				<ion-icon
+					class="graph-control right"
+					*ngIf="summaryRanked.length > (itemPerPage * currentPage)"
+					(click)="changePage(1)"
+					name="arrow-dropright-circle">
+				</ion-icon>
+			</h4>
+		</div>
+		<div class="source">
+			<img *ngIf="userDetails.source == 'fb'" src="assets/icon/facebook-w.svg">
+			<img *ngIf="userDetails.source == 'wex'" src="assets/icon/wechat-w.svg">
+		</div>
+		<div class="chart-container">
+			<h4> keyword Analysis </h4>
+			<canvas #barChartView></canvas>
+		</div>
+	</div>
+	<div class="story-section" [ngStyle]="{ 'backgroundColor': 'orange' }">
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>user-details</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
+	</div>
 </ion-content>

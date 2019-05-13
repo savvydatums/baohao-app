@@ -40,6 +40,7 @@ export type TInsightPost = {
 	authorId: string;
 	authorName: string;
 	categories: string[];
+	categorySummary?: object;
 	content: string;
 	likes: number;
 	source: string;

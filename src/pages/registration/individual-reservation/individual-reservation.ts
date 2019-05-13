@@ -94,7 +94,7 @@ export class IndividualReservationPage {
 			title: this.translate.translations.CREATE_FAILED,
 			message: message,
 			buttons: [{
-				text: this.translate.translations.GLOBA_CANCEL_BUTTON_LABEL
+				text: this.translate.translations.GLOBAL_CANCEL_BUTTON_LABEL
 			}]
 		})
 
