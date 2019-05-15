@@ -27,6 +27,16 @@ export class ArchiveAPI extends Comms {
 		});
 	}
 
+	public static unArchiveItem(cookie: string, record_id: string, source: string): Promise<{}> {
+		return new Promise((resolve, reject) => {
+			this.postFormData(Routes.unArchiveItem, { cookie, record_id, source })
+				.then((response) => {
+					resolve(response);
+				})
+				.catch(reject);
+		});
+	}
+
 	public static trashItem(cookie : string, record_id : string, source : string, group : string, categorie : string[]) : Promise < {} > {
 		return new Promise((resolve, reject) => {
 			this.postFormData(Routes.trashItem, { cookie, record_id, source, group, categorie })

@@ -31,8 +31,5 @@ export const productLinks = `${baseApiPath}/api/suggest_product_link/get_product
 // archives
 export const archiveList = `${insightPath}get_star_list`
 export const archiveItem = `${insightPath}star`
+export const unArchiveItem = `${insightPath}remove_star`
 export const trashItem = `${insightPath}trash`
-
-
-// star
-// remove_star

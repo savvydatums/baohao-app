@@ -37,6 +37,16 @@ export const starItem = (cookie, alertCtrl, translate, record_id, source, group,
 		});
 }
 
+export const unStarItem = (cookie, alertCtrl, translate, record_id, source) => {
+	ArchiveAPI.unArchiveItem(cookie, record_id, source)
+		.then((result: any) => {
+			const isFail = result.status === ResponseStatus.ERROR
+			sendGenericUpdateAlert(alertCtrl, translate, isFail)
+		}, error => {
+			sendGenericUpdateAlert(alertCtrl, translate, true, error)
+		});
+}
+
 export const trashItem = (cookie, alertCtrl, translate, record_id, source, group, category) => {
 	ArchiveAPI.trashItem(cookie, record_id, source, group, category)
 		.then((result: any) => {

@@ -1,14 +1,16 @@
 import { Component, ViewChild, forwardRef } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController, AlertController } from 'ionic-angular';
 import { InsightResponseStatus } from '../../../api/Comms';
-import { ArchiveAPI } from '../../../api/ArchiveAPI';
+//import { ArchiveAPI } from '../../../api/ArchiveAPI';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { ArchiveModel } from '../../../model/ArchiveModel';
 import { TranslateService } from '@ngx-translate/core';
-import { starFilters } from '../insights/settings/settings';
-import { shortenContent, renderTimeStamp } from '../../../utils/insight-util';
+//import { starFilters } from '../insights/settings/settings';
+import {shortenContent, renderTimeStamp, getKeywordInfo, getKeywordText, unStarItem, trashItem} from '../../../utils/insight-util';
 import { HeaderComponent } from '../../../components/header/header';
 import { SearchBarComponent } from '../../../components/search-bar/search-bar';
+import { InsightAPI } from '../../../api/InsightAPI';
+import { insightFilterTypes, insightSearchFilters, insightType } from '../insights/settings/settings';
 
 @IonicPage({ name: "archive", segment: "archive" })
 @Component({
@@ -18,11 +20,12 @@ import { SearchBarComponent } from '../../../components/search-bar/search-bar';
 
 export class ArchivePage {
 
-	//type: string = insightType.potential;
+	type: string = insightType.all;
 	loading = true;
 	shortenContent: Function = shortenContent;
 	renderTimeStamp: Function = renderTimeStamp;
-	starFilters: string[] = starFilters;
+	getKeywordText: Function = getKeywordText;
+	searchFilters: string[] = insightSearchFilters;
 
 	@ViewChild(forwardRef(() => HeaderComponent)) header
 	@ViewChild(forwardRef(() => SearchBarComponent)) searchBar
@@ -30,27 +33,42 @@ export class ArchivePage {
 	constructor(
 		public navCtrl: NavController,
 		public archive: ArchiveModel,
+		public modalCtrl: ModalController,
+		private alertCtrl: AlertController,
 		public translate: TranslateService,
 		public profile: ProfileModel) {
 	}
 
 	ngAfterViewInit() {
-		this.getArchiveData(this.profile.cookie)
+		this.getArchiveInsights()
 		this.showLoading(true)
 	}
 
-	private getArchiveData (cookie) {
-		ArchiveAPI.getArchiveList(cookie)
+	private getArchiveInsights() {
+		let self = this
+		InsightAPI.getAllClientInsight(this.profile.cookie, insightFilterTypes.archive)
 			.then((result: any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					this.archive.assignArchiveData(result.results)
-					this.showLoading(false)
+					this.archive.addData(result.results)
+					self.showLoading(false)
 				} else {
-
+					//this.showError(result.message);
 				}
 			}, error => {
-
+				//this.showError(error);
 			});
+	}
+
+	public showInsightInfo(info) {
+		let insightModal = this.modalCtrl.create(
+			'InsightDetailsPage', { info, type: insightType.all }
+		);
+
+		insightModal.present();
+	}
+
+	public getKeywordColor(category) {
+		return getKeywordInfo(this.type, category).color
 	}
 
 	private showLoading (show) {
@@ -58,14 +76,15 @@ export class ArchivePage {
 	}
 
 	public searchHandler (keyword, filter) {
-		//this.insights.applyFilter(keyword, filter);
+		this.archive.applyFilter(keyword, filter);
 	}
 
-	public noStarItem() {
-
+	public unStarInsight(record_id, source) {
+		return unStarItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source);
 	}
 
-	public trashItem() {
-
+	public trashInsight(record_id, source, categories) {
+		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories);
 	}
+
 }

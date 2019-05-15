@@ -48,7 +48,7 @@ export class UserDetailsPage {
 		InsightAPI.get_author_category_list(cookie, authorId, source)
 			.then((result: any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					console.log('getAuthorCategoryList', result);
+					//console.log('getAuthorCategoryList', result);
 					this.userDetails.categorySummary = result.results
 					this.assignSummaryData(result.results, this.userDetails.categories[0])
 				} else {
@@ -80,7 +80,7 @@ export class UserDetailsPage {
 		InsightAPI.getInsightByAuthorId(cookie, authorid, source, category)
 			.then((result: any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					console.log('getAuthorInfo', result);
+					//console.log('getAuthorInfo', result);
 					this.summaryRanked.map((item:any) => {
 						if (item.key === category) {
 							item.story = result.results

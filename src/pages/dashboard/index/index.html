@@ -4,9 +4,9 @@
 		<p> Loading </p>
 	</div>
 </ion-content>
-<ion-tabs *ngIf="!loading" selectedIndex="2" ionTabsDidChange="tabChange">
+<ion-tabs *ngIf="!loading" selectedIndex="3" ionTabsDidChange="tabChange">
 	<ion-tab [root]="tabProfile" tabTitle="Profile" tabIcon="person"></ion-tab>
 	<ion-tab [root]="tabInsight" tabTitle="Know your Client" tabIcon="search"></ion-tab>
 	<ion-tab [root]="tabPotential" tabTitle="Potential Leads" tabIcon="heart"></ion-tab>
-	<ion-tab [root]="tabArchive" tabTitle="Stared" tabIcon="star"></ion-tab>
+	<ion-tab [root]="tabArchive" tabTitle="Starred" tabIcon="star"></ion-tab>
 </ion-tabs>

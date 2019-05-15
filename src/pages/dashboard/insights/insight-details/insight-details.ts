@@ -44,8 +44,6 @@ export class InsightDetailsPage {
 		this.info = getKeywordInfo(this.type, mainCategory);
 		if (this.type == insightType.potential) {
 			this._getRecommendation()
-		} else {
-
 		}
 	}
 
