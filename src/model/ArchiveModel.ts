@@ -19,7 +19,7 @@ export class ArchiveModel {
 			} else if (filter == insightSearchFilters[1] && keyword.length > 0) {
 				return item.content.indexOf(keyword) !== -1
 			} else {
-				console.log(item.content.indexOf(keyword), item.authorName.indexOf(keyword))
+				//console.log(item.content.indexOf(keyword), item.authorName.indexOf(keyword))
 				return item.content.indexOf(keyword) !== -1 || item.authorName.indexOf(keyword) !== -1
 			}
 		})

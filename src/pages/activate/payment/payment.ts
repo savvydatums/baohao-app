@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
+import { ProfileModel } from '../../../model/ProfileModel';
 
 @IonicPage()
 @Component({
@@ -10,6 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class PaymentPage {
 	constructor(
+		public profile: ProfileModel,
 		public translate: TranslateService) {
 	}
 
@@ -23,5 +25,8 @@ export class PaymentPage {
 		stripScript.setAttribute('data-amount', '5000');
 		stripScript.setAttribute('data-locale', 'auto');
 		document.getElementById('strip-form').appendChild(stripScript);
+
+		var cookieInput = document.getElementById("cookie")
+		cookieInput.setAttribute('value', this.profile.cookie);
 	}
 }
