@@ -11,6 +11,7 @@ import { HeaderComponent } from '../../../components/header/header';
 import { SearchBarComponent } from '../../../components/search-bar/search-bar';
 import { InsightAPI } from '../../../api/InsightAPI';
 import { insightFilterTypes, insightSearchFilters, insightType } from '../insights/settings/settings';
+import { showError } from '../../../utils/alert-generic';
 
 @IonicPage({ name: "archive", segment: "archive" })
 @Component({
@@ -52,10 +53,10 @@ export class ArchivePage {
 					this.archive.addData(result.results)
 					self.showLoading(false)
 				} else {
-					//this.showError(result.message);
+					showError(this.alertCtrl, this.translate, result.message);
 				}
 			}, error => {
-				//this.showError(error);
+				showError(this.alertCtrl, this.translate, error);
 			});
 	}
 

@@ -47,7 +47,7 @@ export const openEditNoteForNickName = (alertCtrl, translate, insightData, cooki
 			text: 'save',
 			handler: data => {
 				console.log('data', data)
-				InsightAPI.updateUserPreference(cookie, insightData.source, insightData.authorid, data.nickname)
+				InsightAPI.updateUserPreference(cookie, insightData.source, insightData.authorId, data.nickname)
 					.then((result: any) => {
 						const isFail = (result.status == ResponseStatus.ERROR)
 						sendGenericUpdateAlert(alertCtrl, translate, isFail)

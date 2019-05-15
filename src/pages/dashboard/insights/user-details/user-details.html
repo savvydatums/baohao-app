@@ -11,7 +11,7 @@
 					(click)="changePage(-1)"
 					name="arrow-dropleft-circle">
 				</ion-icon>
-				<h5>( {{ userDetails.nickName || 'add nickname' }} )</h5>
+				<h5>( {{ userDetails.nickname || 'add nickname' }} )</h5>
 				<ion-icon name="brush" (click)="openEditNote(alertCtrl, translate, userDetails, profile.cookie)"></ion-icon>
 				<ion-icon
 					*ngIf="summaryRanked.length > (itemPerPage * currentPage)"
