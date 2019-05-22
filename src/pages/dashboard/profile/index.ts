@@ -102,28 +102,4 @@ export class ProfilePage {
 
 		insightModal.present();
 	}
-
-	// public promptResetPassword () {
-	// 	const alert = this.alertCtrl.create({
-	// 		title: getTranslation(this.translate, 'PASSWORD_RESET.TITLE'),
-	// 		message : getTranslation(this.translate, 'PASSWORD_RESET.RESET_INFO'),
-	// 		inputs: [{
-	// 			name: 'new_password',
-	// 			placeholder: getTranslation(this.translate, 'PASSWORD_RESET.NEW_PASS_PLACEHOLDER'),
-	// 			type: 'password'
-	// 		}],
-	// 		buttons: [{
-	// 			text: getTranslation(this.translate, 'GLOBAL_CANCEL_BUTTON_LABEL')
-	// 		},{
-	// 			text: getTranslation(this.translate, 'GLOBAL_SUBMIT_BUTTON_LABEL'),
-	// 			handler: data => {
-	// 				this.submitNewPassword(data.new_password)
-	// 			}
-	// 		}],
-	// 		cssClass: 'reset-popup',
-	// 		enableBackdropDismiss: false
-	// 	})
-
-	// 	alert.present()
-	// }
 }

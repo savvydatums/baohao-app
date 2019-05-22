@@ -12,7 +12,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ForgetPasswordPage {
 
-	resetPasswordForm: FormGroup;
+	forgetPassForm: FormGroup;
 	submitted: boolean = false;
 
 	constructor(
@@ -21,14 +21,18 @@ export class ForgetPasswordPage {
 		public navCtrl: NavController,
 		private formBuilder: FormBuilder) {
 
-		this.resetPasswordForm = this.formBuilder.group({
-			registrationID: ['', Validators.required]
+		this.forgetPassForm = this.formBuilder.group({
+			registrationID: ['', Validators.required],
+			email: ['', Validators.compose([
+				Validators.required,
+				Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+			])]
 		});
 	}
 
 	public onReset() {
-		if (!this.resetPasswordForm.valid) return;
-		const registrationID = this.resetPasswordForm.controls['registrationID'].value
+		if (!this.forgetPassForm.valid) return;
+		const registrationID = this.forgetPassForm.controls['registrationID'].value
 
 		let self = this
 		UserAPI.sendForgetPassword(registrationID)

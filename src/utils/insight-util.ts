@@ -1,7 +1,8 @@
 import { ArchiveAPI } from "../api/ArchiveAPI";
 import { sendGenericUpdateAlert } from "./alert-generic";
-import { ResponseStatus } from "../api/Comms";
-import { keywordsSettings, insightType } from "../pages/dashboard/insights/settings/settings"
+import { ResponseStatus, InsightResponseStatus } from "../api/Comms";
+import { keywordsSettings, insightType, insightFilterTypes } from "../pages/dashboard/insights/settings/settings"
+import { InsightAPI } from "../api/InsightAPI";
 
 // insight list util
 export const shortenContent = (translate, content, ensize: number, cnsize: number) => {
@@ -66,4 +67,31 @@ export const getKeywordText = (translate, type, keyword) => {
 	const info = getKeywordInfo(type, keyword)
 	const lang = translate.currentLang || translate.defaultLang
 	return info[lang]
+}
+
+export const assignPotentialToModal = (cookie, modal, errorCallback) => {
+	InsightAPI.getPotentialInsight(cookie, insightFilterTypes.all)
+		.then((result:any) => {
+			if (result.status == InsightResponseStatus.SUCCESS) {
+				modal.addData(result.results)
+			} else {
+				errorCallback(result.message);
+			}
+		}, error => {
+			errorCallback(error);
+		});
+}
+
+
+export const assignClientInsightToModal = (cookie, modal, errorCallback) => {
+	InsightAPI.getAllClientInsight(cookie, insightFilterTypes.all)
+		.then((result:any) => {
+			if (result.status == InsightResponseStatus.SUCCESS) {
+				modal.addData(result.results)
+			} else {
+				errorCallback(result.message);
+			}
+		}, error => {
+			errorCallback(error);
+		});
 }

@@ -15,7 +15,6 @@ import { PasswordValidation } from '../../../utils/Validators';
 export class ResetPasswordPage {
 
 	changeForm: FormGroup;
-	submitted:boolean = false;
 	cookie:string;
 
 	constructor(
@@ -62,9 +61,11 @@ export class ResetPasswordPage {
 			.then((result: any) => {
 				const isFail = result.status !== 'ok'
 				sendGenericUpdateAlert(this.alertCtrl, this.translate, isFail)
+				this.closeModal()
 			},
 			(error: any) => {
 				sendGenericUpdateAlert(this.alertCtrl, this.translate, true, error)
+				this.closeModal()
 			});
 	}
 

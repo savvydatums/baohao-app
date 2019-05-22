@@ -5,7 +5,7 @@
 	</div>
 
 	<div class="inner-90 reset-pass">
-		<form [formGroup]="resetPasswordForm">
+		<form [formGroup]="forgetPassForm">
 			<h1> {{ 'PASSWORD_RESET.TITLE' | translate }} </h1>
 			<p> {{ 'PASSWORD_RESET.RESET_LABEL' | translate }} </p>
 
@@ -14,6 +14,11 @@
 					<ion-label floating>{{ 'PASSWORD_RESET.REGISTRATION_ID_LABEL' | translate }}</ion-label>
 					<ion-input type="text" formControlName="registrationID"></ion-input>
 				</ion-item>
+
+				<ion-item>
+					<ion-label floating>{{ 'PASSWORD_RESET.REGISTRATION_EMAIL_LABEL' | translate }}</ion-label>
+					<ion-input type="email" formControlName="email"></ion-input>
+				</ion-item>
 			</ion-list>
 
 			<div *ngIf="submitted">
@@ -21,7 +26,7 @@
 				<p> This page will redirect to Login within 5 seconds.</p>
 			</div>
 
-			<button ion-button color="light" block round (click)="onReset()" [disabled]="!resetPasswordForm.valid">
+			<button ion-button color="light" block round (click)="onReset()" [disabled]="!forgetPassForm.valid">
 				{{ 'PASSWORD_RESET.BUTTON_LABEL' | translate }}
 			</button>
 		</form>

@@ -34,7 +34,7 @@ export const showError = (alertCtrl, translate, message) => {
 		alert.present()
 	}
 
-export const openEditNoteForNickName = (alertCtrl, translate, insightData, cookie) => {
+export const openEditNoteForNickName = (alertCtrl, translate, insightData, cookie, callback?) => {
 	const alert = alertCtrl.create({
 		title: 'Add a nick name',
 		inputs: [{
@@ -46,10 +46,10 @@ export const openEditNoteForNickName = (alertCtrl, translate, insightData, cooki
 		},{
 			text: 'save',
 			handler: data => {
-				console.log('data', data)
 				InsightAPI.updateUserPreference(cookie, insightData.source, insightData.authorId, data.nickname)
 					.then((result: any) => {
 						const isFail = (result.status == ResponseStatus.ERROR)
+						!isFail && callback && callback(data.nickname)
 						sendGenericUpdateAlert(alertCtrl, translate, isFail)
 					}, error => {
 						sendGenericUpdateAlert(alertCtrl, translate, true)

@@ -41,6 +41,7 @@ export type TInsightPost = {
 	authorName: string;
 	categories: string[];
 	categorySummary?: object;
+	nickname?: string;
 	content: string;
 	likes: number;
 	source: string;
