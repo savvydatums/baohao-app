@@ -23,7 +23,12 @@
 
 			<div *ngIf="submitted">
 				<p> {{ 'PASSWORD_RESET.SUBMITTED_LABEL' | translate }} </p>
-				<p> This page will redirect to Login within 5 seconds.</p>
+				<p> {{ 'PASSWORD_RESET.FORGET.PAGE_REDIRECT' | translate }}</p>
+			</div>
+
+			<div *ngIf="backendErrorMessage">
+				<p>{{ backendErrorMessage }}</p>
+				<p>{{ 'PASSWORD_RESET.FORGET.ERROR_INFO' | translate }}</p>
 			</div>
 
 			<button ion-button color="light" block round (click)="onReset()" [disabled]="!forgetPassForm.valid">

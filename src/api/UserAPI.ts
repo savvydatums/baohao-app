@@ -38,9 +38,9 @@ export class UserAPI extends Comms {
         });
 	}
 
-	public static sendForgetPassword(username: string): Promise<{}> {
+	public static sendForgetPassword(username: string, email: string): Promise<{}> {
 		return new Promise((resolve, reject) => {
-			this.postFormData(Routes.forgetPassword, { username })
+			this.postFormData(Routes.forgetPassword, { username, email })
 				.then((response: any) => {
 					resolve(response);
 				})

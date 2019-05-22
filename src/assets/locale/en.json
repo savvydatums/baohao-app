@@ -69,7 +69,16 @@
         "SUBMITTED_LABEL": "An email will been sent to the registered email address.",
 		"BUTTON_LABEL": "Reset",
 		"NEW_PASS_PLACEHOLDER": "New Password",
-		"RESET_INFO": "once reset, the next time you login, it will be using the new password."
+		"RESET_INFO": "once reset, the next time you login, it will be using the new password.",
+		"FORGET": {
+			"ERROR_ID": {
+			  "fp01": "You must include either 'username' and 'email' var in your request.",
+			  "fp02": "Your registration Id and email not match",
+			  "fp03": "here is no such user"
+			},
+			"ERROR_INFO": "Please change your information above to retry.",
+			"PAGE_REDIRECT": "This page will redirect to Login within 5 seconds."
+		}
     },
 
     "PROFILE" : {

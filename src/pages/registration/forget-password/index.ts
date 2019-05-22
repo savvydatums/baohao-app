@@ -4,6 +4,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UserAPI } from '../../../api/UserAPI';
 import { LoginPage } from '../../login/login';
 import { TranslateService } from '@ngx-translate/core';
+import { getTranslation } from '../../../utils/Data-Fetch';
 
 @IonicPage({ name: "ForgetPassword", segment: "ForgetPassword" })
 @Component({
@@ -14,6 +15,7 @@ export class ForgetPasswordPage {
 
 	forgetPassForm: FormGroup;
 	submitted: boolean = false;
+	backendErrorMessage: string;
 
 	constructor(
 		public navController: NavController,
@@ -33,14 +35,17 @@ export class ForgetPasswordPage {
 	public onReset() {
 		if (!this.forgetPassForm.valid) return;
 		const registrationID = this.forgetPassForm.controls['registrationID'].value
+		const email = this.forgetPassForm.controls['email'].value
 
 		let self = this
-		UserAPI.sendForgetPassword(registrationID)
-			.then((success) => {
-				self.submitted = true;
-				setTimeout(() => {
-					self.gotoLogin()
-				}, 5000);
+		UserAPI.sendForgetPassword(registrationID, email)
+			.then((result:any) => {
+				if (result.code == 200) {
+					self.submitted = true;
+					setTimeout(() => { 	self.gotoLogin() }, 5000);
+				} else {
+					self.backendErrorMessage = getTranslation(this.translate, `PASSWORD_RESET.FORGET.ERROR_ID.${result.error}`)
+				}
 			}, (error: any) => {
 				console.log('submit failed')
 			});
