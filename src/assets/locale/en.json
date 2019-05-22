@@ -61,7 +61,8 @@
     },
 
     "PASSWORD_RESET" : {
-        "TITLE": "Reset Password",
+		"TITLE": "Reset Password",
+		"CHANGE_TITLE": "Change Password",
         "RESET_LABEL": "Please enter your registration ID and email",
         "REGISTRATION_ID_LABEL": "Registration ID",
         "REGISTRATION_EMAIL_LABEL": "Your Email",

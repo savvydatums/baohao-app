@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, AlertController } from 'ionic-angular';
+import {IonicPage, NavController, AlertController, ModalController } from 'ionic-angular';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { fetchCompaniesFromLocale, getTranslation } from '../../../utils/Data-Fetch';
+import { fetchCompaniesFromLocale } from '../../../utils/Data-Fetch';
 import { UserAPI } from '../../../api/UserAPI';
 import { sendGenericUpdateAlert } from '../../../utils/alert-generic';
 
@@ -25,7 +25,8 @@ export class ProfilePage {
 		public profile: ProfileModel,
 		public translate: TranslateService,
         private formBuilder: FormBuilder,
-        private alertCtrl: AlertController) {
+		private alertCtrl: AlertController,
+		public modalCtrl: ModalController) {
 
 		this.profileForm = this.formBuilder.group({
 			lastname: ['', Validators.required],
@@ -92,50 +93,37 @@ export class ProfilePage {
             (error:any)=> {
 				sendGenericUpdateAlert(this.alertCtrl, this.translate, true, error)
             });
-    }
-
-	public promptResetPassword () {
-		const alert = this.alertCtrl.create({
-			title: getTranslation(this.translate, 'PASSWORD_RESET.TITLE'),
-			message : getTranslation(this.translate, 'PASSWORD_RESET.RESET_INFO'),
-			inputs: [{
-				name: 'new_password',
-				placeholder: getTranslation(this.translate, 'PASSWORD_RESET.NEW_PASS_PLACEHOLDER'),
-				type: 'password'
-			}],
-			buttons: [{
-				text: getTranslation(this.translate, 'GLOBAL_CANCEL_BUTTON_LABEL')
-			},{
-				text: getTranslation(this.translate, 'GLOBAL_SUBMIT_BUTTON_LABEL'),
-				handler: data => {
-					this.submitNewPassword(data.new_password)
-				}
-			}],
-			cssClass: 'reset-popup',
-			enableBackdropDismiss: false
-		})
-
-		alert.present()
 	}
 
-	public submitNewPassword (newPass) {
-		if (newPass && newPass.length > 0) {
-			const payload = {
-				cookie: this.profile.cookie,
-				password: newPass
-			}
+	public showResetPasswordModal() {
+		let insightModal = this.modalCtrl.create(
+			'ResetPasswordPage', { cookie: this.profile.cookie }
+		);
 
-			UserAPI.sendResetPassword(payload)
-				.then((result: any) => {
-					const isFail = result.status !== 'ok'
-					sendGenericUpdateAlert(this.alertCtrl, this.translate, isFail)
-				},
-				(error: any) => {
-					sendGenericUpdateAlert(this.alertCtrl, this.translate, true, error)
-				});
-		} else {
-			const message = 'Input Field is empty'
-			sendGenericUpdateAlert(this.alertCtrl, this.translate, true, message)
-		}
+		insightModal.present();
 	}
+
+	// public promptResetPassword () {
+	// 	const alert = this.alertCtrl.create({
+	// 		title: getTranslation(this.translate, 'PASSWORD_RESET.TITLE'),
+	// 		message : getTranslation(this.translate, 'PASSWORD_RESET.RESET_INFO'),
+	// 		inputs: [{
+	// 			name: 'new_password',
+	// 			placeholder: getTranslation(this.translate, 'PASSWORD_RESET.NEW_PASS_PLACEHOLDER'),
+	// 			type: 'password'
+	// 		}],
+	// 		buttons: [{
+	// 			text: getTranslation(this.translate, 'GLOBAL_CANCEL_BUTTON_LABEL')
+	// 		},{
+	// 			text: getTranslation(this.translate, 'GLOBAL_SUBMIT_BUTTON_LABEL'),
+	// 			handler: data => {
+	// 				this.submitNewPassword(data.new_password)
+	// 			}
+	// 		}],
+	// 		cssClass: 'reset-popup',
+	// 		enableBackdropDismiss: false
+	// 	})
+
+	// 	alert.present()
+	// }
 }

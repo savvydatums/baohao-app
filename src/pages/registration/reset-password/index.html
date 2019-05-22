@@ -1,0 +1,42 @@
+<!-- This is forget password page -->
+<ion-content padding>
+	<div class="close" (click)="closeModal()">
+		<ion-icon name="close"></ion-icon>
+	</div>
+
+	<div class="inner-wrap">
+		<h3> {{ 'PASSWORD_RESET.CHANGE_TITLE' | translate }} </h3>
+		<p> {{ 'PASSWORD_RESET.RESET_INFO' | translate }} </p>
+		<form [formGroup]="changeForm">
+			<ion-list>
+				<ion-item>
+					<ion-label floating>{{ 'PASSWORD_RESET.NEW_PASS_PLACEHOLDER' | translate }}</ion-label>
+					<ion-input type="password" formControlName="password"></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label floating>{{ 'SIGNUP.CONFIRM_PASSWORD_LABEL' | translate }} </ion-label>
+					<ion-input type="password" formControlName="confirmPassword"></ion-input>
+				</ion-item>
+			</ion-list>
+
+			<div *ngIf="changeForm.controls.confirmPassword.dirty">
+				<div class="error" *ngIf="changeForm.controls.confirmPassword.errors">
+					<ion-icon name="information-circle"></ion-icon>
+					{{ 'SIGNUP.PASSWORD_ERROR' | translate }}
+				</div>
+			</div>
+
+			<div *ngIf="changeForm.controls.password.dirty">
+				<div class="error" *ngIf="changeForm.controls.password.errors">
+					<ion-icon name="information-circle"></ion-icon>
+					{{ 'SIGNUP.PASSWORD_RULE_ERROR' | translate }}
+				</div>
+			</div>
+
+			<button ion-button color="light" block round (click)="onReset()" [disabled]="!changeForm.valid">
+				{{ 'GLOBAL_SUBMIT_BUTTON_LABEL' | translate }}
+			</button>
+		</form>
+	</div>
+</ion-content>

@@ -1,4 +1,3 @@
-import { ResetPasswordPage } from './../registration/reset-password/reset-password';
 import { PaymentPage } from '../activate/payment/payment';
 import { DashboardPage } from '../dashboard/index/index';
 import { Component } from '@angular/core';
@@ -12,6 +11,7 @@ import { LoggedInStatus } from '../../api/Comms';
 import { ProcessingPage } from '../activate/processing/processing';
 import { isDebug } from '../../utils/url-util';
 import { getTranslation } from '../../utils/Data-Fetch';
+import { ForgetPasswordPage } from '../registration/forget-password';
 
 const cookieTimes = 60 * 60;
 
@@ -46,8 +46,10 @@ export class LoginPage {
 		let password = ''
 
 		if (isDebug()){
-			registration_id = 'jimmytest';
-			password = 'password';
+			registration_id = 'PIBAxxx';
+			password = '1234';
+			// registration_id = 'jimmytest';
+			// password = 'password';
 
 		} else {
 			if (this.credentialsForm.invalid) {
@@ -103,6 +105,6 @@ export class LoginPage {
 	}
 
 	public onForgotPassword() {
-		this.navController.push(ResetPasswordPage);
+		this.navController.push(ForgetPasswordPage);
 	}
 }

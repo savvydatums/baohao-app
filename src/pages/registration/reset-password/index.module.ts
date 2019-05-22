@@ -1,4 +1,4 @@
-import { ResetPasswordPage } from './reset-password';
+import { ResetPasswordPage } from '.';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';

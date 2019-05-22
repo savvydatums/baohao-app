@@ -21,7 +21,7 @@
 		</ion-item>
 	</ion-list>
 
-	<div *ngIf="!credentialsForm.controls.registration_id.valid || !credentialsForm.controls.password.valid || loginError">
+	<div *ngIf="!credentialsForm.controls.registration_id.valid || !credentialsForm.controls.password.valid || errorMsg.length > 0">
 		<div class="error" *ngIf="!credentialsForm.controls.registration_id.valid && credentialsForm.controls.registration_id.dirty">
 			{{ 'LOGIN.ERROR_REGISTRATION_ID' | translate }}
 		</div>

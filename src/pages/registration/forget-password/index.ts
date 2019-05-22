@@ -1,20 +1,19 @@
-import { LoginPage } from './../../login/login';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
-import { TranslateService } from '@ngx-translate/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UserAPI } from '../../../api/UserAPI';
+import { LoginPage } from '../../login/login';
+import { TranslateService } from '@ngx-translate/core';
 
-@IonicPage()
+@IonicPage({ name: "ForgetPassword", segment: "ForgetPassword" })
 @Component({
 	selector: 'registration',
-	templateUrl: './reset-password.html'
+  templateUrl: 'index.html',
 })
-
-export class ResetPasswordPage {
+export class ForgetPasswordPage {
 
 	resetPasswordForm: FormGroup;
-	submitted:boolean = false;
+	submitted: boolean = false;
 
 	constructor(
 		public navController: NavController,
@@ -27,23 +26,24 @@ export class ResetPasswordPage {
 		});
 	}
 
-	public onReset () {
+	public onReset() {
 		if (!this.resetPasswordForm.valid) return;
 		const registrationID = this.resetPasswordForm.controls['registrationID'].value
 
 		let self = this
 		UserAPI.sendForgetPassword(registrationID)
-			.then((success)=> {
+			.then((success) => {
 				self.submitted = true;
 				setTimeout(() => {
 					self.gotoLogin()
 				}, 5000);
-			}, (error:any)=> {
-				console.log ('submit failed')
+			}, (error: any) => {
+				console.log('submit failed')
 			});
 	}
 
-	public gotoLogin () {
+	public gotoLogin() {
 		this.navCtrl.push(LoginPage);
 	}
+
 }
