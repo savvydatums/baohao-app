@@ -182,6 +182,9 @@
 		"STORY": "story",
 		"SUMMARY": {
 			"TITLE": "INSIGHT"
+		},
+		"DETAILS": {
+			"DELETE_PERIOD_INFO" : "Are you sure you want to delete this info"
 		}
 	},
 

@@ -10,6 +10,7 @@ import { InsightResponseStatus, ResponseStatus } from '../../../../api/Comms';
 import { openEditNoteForNickName, sendGenericUpdateAlert, showError } from '../../../../utils/alert-generic';
 import { AllInsightsModel } from '../../../../model/AllInsightsModel';
 import { PotentialLeadsModel } from '../../../../model/PotentialLeadsModel';
+import { getTranslation } from '../../../../utils/Data-Fetch';
 
 @IonicPage()
 @Component({
@@ -28,7 +29,6 @@ export class InsightDetailsPage {
 	renderTimeStamp: Function = renderTimeStampInNumber;
 	getKeywordInfo: Function = getKeywordInfo;
 	getKeywordText: Function = getKeywordText;
-	//openEditNote: Function = openEditNoteForNickName;
 
 	constructor(
 		private view: ViewController,
@@ -98,12 +98,31 @@ export class InsightDetailsPage {
 	}
 
 	private reLoadData (closeModal) {
-		const errorCallback = (message) => { showError(this.alertCtrl, this.translate, message);}
+		const errorCallback = (message) => {
+			showError(this.alertCtrl, this.translate, message)
+		}
 
 		this.type == insightType.potential && assignPotentialToModal(this.profile.cookie, this.potential, errorCallback.bind(this))
 		this.type == insightType.all && assignClientInsightToModal(this.profile.cookie, this.allClient, errorCallback.bind(this))
 
 		closeModal && this.closeModal()
+	}
+
+	public removeInTwoMonth() {
+		if (this.is_remove_two_month != true){ return false }
+
+		const alert = this.alertCtrl.create({
+			title: getTranslation(this.translate, 'INSIGHT.DETAILS.DELETE_PERIOD_INFO'),
+			buttons: [{
+				text: getTranslation(this.translate, 'GLOBAL_CANCEL_BUTTON_LABEL')
+			},
+			{
+				text: getTranslation(this.translate, 'GLOBA_OK_BUTTON_LABEL'),
+				handler: this.updateUserPreference.bind(this)
+			}]
+		})
+
+		alert.present()
 	}
 
 

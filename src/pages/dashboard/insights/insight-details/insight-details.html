@@ -38,7 +38,7 @@
 			<ion-item>
 				<ion-label>Not to display {{ insightData.authorName }}’s posts in coming 2 months</ion-label>
 				<ion-checkbox
-					(click)="updateUserPreference()"
+					(click)="removeInTwoMonth()"
 					[(ngModel)]="is_remove_two_month"
 					color="light" >
 				</ion-checkbox>
