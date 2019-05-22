@@ -73,10 +73,10 @@
 		"FORGET": {
 			"ERROR_ID": {
 			  "fp01": "You must include either 'username' and 'email' var in your request.",
-			  "fp02": "Your registration Id and email not match",
-			  "fp03": "here is no such user"
+			  "fp02": "Registration ID or email address does not match.",
+			  "fp03": "There is no such user in our database."
 			},
-			"ERROR_INFO": "Please change your information above to retry.",
+			"ERROR_INFO": "Please contact our customer representative: cs@myinsurbox.com",
 			"PAGE_REDIRECT": "This page will redirect to Login within 5 seconds."
 		}
     },
