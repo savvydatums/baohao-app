@@ -307,10 +307,17 @@ registration, activate {
           text-align: center;
           margin-top: 10%;
             p {
-                text-align: left;
                 margin-top: 5%;
             }
-        }
+		}
+		.button-block {
+			width: 90%;
+			margin-left: 5%;
+		}
+
+		.error {
+			margin: 20px 0;
+		}
     }
 
     .processing {

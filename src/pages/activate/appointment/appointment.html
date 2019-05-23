@@ -23,14 +23,21 @@
 
         <ion-item>
           <ion-label floating>{{ 'APPOINTMENT.MOBILE_TEXT' | translate }}</ion-label>
-          <ion-input type="tel" [formControl]="appointmentForm.controls['mobile']"></ion-input>
+          <ion-input type="number" [formControl]="appointmentForm.controls['mobile']"></ion-input>
         </ion-item>
       </ion-list>
-    </form>
+	</form>
+
+	<div class="error"
+	  *ngIf="appointmentForm.controls.mobile.invalid && (appointmentForm.controls.mobile.dirty ||
+	  appointmentForm.controls.mobile.touched)">
+	  <ion-icon name="information-circle"></ion-icon>
+	      {{ 'PROFILE.ERROR_MOBILE' | translate }}
+	</div>
+
   </div>
-  <div class="fix-bottom">
-    <button ion-button color="light" block round (click)="onActivate()" [disabled]="!appointmentForm.valid">
-      {{ 'GLOBAL_SUBMIT_BUTTON_LABEL' | translate }}
-    </button>
-  </div>
+	<button ion-button color="light" block round (click)="onActivate()" [disabled]="!appointmentForm.valid">
+		{{ 'GLOBAL_SUBMIT_BUTTON_LABEL' | translate }}
+	</button>
+
 </ion-content>

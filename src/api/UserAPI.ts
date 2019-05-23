@@ -6,7 +6,17 @@ export class UserAPI extends Comms {
 
     constructor() {
         super();
-    }
+	}
+
+	public static getUserInfo(cookie:string):Promise<{}> {
+		return new Promise((resolve, reject) => {
+			this.postFormData(Routes.getUserInfo, { cookie })
+				.then((response) => {
+					resolve(response);
+				})
+				.catch(reject);
+		});
+	}
 
     public static userLogin(userLoginInfo:TLoginRequestPayload):Promise<{}> {
         return new Promise((resolve, reject)=>{

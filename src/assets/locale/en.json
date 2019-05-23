@@ -119,7 +119,8 @@
             "Sunlife": "Sunlife",
             "Tahoe Life Insurance": "Tahoe Life Insurance",
             "Others": "Others"
-        }
+		},
+		"ERROR_RESPONSE": "Oops, we can not find your info in the dabase."
     },
 
     "GROUP_RESERVATION": {
@@ -154,7 +155,9 @@
         "BODY": "We are setting up your personal MyInsurBox device and service subscription. <br/>Please let us know the best time to contact you within the next 2 working days.",
         "TIME_TEXT": "Time",
         "LOCATION_TEXT": "Location",
-        "MOBILE_TEXT": "Mobile Number"
+		"MOBILE_TEXT": "Mobile Number",
+		"SUBMIT_ERROR": "Oops, error on submission this form, please make appointment again?",
+		"COOKIE_ERROR": "Oops, I couldn't find your cookie info."
     },
 
     "CONFIRM": {
