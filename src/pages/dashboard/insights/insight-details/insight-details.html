@@ -8,13 +8,13 @@
 			<img *ngIf="insightData.source == 'fb'" src="assets/icon/facebook-w.svg">
 			<img *ngIf="insightData.source == 'wex'" src="assets/icon/wechat-w.svg">
 		</div>
-		<h3>
-			{{ insightData.authorName }}
-			<p>
+		<div class="names">
+			<h2>{{ insightData.authorName }}</h2>
+			<h4>
 				({{ insightData.nickname|| 'add nickname' }})
-				<ion-icon name="brush" (click)="openEditNote()"></ion-icon>
-			</p>
-		</h3>
+				<img class="edit" src="assets/icon/edit.svg" (click)="openEditNote()">
+			</h4>
+		</div>
 		<div class="keywords">
 		  <span *ngFor="let keyword of insightData.categories">
 		    # {{ getKeywordText(translate, type, keyword) }}

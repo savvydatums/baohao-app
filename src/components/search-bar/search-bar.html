@@ -1,9 +1,12 @@
 <div class="search-wrap">
-	<ion-icon name="search"></ion-icon>
+	<ion-icon *ngIf="inputValue.length <= 0" name="search"></ion-icon>
+	<ion-icon *ngIf="inputValue.length > 0" name="close" (click)="onClean()"></ion-icon>
 	<input #search type="text"
 		(keyup)="updateInput($event)"
 		(keyup.enter)="onSearch()"
-		placeholder="Search Something...." />
+		placeholder="Search Something...."
+		[value]="inputValue" />
+
 </div>
 <ul class="search-filter">
 	<li *ngFor="let item of filters"

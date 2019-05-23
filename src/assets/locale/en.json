@@ -55,7 +55,7 @@
         "TERMS_CONTENT_SHORT": "<p> These Terms govern your use of MyInsurBox and the products, features, apps, services, technologies and software that we offer except where we expressly state that separate Terms(and not these) apply. </p><h2> 1. Our Data Policy and your privacy choices </h2> <p> To provide these services, we must collect and use your personal data.We detail our practices in the Data Policy, which you must agree to in order to use our Products. </p> <p> We also encourage you to review the privacy choices before you join the services. </p>",
         "FULL_SCREEN_LABEL": "Full screen",
         "TERMS_LABEL": "Terms of usage",
-        "TERMS_AGREE_LABEL": "You agree to our terms of usage",
+        "TERMS_AGREE_LABEL": "You agree to our terms of usage *",
         "CREATE_FAILED": "Create Account Failed!",
         "EMAIL_NOT_VARIFIED_TITLE": "Email not Varify!"
     },
@@ -192,11 +192,14 @@
 		"AUTHORS": "Authors",
 		"CATEGORIES": "Categories",
 		"STORY": "story",
+		"ADD_NICKNAME": "add nickname",
 		"SUMMARY": {
 			"TITLE": "INSIGHT"
 		},
 		"DETAILS": {
-			"DELETE_PERIOD_INFO" : "Are you sure you want to delete this info"
+			"DELETE_PERIOD_INFO" : "Are you sure you want to delete this info",
+			"NO_DATA": "No Data",
+			"KEYWORD_ANALYSIS": "Keyword Analysis"
 		}
 	},
 

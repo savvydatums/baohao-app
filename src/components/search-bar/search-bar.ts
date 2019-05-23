@@ -37,4 +37,8 @@ export class SearchBarComponent {
 	public onSearch() {
 		this.searchHandler(this.inputValue, this.selected)
 	}
+
+	public onClean () {
+		this.inputValue = ''
+	}
 }

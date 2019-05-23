@@ -74,7 +74,6 @@ export class Appointment {
 	public getUserInfo () {
 		UserAPI.getUserInfo(this.cookie)
 			.then((result: any) => {
-				console.log(result);
 				if (result.status === 'ok') {
 					this.registrationId = result.user.registration_id
 				} else {
@@ -95,7 +94,6 @@ export class Appointment {
 	}
 
 	private submitForm () {
-		console.log ('from callback in appointment', this.appointment)
 
 		// input reference
 		const payload = {
@@ -112,7 +110,6 @@ export class Appointment {
 			.then((result: TFormResponse) => {
 				if (result.is_valid === true) {
 					const ticket_number = getTicketInfo(result.confirmation_message)
-					console.log(ticket_number)
 					this.confirmed(ticket_number);
 				} else {
 					showError(this.alertCtrl, this.translate, getTranslation(this.translate, 'APPOINTMENT.SUBMIT_ERROR'))

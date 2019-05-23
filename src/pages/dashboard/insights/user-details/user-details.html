@@ -4,28 +4,24 @@
 			<ion-icon name="close"></ion-icon>
 		</div>
 		<div class="title">
-			<h3>{{ userDetails.authorName }}</h3>
-			<div>
-				<ion-icon
-					*ngIf="currentPage > 1"
-					(click)="changePage(-1)"
-					name="arrow-dropleft-circle">
-				</ion-icon>
-				<h5>( {{ userDetails.nickname || 'add nickname' }} )</h5>
-				<ion-icon name="brush" (click)="openEditNote(alertCtrl, translate, userDetails, profile.cookie)"></ion-icon>
-				<ion-icon
-					*ngIf="summaryRanked.length > (itemPerPage * currentPage)"
-					(click)="changePage(1)"
-					name="arrow-dropright-circle">
-				</ion-icon>
-			</div>
+			<h2>{{ userDetails.authorName }}</h2>
+			<h4 class="nickname">( {{ userDetails.nickname || 'INSIGHT.ADD_NICKNAME'|translate }} )
+				<img class="edit" src="assets/icon/edit.svg" (click)="openEditNote(alertCtrl, translate, userDetails, profile.cookie)">
+			</h4>
 		</div>
 		<div class="source">
 			<img *ngIf="userDetails.source == 'fb'" src="assets/icon/facebook-w.svg">
 			<img *ngIf="userDetails.source == 'wex'" src="assets/icon/wechat-w.svg">
 		</div>
 		<div class="chart-container">
-			<h4> keyword Analysis </h4>
+			<h5> {{ 'INSIGHT.DETAILS.KEYWORD_ANALYSIS' | translate }} </h5>
+			<div class="chart-control">
+			  <ion-icon *ngIf="currentPage > 1" (click)="changePage(-1)" name="ios-arrow-back">
+			  </ion-icon>
+			  <ion-icon *ngIf="summaryRanked.length > (itemPerPage * currentPage)" (click)="changePage(1)"
+			    name="ios-arrow-forward">
+			  </ion-icon>
+			</div>
 			<canvas #barChartView></canvas>
 		</div>
 	</div>
@@ -34,9 +30,9 @@
 			[ngStyle]="{ 'backgroundImage': 'url(' + selectedSummary.settings.img + ')' }">
 		</div>
 		<div class="story-wrapper">
-			<h3> {{ selectedSummary.settings.cn }} Story</h3>
+			<h3> {{ selectedSummary.settings.cn }} {{ 'INSIGHT.STORY' | translate }}</h3>
 			<h4 class="story-no-data" *ngIf=" selectedSummary.amount == 0">
-				No Data
+				{{ 'INSIGHT.DETAILS.NO_DATA' | translate }}
 			</h4>
 			<div class="story-content" *ngIf="selectedSummary.amount > 0">
 				<div *ngFor="let story of selectedSummary.story">

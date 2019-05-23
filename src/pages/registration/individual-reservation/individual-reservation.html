@@ -8,29 +8,29 @@
 			<img class="icon" src="assets/imgs/step-1.png" srcset="assets/imgs/step-1@2x.png 2x, assets/imgs/step-1@3x.png 3x" />
 			<ion-list>
 				<ion-item>
-					<ion-label floating>{{ 'PROFILE.LASTNAME' | translate }}</ion-label>
+					<ion-label floating>{{ 'PROFILE.LASTNAME' | translate }} *</ion-label>
 					<ion-input type="text" formControlName="lastname"></ion-input>
 				</ion-item>
 
 				<ion-item>
-					<ion-label floating>{{ 'PROFILE.FIRSTNAME' | translate }}</ion-label>
+					<ion-label floating>{{ 'PROFILE.FIRSTNAME' | translate }} *</ion-label>
 					<ion-input type="text" formControlName="firstname"></ion-input>
 				</ion-item>
 
 				<ion-item>
-					<ion-label floating>{{ 'PROFILE.EMAIL' | translate }}</ion-label>
+					<ion-label floating>{{ 'PROFILE.EMAIL' | translate }} *</ion-label>
 					<ion-input type="text" formControlName="email"></ion-input>
 				</ion-item>
 
 				<ion-item>
-					<ion-label floating>{{ 'PROFILE.MOBILE' | translate }}</ion-label>
+					<ion-label floating>{{ 'PROFILE.MOBILE' | translate }} *</ion-label>
 					<ion-input type="number" formControlName="mobile"></ion-input>
 				</ion-item>
 
 				<ion-item>
 					<ion-label floating>{{ 'PROFILE.COMPANY_NAME' | translate }}</ion-label>
 					<ion-select formControlName="companyName">
-						<ion-option *ngFor="let company of companies" value="{{company.key}}">{{ company.name }}</ion-option>
+						<ion-option *ngFor="let company of companies" value="{{company.key}}">{{ company.name }} *</ion-option>
 					</ion-select>
 				</ion-item>
 
@@ -40,12 +40,12 @@
 				</ion-item>
 
 				<ion-item>
-					<ion-label floating>{{ 'PROFILE.DOB' | translate }}</ion-label>
+					<ion-label floating>{{ 'PROFILE.DOB' | translate }} *</ion-label>
 					<ion-datetime displayFormat="MM/DD/YYYY" formControlName="dob"></ion-datetime>
 				</ion-item>
 
 				<ion-item>
-					<ion-label floating>{{ 'PROFILE.GENDER' | translate }}</ion-label>
+					<ion-label floating>{{ 'PROFILE.GENDER' | translate }} *</ion-label>
 					<ion-select formControlName="gender">
 						<ion-option value="Female">{{ 'PROFILE.OPTION_FEMALE' | translate }}</ion-option>
 						<ion-option value="Male">{{ 'PROFILE.OPTION_MALE' | translate }}</ion-option>
