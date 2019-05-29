@@ -12,7 +12,6 @@ import { ProcessingPage } from '../activate/processing/processing';
 import { isDebug } from '../../utils/url-util';
 import { getTranslation } from '../../utils/Data-Fetch';
 import { ForgetPasswordPage } from '../registration/forget-password';
-import { HttpClient } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http';
 
 const cookieTimes = 60 * 60;
@@ -122,9 +121,7 @@ export class LoginPage {
 	public getData () {
 		const testUrl = 'https://api.myinsurbox.com/index.php/api/es/test/'
 		this.nativeHttp.get(testUrl, {}, {}).then(data =>{
-			console.log ('test native',data.status)
-			console.log ('test native',data.data)
-			console.log ('test native',data.headers)
+			console.log ('test native',data)
 		});
 	}
 }

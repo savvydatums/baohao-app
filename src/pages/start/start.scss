@@ -3,7 +3,9 @@ start {
         background-color: #3c5363;
     }
     .language {
-        float: right;
+		position: absolute;
+		top:20px;
+		right: 20px;
         color: #ffffff;
         font-size: 1.6rem;
     }

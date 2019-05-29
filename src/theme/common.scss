@@ -123,7 +123,8 @@ confirm {
 
 ion-header.potential {
 	header, search-bar {
-		background: #3a7cab;
+		//background: #3a7cab;
+		background: #0b8fa2;
 	}
 }
 
@@ -139,7 +140,8 @@ insight-list {
 	.potential.content-md, .potential.content-ios,
     .potential .list-ios ion-item-sliding,
     .potential .list-md ion-item-sliding {
-        background-color: #64acc7;
+		//background-color: #64acc7;
+		background-color: #1aadc3;
 	}
 
     .item-ios ion-avatar[item-start], .item-md ion-avatar[item-start] {
@@ -191,7 +193,8 @@ insight-list {
 
 	.potential .item.item-block.item-ios,
 	.potential .item.item-block.item-md {
-	  background-color: #64acc7;
+		background-color: #1aadc3;
+		//background-color: #64acc7;
 	}
 
     .list-ios>.item-block:last-child,

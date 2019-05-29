@@ -20,7 +20,6 @@ export class UserDetailsPage {
 
 	itemPerPage: number = 4;
 	currentPage: number = 1;
-	 // use pagination instead of top or all
 	summaryRanked: TInsightSummary[] = [];
 	userDetails: TInsightPost;
 	selectedSummary: TInsightSummary;
@@ -124,12 +123,8 @@ export class UserDetailsPage {
 		const activeElement = this.barChart.getElementAtEvent(evt)
 		let barIndex = (activeElement[0] && activeElement[0]._index) ? activeElement[0]._index : null
 		let xIndex = this.barChart.scales['x-axis-0'].getValueForPixel(evt.x);
-		let summaryRankedIndex = (this.currentPage - 1) * this.itemPerPage + (barIndex || xIndex)
-
-		// check wether clicked or not // Ruby, here the index sometimes wrong
+		let summaryRankedIndex = (this.currentPage - 1) * this.itemPerPage + (barIndex || (xIndex-1))
 		this.selectedSummary = this.summaryRanked[summaryRankedIndex]
-		//console.log(activeElement[0], barIndex, xIndex);
-		//console.log(this.summaryRanked, barIndex, xIndex, summaryRankedIndex, this.selectedSummary)
 
 		if (this.selectedSummary.story.length <= 0 && this.selectedSummary.amount > 0) {
 			this.getCategoryStory(this.profile.cookie, this.userDetails.authorId, this.userDetails.source, this.selectedSummary.key)

@@ -37,7 +37,7 @@ export class UserAPI extends Comms {
 	public static userLogin(userLoginInfo: TLoginRequestPayload, successCallback, failCallback): void {
 		cordova.plugin.http.post(Routes.login, userLoginInfo, {}, (response)=>{
 			const result = JSON.parse(response.data)
-			console.log(response.data, result)
+			//console.log(response.data, result)
 			if (response.status == 200 && result.status == 'ok'){
 				successCallback(result)
 			} else {
