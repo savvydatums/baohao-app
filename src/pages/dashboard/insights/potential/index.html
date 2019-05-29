@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="potential">
 	<header title="Potential Leads"></header>
 	<search-bar
 		[searchHandler]="searchHandler.bind(this)"
@@ -6,7 +6,7 @@
 		[filters]="searchFilters">
 	</search-bar>
 </ion-header>
-<ion-content>
+<ion-content class="potential">
 	<ion-list>
 		<ion-item-sliding *ngFor="let item of potential.filteredData">
 			<ion-item (click)="showPotentialLeads(item)">

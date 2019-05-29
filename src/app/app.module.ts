@@ -14,6 +14,7 @@ import { RegistrationModel } from './../model/RegistrationModel';
 import { LoggedInUserModel } from './../model/LoggedInUserModel';
 import { AppointmentModel } from './../model/AppointmentModel';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { HTTP } from '@ionic-native/http';
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { ComponentsModule } from '../components/components.module';
@@ -31,7 +32,7 @@ import { ArchiveModel } from '../model/ArchiveModel';
     BrowserModule,
     ComponentsModule,
     IonicModule.forRoot(MyApp, {preloadModules: true}),
-    HttpClientModule,
+	HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -58,6 +59,7 @@ import { ArchiveModel } from '../model/ArchiveModel';
     ProfileModel,
     StatusBar,
 	SplashScreen,
+	HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -6,13 +6,14 @@
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
+    <allow-intent href="https://api.myinsurbox.com/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-navigation href="*" />
     <allow-navigation href="http://*/*" />
-    <allow-navigation href="https://*/*" />
+    <allow-navigation href="https://api.myinsurbox.com/*" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
@@ -85,4 +86,5 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^2.4.1" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.3" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
+    <plugin name="cordova-plugin-advanced-http" spec="^2.0.9" />
 </widget>

@@ -121,6 +121,12 @@ confirm {
     }
 }
 
+ion-header.potential {
+	header, search-bar {
+		background: #3a7cab;
+	}
+}
+
 // potential, know your client and archive style
 insight-list {
     background-image: radial-gradient(circle at 105% 0, #1d7f8a, #3e6a90);
@@ -128,7 +134,13 @@ insight-list {
     .list-ios ion-item-sliding,
     .list-md ion-item-sliding {
         background-color: #27768d;
-    }
+	}
+
+	.potential.content-md, .potential.content-ios,
+    .potential .list-ios ion-item-sliding,
+    .potential .list-md ion-item-sliding {
+        background-color: #64acc7;
+	}
 
     .item-ios ion-avatar[item-start], .item-md ion-avatar[item-start] {
         margin: 8px 16px 8px;
@@ -176,12 +188,19 @@ insight-list {
 	.item.item-block.item-md {
 		background-color: #27768d;
 	}
+
+	.potential .item.item-block.item-ios,
+	.potential .item.item-block.item-md {
+	  background-color: #64acc7;
+	}
+
     .list-ios>.item-block:last-child,
     .list-ios>.item-wrapper:last-child .item-block,
     .list-md>.item-block:last-child,
     .list-md>.item-wrapper:last-child .item-block {
 		border-bottom: 1px solid #0f6984;
-    }
+	}
+
     ion-item-options .button-md,
     ion-item-options .button-ios {
         background-color: white;

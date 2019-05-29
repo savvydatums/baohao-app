@@ -1,18 +1,12 @@
-<ion-content *ngIf="loading" class="loading">
-	<div class="load-wrapper">
-		<ion-spinner name="crescent" color="light"></ion-spinner>
-		<p> Loading </p>
-	</div>
-</ion-content>
+<ion-header>
+	<header title="Starred"></header>
+	<search-bar
+		[searchHandler]="searchHandler.bind(this)"
+		[selected]="archive.filterType"
+		[filters]="searchFilters">
+	</search-bar>
+</ion-header>
 <ion-content>
-	<ion-header>
-		<header title="Starred"></header>
-		<search-bar
-			[searchHandler]="searchHandler.bind(this)"
-			[selected]="archive.filterType"
-			[filters]="searchFilters">
-		</search-bar>
-	</ion-header>
 	<ion-list>
 		  <ion-item-sliding *ngFor="let item of archive.filteredData">
 		    <ion-item (click)="showInsightInfo(item)">

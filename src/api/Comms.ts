@@ -1,5 +1,6 @@
-export class Comms {
 
+export class Comms {
+	// change to use HTTPCLENT to try it
     protected static postFormData(url = ``, data = {}): Promise<{}> {
 
         const payload = new FormData();
@@ -46,7 +47,7 @@ export class Comms {
               body: data
           })
           .then(response => response.json()) // parses response to JSON
-    }
+	}
 }
 
 export const ResponseStatus = {
