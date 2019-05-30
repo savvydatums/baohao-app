@@ -5,7 +5,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { UserAPI } from '../../api/UserAPI';
-//import { TLoginResponse } from '../../model/types';
+import { TLoginResponse } from '../../model/types';
 import { ProfileModel } from '../../model/ProfileModel';
 import { LoggedInStatus } from '../../api/Comms';
 import { ProcessingPage } from '../activate/processing/processing';
@@ -71,26 +71,18 @@ export class LoginPage {
 			username: registration_id // default wants to use username
 		}
 
-		const onSuccess = (result) => {
-			this.profile.setUserInfo(result.cookie, result.user)
-			this.goToPageBasedOnUserStatus(result.user.logged_in_status)
-		}
-		// TODO: error should show up
-		const onError = (error) => { console.log(error); }
-		UserAPI.userLogin(requestData, onSuccess.bind(this), onError.bind(this))
-
-		// UserAPI.userLogin(requestData)
-		// 	.then((result: TLoginResponse) => {
-		// 		console.log('userAPi result', result.status);
-		// 		if (result.status == 'ok') {
-		// 			this.profile.setUserInfo(result.cookie, result.user)
-		// 			this.goToPageBasedOnUserStatus(result.user.logged_in_status)
-		// 		} else {
-		// 			this.errorMsg = result.error;
-		// 		}
-		// 	},(error: any) => {
-		// 		console.log(error);
-		// 	});
+		UserAPI.userLogin(requestData)
+			.then((result: TLoginResponse) => {
+				console.log('userAPi result', result.status);
+				if (result.status == 'ok') {
+					this.profile.setUserInfo(result.cookie, result.user)
+					this.goToPageBasedOnUserStatus(result.user.logged_in_status)
+				} else {
+					this.errorMsg = result.error;
+				}
+			},(error: any) => {
+				console.log(error);
+			});
 	}
 
 	private goToPageBasedOnUserStatus (status) {

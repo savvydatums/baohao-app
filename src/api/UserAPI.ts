@@ -34,16 +34,30 @@ export class UserAPI extends Comms {
     //     });
 	// }
 
-	public static userLogin(userLoginInfo: TLoginRequestPayload, successCallback, failCallback): void {
-		cordova.plugin.http.post(Routes.login, userLoginInfo, {}, (response)=>{
-			const result = JSON.parse(response.data)
-			//console.log(response.data, result)
-			if (response.status == 200 && result.status == 'ok'){
-				successCallback(result)
-			} else {
-				failCallback(JSON.stringify(response))
-			}
-		}, failCallback);
+	// public static userLogin(userLoginInfo: TLoginRequestPayload, successCallback, failCallback): void {
+	// 	cordova.plugin.http.post(Routes.login, userLoginInfo, {}, (response)=>{
+	// 		const result = JSON.parse(response.data)
+	// 		//console.log(response.data, result)
+	// 		if (response.status == 200 && result.status == 'ok'){
+	// 			successCallback(result)
+	// 		} else {
+	// 			failCallback(JSON.stringify(response))
+	// 		}
+	// 	}, failCallback);
+	// }
+
+	public static userLogin(userLoginInfo: TLoginRequestPayload): Promise<{}> {
+		return new Promise((resolve, reject) => {
+			cordova.plugin.http.post(Routes.login, userLoginInfo, {}, (response) => {
+					const result = JSON.parse(response.data)
+					//console.log(response.data, result)
+					if (response.status == 200 && result.status == 'ok') {
+						resolve(result)
+					} else {
+						resolve(JSON.parse(response.data))
+					}
+				}, (response) => { reject(response.error)})
+			})
 	}
 
     public static updateUser(userNewData:any): Promise<{}> {
