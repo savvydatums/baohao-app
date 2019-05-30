@@ -1,7 +1,7 @@
 import { Comms } from './Comms';
 import * as Routes from './routes';
 
-declare var cordova: any; // just to stop TS annoying me
+declare var cordova: any;
 
 export class InsightAPI extends Comms {
 
