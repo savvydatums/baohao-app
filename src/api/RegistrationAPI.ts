@@ -11,9 +11,6 @@ export class RegistrationAPI extends Comms {
 
     public static createNewUser(registrationData:any):Promise<{}> {
         return new Promise((resolve, reject)=>{
-			// const header = {
-            //     "Content-Type": "application/json; charset=utf-8",
-			// }
 			cordova.plugin.http.setDataSerializer('json')
 			cordova.plugin.http.post(Routes.register, registrationData, {}, (response) => {
 				const result = JSON.parse(response.data)
