@@ -16,6 +16,7 @@ export class ForgetPasswordPage {
 	forgetPassForm: FormGroup;
 	submitted: boolean = false;
 	backendErrorMessage: string;
+	submittedInfo: string;
 
 	constructor(
 		public navController: NavController,
@@ -40,14 +41,15 @@ export class ForgetPasswordPage {
 		let self = this
 		UserAPI.sendForgetPassword(registrationID, email)
 			.then((result:any) => {
-				if (result.code == 200) {
+				if (result.status == 'ok') {
 					self.submitted = true;
+					self.submittedInfo = result.result
 					setTimeout(() => { 	self.gotoLogin() }, 5000);
 				} else {
 					self.backendErrorMessage = getTranslation(this.translate, `PASSWORD_RESET.FORGET.ERROR_ID.${result.error}`)
 				}
-			}, (error: any) => {
-				console.log('submit failed')
+			}, (result: any) => {
+				self.backendErrorMessage = getTranslation(this.translate, `PASSWORD_RESET.FORGET.ERROR_ID.${result.error}`)
 			});
 	}
 

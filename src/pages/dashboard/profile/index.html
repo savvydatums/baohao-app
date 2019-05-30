@@ -21,22 +21,22 @@
 
 	<form [formGroup]="profileForm">
 	<ion-list>
-	  <ion-item>
+	<ion-item>
 		<ion-label floating>{{ 'PROFILE.LASTNAME' | translate }} #</ion-label>
 		<ion-input type="text" formControlName="lastname" value="{{profile.lastname}}"></ion-input>
-	  </ion-item>
+	</ion-item>
 
-	  <ion-item>
+	<ion-item>
 		<ion-label floating>{{ 'PROFILE.FIRSTNAME' | translate }} #</ion-label>
 		<ion-input type="text" formControlName="firstname" value="{{profile.firstname}}"></ion-input>
-	  </ion-item>
+	</ion-item>
 
-	  <ion-item>
+	<ion-item>
 		<ion-label floating>{{ 'PROFILE.MOBILE' | translate }} #</ion-label>
 		<ion-input type="tel" formControlName="mobile" value="{{profile.mobile}}"></ion-input>
-	  </ion-item>
+	</ion-item>
 
-	  <ion-item>
+	<ion-item>
 		<ion-label floating>{{ 'PROFILE.COMPANY_NAME' | translate }} #</ion-label>
 		<ion-select formControlName="company_name" [(ngModel)]="profile.company_name">
 			<ion-option *ngFor="let company of companies" value="{{company.key}}">{{ company.name }}</ion-option>

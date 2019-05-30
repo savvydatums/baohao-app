@@ -46,12 +46,11 @@ export class ProfilePage {
 	}
 
 	ngAfterViewInit() {
-		// insert all response data into here, here should happen in the login
 		const {
 			registration_id, lastname, firstname,
 			email, mobile, company_name, job_title, birth,
 			gender, avatar, registered
-		} = this.profile // should come from Model when receive in initial called
+		} = this.profile
 
 		this.profile.registration_id = registration_id
         this.profile.lastname = lastname
@@ -86,7 +85,6 @@ export class ProfilePage {
 
 		UserAPI.updateUser(requestPayload)
             .then((result:any)=> {
-				console.log(result);
 				const isFail = result.status !== 'ok'
 				sendGenericUpdateAlert(this.alertCtrl, this.translate, isFail)
             },

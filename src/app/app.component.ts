@@ -39,11 +39,11 @@ export class MyApp {
 			UserAPI.logout(this.profile.cookie)
 				.then((result: any) => {
 					if (result.status == 'ok') {
-						this.nav.push(LoginPage)
+						this.nav.push (LoginPage)
 					}
-					console.log(result);
+					console.log (result);
 				}, (error: any) => {
-					console.log(error);
+					console.log (error);
 				});
 		}
 	}

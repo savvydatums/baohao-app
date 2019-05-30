@@ -47,10 +47,6 @@ export class ResetPasswordPage {
 		this.submitNewPassword(password)
 	}
 
-	public gotoLogin () {
-		//this.navCtrl.push(LoginPage);
-	}
-
 	public submitNewPassword(newPass) {
 		const payload = {
 			cookie: this.cookie,

@@ -62,8 +62,10 @@ export class Appointment {
 
 		this.locations = locations;
 		this.times = times;
-		this.cookie = this.navParams.get('cookie')
+	}
 
+	ionViewDidLoad() {
+		this.cookie = this.navParams.get('cookie')
 		if (this.cookie.length > 0) {
 			this.getUserInfo()
 		} else {
