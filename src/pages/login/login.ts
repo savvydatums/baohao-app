@@ -41,7 +41,7 @@ export class LoginPage {
 
 	ionViewDidLoad() {
 		isDebug() && setTimeout(() => this.onSignIn(), 1000); // this is only for testing
-		this.getData();
+		//this.getData();
 	}
 
 	public onSignIn() {

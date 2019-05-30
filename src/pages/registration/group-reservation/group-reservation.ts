@@ -2,9 +2,12 @@ import { TFormResponse } from './../../../model/types';
 import { GroupRegistrationModel } from './../../../model/GroupRegistrationModel';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, AlertController } from 'ionic-angular';
 import { ConfirmComponent } from '../../../components/confirm/confirm.component'
 import { RegistrationAPI } from '../../../api/RegistrationAPI';
+import { getTicketInfo, getTranslation } from '../../../utils/Data-Fetch';
+import { showError } from '../../../utils/alert-generic';
+import { TranslateService } from '@ngx-translate/core';
 
 const locations = ['location-1', 'location-2', 'location-3'];
 const times = ['9:30 - 10:00', '10:00 – 10:30', '10:30 – 11:00'];
@@ -32,6 +35,8 @@ export class GroupReservation {
 		public modalCtrl: ModalController,
 		public navCtrl: NavController,
 		public registrationModel: GroupRegistrationModel,
+		public alertCtrl: AlertController,
+		public translate: TranslateService,
 		private formBuilder: FormBuilder) {
 
 		this.locations = locations;
@@ -63,9 +68,7 @@ export class GroupReservation {
 		const mobile = this.registrationModel.mobile = this.registrationForm.controls['mobile'].value
 		const time = this.registrationModel.time = this.registrationForm.controls['time'].value
 		const location = this.registrationModel.location = this.registrationForm.controls['location'].value
-		console.log('group reservation', this.registrationModel);
 
-        // input reference
         const payload = {
             [inputRef.name]: name,
             [inputRef.email]: email,
@@ -76,18 +79,15 @@ export class GroupReservation {
 
         RegistrationAPI.sendGroupReservation(payload)
             .then((result: TFormResponse)=> {
-                console.log(result);
-
                 if (result.is_valid === true) {
-                    // For now just use mock data
-                    const ticket_number = 'Group:12345'
+					const ticket_number = getTicketInfo(result.confirmation_message)
                     this.confirmed(ticket_number);
                 } else {
-                    console.log ('error on submission, make appointment again ? what is the process? ')
+					showError(this.alertCtrl, this.translate, getTranslation(this.translate, 'APPOINTMENT.SUBMIT_ERROR'))
                 }
             },
             (error:any)=> {
-                console.log(error);
+				showError(this.alertCtrl, this.translate, getTranslation(this.translate, 'APPOINTMENT.SUBMIT_ERROR'))
             });
 	}
 
@@ -102,18 +102,7 @@ export class GroupReservation {
 	}
 
 	public resendEmail() {
-		// here has email payload and url
-
-		/*
-		* API call for resending email
-		RegistrationAPI.setResendEmail(this.registrationModel.emailId)
-		.then((success)=> {
-			console.log(success);
-		},
-		(error:any)=> {
-		console.log(error);
-		});
-		*/
+		// not really been used
 		console.log('from resendEmail in group-reservation', this.registrationModel.emailId)
 	}
 }

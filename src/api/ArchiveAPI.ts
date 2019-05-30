@@ -64,44 +64,4 @@ export class ArchiveAPI extends Comms {
 			}, (response) => { reject(JSON.parse(response.error)) })
 		});
 	}
-
-	public static getArchiveListOld(cookie: string): Promise<{}> {
-		return new Promise((resolve, reject) => {
-			this.postFormData(Routes.archiveList, { cookie })
-				.then((response) => {
-					resolve(response);
-				})
-				.catch(reject);
-		});
-	}
-
-	public static archiveItemOld(cookie: string, record_id: string, source: string, group: string, category: string[]): Promise<{}> {
-		return new Promise((resolve, reject) => {
-			this.postFormData(Routes.archiveItem, { cookie, record_id, source, group, category })
-				.then((response) => {
-					resolve(response);
-				})
-				.catch(reject);
-		});
-	}
-
-	public static unArchiveItemOld(cookie: string, record_id: string, source: string): Promise<{}> {
-		return new Promise((resolve, reject) => {
-			this.postFormData(Routes.unArchiveItem, { cookie, record_id, source })
-				.then((response) => {
-					resolve(response);
-				})
-				.catch(reject);
-		});
-	}
-
-	public static trashItemOld(cookie: string, record_id: string, source: string, group: string, categorie: string[]): Promise<{}> {
-		return new Promise((resolve, reject) => {
-			this.postFormData(Routes.trashItem, { cookie, record_id, source, group, categorie })
-				.then((response) => {
-					resolve(response);
-				})
-				.catch(reject);
-		});
-	}
 }
