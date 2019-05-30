@@ -1,6 +1,4 @@
 export const baseApiPath = 'https://api.myinsurbox.com/index.php/'
-//export const baseApiPath = 'https://baoheapi.tk/wordpress/index.php/'
-//export const baseApiPath = 'https://baoheuat.eastasia.cloudapp.azure.com/wordpress/index.php/'
 const authPath = `${baseApiPath}api/auth/`
 
 // form submission (group registration)

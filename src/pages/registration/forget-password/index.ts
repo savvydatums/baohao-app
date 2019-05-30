@@ -44,7 +44,7 @@ export class ForgetPasswordPage {
 				if (result.status == 'ok') {
 					self.submitted = true;
 					self.submittedInfo = result.result
-					setTimeout(() => { 	self.gotoLogin() }, 5000);
+					setTimeout(() => { self.gotoLogin() }, 5000);
 				} else {
 					self.backendErrorMessage = getTranslation(this.translate, `PASSWORD_RESET.FORGET.ERROR_ID.${result.error}`)
 				}

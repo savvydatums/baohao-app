@@ -44,7 +44,7 @@ export class UserDetailsPage {
 	}
 
 	private getAuthorCategoryList (cookie, authorId, source) {
-		InsightAPI.get_author_category_list(cookie, authorId, source)
+		InsightAPI.getAuthorCategoryList(cookie, authorId, source)
 			.then((result: any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
 					//console.log('getAuthorCategoryList', result);
