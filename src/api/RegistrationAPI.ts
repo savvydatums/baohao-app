@@ -14,8 +14,7 @@ export class RegistrationAPI extends Comms {
 			cordova.plugin.http.setDataSerializer('json')
 			cordova.plugin.http.post(Routes.register, registrationData, {}, (response) => {
 				const result = JSON.parse(response.data)
-
-				if (response.status == 200 && result.status == 'ok') {
+				if (response.status == 200) {
 					resolve(result)
 				} else {
 					resolve(JSON.parse(response.data))

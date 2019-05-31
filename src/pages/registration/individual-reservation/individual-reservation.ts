@@ -65,9 +65,6 @@ export class IndividualReservationPage {
 		// reassign
 		this.registration.username = this.registration.registration_id
 
-		// registrationID and password
-		console.log(this.registration)
-
 		RegistrationAPI.createNewUser(this.registration)
 			.then((result: TRegisteredResponse)=> {
 				if (result.code == ResponseStatus.SUCCESS) {
@@ -76,7 +73,7 @@ export class IndividualReservationPage {
 					this.showError(result.message);
 				}
 			},(error:any) => {
-				this.showError(error);
+				this.showError(error.message);
 			});
 	}
 
