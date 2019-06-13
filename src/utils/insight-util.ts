@@ -28,31 +28,34 @@ export const renderTimeStampInNumber = (timestamp : number) => {
 	return `${year} ${month} ${date} | ${hour}.${minutes}`
 }
 
-export const starItem = (cookie, alertCtrl, translate, record_id, source, group, category) => {
+export const starItem = (cookie, alertCtrl, translate, record_id, source, group, category, callback?) => {
 	ArchiveAPI.archiveItem(cookie, record_id, source, group, category)
 		.then((result: any) => {
 			const isFail = result.status === ResponseStatus.ERROR
 			sendGenericUpdateAlert(alertCtrl, translate, isFail)
+			callback && callback()
 		}, error => {
 			sendGenericUpdateAlert(alertCtrl, translate, true, error)
 		});
 }
 
-export const unStarItem = (cookie, alertCtrl, translate, record_id, source) => {
+export const unStarItem = (cookie, alertCtrl, translate, record_id, source, callback?) => {
 	ArchiveAPI.unArchiveItem(cookie, record_id, source)
 		.then((result: any) => {
 			const isFail = result.status === ResponseStatus.ERROR
 			sendGenericUpdateAlert(alertCtrl, translate, isFail)
+			callback && callback()
 		}, error => {
 			sendGenericUpdateAlert(alertCtrl, translate, true, error)
 		});
 }
 
-export const trashItem = (cookie, alertCtrl, translate, record_id, source, group, category) => {
+export const trashItem = (cookie, alertCtrl, translate, record_id, source, group, category, callback?) => {
 	ArchiveAPI.trashItem(cookie, record_id, source, group, category)
 		.then((result: any) => {
 			const isFail = result.status === ResponseStatus.ERROR
 			sendGenericUpdateAlert(alertCtrl, translate, isFail)
+			callback && callback()
 		}, error => {
 			sendGenericUpdateAlert(alertCtrl, translate, true, error)
 		});
@@ -69,29 +72,33 @@ export const getKeywordText = (translate, type, keyword) => {
 	return info[lang]
 }
 
-export const assignPotentialToModal = (cookie, modal, errorCallback) => {
+export const assignPotentialToModal = (cookie, modal, errorCallback?) => {
 	InsightAPI.getPotentialInsight(cookie, insightFilterTypes.all)
 		.then((result:any) => {
-			if (result.status == InsightResponseStatus.SUCCESS) {
+			if (result.status == InsightResponseStatus.SUCCESS ||
+				result.status == InsightResponseStatus.CREATED ||
+				result.status == InsightResponseStatus.UPDATED) {
 				modal.addData(result.results)
 			} else {
-				errorCallback(result.message);
+				errorCallback && errorCallback(result.message);
 			}
 		}, error => {
-			errorCallback(error);
+			errorCallback && errorCallback(error);
 		});
 }
 
 
-export const assignClientInsightToModal = (cookie, modal, errorCallback) => {
+export const assignClientInsightToModal = (cookie, modal, errorCallback?) => {
 	InsightAPI.getAllClientInsight(cookie, insightFilterTypes.all)
 		.then((result:any) => {
-			if (result.status == InsightResponseStatus.SUCCESS) {
+			if (result.status == InsightResponseStatus.SUCCESS ||
+				result.status == InsightResponseStatus.CREATED ||
+				result.status == InsightResponseStatus.UPDATED) {
 				modal.addData(result.results)
 			} else {
-				errorCallback(result.message);
+				errorCallback && errorCallback(result.message);
 			}
 		}, error => {
-			errorCallback(error);
+			errorCallback && errorCallback(error);
 		});
 }

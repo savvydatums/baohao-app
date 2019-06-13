@@ -6,7 +6,7 @@ import { HeaderComponent } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar'
 import { insightSearchFilters, insightType } from '../settings/settings';
 import { ProfileModel } from '../../../../model/ProfileModel';
-import { shortenContent, renderTimeStamp, starItem, trashItem, getKeywordInfo, getKeywordText} from '../../../../utils/insight-util';
+import { shortenContent, renderTimeStamp, starItem, trashItem, getKeywordInfo, getKeywordText, assignClientInsightToModal} from '../../../../utils/insight-util';
 
 @IonicPage({ name: "AllClient", segment: "AllClient" })
 @Component({
@@ -55,10 +55,12 @@ export class AllClient {
 	}
 
 	public starInsight(record_id, source, categories) {
-		return starItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories);
+		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.insights)}
+		return starItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories, callback.bind(this));
 	}
 
 	public trashInsight(record_id, source, categories) {
-		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories);
+		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.insights) }
+		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories, callback.bind(this));
 	}
 }

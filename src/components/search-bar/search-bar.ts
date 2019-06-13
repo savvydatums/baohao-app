@@ -40,5 +40,6 @@ export class SearchBarComponent {
 
 	public onClean () {
 		this.inputValue = ''
+		this.onSearch()
 	}
 }

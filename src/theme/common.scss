@@ -55,6 +55,10 @@
     }
 }
 
+.header-md::after, .header-ios::after  {
+	height: 8px !important;
+}
+
 .dark-text {
     color: $dark;
 
@@ -140,7 +144,6 @@ insight-list {
 	.potential.content-md, .potential.content-ios,
     .potential .list-ios ion-item-sliding,
     .potential .list-md ion-item-sliding {
-		//background-color: #64acc7;
 		background-color: #1aadc3;
 	}
 
@@ -194,7 +197,6 @@ insight-list {
 	.potential .item.item-block.item-ios,
 	.potential .item.item-block.item-md {
 		background-color: #1aadc3;
-		//background-color: #64acc7;
 	}
 
     .list-ios>.item-block:last-child,
@@ -206,12 +208,17 @@ insight-list {
 
     ion-item-options .button-md,
     ion-item-options .button-ios {
-        background-color: white;
-        color: black;
-        font-size: normal;
+		background-color: #ff7272;
+		color: white;
+		font-size: normal;
+		&:first-child{
+			background-color: #ffba72;
+		}
         &:hover:not(.disable-hover) {
             background-color: #259abd;
-        }
+		}
+
+
     }
 }
 
@@ -314,8 +321,8 @@ dashboardpage {
 
 .side-nav {
 	background-color: #195a6f !important;
-	.item-ios {
-		padding-left: 16px;
+	.item-ios, .item-md {
+		padding: 0 16px;
 	}
 
 	.item-block .item-inner {

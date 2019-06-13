@@ -69,8 +69,6 @@ export class TrashPage {
 		ArchiveAPI.unTrashItem(this.profile.cookie, record_id, source)
 			.then((result: any) => {
 				if (result.status == InsightResponseStatus.UPDATED) {
-					// reload
-					console.log('success! reload page content');
 					self.getTrashedInsights()
 				} else {
 					showError(this.alertCtrl, this.translate, result.message);

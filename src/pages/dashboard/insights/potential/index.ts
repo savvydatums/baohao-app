@@ -4,7 +4,7 @@ import { HeaderComponent } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar';
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
-import { renderTimeStamp, shortenContent, starItem, trashItem, getKeywordInfo, getKeywordText } from '../../../../utils/insight-util';
+import { renderTimeStamp, shortenContent, starItem, trashItem, getKeywordInfo, getKeywordText, assignPotentialToModal } from '../../../../utils/insight-util';
 import { insightSearchFilters, insightType } from '../settings/settings';
 import { PotentialLeadsModel } from '../../../../model/PotentialLeadsModel';
 
@@ -50,11 +50,13 @@ export class PotentialPage {
 	}
 
 	public starInsight(record_id, source, group) {
-		return starItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, group, null);
+		const callback = () => { assignPotentialToModal(this.profile.cookie, this.potential) }
+		return starItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, group, null, callback);
 	}
 
 	public trashInsight(record_id, source, group) {
-		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, group, null);
+		const callback = () => { assignPotentialToModal(this.profile.cookie, this.potential) }
+		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, group, null, callback);
 	}
 
 }

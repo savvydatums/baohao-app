@@ -4,7 +4,7 @@ import { InsightResponseStatus } from '../../../api/Comms';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { ArchiveModel } from '../../../model/ArchiveModel';
 import { TranslateService } from '@ngx-translate/core';
-import {shortenContent, renderTimeStamp, getKeywordInfo, getKeywordText, unStarItem, trashItem} from '../../../utils/insight-util';
+import {shortenContent, renderTimeStamp, getKeywordInfo, getKeywordText, unStarItem, trashItem, assignClientInsightToModal} from '../../../utils/insight-util';
 import { HeaderComponent } from '../../../components/header/header';
 import { SearchBarComponent } from '../../../components/search-bar/search-bar';
 import { InsightAPI } from '../../../api/InsightAPI';
@@ -79,11 +79,13 @@ export class ArchivePage {
 	}
 
 	public unStarInsight(record_id, source) {
-		return unStarItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source);
+		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.archive) }
+		return unStarItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, callback);
 	}
 
 	public trashInsight(record_id, source, categories) {
-		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories);
+		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.archive) }
+		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories, callback);
 	}
 
 }
