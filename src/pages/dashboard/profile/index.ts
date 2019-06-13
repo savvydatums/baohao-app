@@ -62,7 +62,7 @@ export class ProfilePage {
         this.profile.birth = birth && new Date(birth).toISOString()
 		this.profile.gender = gender
 		this.profile.avatar = avatar
-        this.profile.registered = registered
+		this.profile.registered = registered
 
         const store = this.translate.store
         this.companies = fetchCompaniesFromLocale(store.currentLang, store.defaultLang, store.translations)

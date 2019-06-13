@@ -9,7 +9,7 @@ export class ArchiveAPI extends Comms {
 		super();
 	}
 
-	// not really been used
+	// tested, not use anymore
 	public static getArchiveList(cookie:string) : Promise < {} > {
 		return new Promise((resolve, reject) => {
 			cordova.plugin.http.post(Routes.archiveList, { cookie }, {}, (response) => {
@@ -51,6 +51,21 @@ export class ArchiveAPI extends Comms {
 		});
 	}
 
+	// tested, not use anymore
+	public static getTrashList(cookie: string): Promise<{}>{
+		return new Promise((resolve, reject) => {
+			cordova.plugin.http.post(Routes.trashList, { cookie }, {}, (response) => {
+				const result = JSON.parse(response.data)
+				console.log(Routes.trashList, response)
+				if (response.status == 200 && result.status == 'ok') {
+					resolve(result)
+				} else {
+					resolve(JSON.parse(response.data))
+				}
+			}, (response) => { reject(JSON.parse(response.error)) })
+		});
+	}
+
 	// tested
 	public static trashItem(cookie : string, record_id : string, source : string, group : string, categorie : string[]) : Promise < {} > {
 		return new Promise((resolve, reject) => {
@@ -64,4 +79,18 @@ export class ArchiveAPI extends Comms {
 			}, (response) => { reject(JSON.parse(response.error)) })
 		});
 	}
+
+	public static unTrashItem(cookie: string, record_id: string, source: string): Promise<{}> {
+		return new Promise((resolve, reject) => {
+			cordova.plugin.http.post(Routes.unTrashItem, { cookie, record_id, source}, {}, (response) => {
+				const result = JSON.parse(response.data)
+				if (response.status == 200 && result.status == 'ok') {
+					resolve(result)
+				} else {
+					resolve(JSON.parse(response.data))
+				}
+			}, (response) => { reject(JSON.parse(response.error)) })
+		});
+	}
+
 }

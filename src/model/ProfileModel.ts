@@ -1,3 +1,5 @@
+import { renderTimeStamp } from "../utils/insight-util";
+
 export class ProfileModel {
 
     // Special
@@ -14,7 +16,8 @@ export class ProfileModel {
     public birth:string;
     public gender:string;
     public avatar: string;
-    public registered: string;
+	public registered: string;
+	public expire_date: string;
 
     constructor() {
     }
@@ -31,6 +34,7 @@ export class ProfileModel {
         this.birth = data.birth
         this.gender = data.gender
         this.avatar = data.avatar
-        this.registered = data.registered
+		this.registered = data.registered
+		this.expire_date = renderTimeStamp(data.expire_date)
     }
 }

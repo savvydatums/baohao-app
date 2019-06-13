@@ -55,3 +55,18 @@ export type TInsightSummary = {
 	story?: TInsightPost[];
 	settings?: object;
 }
+
+export type trashItem = {
+	_id: string;
+	authorId: string;
+	authorName: string;
+	content: string;
+	timestamp: string;
+	source: string;
+}
+
+export type TTrashList = {
+	code: number;
+	status: string;
+	results: trashItem[];
+}

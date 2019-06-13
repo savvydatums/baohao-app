@@ -12,7 +12,7 @@ export const shortenContent = (translate, content, ensize: number, cnsize: numbe
 	return content.substring(0, stringNumber);
 }
 
-export const renderTimeStamp = (timestamp: number) => {
+export const renderTimeStamp = (timestamp: number|string) => {
 	const time = parseInt(timestamp + '000')
 	return new Date(time).toDateString()
 }

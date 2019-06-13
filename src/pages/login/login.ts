@@ -73,7 +73,6 @@ export class LoginPage {
 
 		UserAPI.userLogin(requestData)
 			.then((result: TLoginResponse) => {
-				console.log('userAPi result', result.status);
 				if (result.status == 'ok') {
 					this.profile.setUserInfo(result.cookie, result.user)
 					this.goToPageBasedOnUserStatus(result.user.logged_in_status)

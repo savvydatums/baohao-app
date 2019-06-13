@@ -24,10 +24,14 @@ export const insightTotalAmount = `${insightPath}get_group_total_amount`// not u
 export const editUserPreference = `${insightPath}edit_customer_profile`
 export const totalAmountByAuthorId = `${insightPath}get_total_amount_by_authorid`
 export const potentialInsight = `${insightPath}get_potential_insight` //[onlyarchive || notrash]
-export const productLinks = `${baseApiPath}/api/suggest_product_link/get_product_link`
+export const productLinks = `${baseApiPath}api/suggest_product_link/get_product_link`
 
 // archives
 export const archiveList = `${insightPath}get_star_list`
 export const archiveItem = `${insightPath}star`
 export const unArchiveItem = `${insightPath}remove_star`
 export const trashItem = `${insightPath}trash`
+
+// trash
+export const trashList = `${insightPath}get_trash_list`
+export const unTrashItem = `${insightPath}remove_trash`

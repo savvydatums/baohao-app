@@ -1,11 +1,9 @@
 import { Component, ViewChild, forwardRef } from '@angular/core';
 import { IonicPage, NavController, ModalController, AlertController } from 'ionic-angular';
 import { InsightResponseStatus } from '../../../api/Comms';
-//import { ArchiveAPI } from '../../../api/ArchiveAPI';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { ArchiveModel } from '../../../model/ArchiveModel';
 import { TranslateService } from '@ngx-translate/core';
-//import { starFilters } from '../insights/settings/settings';
 import {shortenContent, renderTimeStamp, getKeywordInfo, getKeywordText, unStarItem, trashItem} from '../../../utils/insight-util';
 import { HeaderComponent } from '../../../components/header/header';
 import { SearchBarComponent } from '../../../components/search-bar/search-bar';

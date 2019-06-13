@@ -9,6 +9,7 @@ import { UserAPI } from '../api/UserAPI';
 import { LoginPage } from '../pages/login/login';
 import { FaqPage } from '../pages/dashboard/faq';
 import { SupportPage } from '../pages/dashboard/support';
+import { TrashPage } from '../pages/dashboard/trash';
 
 @Component({
   templateUrl: 'app.html'
@@ -54,6 +55,10 @@ export class MyApp {
 
 	public goToSupport() {
 		this.nav.push(SupportPage)
+	}
+
+	public goToTrash() {
+		this.nav.push(TrashPage)
 	}
 
 }

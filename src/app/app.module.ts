@@ -20,6 +20,7 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { ComponentsModule } from '../components/components.module';
 import { ProfileModel } from '../model/ProfileModel';
 import { ArchiveModel } from '../model/ArchiveModel';
+import { TrashModel } from '../model/TrashModel';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ArchiveModel } from '../model/ArchiveModel';
 	AllInsightsModel,
 	PotentialLeadsModel,
 	ArchiveModel,
+	TrashModel,
     ProfileModel,
     StatusBar,
 	SplashScreen,

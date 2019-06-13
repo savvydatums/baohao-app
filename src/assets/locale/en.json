@@ -7,13 +7,20 @@
 	"GLOBAL_CANCEL_BUTTON_LABEL": "Cancel",
 	"GLOBA_OK_BUTTON_LABEL": "OK",
 	"GLOBA_SUBMIT_SUCCESS": "Your information has Submitted! Thank you for your support.",
-
+	"GLOBAL_DELETE": "DELETE",
     "START_DESC": "MyInsurBox is Your tool to use Big Data to uncover sales opportunity!",
 	"START_BUTTON": "Get Started",
 
 	"UPDATE_FAILED": "Update Failed!",
 	"UPDATE_SUCCEED": "Update Succeed!",
 	"UPDATE_PENDING_MESSAGE": "we can not update it now, try again later",
+
+	"NAVIGATION": {
+		"FAQ": "FAQ",
+		"SUPPORT": "SUPPORT",
+		"TRASH": "TRASH",
+		"LOGOUT": "LOGOUT"
+	},
 
     "LOGIN" : {
         "REGISTRATION_ID": "Registration ID",
@@ -93,7 +100,8 @@
         "DOB": "Date of Birth",
         "GENDER": "Gender",
         "OPTION_FEMALE": "Female",
-        "OPTION_MALE": "Male",
+		"OPTION_MALE": "Male",
+		"EXPIRED_LABEL": "Membership Expiry Date",
         "ERROR_LASTNAME": "Please enter a valid surname",
         "ERROR_FIRSTNAME": "Please enter a valid name",
         "ERROR_EMAIL": "Please enter a valid email address",
@@ -200,6 +208,13 @@
 			"DELETE_PERIOD_INFO" : "Are you sure you want to delete this info",
 			"NO_DATA": "No Data",
 			"KEYWORD_ANALYSIS": "Keyword Analysis"
+		},
+		"ARCHIVE": {
+			"UNSTAR": "Not Star",
+			"TRASH": "Trash"
+		},
+		"TRASH": {
+			"UNTRASH": "Not Trash"
 		}
 	},
 

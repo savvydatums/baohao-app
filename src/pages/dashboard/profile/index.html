@@ -9,6 +9,9 @@
 		<p>{{ profile.email }}</p>
 	</div>
 	<div class="row">
+		<p>{{ 'PROFILE.EXPIRED_LABEL' | translate }} {{ profile.expire_date }}</p>
+	</div>
+	<div class="row">
 		<p>{{ 'LOGIN.PASSWORD' | translate }}</p>
 		<p class="pass"> ********** </p>
 		<button ion-button color="light" (click)="showResetPasswordModal()">
