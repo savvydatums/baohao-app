@@ -33,7 +33,7 @@ export const starItem = (cookie, alertCtrl, translate, record_id, source, group,
 		.then((result: any) => {
 			const isFail = result.status === ResponseStatus.ERROR
 			sendGenericUpdateAlert(alertCtrl, translate, isFail)
-			callback && callback()
+			callback && setTimeout(() => callback(), 1000)
 		}, error => {
 			sendGenericUpdateAlert(alertCtrl, translate, true, error)
 		});
@@ -44,7 +44,7 @@ export const unStarItem = (cookie, alertCtrl, translate, record_id, source, call
 		.then((result: any) => {
 			const isFail = result.status === ResponseStatus.ERROR
 			sendGenericUpdateAlert(alertCtrl, translate, isFail)
-			callback && callback()
+			callback && setTimeout(() => callback(), 1000)
 		}, error => {
 			sendGenericUpdateAlert(alertCtrl, translate, true, error)
 		});
@@ -55,7 +55,7 @@ export const trashItem = (cookie, alertCtrl, translate, record_id, source, group
 		.then((result: any) => {
 			const isFail = result.status === ResponseStatus.ERROR
 			sendGenericUpdateAlert(alertCtrl, translate, isFail)
-			callback && callback()
+			callback && setTimeout(() => callback(), 1000)
 		}, error => {
 			sendGenericUpdateAlert(alertCtrl, translate, true, error)
 		});
@@ -88,8 +88,10 @@ export const assignPotentialToModal = (cookie, modal, errorCallback?) => {
 }
 
 
-export const assignClientInsightToModal = (cookie, modal, errorCallback?) => {
-	InsightAPI.getAllClientInsight(cookie, insightFilterTypes.all)
+export const assignClientInsightToModal = (cookie, modal, errorCallback?, filterType?) => {
+	const filter = filterType ? filterType : insightFilterTypes.all
+
+	InsightAPI.getAllClientInsight(cookie, filter)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
