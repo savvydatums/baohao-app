@@ -18,11 +18,12 @@ export class PotentialLeadsModel {
 	public applyFilter(keyword, filter) {
 		this.filteredData = this.rawData.filter((item:any) => {
 			if (filter == insightSearchFilters[0] && keyword.length > 0) {
-				return item.authorName.indexOf(keyword) !== -1
+				return item.authorName.toLowerCase().includes(keyword.toLowerCase())
 			} else if (filter == insightSearchFilters[1] && keyword.length > 0) {
-				return item.content.indexOf(keyword) !== -1
+				return item.content.toLowerCase().includes(keyword.toLowerCase())
 			} else {
-				return item.content.indexOf(keyword) !== -1 || item.authorName.indexOf(keyword) !== -1
+				return item.content.toLowerCase().includes(keyword.toLowerCase())
+					|| item.authorName.toLowerCase().includes(keyword.toLowerCase())
 			}
 		})
 	}

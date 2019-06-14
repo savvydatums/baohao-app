@@ -65,17 +65,22 @@ export class Appointment {
 	}
 
 	ionViewDidLoad() {
-		this.cookie = this.navParams.get('cookie')
-		if (this.cookie.length > 0) {
-			this.getUserInfo()
-		} else {
-			showError(this.alertCtrl, this.translate, getTranslation(this.translate, 'PROFILE.COOKIE_ERROR'))
-		}
+		console.log(this.navParams.get('cookie'), window.location.hash)
+		setTimeout(() => {
+			this.cookie = this.navParams.get('cookie')
+			console.log(this.cookie, this.navParams.get('cookie'))
+			if (this.cookie.length > 0) {
+				this.getUserInfo()
+			} else {
+				showError(this.alertCtrl, this.translate, getTranslation(this.translate, 'PROFILE.COOKIE_ERROR'))
+			}
+		}, 3000)
 	}
 
 	public getUserInfo () {
 		UserAPI.getUserInfo(this.cookie)
 			.then((result: any) => {
+				console.log('result', result)
 				if (result.status === 'ok') {
 					this.registrationId = result.user.registration_id
 				} else {
@@ -83,6 +88,7 @@ export class Appointment {
 				}
 			},
 			(error: any) => {
+				console.log('error', error)
 				showError(this.alertCtrl, this.translate, getTranslation(this.translate, 'PROFILE.ERROR_RESPONSE'))
 			});
 	}
