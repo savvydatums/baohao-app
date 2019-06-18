@@ -31,7 +31,7 @@ export class ConfirmComponent {
         //this.resendEmail = this.navParams.get('resendCallback');
     }
 
-    public redirectToApp() {
+    public backToLogin() {
         this.navCtrl.push(LoginPage);
     }
 

@@ -216,10 +216,17 @@ registration, activate {
         color: white;
     }
 
-    // payment page
     .payment {
+        .stripe-button-el {
+            background-image: none;
+            span {
+                background-image: none;
+                background-color: #3994bd;
+            }
+        }
         .back {
-          color: #3994bd;
+            margin-top: 20px;
+            color: #3994bd;
         }
         head {
             position: absolute;
@@ -317,7 +324,12 @@ registration, activate {
 
 		.error {
 			margin: 20px 0;
-		}
+        }
+        .address{
+            padding: 10px;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.2);
+        }
     }
 
     .processing {
@@ -363,6 +375,9 @@ registration, activate {
                 color: $dark;
                 font-weight: normal;
             }
+        }
+        a {
+            text-decoration: none;
         }
     }
 }

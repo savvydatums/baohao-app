@@ -7,7 +7,7 @@
 	"GLOBAL_CANCEL_BUTTON_LABEL": "取消",
 	"GLOBA_OK_BUTTON_LABEL": "好的",
 	"GLOBA_SUBMIT_SUCCESS": "您的資訊已經送交，感謝您的支持。",
-
+    "GLOBAL_SAVE_LABEL": "存檔",
     "START_DESC": "MyInsurBox 是您的大數據分析師，助您洞悉每一個銷售機會",
     "START_BUTTON": "開始",
     "LOADING": "讀取中...",
@@ -178,20 +178,31 @@
 	},
 
 	"INSIGHT": {
-		"GROUP": {
-			"employeeBenefits": "Employee Benefits",
-			"general": "General",
-			"investment": "Investment",
-			"medical": "Medical",
-			"others": "Others",
-			"savingAndLife": "Saving & Life"
-		},
-		"AUTHORS": "Authors",
 		"CATEGORIES": "Categories",
-		"STORY": "story",
+		"STORY": "故事",
+        "ADD_NICKNAME": "加小名",
+        "NICKNAME": "小名",
 		"SUMMARY": {
 			"TITLE": "INSIGHT"
-		}
+		},
+		"DETAILS": {
+			"DELETE_PERIOD_INFO" : "您確定你要刪除此資料?",
+			"NO_DATA": "無數據",
+            "KEYWORD_ANALYSIS": "關鍵字",
+            "CURRENT_CUSTOMER": "現存客戶",
+            "NOT_TO_DISPLAY": "兩個月內不顯示",
+            "POST_IN_TWO_MONTH": "的貼文",
+            "KNOW_MORE_ABOUT": "知道更多關於",
+            "RECOMMEND": "建議產品",
+            "PRODUCT_CORRECT": "產品建議是否正確？"
+		},
+		"ARCHIVE": {
+			"UNSTAR" : "不加星號",
+            "TRASH" : "垃圾桶"
+		},
+		"TRASH": {
+			"UNTRASH": "回收"
+        }
 	},
 
 	"SUPPORT": {

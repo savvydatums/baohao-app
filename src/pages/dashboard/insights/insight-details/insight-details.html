@@ -28,7 +28,7 @@
 		</div>
 		<div class="select" *ngIf="type == 'potential'">
 			<ion-item>
-				<ion-label>Current Customer</ion-label>
+				<ion-label>{{ 'INSIGHT.DETAILS.CURRENT_CUSTOMER' | translate }}r</ion-label>
 				<ion-checkbox
 					(click)="updateUserPreference()"
 					[(ngModel)]="is_existing_customer"
@@ -36,7 +36,11 @@
 				</ion-checkbox>
 			</ion-item>
 			<ion-item>
-				<ion-label>Not to display {{ insightData.authorName }}’s posts in coming 2 months</ion-label>
+				<ion-label>
+					{{ 'INSIGHT.DETAILS.NOT_TO_DISPLAY' | translate }}
+					{{ insightData.authorName }}
+					{{ 'INSIGHT.DETAILS.POST_IN_TWO_MONTH' | translate }}
+				</ion-label>
 				<ion-checkbox
 					(click)="removeInTwoMonth()"
 					[(ngModel)]="is_remove_two_month"
@@ -47,12 +51,12 @@
 		<div class="know-more-wrap" *ngIf="type !== 'potential'">
 			<button class="user-details-btn" (click)="goToAuthorPage()">
 				<span [ngStyle]="{ 'color': info.color }">
-					Know more about {{ insightData.authorName }}
+					{{ 'INSIGHT.DETAILS.KNOW_MORE_ABOUT' | translate }} {{ insightData.authorName }}
 				</span>
 			</button>
 		</div>
 		<div class="recommend" *ngIf="recommendations.length > 0">
-			<h4> Recommend Products </h4>
+			<h4>{{ 'INSIGHT.DETAILS.RECOMMEND' | translate }}</h4>
 			<div class="boxes">
 				<a *ngFor="let recommend of recommendations; let i = index"
 					[ngStyle]="{ 'backgroundColor': (i%2 !== 0) ? info.color : 'white' }"
@@ -61,7 +65,12 @@
 						{{ recommend.name }}
 					</span>
 				</a>
-		  	</div>
+			</div>
+			<h5>
+				{{ 'INSIGHT.DETAILS.PRODUCT_CORRECT' | translate }}
+				<ion-icon name="thumbs-up"></ion-icon>
+				<ion-icon name="thumbs-down"></ion-icon>
+			</h5>
 		</div>
 	</div>
 </ion-content>

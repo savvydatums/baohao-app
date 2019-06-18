@@ -6,7 +6,8 @@
     "GLOBAL_SUBMIT_BUTTON_LABEL": "Submit",
 	"GLOBAL_CANCEL_BUTTON_LABEL": "Cancel",
 	"GLOBA_OK_BUTTON_LABEL": "OK",
-	"GLOBA_SUBMIT_SUCCESS": "Your information has Submitted! Thank you for your support.",
+    "GLOBA_SUBMIT_SUCCESS": "Your information has Submitted! Thank you for your support.",
+    "GLOBAL_SAVE_LABEL": "SAVE",
 	"GLOBAL_DELETE": "DELETE",
     "START_DESC": "MyInsurBox is Your tool to use Big Data to uncover sales opportunity!",
     "START_BUTTON": "Get Started",
@@ -191,25 +192,23 @@
 	},
 
 	"INSIGHT": {
-		"GROUP": {
-			"employeeBenefits": "Employee Benefits",
-			"general": "General",
-			"investment": "Investment",
-			"medical": "Medical",
-			"others": "Others",
-			"savingAndLife": "Saving & Life"
-		},
-		"AUTHORS": "Authors",
 		"CATEGORIES": "Categories",
 		"STORY": "story",
-		"ADD_NICKNAME": "add nickname",
+        "ADD_NICKNAME": "add nickname",
+        "NICKNAME": "nickname",
 		"SUMMARY": {
 			"TITLE": "INSIGHT"
 		},
 		"DETAILS": {
 			"DELETE_PERIOD_INFO" : "Are you sure you want to delete this info",
 			"NO_DATA": "No Data",
-			"KEYWORD_ANALYSIS": "Keyword Analysis"
+            "KEYWORD_ANALYSIS": "Keyword Analysis",
+            "CURRENT_CUSTOMER": "Current Customer",
+            "NOT_TO_DISPLAY": "Not to display ",
+            "POST_IN_TWO_MONTH": "’s posts in coming 2 months",
+            "KNOW_MORE_ABOUT": "Know more about",
+            "RECOMMEND": "Recommend Products",
+            "PRODUCT_CORRECT": "Product suggestion correct?"
 		},
 		"ARCHIVE": {
 			"UNSTAR": "Not Star",
@@ -217,7 +216,7 @@
 		},
 		"TRASH": {
 			"UNTRASH": "Not Trash"
-		}
+        }
 	},
 
 	"SUPPORT": {

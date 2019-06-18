@@ -10,9 +10,8 @@ import { TFormResponse } from '../../../model/types';
 import { getTicketInfo, getTranslation } from '../../../utils/Data-Fetch';
 import { showError } from '../../../utils/alert-generic';
 import { UserAPI } from '../../../api/UserAPI';
+import { appointmentLocationEN, appointmentLocationCN, appointmentTime } from '../../dashboard/insights/settings/settings';
 
-const locations = ['location-1', 'location-2', 'location-3'];
-const times = ['9:30 - 10:00', '10:00 – 10:30', '10:30 – 11:00'];
 const inputRef = {
 	"location": "input_1",
 	"date": "input_2",
@@ -60,15 +59,15 @@ export class Appointment {
 			])],
 		});
 
-		this.locations = locations;
-		this.times = times;
+		const lang = translate.currentLang || translate.defaultLang
+		this.locations = lang == 'en' ? appointmentLocationEN : appointmentLocationCN;
+		this.times = appointmentTime;
 	}
 
 	ionViewDidLoad() {
 		console.log(this.navParams.get('cookie'), window.location.hash)
 		setTimeout(() => {
 			this.cookie = this.navParams.get('cookie')
-			console.log(this.cookie, this.navParams.get('cookie'))
 			if (this.cookie.length > 0) {
 				this.getUserInfo()
 			} else {
@@ -102,16 +101,11 @@ export class Appointment {
 	}
 
 	private submitForm () {
-
-		// input reference
 		const payload = {
 			[inputRef.time]: this.appointment.time,
 			[inputRef.location] : this.appointment.location,
 			[inputRef.phone] : this.appointment.mobile,
-			[inputRef.registration_id]: this.registrationId,
-			// [inputRef.date]: '2018/03/23', [inputRef.name]: 'aaaa', [inputRef.email]:
-			// 'sss@gmail.com' [inputRef.name]: `${this.profile.lastname}
-			// ${this.profile.firstname}`, [inputRef.email]: this.profile.email
+			[inputRef.registration_id]: this.registrationId
 		}
 
 		RegistrationAPI.sendIndividualAppointment(payload)
@@ -133,7 +127,7 @@ export class Appointment {
 			ConfirmComponent, {
 				ticketNumber: ticket_number,
 				bodyText: true,
-				emailText: true,
+				emailText: false,
 				resendCallback: this.submitForm.bind(this)
 			})
 	}

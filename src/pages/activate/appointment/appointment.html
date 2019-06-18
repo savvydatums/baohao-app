@@ -17,9 +17,13 @@
         <ion-item>
           <ion-label floating>{{ 'APPOINTMENT.LOCATION_TEXT' | translate }}</ion-label>
           <ion-select [formControl]="appointmentForm.controls['location']">
-            <ion-option *ngFor="let location of locations" value="{{location}}"> {{ location }} </ion-option>
+            <ion-option *ngFor="let location of locations" value="{{location.address}}"> {{ location.name }} </ion-option>
           </ion-select>
         </ion-item>
+
+        <div *ngIf="appointmentForm.controls['location'].value" class="address">
+          {{ appointmentForm.controls['location'].value }}
+        </div>
 
         <ion-item>
           <ion-label floating>{{ 'APPOINTMENT.MOBILE_TEXT' | translate }}</ion-label>

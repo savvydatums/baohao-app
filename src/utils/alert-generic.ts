@@ -36,15 +36,15 @@ export const showError = (alertCtrl, translate, message) => {
 
 export const openEditNoteForNickName = (alertCtrl, translate, insightData, cookie, callback?) => {
 	const alert = alertCtrl.create({
-		title: 'Add a nick name',
+		title:  translate.translations.INSIGHT.ADD_NICKNAME,
 		inputs: [{
-			name: 'nickname',
-			placeholder: 'nickname'
+			name: translate.translations.INSIGHT.NICKNAME,
+			placeholder: translate.translations.INSIGHT.NICKNAME
 		}],
 		buttons: [{
-			text: 'cancel'
+			text: translate.translations.GLOBAL_CANCEL_BUTTON_LABEL
 		},{
-			text: 'save',
+			text: translate.translations.GLOBAL_SAVE_LABEL,
 			handler: data => {
 				InsightAPI.updateUserPreference(cookie, insightData.source, insightData.authorId, data.nickname)
 					.then((result: any) => {
