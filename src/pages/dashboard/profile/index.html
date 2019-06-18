@@ -9,7 +9,8 @@
 		<p>{{ profile.email }}</p>
 	</div>
 	<div class="row">
-		<p>{{ 'PROFILE.EXPIRED_LABEL' | translate }} {{ profile.expire_date }}</p>
+		<p>{{ 'PROFILE.EXPIRED_LABEL' | translate }}</p>
+		<p>{{ profile.expire_date }}</p>
 	</div>
 	<div class="row">
 		<p>{{ 'LOGIN.PASSWORD' | translate }}</p>
@@ -22,7 +23,7 @@
 		{{ 'PROFILE.UNCHANGABLE_SMALL_PRINT' | translate }}
 	</p>
 
-	<form [formGroup]="profileForm">
+	<!-- <form [formGroup]="profileForm">
 	<ion-list>
 	<ion-item>
 		<ion-label floating>{{ 'PROFILE.LASTNAME' | translate }} #</ion-label>
@@ -87,10 +88,10 @@
 			{{ 'PROFILE.ERROR_JOB_TITLE' | translate }}
 		</div>
 	</div>
-	</ion-list>
+	</ion-list> -->
 
-	<button ion-button color="light" block round (click)="onUpdate()" [disabled]="!profileForm.valid">
+	<!-- <button ion-button color="light" block round (click)="onUpdate()" [disabled]="!profileForm.valid">
 	  {{ 'GLOBAL_SUBMIT_BUTTON_LABEL' | translate }}
 	</button>
-  </form>
+  </form> -->
 </ion-content>

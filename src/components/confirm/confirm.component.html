@@ -6,27 +6,23 @@
 			<h4> {{ ticketNumber }} </h4>
 		</div>
 		<h4 *ngIf="titleText" [innerHTML]="'CONFIRM.TITLE' | translate"> </h4>
-		<p *ngIf="bodyText" [innerHTML]="'CONFIRM.BODY' | translate"></p>
-		<p *ngIf="emailText" [innerHTML]="'CONFIRM.EMAIL_SENT_INFO' | translate"></p>
+		<h6 *ngIf="bodyText" [innerHTML]="'CONFIRM.BODY' | translate"></h6>
+		<h6 *ngIf="emailText" [innerHTML]="'CONFIRM.EMAIL_SENT_INFO' | translate"></h6>
 
 		<div class="contact-info">
-			<p>
-				<span><img class="icon" src="assets/imgs/icon-email-dark.png" srcset="assets/imgs/icon-email-dark@2x.png 2x, assets/imgs/icon-email-dark@3x.png 3x" /></span>
+			<h4>
+				<ion-icon name="mail"></ion-icon>
 				<a mailTo="support@baohetec.com">support@baohetec.com</a>
-			</p>
-			<p>
-				<span><img class="icon" src="assets/imgs/icon-phone-dark.png" srcset="assets/imgs/icon-phone-dark@2x.png 2x, assets/imgs/icon-phone-dark@3x.png 3x" /></span>
-				<a tel="852-5XXXXXX">852-5XXXXXX</a>
-			</p>
+			</h4>
+			<h4>
+				<ion-icon name="logo-whatsapp"></ion-icon>
+				<a href="https://api.whatsapp.com/send?phone=+85254348682&text=Hello">+852 5434 8682</a>
+			</h4>
 		</div>
-
-		<!-- <p> {{ 'CONFIRM.NO_EMAIL' | translate }} </p>
-		<button ion-button color="light" block round (click)="onResendEmail()">
-			{{ 'CONFIRM.RESEND_EMAIL' | translate }}
+		<br/>
+		<br/>
+		<button ion-button color="light" block round (click)="redirectToApp()"> 
+			{{ 'CONFIRM.BACK_TO_LOGIN' | translate }}
 		</button>
-		<div class="sent" *ngIf="showEmailSent">
-			{{ 'CONFIRM.SENT_EMAIL' | translate }}
-		</div> -->
-		<a (click)="redirectToApp()"> Back to App </a>
   	</div>
 </ion-content>

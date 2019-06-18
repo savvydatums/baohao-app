@@ -9,11 +9,23 @@
 	"GLOBA_SUBMIT_SUCCESS": "您的資訊已經送交，感謝您的支持。",
 
     "START_DESC": "MyInsurBox 是您的大數據分析師，助您洞悉每一個銷售機會",
-	"START_BUTTON": "開始",
+    "START_BUTTON": "開始",
+    "LOADING": "讀取中...",
 
 	"UPDATE_FAILED": "更新失敗!",
 	"UPDATE_SUCCEED": "更新成功!",
-	"UPDATE_PENDING_MESSAGE": "我們現在無法更新，請重試一次。",
+    "UPDATE_PENDING_MESSAGE": "我們現在無法更新，請重試一次。",
+    
+    "NAVIGATION": {
+        "PROFILE": "帳戶",
+        "CUSTOMER": "客戶",
+        "LEADS": "商機",
+        "STARRED": "已加星號",
+		"FAQ": "問與答",
+		"SUPPORT": "支援",
+		"TRASH": "垃圾桶",
+        "LOGOUT": "登出"
+	},
 
     "LOGIN": {
         "REGISTRATION_ID": "保險專員編號",
@@ -31,7 +43,7 @@
         "TITLE": "Welcome to MyInsurBox",
         "BODY": "<p>MyInsurBox的宗旨是為您提供有效及可負擔的個人大數據分析，助您在大數據年代成為專業的理財顧問。</p><p>MyInsurBox透過人工智能技術，分析客户在社交媒體上的活動數據，轉化成您的黃金銷售機會。</p>",
         "INDIVIDUAL_BUTTON": "個人註冊",
-        "GROUP_BOOKING_TEXT": "團體預約 ? +15人以上"
+        "GROUP_BOOKING_TEXT": "團體預約 (15人或以上）"
     },
 
     "STEPS" : {
@@ -73,6 +85,7 @@
 
     "PROFILE" : {
         "TITLE": "使用者註冊",
+        "REGISTRATION_ID": "保險員編號",
         "LASTNAME": "姓",
         "FIRSTNAME": "名",
         "EMAIL": "Email",
@@ -83,7 +96,7 @@
         "GENDER": "姓名",
         "OPTION_FEMALE": "女",
 		"OPTION_MALE": "男",
-		"EXPIRED_LABEL": "會籍到期日",
+		"EXPIRED_LABEL": "到期日",
         "ERROR_LASTNAME": "請輸入有效的姓氏",
         "ERROR_FIRSTNAME": "請輸入有效的名字",
         "ERROR_EMAIL": "請輸入有效的EMAIL",
@@ -92,6 +105,8 @@
         "ERROR_JOB_TITLE": "請輸入職稱",
         "ERROR_DOB": "請輸入有效的生日",
         "ERROR_GENDER": "請選擇性別",
+        "UNCHANGABLE_SMALL_PRINT": "如果你需要更改以上的資料，麻煩請與客戶洽詢。",
+        "UPDATE_PASSWORD": "更改密碼",
         "COMPANIES": {
             "AIA": "友邦",
             "AXA": "安盛",
@@ -116,19 +131,15 @@
         "NAME_LABEL": "姓名",
         "EMAIL_LABEL": "Email",
         "MOBILE_LABEL": "手機號碼",
-        "LOCATION_LABEL": "地點",
-        "TIME_LABEL": "時間",
         "ERROR_NAME": "請輸入姓名",
         "ERROR_EMAIL": "請輸入Email",
-        "ERROR_MOBILE": "請輸入有效電話號碼",
-        "ERROR_TIME": "請選擇時間",
-        "ERROR_LOCATION": "請選擇地點"
+        "ERROR_MOBILE": "請輸入有效電話號碼"
     },
 
     "PAYMENT": {
         "SMALL_TEXT": "付款",
         "PRICE": "$3500",
-        "POINT_1": "<p><b>九十天</b> 資料儲存</p>",
+        "POINT_1": "<p><b>一百八十天</b> 資料儲存</p>",
         "POINT_2": "<p><b>免費</b> MyInsurBox設備一個 <br/> (須繳付$500按金)</p>",
         "POINT_3": "<p><b>無限</b>個人工智能銷售機會推薦</p>",
         "POINT_4": "<p><b>無限</b>無限個用戶自定關鍵字搜索</p>",
@@ -146,13 +157,14 @@
     },
 
     "CONFIRM": {
-        "TICKET_TITLE": "您的預約參考編號是:",
+        "TICKET_TITLE": "您的預約編號是:",
         "TITLE": "感謝您創建MyInsurBox的帳戶",
-        "BODY": "我們正在準備您的MyInsurBox服務訂閱，並會在兩個工作日內與您聯繫。",
-        "EMAIL_SENT_INFO": "我們已向您發送了團購訂購服務的預約確認電郵。如有任何疑問，請通過以下方式聯繫我們的客服團隊.",
+        "BODY": "多謝預約MyInsurBox服務，我們的客戶服務主任會在兩個工作天內與你聯繫，如有任何疑問，請於辦公時間內(星期一至五 09:00 - 19:00)通過以下方式跟我們聯絡。",
+        "EMAIL_SENT_INFO": "多謝登記MyInsurBox服務，確認電郵已經發到你的登記郵箱。",
         "NO_EMAIL": "未有收到預約確認電郵?",
         "RESEND_EMAIL": "重發",
-        "SENT_EMAIL": "請等五分鐘後重發信件"
+        "SENT_EMAIL": "請等五分鐘後重發信件",
+        "BACK_TO_LOGIN": "回到登入"
     },
 
     "PROCESSING": {

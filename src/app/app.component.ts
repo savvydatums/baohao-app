@@ -27,7 +27,7 @@ export class MyApp {
 		public profile: ProfileModel
 	) {
 
-		translate.setDefaultLang('en');
+		translate.setDefaultLang('cn');
 
 		platform.ready().then(() => {
 			statusBar.styleDefault();

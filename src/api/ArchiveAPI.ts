@@ -93,4 +93,18 @@ export class ArchiveAPI extends Comms {
 		});
 	}
 
+	
+	public static deleteTrashItem(cookie: string, record_id: string, source: string): Promise<{}> {
+		return new Promise((resolve, reject) => {
+			cordova.plugin.http.post(Routes.deleteTrashItem, { cookie, record_id, source}, {}, (response) => {
+				const result = JSON.parse(response.data)
+				if (response.status == 200 && result.status == 'ok') {
+					resolve(result)
+				} else {
+					resolve(JSON.parse(response.data))
+				}
+			}, (response) => { reject(JSON.parse(response.error)) })
+		});
+	}
+
 }

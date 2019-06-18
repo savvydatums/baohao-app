@@ -52,9 +52,7 @@ export class GroupReservation {
 				Validators.required,
 				Validators.maxLength(15),
 				Validators.minLength(7),
-			])],
-			time: ['', Validators.required],
-			location: ['', Validators.required]
+			])]
 		});
 	}
 
@@ -66,15 +64,11 @@ export class GroupReservation {
 		const name = this.registrationModel.name = this.registrationForm.controls['name'].value
 		const email = this.registrationModel.email = this.registrationForm.controls['email'].value
 		const mobile = this.registrationModel.mobile = this.registrationForm.controls['mobile'].value
-		const time = this.registrationModel.time = this.registrationForm.controls['time'].value
-		const location = this.registrationModel.location = this.registrationForm.controls['location'].value
 
         const payload = {
             [inputRef.name]: name,
             [inputRef.email]: email,
             [inputRef.mobile]: mobile,
-            [inputRef.location]: location,
-            [inputRef.time]: time
         }
 
         RegistrationAPI.sendGroupReservation(payload)
@@ -96,13 +90,7 @@ export class GroupReservation {
 		ConfirmComponent, {
 			ticketNumber: ticket_number,
 			bodyText: true,
-			emailText: true,
-			resendCallback: this.resendEmail.bind(this)
+			emailText: false,
 		})
-	}
-
-	public resendEmail() {
-		// not really been used
-		console.log('from resendEmail in group-reservation', this.registrationModel.emailId)
 	}
 }

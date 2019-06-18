@@ -9,17 +9,22 @@
 	"GLOBA_SUBMIT_SUCCESS": "Your information has Submitted! Thank you for your support.",
 	"GLOBAL_DELETE": "DELETE",
     "START_DESC": "MyInsurBox is Your tool to use Big Data to uncover sales opportunity!",
-	"START_BUTTON": "Get Started",
+    "START_BUTTON": "Get Started",
+    "LOADING": "Loading...",
 
 	"UPDATE_FAILED": "Update Failed!",
 	"UPDATE_SUCCEED": "Update Succeed!",
 	"UPDATE_PENDING_MESSAGE": "we can not update it now, try again later",
 
 	"NAVIGATION": {
+        "PROFILE": "PROFILE",
+        "CUSTOMER": "CUSTOMER",
+        "LEADS": "LEADS",
+        "STARRED": "STARRED",
 		"FAQ": "FAQ",
 		"SUPPORT": "SUPPORT",
 		"TRASH": "TRASH",
-		"LOGOUT": "LOGOUT"
+        "LOGOUT": "LOGOUT"
 	},
 
     "LOGIN" : {
@@ -37,7 +42,7 @@
         "TITLE": "Welcome to MyInsurBox",
         "BODY": "<p>Powered by proprietary AI technology, Myinsurbox provides you a powerful but affordable tool to understand and analyse Big Data that will help you generate new business opportunities </p>",
         "INDIVIDUAL_BUTTON": "Individual SignUp",
-        "GROUP_BOOKING_TEXT": "Reserve for a group ? +15"
+        "GROUP_BOOKING_TEXT": "Group Purchase (15 pax or above)"
     },
 
     "STEPS" : {
@@ -101,7 +106,7 @@
         "GENDER": "Gender",
         "OPTION_FEMALE": "Female",
 		"OPTION_MALE": "Male",
-		"EXPIRED_LABEL": "Membership Expiry Date",
+		"EXPIRED_LABEL": "End Date",
         "ERROR_LASTNAME": "Please enter a valid surname",
         "ERROR_FIRSTNAME": "Please enter a valid name",
         "ERROR_EMAIL": "Please enter a valid email address",
@@ -137,19 +142,15 @@
         "NAME_LABEL": "Name",
         "EMAIL_LABEL": "Email",
         "MOBILE_LABEL": "Mobile",
-        "LOCATION_LABEL": "Location",
-        "TIME_LABEL": "Time",
         "ERROR_NAME": "Please enter a valid name",
         "ERROR_EMAIL": "Please enter a valid email",
-        "ERROR_MOBILE": "Please enter a valid mobile phone number",
-        "ERROR_TIME": "Please choose a time",
-        "ERROR_LOCATION": "Please choose a location"
+        "ERROR_MOBILE": "Please enter a valid mobile phone number"
     },
 
     "PAYMENT": {
         "SMALL_TEXT": "Make a Payment",
         "PRICE": "$3500",
-        "POINT_1": "<p><b>90 days</b> data storage</p>",
+        "POINT_1": "<p><b>180 days</b> data storage</p>",
         "POINT_2": "<p><b>Free</b> MyInsurBox Device <br/>($500 deposit required)</p>",
         "POINT_3": "<p><b>Unlimited</b> Sales Opportunities <br/> Recommanded by AI</p>",
         "POINT_4": "<p><b>Unlimited</b> User Defined Keyword Search </p>",
@@ -169,13 +170,14 @@
     },
 
     "CONFIRM": {
-        "TICKET_TITLE": "Your appointment reference number is:",
+        "TICKET_TITLE": "Your booking number is:",
         "TITLE": "Thank you for registration our service.",
-        "BODY": "Thanks for your subscription, our customer representative will contact you soon for final confirmation",
-        "EMAIL_SENT_INFO": "We have sent you an email confirmation for the MyInsurBox reservation.Please contact our customer service team through the following means for any question.",
+        "BODY": "Thanks for your booking, our customer representative will contact you shortly. If you have any questions, please contact us as below during business hours (Mon - Fri 09:00 - 19:00)",
+        "EMAIL_SENT_INFO": "Thanks for your register MyInsurBox Service. An activation email has been sent to your registered email account. ",
         "NO_EMAIL": "Didn’t get the email?",
         "RESEND_EMAIL": "Resend",
-        "SENT_EMAIL": "Resent email. Please allow up to 5 mins."
+        "SENT_EMAIL": "Resent email. Please allow up to 5 mins.",
+        "BACK_TO_LOGIN": "Back to LOGIN"
     },
 
     "PROCESSING": {

@@ -35,3 +35,4 @@ export const trashItem = `${insightPath}trash`
 // trash
 export const trashList = `${insightPath}get_trash_list`
 export const unTrashItem = `${insightPath}remove_trash`
+export const deleteTrashItem = `${insightPath}delete`

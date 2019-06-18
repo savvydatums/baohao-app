@@ -112,7 +112,12 @@ confirm {
         color: #ffffff;
         opacity: 0.7;
     }
-    a { font-size: 16px; }
+    a {
+        text-decoration: none;
+    }
+    h6 {
+        line-height: 1.6;
+    }
 
     .grid {
         text-align: left;

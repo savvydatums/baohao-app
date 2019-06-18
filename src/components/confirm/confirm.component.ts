@@ -15,8 +15,6 @@ export class ConfirmComponent {
     titleText: boolean;
     bodyText: boolean;
     emailText: boolean;
-    resendEmail: Function;
-    showEmailSent: boolean = false;
 
     constructor(
         public navCtrl: NavController,
@@ -30,12 +28,7 @@ export class ConfirmComponent {
         this.ticketNumber = this.navParams.get('ticketNumber');
         this.emailText = this.navParams.get('emailText');
         this.bodyText = this.navParams.get('bodyText');
-        this.resendEmail = this.navParams.get('resendCallback');
-    }
-
-    public onResendEmail() {
-        this.resendEmail();
-        this.showEmailSent = true;
+        //this.resendEmail = this.navParams.get('resendCallback');
     }
 
     public redirectToApp() {

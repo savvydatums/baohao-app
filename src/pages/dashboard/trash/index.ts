@@ -68,7 +68,7 @@ export class TrashPage {
 		let self = this
 		ArchiveAPI.unTrashItem(this.profile.cookie, record_id, source)
 			.then((result: any) => {
-				if (result.status == InsightResponseStatus.UPDATED) {
+				if (result.status == InsightResponseStatus.DELETED) {
 					self.getTrashedInsights()
 				} else {
 					showError(this.alertCtrl, this.translate, result.message);
@@ -79,7 +79,17 @@ export class TrashPage {
 	}
 
 	public deletePermentaly(record_id, source) {
-		console.log('delete permentaly, no api yet', record_id, source)
+		let self = this
+		ArchiveAPI.deleteTrashItem(this.profile.cookie, record_id, source)
+			.then((result: any) => {
+				if (result.status == InsightResponseStatus.UPDATED) {
+					self.getTrashedInsights()
+				} else {
+					showError(this.alertCtrl, this.translate, result.message);
+				}
+			}, error => {
+				showError(this.alertCtrl, this.translate, error);
+			});
 	}
 
 	public getKeywordColor(category) {

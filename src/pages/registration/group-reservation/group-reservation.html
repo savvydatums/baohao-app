@@ -24,21 +24,7 @@
 
 			<ion-item>
 			<ion-label floating>{{ 'GROUP_RESERVATION.MOBILE_LABEL' | translate }}</ion-label>
-			<ion-input type="tel" formControlName="mobile"></ion-input>
-			</ion-item>
-
-			<ion-item>
-			<ion-label floating>{{ 'GROUP_RESERVATION.TIME_LABEL' | translate }}</ion-label>
-			<ion-select formControlName="time">
-				<ion-option *ngFor="let time of times" value="{{time}}"> {{ time }} </ion-option>
-			</ion-select>
-			</ion-item>
-
-			<ion-item>
-			<ion-label floating>{{ 'GROUP_RESERVATION.LOCATION_LABEL' | translate }}</ion-label>
-			<ion-select formControlName="location">
-				<ion-option *ngFor="let location of locations" value="{{location}}"> {{ location }} </ion-option>
-			</ion-select>
+			<ion-input type="number" formControlName="mobile"></ion-input>
 			</ion-item>
 		</ion-list>
 
@@ -55,16 +41,7 @@
 				<ion-icon name="information-circle"></ion-icon>
 				{{ 'GROUP_RESERVATION.ERROR_MOBILE' | translate }}
 			</div>
-			<div class="error" *ngIf="registrationForm.controls.location.invalid && (registrationForm.controls.location.dirty || registrationForm.controls.location.touched)">
-				<ion-icon name="information-circle"></ion-icon>
-				{{ 'GROUP_RESERVATION.ERROR_TIME' | translate }}
-			</div>
-			<div class="error" *ngIf="registrationForm.controls.time.invalid && (registrationForm.controls.time.dirty || registrationForm.controls.time.touched)">
-				<ion-icon name="information-circle"></ion-icon>
-				{{ 'GROUP_RESERVATION.ERROR_LOCATION' | translate }}
-			</div>
 		</div>
-
 		<button ion-button color="light" block round (click)="onRegister()" [disabled]="!registrationForm.valid"> {{ 'GLOBAL_SUBMIT_BUTTON_LABEL' | translate }} </button>
 		</form>
 	</div>
