@@ -36,7 +36,8 @@
         "FORGET_PASSWORD": "忘記密碼?",
         "BUTTON": "登入",
         "SIGN_UP_CTA": "沒有帳號?",
-        "SIGN_UP_LINK": "註冊"
+        "SIGN_UP_LINK": "註冊",
+        "REMEMBER_REGISTRATION_ID": "記得我的帳戶名"
     },
 
     "WELCOME": {

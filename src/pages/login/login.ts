@@ -15,6 +15,7 @@ import { ForgetPasswordPage } from '../registration/forget-password';
 import { HTTP } from '@ionic-native/http';
 
 const cookieTimes = 60 * 60;
+const localStorageIDName = 'myInsurBox_ID';
 
 @Component({
 	selector: 'login',
@@ -33,9 +34,11 @@ export class LoginPage {
 		private profile: ProfileModel,
 		private nativeHttp: HTTP) {
 
+		const username = this.getUserName() || ''
 		this.credentialsForm = this.formBuilder.group({
-			registration_id: ['', Validators.required],
-			password: ['', Validators.required]
+			registration_id: [username, Validators.required],
+			password: ['', Validators.required],
+			saveRegistrationId: [false]
 		});
 	}
 
@@ -62,6 +65,9 @@ export class LoginPage {
 
 			registration_id = this.credentialsForm.controls.registration_id.value;
 			password = this.credentialsForm.controls.password.value;
+
+			const isSave = this.credentialsForm.controls.saveRegistrationId.value
+			isSave === true && this.saveUserName(registration_id)
 		}
 
 		const requestData = {
@@ -107,6 +113,14 @@ export class LoginPage {
 
 	public onForgotPassword() {
 		this.navController.push(ForgetPasswordPage);
+	}
+
+	public saveUserName(registrationId) {
+		localStorage.setItem(localStorageIDName, registrationId)
+	}
+
+	public getUserName () {
+		return localStorage.getItem(localStorageIDName)
 	}
 
 	public getData () {

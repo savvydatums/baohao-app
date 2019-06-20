@@ -19,6 +19,13 @@
 			<ion-label floating>{{ 'LOGIN.PASSWORD' | translate }}</ion-label>
 			<ion-input type="password" [formControl]="credentialsForm.controls.password"></ion-input>
 		</ion-item>
+		<ion-item class="no-border">
+			<ion-label>{{ 'LOGIN.REMEMBER_REGISTRATION_ID' | translate }}</ion-label>
+			<ion-checkbox
+				[formControl]="credentialsForm.controls.saveRegistrationId"
+				color="light">
+			</ion-checkbox>
+		</ion-item>
 	</ion-list>
 
 	<div *ngIf="!credentialsForm.controls.registration_id.valid || !credentialsForm.controls.password.valid || errorMsg.length > 0">

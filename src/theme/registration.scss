@@ -264,7 +264,7 @@ registration, activate {
                 background-image: linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0.80));
                 border-bottom-left-radius: 100%;
                 border-bottom-right-radius: 100%;
-                height: 150%;
+                height: 135%;
                 position: absolute;
                 width: 110%;
                 top: -40%;
@@ -275,7 +275,7 @@ registration, activate {
         // points
         .content-wrapper {
             width: 91%;
-            top: 55%;
+            top: 48%;
             list-style: none;
             position: absolute;
             left: 7%;
@@ -408,4 +408,8 @@ activate {
 			border: none;
 		}
 	}
+}
+
+.no-border {
+    border: none !important;
 }

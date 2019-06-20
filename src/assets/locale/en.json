@@ -37,7 +37,8 @@
         "FORGET_PASSWORD": "Forget Password?",
         "BUTTON": "SIGN IN",
         "SIGN_UP_CTA": "Don't have an account? ",
-        "SIGN_UP_LINK": "Sign up"
+        "SIGN_UP_LINK": "Sign up",
+        "REMEMBER_REGISTRATION_ID": "Remember my Registration ID"
     },
     "WELCOME": {
         "TITLE": "Welcome to MyInsurBox",
