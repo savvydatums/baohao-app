@@ -4,7 +4,7 @@ import { InsightAPI } from '../../../../api/InsightAPI';
 import { InsightResponseStatus } from '../../../../api/Comms';
 import { TInsightPost, TInsightSummary } from '../../../../model/types';
 import { ProfileModel } from '../../../../model/ProfileModel';
-import {Chart} from 'chart.js'
+import { Chart } from 'chart.js'
 import { createBarChartOptions } from '../../../../utils/graph-util';
 import { keywordsSettings } from '../settings/settings'
 import { openEditNoteForNickName, showError } from '../../../../utils/alert-generic';

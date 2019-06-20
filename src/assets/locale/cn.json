@@ -137,7 +137,8 @@
     },
 
     "PAYMENT": {
-        "SMALL_TEXT": "付款",
+        "SMALL_TEXT": "早鳥優惠",
+        "ORIGIN_PRICE": "(原價$7300)",
         "PRICE": "$3500",
         "POINT_1": "<p><b>一百八十天</b> 資料儲存</p>",
         "POINT_2": "<p><b>免費</b> MyInsurBox設備一個 <br/> (須繳付$500按金)</p>",

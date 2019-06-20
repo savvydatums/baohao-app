@@ -28,6 +28,7 @@ registration, activate {
         color: white;
         text-decoration: none;
         font-size: 28px;
+        margin-top: 20px;
     }
     ionic-textarea textarea {
         height: 120px;
@@ -217,6 +218,9 @@ registration, activate {
     }
 
     .payment {
+        .head-nav {
+            margin-bottom: 0;
+        }
         .stripe-button-el {
             background-image: none;
             span {
@@ -238,18 +242,29 @@ registration, activate {
             left: -5%;
             h1 {
                 font-size: 48px;
-                font-weight: 200;
-                margin-top: -6px;
+                font-weight: 400;
+                margin: 0;
+                color: #F15725;
             }
-            p {
-                font-size: 17px;
-                margin-top: -5px;
+            h3 { 
+                color: #FBA919;
+                margin-top: 0;
+            }
+            span.strike {
+                font-size: 24px;
+                color:#F15725;
+                text-decoration:line-through;
+            }
+            span.strike>span {
+                color: grey;
+                font-weight:200;
+                color: black;
             }
             .back-circle {
                 background-image: linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0.80));
                 border-bottom-left-radius: 100%;
                 border-bottom-right-radius: 100%;
-                height: 132%;
+                height: 150%;
                 position: absolute;
                 width: 110%;
                 top: -40%;
@@ -260,7 +275,7 @@ registration, activate {
         // points
         .content-wrapper {
             width: 91%;
-            top: 46%;
+            top: 55%;
             list-style: none;
             position: absolute;
             left: 7%;

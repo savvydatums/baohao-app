@@ -149,7 +149,8 @@
     },
 
     "PAYMENT": {
-        "SMALL_TEXT": "Make a Payment",
+        "SMALL_TEXT": "Early Bird Promotion",
+        "ORIGIN_PRICE": "$7300",
         "PRICE": "$3500",
         "POINT_1": "<p><b>180 days</b> data storage</p>",
         "POINT_2": "<p><b>Free</b> MyInsurBox Device <br/>($500 deposit required)</p>",

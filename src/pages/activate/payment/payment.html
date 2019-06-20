@@ -4,18 +4,22 @@
 	</div>
 	<head>
 		<div class="back-circle"></div>
+		<h3>{{ 'PAYMENT.SMALL_TEXT' | translate }}</h3>
 		<img src="assets/imgs/credit-card.png"
-		srcset="assets/imgs/credit-card@2x.png 2x, assets/imgs/credit-card@3x.png 3x" />
-		<h1>{{ 'PAYMENT.PRICE' | translate }}</h1>
-		<p>{{ 'PAYMENT.SMALL_TEXT' | translate }}</p>
+			srcset="assets/imgs/credit-card@2x.png 2x, assets/imgs/credit-card@3x.png 3x" />
+		<h1>
+			{{ 'PAYMENT.PRICE' | translate }}
+		</h1>
+		<span class="strike"><span>{{ 'PAYMENT.ORIGIN_PRICE' | translate }}</span></span>
+		
 	</head>
 	<div class="content-wrapper">
 		<ul>
-		<li [innerHTML]="'PAYMENT.POINT_1' | translate"></li>
-		<li [innerHTML]="'PAYMENT.POINT_2' | translate"></li>
-		<li [innerHTML]="'PAYMENT.POINT_3' | translate"></li>
-		<li [innerHTML]="'PAYMENT.POINT_4' | translate"></li>
-		<li [innerHTML]="'PAYMENT.POINT_5' | translate"></li>
+			<li [innerHTML]="'PAYMENT.POINT_1' | translate"></li>
+			<li [innerHTML]="'PAYMENT.POINT_2' | translate"></li>
+			<li [innerHTML]="'PAYMENT.POINT_3' | translate"></li>
+			<li [innerHTML]="'PAYMENT.POINT_4' | translate"></li>
+			<li [innerHTML]="'PAYMENT.POINT_5' | translate"></li>
 		</ul>
 		<div class="referal">
 			<form id="strip-form" #stripForm action="https://api.myinsurbox.com/stripe/charge.php" method="post">
