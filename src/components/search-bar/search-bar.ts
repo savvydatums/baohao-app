@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { NavController, LoadingController, PopoverController} from 'ionic-angular';
+import { NavController, LoadingController, ModalController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { AllInsightsModel } from '../../model/AllInsightsModel';
 import { ProfileModel } from '../../model/ProfileModel';
-import { FilterPopoverPage } from '../../pages/dashboard/filter'
+import { FilterPopoverPage as FilterPage } from '../../pages/dashboard/filter'
 
 @Component({
 	selector: 'search-bar',
@@ -24,10 +24,9 @@ export class SearchBarComponent {
 		public profile: ProfileModel,
 		public translate: TranslateService,
 		public loadingCtrl: LoadingController,
-		public popoverCtrl: PopoverController) {
+		public modalCtrl: ModalController) {
 
 		this.inputValue = '';
-		console.log(this.page)
 	}
 
 	public updateInput (event) {
@@ -48,23 +47,25 @@ export class SearchBarComponent {
 		this.onSearch()
 	}
 
-	public onSearchHandler(filters, categories) {
-		this.insights.applyFilter2(this.inputValue, filters, categories)
+	public onSearchHandler() {
+		this.insights.applyFilter2(this.inputValue)
 	}
 
 	public onResetFilter(type) {
 		this.insights.resetFilter(type)
 	}
 
-	public openFilter (event) {
-		let popover = this.popoverCtrl.create(
-			FilterPopoverPage, {
+	public openFilter () {
+		let filterModal = this.modalCtrl.create(
+			FilterPage, {
 				topOptions: this.insights.topOptions, 
 				categories: this.insights.categories,
 				searchHandler: this.onSearchHandler.bind(this),
-				resetFilterHandler: this.onResetFilter.bind(this),
 				inputValue: this.inputValue
 			});
-		popover.present({ ev: event });
+		filterModal.onDidDismiss(data => {
+			this.onSearchHandler();
+		});
+		filterModal.present();
 	}
 }

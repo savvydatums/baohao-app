@@ -366,18 +366,79 @@ support, faq {
 }
 
 filter {
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 16px;
     .item-md, .item-ios {
         color: grey !important;
     }
-    .list-ios {
-        margin-left: -32px;
+
+    .content {
+        width: 90%;
+        margin: 10% 5%;
+        height: 450px;
+    }
+
+    .close-btn {
+        position: absolute;
+        right: 20px;
+        font-size: 24px;
+        color: grey;
+    }
+    h4{
+        color: grey;
+        display: inline-block;
+    }
+    hr {
+        border-color: #ccc;
+    }
+
+    .clear-btn {
+        padding: 13px 6px;
+        width: 30%;
+        float: left;
+        font-size: 16px;
+        min-width: 92px;
+        height: 43px;
+    }
+
+    input {
+        font-size: 16px;
+        padding: 12px;
+        border: none;
+        background: #ccc;
+        width: 68%;
+        float: left;
+    }
+    .option-wrapper {
+        margin-top: 20px;
+        ion-label { 
+            display: inline-block; 
+            margin: 0 0 0 10px;
+        }
+        > div {
+            width: 50%;
+            float: left;
+        }
+    }
+    .right{
+        float: right;
+        margin-top: 1.6rem;
+    }
+    button {
+        font-size: 16px;
+        padding: 6px 10px;
+    }
+    .category-wrapper{
+       button {
+           
+            margin: 3px 6px;
+            color: white;
+        }
     }
 }
 
-// this only used in the filter
-
-ion-popover {
-    .popover-ios .popover-content {
-        width: 80%;
-    }
+.clear {
+    clear:both;
 }
+
+

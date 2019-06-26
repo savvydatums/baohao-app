@@ -50,8 +50,8 @@ export class AllClient {
 		insightModal.present();
 	}
 
-	public searchHandler(keyword, filters, categories) {
-		this.insights.applyFilter2(keyword, filters, categories);
+	public searchHandler(keyword) {
+		this.insights.applyFilter2(keyword);
 	}
 
 	public starInsight(record_id, source, categories) {

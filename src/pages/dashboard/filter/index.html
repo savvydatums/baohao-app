@@ -1,23 +1,36 @@
 <ion-content padding>
-  <button ion-button (click)="resetFilterHandler()">
-     Clear All
-  </button>
-  <ion-list>
-    <ion-item *ngFor="let option of topOptions">
-      <ion-label>{{ option.cn }}</ion-label>
-      <ion-checkbox 
-        (click)="searchHandler(option.value, null)" 
-        [(ngModel)]="option.checked" slot="start"></ion-checkbox>
-    </ion-item>
-  </ion-list>
+  
+  <div class="close-btn" (click)="closeModal()">
+    <ion-icon name="close"></ion-icon>
+  </div>
 
-  <p> 根據類別 </p>
-  <ion-list>
-    <ion-item *ngFor="let category of categories">
-      <ion-label> {{ category.name }} </ion-label>
-      <ion-checkbox 
-        (click)="searchHandler(null, category.value)" 
-        [(ngModel)]="category.checked" slot="start"></ion-checkbox>
-    </ion-item>
-  </ion-list> 
+  <h4>Text Search</h4>
+  <input type="text"
+    placeholder="Search Something...."
+    [value]="inputValue" />
+  <button class="clear-btn" (click)="clearTextAndOptions()">
+    Clear All
+  </button>
+  <div class="clear"></div>
+
+  <div class="option-wrapper">
+    <div *ngFor="let option of topOptions">
+      <ion-checkbox [(ngModel)]="option.checked" slot="start"></ion-checkbox>
+      <ion-label>{{ option.cn }}</ion-label>
+    </div>
+  </div>
+  <hr />
+  <h4> 類別 </h4>
+  <div class="right">
+    <button (click)="updateAllCategoriesStatus(true)">Select All</button>
+    <button (click)="updateAllCategoriesStatus(false)">unselect All</button>
+  </div>
+  <div class="clear"></div>
+
+  <div class="category-wrapper">
+    <button *ngFor="let category of categories" 
+      [ngStyle]="{ 'backgroundColor': category.checked ? category.color : '#ccc' }"
+      (click)="updateCategoryStatus(category.value)">{{ category.name }} </button>
+  </div>
+  <button ion-button block (click)="applyFilterToModel()">Apply Filter</button>
 </ion-content>

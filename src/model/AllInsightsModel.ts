@@ -29,20 +29,17 @@ export class AllInsightsModel {
 		})
 	}
 
-	public applyFilter2(keyword, filterName, clickCategory) {
-		console.log('applyFilter2', keyword, filterName, clickCategory)
+	public applyFilter2(keyword) {
 
 		this.filteredData = this.rawData.filter((item:any) => {
 			let isInCategory = true
-			if (clickCategory) {
-				item.categories.map((cat:any) => {
-					const optionInfo:any = this.categories.filter((option: any) => option.value == cat)[0]
-					isInCategory = optionInfo.checked
-				})
-			}
+			item.categories.map((cat:any) => {
+				const optionInfo:any = this.categories.filter((option: any) => option.value == cat)[0]
+				isInCategory = optionInfo.checked
+			})
 
 			let hasContentMatch = true
-			if ((filterName == 'name' || filterName == 'content') && keyword.length > 0) {
+			if (keyword.length > 0) {
 				let isNameChecked = false
 				let isContentChecked = false
 				this.topOptions.map((option:any) => {
@@ -74,8 +71,15 @@ export class AllInsightsModel {
 		this.topOptions = filterTopOptions
 	}
 
-	public resetFilter() {
-		this.categories.map((item:any) =>  item.checked = true)
-		this.topOptions.map((item:any) =>  item.checked = false)
+	public resetFilter(type) {
+		if (type == 'all') {
+			this.categories.map((item:any) =>  item.checked = true)
+			this.topOptions.map((item:any) =>  item.checked = true)
+		}
+		if (type == 'category') {
+			this.categories.map((item:any) =>  item.checked = true)
+		}
+	
+		this.filteredData =  this.rawData;
 	}
 }

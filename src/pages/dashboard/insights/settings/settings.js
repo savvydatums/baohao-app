@@ -5,8 +5,8 @@ export const keywordsSettings = keywords;
 export const insightSearchFilters = ['By Name', 'By Content'];
 
 export const filterTopOptions = [
-	{ value:'name', en: 'By Name', cn: '根據名字', checked: false},
-	{ value:'content', en: 'By Content', cn: '根據內容', checked: false}
+	{ value:'name', en: 'By Name', cn: '根據名字', checked: true},
+	{ value:'content', en: 'By Content', cn: '根據內容', checked: true}
 ]
 
 export const starFilters = ['Potential', 'General'];
