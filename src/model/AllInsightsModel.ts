@@ -30,7 +30,6 @@ export class AllInsightsModel {
 	}
 
 	public applyFilter2(keyword) {
-
 		this.filteredData = this.rawData.filter((item:any) => {
 			let isInCategory = true
 			item.categories.map((cat:any) => {
@@ -39,7 +38,7 @@ export class AllInsightsModel {
 			})
 
 			let hasContentMatch = true
-			if (keyword.length > 0) {
+			if (keyword.length > 0 && isInCategory) {
 				let isNameChecked = false
 				let isContentChecked = false
 				this.topOptions.map((option:any) => {
@@ -55,7 +54,6 @@ export class AllInsightsModel {
 			return isInCategory && hasContentMatch
 		})
 
-		console.log('applyFilter2 result', this.filteredData)
 	}
 
 	public setCategoryInfo(language) {

@@ -47,8 +47,8 @@ export class SearchBarComponent {
 		this.onSearch()
 	}
 
-	public onSearchHandler() {
-		this.insights.applyFilter2(this.inputValue)
+	public onSearchHandler(keyword) {
+		this.insights.applyFilter2(keyword)
 	}
 
 	public onResetFilter(type) {
@@ -63,9 +63,7 @@ export class SearchBarComponent {
 				searchHandler: this.onSearchHandler.bind(this),
 				inputValue: this.inputValue
 			});
-		filterModal.onDidDismiss(data => {
-			this.onSearchHandler();
-		});
+
 		filterModal.present();
 	}
 }

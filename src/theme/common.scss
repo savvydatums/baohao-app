@@ -363,6 +363,15 @@ support, faq {
 
 .filter-btn {
     float: right;
+    button {
+        background: transparent;
+        padding: 13px;
+        color: white;
+        font-size: 14px;
+        &:hover, :focus{
+            background: #27768d;
+        }
+    }
 }
 
 filter {
@@ -386,6 +395,8 @@ filter {
     }
     h4{
         color: grey;
+    }
+    .inline{
         display: inline-block;
     }
     hr {
