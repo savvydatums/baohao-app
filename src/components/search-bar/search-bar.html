@@ -8,10 +8,20 @@
 		[value]="inputValue" />
 
 </div>
-<ul class="search-filter">
-	<li *ngFor="let item of filters"
-		class="{{ selected == item ? 'active' : '' }}"
-		(click)="onFilterClick(item)">
-		{{ item }}
-	</li>
-</ul>
+<ng-container
+  	*ngIf="page === 'allClient'; then allClient; else normal">
+</ng-container>
+<ng-template #normal>
+	<ul #normal class="search-filter">
+		<li *ngFor="let item of filters"
+			class="{{ selected == item ? 'active' : '' }}"
+			(click)="onFilterClick(item)">
+			{{ item }}
+		</li>
+	</ul>
+</ng-template>
+<ng-template #allClient>
+	<div class="filter-btn">
+			<button ion-button color="light" round (click)="openFilter($event)">Add Filter</button>
+		</div>
+</ng-template>

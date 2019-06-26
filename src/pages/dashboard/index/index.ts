@@ -43,6 +43,8 @@ export class DashboardPage {
 
 	ngAfterViewInit() {
 		this.getPotentialLeads(this.profile.cookie, insightFilterTypes.all)
+		const lang = this.translate.currentLang || this.translate.defaultLang
+		this.insights.setCategoryInfo(lang)
 		this.showLoading(true)
 	}
 
@@ -66,7 +68,7 @@ export class DashboardPage {
 		InsightAPI.getAllClientInsight(cookie, insightType)
 			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					self.insights.addData(result.results)
+					self.insights.addData(result.results)					
 					self.showLoading(false)
 				} else {
 					showError(this.alertCtrl, this.translate, result.message);

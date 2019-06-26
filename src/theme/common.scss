@@ -360,3 +360,24 @@ support, faq {
 .underline {
 	text-decoration: underline;
 }
+
+.filter-btn {
+    float: right;
+}
+
+filter {
+    .item-md, .item-ios {
+        color: grey !important;
+    }
+    .list-ios {
+        margin-left: -32px;
+    }
+}
+
+// this only used in the filter
+
+ion-popover {
+    .popover-ios .popover-content {
+        width: 80%;
+    }
+}

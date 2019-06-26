@@ -25,7 +25,7 @@ import { TrashModel } from '../model/TrashModel';
 @NgModule({
   declarations: [
     MyApp,
-	ConfirmComponent,
+    ConfirmComponent,
     LoginPage,
     StartPage
   ],
@@ -44,7 +44,7 @@ import { TrashModel } from '../model/TrashModel';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-	ConfirmComponent,
+	  ConfirmComponent,
     LoginPage,
     StartPage,
     MyApp,
@@ -54,15 +54,15 @@ import { TrashModel } from '../model/TrashModel';
     GroupRegistrationModel,
     LoggedInUserModel,
     AppointmentModel,
-	AllInsightsModel,
-	PotentialLeadsModel,
-	ArchiveModel,
-	TrashModel,
+    AllInsightsModel,
+    PotentialLeadsModel,
+    ArchiveModel,
+    TrashModel,
     ProfileModel,
     StatusBar,
-	SplashScreen,
-	HTTP,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    SplashScreen,
+    HTTP,
+      {provide: ErrorHandler, useClass: IonicErrorHandler}
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
