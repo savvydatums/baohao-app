@@ -125,6 +125,17 @@ export class InsightDetailsPage {
 		alert.present()
 	}
 
+	public updateSuggestionUseful (isUseful) {
+		InsightAPI.updateInsightUseful(
+			this.profile.cookie, this.insightData.source, this.insightData._id, isUseful)
+			.then((result: any) => {
+				const isFail = (result.status == ResponseStatus.ERROR)
+				!isFail && this.potential.updateUsefulData(this.insightData.source, this.insightData._id, isUseful)
+				sendGenericUpdateAlert(this.alertCtrl, this.translate, isFail)
+			}, error => {
+				sendGenericUpdateAlert(this.alertCtrl, this.translate, true)
+			})
+	}
 
 	closeModal () {
 		this.view.dismiss()

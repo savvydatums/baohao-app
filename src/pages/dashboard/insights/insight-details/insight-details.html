@@ -28,7 +28,7 @@
 		</div>
 		<div class="select" *ngIf="type == 'potential'">
 			<ion-item>
-				<ion-label>{{ 'INSIGHT.DETAILS.CURRENT_CUSTOMER' | translate }}r</ion-label>
+				<ion-label>{{ 'INSIGHT.DETAILS.CURRENT_CUSTOMER' | translate }}</ion-label>
 				<ion-checkbox
 					(click)="updateUserPreference()"
 					[(ngModel)]="is_existing_customer"
@@ -68,8 +68,16 @@
 			</div>
 			<h5>
 				{{ 'INSIGHT.DETAILS.PRODUCT_CORRECT' | translate }}
-				<ion-icon name="thumbs-up"></ion-icon>
-				<ion-icon name="thumbs-down"></ion-icon>
+				<ion-icon 
+					name="thumbs-up" 
+					[ngClass]="insightData.useful == true ? 'active': ''" 
+					(click)="updateSuggestionUseful(true)"
+				></ion-icon>
+				<ion-icon 
+					name="thumbs-down" 
+					[ngClass]="insightData.useful == false ? 'active': ''" 
+					(click)="updateSuggestionUseful(false)"
+				></ion-icon>
 			</h5>
 		</div>
 	</div>

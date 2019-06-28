@@ -24,10 +24,10 @@ export const sendGenericUpdateAlert = (alertCtrl, translate, isFail, info?) => {
 
 export const showError = (alertCtrl, translate, message) => {
 		const alert = alertCtrl.create({
-			title: translate.translations.CREATE_FAILED,
+			title:  getTranslation(translate,'CREATE_FAILED'),
 			message: message,
 			buttons: [{
-				text: translate.translations.GLOBAL_CANCEL_BUTTON_LABEL
+				text:  getTranslation(translate,'GLOBAL_CANCEL_BUTTON_LABEL')
 			}]
 		})
 
@@ -35,16 +35,17 @@ export const showError = (alertCtrl, translate, message) => {
 	}
 
 export const openEditNoteForNickName = (alertCtrl, translate, insightData, cookie, callback?) => {
+
 	const alert = alertCtrl.create({
-		title:  translate.translations.INSIGHT.ADD_NICKNAME,
+		title: getTranslation(translate, 'INSIGHT.ADD_NICKNAME'),
 		inputs: [{
-			name: translate.translations.INSIGHT.NICKNAME,
-			placeholder: translate.translations.INSIGHT.NICKNAME
+			name: 'nickname',
+			placeholder: getTranslation(translate, 'INSIGHT.NICKNAME')
 		}],
 		buttons: [{
-			text: translate.translations.GLOBAL_CANCEL_BUTTON_LABEL
+			text: getTranslation(translate, 'GLOBAL_CANCEL_BUTTON_LABEL')
 		},{
-			text: translate.translations.GLOBAL_SAVE_LABEL,
+			text: getTranslation(translate, 'GLOBAL_SAVE_LABEL'),
 			handler: data => {
 				InsightAPI.updateUserPreference(cookie, insightData.source, insightData.authorId, data.nickname)
 					.then((result: any) => {

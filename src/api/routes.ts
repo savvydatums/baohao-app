@@ -25,6 +25,7 @@ export const editUserPreference = `${insightPath}edit_customer_profile`
 export const totalAmountByAuthorId = `${insightPath}get_total_amount_by_authorid`
 export const potentialInsight = `${insightPath}get_potential_insight` //[onlyarchive || notrash]
 export const productLinks = `${baseApiPath}api/suggest_product_link/get_product_link`
+export const suggestionUseful = `${insightPath}useful`
 
 // archives
 export const archiveList = `${insightPath}get_star_list`

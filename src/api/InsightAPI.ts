@@ -109,4 +109,17 @@ export class InsightAPI extends Comms {
 			}, (response) => { reject(JSON.parse(response.error)) })
 		});
 	}
+
+	public static updateInsightUseful (cookie: string, source: string, record_id: string, useful: boolean) {
+		return new Promise((resolve, reject) => {
+			cordova.plugin.http.post(Routes.suggestionUseful, { cookie, record_id, source, useful }, {}, (response) => {
+				const result = JSON.parse(response.data)
+				if (response.status == 200 && result.status == 'ok') {
+					resolve(result)
+				} else {
+					resolve(JSON.parse(response.data))
+				}
+			}, (response) => { reject(JSON.parse(response.error)) })
+		});
+	}
 }
