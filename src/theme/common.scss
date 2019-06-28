@@ -55,6 +55,14 @@
     }
 }
 
+.language {
+    position: absolute;
+    top:20px;
+    right: 20px;
+    color: #ffffff;
+    font-size: 1.6rem;
+}
+
 .header-md::after, .header-ios::after  {
 	height: 8px !important;
 }
@@ -266,6 +274,16 @@ profile {
         }
         .pass {
             margin-top: 17px;
+        }
+        .select-ios {
+            padding: 6px 20px;
+        }
+        .select-md {
+            padding: 7px 8px 5px 16px;
+        }
+
+        .select-icon .select-icon-inner {
+            color: white;
         }
     }
     .sub-info {

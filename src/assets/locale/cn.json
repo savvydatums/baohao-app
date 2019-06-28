@@ -108,6 +108,7 @@
         "ERROR_GENDER": "請選擇性別",
         "UNCHANGABLE_SMALL_PRINT": "如果你需要更改以上的資料，麻煩請與客戶洽詢。",
         "UPDATE_PASSWORD": "更改密碼",
+        "LANGUAGE": "設定語言",
         "COMPANIES": {
             "AIA": "友邦",
             "AXA": "安盛",

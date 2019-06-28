@@ -122,6 +122,7 @@ export class UserDetailsPage {
 		let barIndex = (activeElement[0] && activeElement[0]._index) ? activeElement[0]._index : null
 		let xIndex = this.barChart.scales['x-axis-0'].getValueForPixel(evt.x);
 		let summaryRankedIndex = (this.currentPage - 1) * this.itemPerPage + (barIndex || (xIndex-1))
+		if (summaryRankedIndex == -1) { summaryRankedIndex = 0 }
 		this.selectedSummary = this.summaryRanked[summaryRankedIndex]
 
 		if (this.selectedSummary.story.length <= 0 && this.selectedSummary.amount > 0) {

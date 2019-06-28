@@ -17,7 +17,8 @@ export class ProfileModel {
     public gender:string;
     public avatar: string;
 	public registered: string;
-	public expire_date: string;
+    public expire_date: string;
+    public language: string;
 
     constructor() {
     }

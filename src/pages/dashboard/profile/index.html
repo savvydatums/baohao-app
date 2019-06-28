@@ -19,6 +19,13 @@
 			{{ 'PROFILE.UPDATE_PASSWORD' | translate }}
 		</button>
 	</div>
+	<div class="row">
+		<p>{{ 'PROFILE.LANGUAGE' | translate }}</p>
+		<ion-select placeholder="Select One" [(ngModel)]="profile.language" (ionChange)="setLanguage($event)">
+			<ion-option value="cn">中文</ion-option>
+			<ion-option value="en">EN</ion-option>
+		</ion-select>
+	</div>
 	<p class="sub-info">
 		{{ 'PROFILE.UNCHANGABLE_SMALL_PRINT' | translate }}
 	</p>

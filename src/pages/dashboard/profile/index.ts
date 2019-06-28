@@ -100,4 +100,8 @@ export class ProfilePage {
 
 		insightModal.present();
 	}
+
+	public setLanguage(lan):void {
+		this.translate.use(lan);
+	}
 }

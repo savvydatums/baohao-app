@@ -28,6 +28,7 @@ export class MyApp {
 	) {
 
 		translate.setDefaultLang('cn');
+		profile.language = 'cn';
 
 		platform.ready().then(() => {
 			statusBar.styleDefault();

@@ -129,4 +129,8 @@ export class LoginPage {
 			console.log ('test native',data)
 		});
 	}
+
+	public setLanguage(lan:string):void {
+		this.translate.use(lan);
+	}
 }

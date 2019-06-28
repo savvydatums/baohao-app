@@ -119,6 +119,7 @@
         "ERROR_GENDER": "Please select a gender from list",
         "UNCHANGABLE_SMALL_PRINT": "If need to change information above, please connect to customer support.",
         "UPDATE_PASSWORD": "Change Password",
+        "LANGUAGE": "Language",
         "COMPANIES": {
             "AIA": "AIA",
             "AXA": "AXA",
