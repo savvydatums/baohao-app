@@ -47,6 +47,7 @@ export type TInsightPost = {
 	source: string;
 	timestamp: string;
 	_id: string;
+	useful: boolean|null;
 }
 
 export type TInsightSummary = {

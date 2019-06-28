@@ -70,8 +70,7 @@ login {
     }
 
     .bg-pattern {
-        position: fixed;
-        z-index: -1;
+        position: absolute;
         bottom: 15%;
         right: 0;
     }
