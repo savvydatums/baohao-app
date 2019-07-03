@@ -367,7 +367,29 @@ support, faq {
 		background-color: transparent;
 		color: white;
 		border: none;
-	}
+    }
+    .select-md .select-icon {
+        .select-icon-inner {
+            color: white;
+        }
+    }
+    .select-text {
+        color: white;
+    }
+    .text-input-md {
+        color: white;
+        &::placeholder {
+            color: white;
+        }
+    }
+    .dark-text .item-input .label-md, 
+    .dark-text .item-select .label-md, 
+    .dark-text .item-datetime .label-md, 
+    .dark-text .item-input .label-ios, 
+    .dark-text .item-select .label-ios, 
+    .dark-text .item-datetime .label-ios {
+        color: white;
+    }
 }
 
 .stripe-button-el {

@@ -1,4 +1,3 @@
-import { PaymentPage } from '../activate/payment/payment';
 import { DashboardPage } from '../dashboard/index/index';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -14,7 +13,7 @@ import { getTranslation } from '../../utils/Data-Fetch';
 import { ForgetPasswordPage } from '../registration/forget-password';
 import { HTTP } from '@ionic-native/http';
 
-const cookieTimes = 60 * 60;
+const cookieTimes = 60 * 60 * 60;
 const localStorageIDName = 'myInsurBox_ID';
 
 @Component({
@@ -93,11 +92,8 @@ export class LoginPage {
 	private goToPageBasedOnUserStatus (status) {
 
 		switch (status) {
-			case LoggedInStatus.PENDING:
-				this.navController.push(PaymentPage);
-			break;
-
 			case LoggedInStatus.PROCESSING:
+			case LoggedInStatus.PENDING:
 				this.navController.push(ProcessingPage);
 			break;
 
