@@ -1,40 +1,58 @@
+import { IndividualReservationPage } from './../individual-reservation/individual-reservation';
 import { PasswordValidation } from '../../../utils/Validators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistrationModel } from './../../../model/RegistrationModel';
 import { Component } from '@angular/core';
-import { IonicPage, ModalController } from 'ionic-angular';
+import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
-  selector: 'registry',
-  templateUrl: './signup.html'
+	selector: 'registration',
+	templateUrl: './signup.html'
 })
 
 export class SignupPage {
 
-  registrationForm: FormGroup;
+	registrationForm: FormGroup;
 
-  constructor(public modalCtrl: ModalController, public registrationModel: RegistrationModel, private formBuilder: FormBuilder) {
+	constructor(
+		public navController: NavController,
+		public modalCtrl: ModalController,
+		public registrationModel: RegistrationModel,
+		public translate: TranslateService,
+		private formBuilder: FormBuilder) {
 
-    this.registrationForm = this.formBuilder.group({
-      registrationId: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
-    }, {
-      validator: PasswordValidation.matchPassword // your validation method
-    });
-  }
+		this.registrationForm = this.formBuilder.group({
+			registration_id: ['',
+				Validators.compose([
+					Validators.required,
+				Validators.pattern(`^(PIBA|CIB|HKFI).*`)
+				])],
+			password: ['',
+				Validators.compose([
+					Validators.required,
+					Validators.minLength(8),
+					Validators.maxLength(20)
+				])
+			],
+			confirmPassword: ['', Validators.required],
+			acceptTerms: [false, Validators.requiredTrue]
+		}, {
+			validator: PasswordValidation.matchPassword
+		});
+	}
 
 
-  public onRegister () {
-    this.registrationModel.registrationId = this.registrationForm.controls['registrationId'].value
-    this.registrationModel.password = this.registrationForm.controls['password'].value
+	public onRegister () {
+		this.registrationModel.registration_id = this.registrationForm.controls.registration_id.value
+		this.registrationModel.password = this.registrationForm.controls.password.value
+		this.navController.push(IndividualReservationPage);
+	}
 
-    console.log(this.registrationModel);
-  }
-
-  public openModal(){ 
-    var termsModal = this.modalCtrl.create('TermsModalPage'); 
-    termsModal.present(); 
-  }
+	public openTerms(){
+		const lang = this.translate.currentLang || this.translate.defaultLang
+		const termsModal = this.modalCtrl.create('TermsModalPage', { lang });
+		termsModal.present();
+	}
 }

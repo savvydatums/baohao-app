@@ -1,0 +1,224 @@
+{
+    "GLOBAL_TITLE": "MyInsurBox",
+    "GLOBAL_SUBTITLE": "Powered by Baohe Tech.",
+    "GLOBAL_NEXT_BUTTON_LABEL": "下一步",
+    "GLOBAL_CONTINUE_BUTTON_LABEL": "繼續",
+	"GLOBAL_SUBMIT_BUTTON_LABEL": "提交",
+	"GLOBAL_CANCEL_BUTTON_LABEL": "取消",
+	"GLOBA_OK_BUTTON_LABEL": "好的",
+	"GLOBA_SUBMIT_SUCCESS": "您的資訊已經送交，感謝您的支持。",
+    "GLOBAL_SAVE_LABEL": "存檔",
+    "START_DESC": "MyInsurBox 是您的大數據分析師，助您洞悉每一個銷售機會",
+    "START_BUTTON": "開始",
+    "LOADING": "讀取中...",
+
+	"UPDATE_FAILED": "更新失敗!",
+	"UPDATE_SUCCEED": "更新成功!",
+    "UPDATE_PENDING_MESSAGE": "我們現在無法更新，請重試一次。",
+    
+    "NAVIGATION": {
+        "PROFILE": "帳戶",
+        "CUSTOMER": "客戶",
+        "LEADS": "商機",
+        "STARRED": "已加星號",
+		"FAQ": "問與答",
+		"SUPPORT": "支援",
+		"TRASH": "垃圾桶",
+        "LOGOUT": "登出"
+	},
+
+    "LOGIN": {
+        "REGISTRATION_ID": "保險專員編號",
+        "PASSWORD": "密碼",
+        "ERROR_REGISTRATION_ID": "請輸入保險專員編號",
+        "ERROR_PASSWORD": "請輸入密碼",
+        "ERROR_GENERAL": "請輸入有效的保險專員編號及密碼",
+        "FORGET_PASSWORD": "忘記密碼?",
+        "BUTTON": "登入",
+        "SIGN_UP_CTA": "沒有帳號?",
+        "SIGN_UP_LINK": "註冊",
+        "REMEMBER_REGISTRATION_ID": "記得我的帳戶名"
+    },
+
+    "WELCOME": {
+        "TITLE": "Welcome to MyInsurBox",
+        "BODY": "<p>MyInsurBox的宗旨是為您提供有效及可負擔的個人大數據分析，助您在大數據年代成為專業的理財顧問。</p><p>MyInsurBox透過人工智能技術，分析客户在社交媒體上的活動數據，轉化成您的黃金銷售機會。</p>",
+        "INDIVIDUAL_BUTTON": "個人註冊",
+        "GROUP_BOOKING_TEXT": "團體預約 (15人或以上）"
+    },
+
+    "STEPS" : {
+        "TITLE": "獲取MyInsurBox服務的步驟",
+        "LABEL_1": "第 1 步",
+        "TITLE_1": "用戶註冊",
+        "LABEL_2": "第 2 步",
+        "TITLE_2": "網上付款",
+        "LABEL_3": "第 3 步",
+        "TITLE_3": "預約安裝 MyInsurBox"
+    },
+
+    "SIGNUP" : {
+        "TITLE": "註冊帳號",
+        "REGISTRATION_LABEL": "保險代理登記號碼",
+        "REGISTRATION_EXAMPLE": "例如: PIBAXXXXX, CIBXXXXX, HKFIXXXX",
+        "PASSWORD_LABEL": "密碼",
+        "CONFIRM_PASSWORD_LABEL": "確認密碼",
+		"PASSWORD_ERROR": "密碼配對不正確",
+		"PASSWORD_RULE_ERROR": "密碼必須至少要兩個數字及兩個英文字母",
+		"TERMS_CONTENT_SHORT": "<p>您使用 MyInsurBox 以及我們提供的產品、功能、應用程式、服務、技術及軟件均受本使用條款管轄，我們明確聲明另有適用條款（而非本條款）除外。</p><h2>1.我們的數據使用政策與您的私隱選擇</h2><p>為提供相關服務，我們必須收集及使用您的個人資料。我們於數據使用政策中詳細闡述我們的做法，您必須同意該政策才能使用我們的產品。</p><p>我們亦鼓勵您在購買之前細閱您的私隱選項。</p><h2>2.我們服務</h2><h4>服務包括到訪</h4><p>MyInsurBox所提供的客戶使用之電子平台(如網站和手機應用程式)和個人數據收集服務，包括收集、處理和分析您在社交媒體的數據。除非另有明確規定，否則每一個新的功能，增加或提升現有服務,都受此服務條款約束。您知悉並同意MyInsurBox提供的服務在您購買或閱覽時是基於當前最先進的技術，並以「現狀」提供。您知悉並同意MyInsurBox所提供的服務可能會不時做出更改，而MyInsurBox亦可能會自行決定並在沒有事先通知您的情況下永久或暫時停止向您或用戶提供部份服務(或服務當中的任何功能)。</p>",
+        "FULL_SCREEN_LABEL": "全營幕顯示",
+        "TERMS_LABEL": "使用款條及同意",
+		"TERMS_AGREE_LABEL": "按此確認您同意本合約內容",
+		"CREATE_FAILED": "建立帳號失敗!",
+		"EMAIL_NOT_VARIFIED_TITLE": "請確認您的Email!"
+    },
+
+    "PASSWORD_RESET": {
+        "TITLE": "重設密碼",
+        "RESET_LABEL": "請輸入您的保險專員編號與EMAIL",
+        "REGISTRATION_ID_LABEL": "保險專員編號",
+        "REGISTRATION_EMAIL_LABEL": "您的Email",
+        "SUBMITTED_LABEL": "系統將寄出信件到您的信箱裡，若未寄送需重新寄送",
+		"BUTTON_LABEL": "重設",
+		"NEW_PASS_PLACEHOLDER": "新密碼",
+		"RESET_INFO": "注意！一旦重設密碼，下次登入需使用新的密碼登入。"
+    },
+
+    "PROFILE" : {
+        "TITLE": "使用者註冊",
+        "REGISTRATION_ID": "保險員編號",
+        "LASTNAME": "姓",
+        "FIRSTNAME": "名",
+        "EMAIL": "Email",
+        "MOBILE": "手機號",
+        "COMPANY_NAME": "公司名稱",
+        "JOB_TITLE": "職稱",
+        "DOB": "生日",
+        "GENDER": "姓別",
+        "OPTION_FEMALE": "女",
+		"OPTION_MALE": "男",
+		"EXPIRED_LABEL": "到期日",
+        "ERROR_LASTNAME": "請輸入有效的姓氏",
+        "ERROR_FIRSTNAME": "請輸入有效的名字",
+        "ERROR_EMAIL": "請輸入有效的EMAIL",
+        "ERROR_MOBILE": "請輸入有效的手機",
+        "ERROR_COMPANY_NAME": "請選公司名稱",
+        "ERROR_JOB_TITLE": "請輸入職稱",
+        "ERROR_DOB": "請輸入有效的生日",
+        "ERROR_GENDER": "請選擇性別",
+        "UNCHANGABLE_SMALL_PRINT": "如果你需要更改以上的資料，麻煩請與客戶洽詢。",
+        "UPDATE_PASSWORD": "更改密碼",
+        "LANGUAGE": "設定語言",
+        "COMPANIES": {
+            "AIA": "友邦",
+            "AXA": "安盛",
+            "Bupa": "保柏",
+            "China Life": "中國人壽",
+            "Cigna": "信諾環球",
+            "FTLife Insurance": "富通",
+            "FWD": "富衛",
+            "Manulife": "宏利",
+            "Massmutual": "美國萬通",
+            "MetLife": "大都會",
+            "Prudential": "保誠",
+            "Sunlife": "永明",
+            "Tahoe Life Insurance": "泰禾人壽保險",
+            "Others": "其他"
+        }
+    },
+
+    "GROUP_RESERVATION": {
+        "TITLE": "預約會面",
+        "BODY": "如果您想訂購團購服務，請告知我們在未來兩個工作天內MyInsurBox營業代表與您聯繫的最佳時間。",
+        "NAME_LABEL": "姓名",
+        "EMAIL_LABEL": "Email",
+        "MOBILE_LABEL": "手機號碼",
+        "ERROR_NAME": "請輸入姓名",
+        "ERROR_EMAIL": "請輸入Email",
+        "ERROR_MOBILE": "請輸入有效電話號碼"
+    },
+
+    "PAYMENT": {
+        "SMALL_TEXT": "早鳥優惠",
+        "ORIGIN_PRICE": "(原價$7300)",
+        "PRICE": "$3500",
+        "POINT_1": "<p><b>一百八十天</b> 資料儲存</p>",
+        "POINT_2": "<p><b>免費</b> MyInsurBox設備一個 <br/> (須繳付$500按金)</p>",
+        "POINT_3": "<p><b>無限</b>個人工智能銷售機會推薦</p>",
+        "POINT_4": "<p><b>無限</b>無限個用戶自定關鍵字搜索</p>",
+        "POINT_5": "<p><b>一站式</b>保險產品參考資料</p>",
+        "REF_TEXT": "推薦人號碼",
+        "CHECKOUT": "付款"
+    },
+
+    "APPOINTMENT": {
+        "TITLE": "預約會面",
+        "BODY": "我們正在準備您的MyInsurBox服務訂閱，並會在兩個工作日內與您聯繫。",
+        "TIME_TEXT": "時間",
+        "LOCATION_TEXT": "地點",
+        "MOBILE_TEXT": "手機號碼"
+    },
+
+    "CONFIRM": {
+        "TICKET_TITLE": "您的預約編號是:",
+        "TITLE": "感謝您創建MyInsurBox的帳戶",
+        "BODY": "多謝預約MyInsurBox服務，我們的客戶服務主任會在兩個工作天內與你聯繫，如有任何疑問，請於辦公時間內(星期一至五 09:00 - 19:00)通過以下方式跟我們聯絡。",
+        "EMAIL_SENT_INFO": "多謝登記MyInsurBox服務，確認電郵已經發到你的登記郵箱。",
+        "NO_EMAIL": "未有收到預約確認電郵?",
+        "RESEND_EMAIL": "重發",
+        "SENT_EMAIL": "請等五分鐘後重發信件",
+        "BACK_TO_LOGIN": "回到登入"
+    },
+
+    "PROCESSING": {
+        "TITLE": "您的 MyInsurBox 正在路上",
+        "BODY": "我們正在準備您的MyInsurBox服務訂閱，並會在兩個工作日內與您聯繫。",
+        "FORM_TITLE": "您的預約會面時間",
+        "TIME_LABEL": "時間",
+        "LOCATION_LABEL": "地點",
+        "CHANGE_APPOINTMENT_TEXT": "更改您的會面",
+        "UPDATE_SUCCESS": "我們已更新您的會面時間與地點"
+	},
+
+	"INSIGHT": {
+		"CATEGORIES": "Categories",
+		"STORY": "故事",
+        "ADD_NICKNAME": "加小名",
+        "NICKNAME": "小名",
+		"SUMMARY": {
+			"TITLE": "INSIGHT"
+		},
+		"DETAILS": {
+			"DELETE_PERIOD_INFO" : "您確定你要刪除此資料?",
+			"NO_DATA": "無數據",
+            "KEYWORD_ANALYSIS": "關鍵字",
+            "CURRENT_CUSTOMER": "現存客戶",
+            "NOT_TO_DISPLAY": "兩個月內不顯示",
+            "POST_IN_TWO_MONTH": "的貼文",
+            "KNOW_MORE_ABOUT": "知道更多關於",
+            "RECOMMEND": "建議產品",
+            "PRODUCT_CORRECT": "產品建議是否正確？"
+		},
+		"ARCHIVE": {
+			"UNSTAR" : "不加星號",
+            "TRASH" : "垃圾桶"
+		},
+		"TRASH": {
+			"UNTRASH": "回收"
+        }
+	},
+
+	"SUPPORT": {
+		"BUG_REPORT_TITLE": "To Report Bug or Error",
+		"BUG_OPTION_LABEL": "Please select one of the following",
+		"BUG_REPORT_OPTIONS": [
+			"No result After 30 mins",
+			"No display",
+			"System hang up",
+			"Data not refreshing",
+			"Result not related",
+			"Others"
+		],
+		"Message": "If your bug is others, please explain what happen?"
+	}
+}

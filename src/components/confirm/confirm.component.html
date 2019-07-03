@@ -1,0 +1,28 @@
+<ion-content padding>
+  	<div class="inner-90">
+		<img src="assets/imgs/subscribe.png" srcset="assets/imgs/subscribe@2x.png 2x, assets/imgs/subscribe@3x.png 3x" />
+		<div *ngIf="ticketNumber">
+			<h4 [innerHTML]="'CONFIRM.TICKET_TITLE' | translate"> </h4>
+			<h4> {{ ticketNumber }} </h4>
+		</div>
+		<h4 *ngIf="titleText" [innerHTML]="'CONFIRM.TITLE' | translate"> </h4>
+		<h6 *ngIf="bodyText" [innerHTML]="'CONFIRM.BODY' | translate"></h6>
+		<h6 *ngIf="emailText" [innerHTML]="'CONFIRM.EMAIL_SENT_INFO' | translate"></h6>
+
+		<div class="contact-info">
+			<h4>
+				<ion-icon name="mail"></ion-icon>
+				<a mailTo="support@baohetec.com">support@baohetec.com</a>
+			</h4>
+			<h4>
+				<ion-icon name="logo-whatsapp"></ion-icon>
+				<a href="https://api.whatsapp.com/send?phone=+85254348682&text=Hello">+852 5434 8682</a>
+			</h4>
+		</div>
+		<br/>
+		<br/>
+		<button ion-button color="light" block round (click)="backToLogin()"> 
+			{{ 'CONFIRM.BACK_TO_LOGIN' | translate }}
+		</button>
+  	</div>
+</ion-content>

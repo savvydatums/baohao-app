@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "myInsurBox",
+  "short_name": "myInsurBox",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{

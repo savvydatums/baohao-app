@@ -1,0 +1,27 @@
+<div class="search-wrap">
+	<ion-icon *ngIf="inputValue.length <= 0" name="search"></ion-icon>
+	<ion-icon *ngIf="inputValue.length > 0" name="close" (click)="onClean()"></ion-icon>
+	<input #search type="text"
+		(keyup)="updateInput($event)"
+		(keyup.enter)="onSearch()"
+		placeholder="Search Something...."
+		[value]="inputValue" />
+
+</div>
+<ng-container
+  	*ngIf="page === 'allClient'; then allClient; else normal">
+</ng-container>
+<ng-template #normal>
+	<ul #normal class="search-filter">
+		<li *ngFor="let item of filters"
+			class="{{ selected == item ? 'active' : '' }}"
+			(click)="onFilterClick(item)">
+			{{ item }}
+		</li>
+	</ul>
+</ng-template>
+<ng-template #allClient>
+	<div class="filter-btn">
+		<button color="light" (click)="openFilter($event)">搜詢規則</button>
+	</div>
+</ng-template>

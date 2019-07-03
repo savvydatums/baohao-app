@@ -1,0 +1,40 @@
+<!-- This is forget password page -->
+<ion-content padding>
+	<div class="head-nav">
+		<ion-icon class="back" name="arrow-back" (click)="gotoLogin()"></ion-icon>
+	</div>
+
+	<div class="inner-90 reset-pass">
+		<form [formGroup]="forgetPassForm">
+			<h1> {{ 'PASSWORD_RESET.TITLE' | translate }} </h1>
+			<p> {{ 'PASSWORD_RESET.RESET_LABEL' | translate }} </p>
+
+			<ion-list>
+				<ion-item>
+					<ion-label floating>{{ 'PASSWORD_RESET.REGISTRATION_ID_LABEL' | translate }} *</ion-label>
+					<ion-input type="text" formControlName="registrationID"></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label floating>{{ 'PASSWORD_RESET.REGISTRATION_EMAIL_LABEL' | translate }} *</ion-label>
+					<ion-input type="email" formControlName="email"></ion-input>
+				</ion-item>
+			</ion-list>
+
+			<div *ngIf="submitted">
+				<p> {{ submittedInfo }}</p>
+				<p> {{ 'PASSWORD_RESET.SUBMITTED_LABEL' | translate }} </p>
+				<p> {{ 'PASSWORD_RESET.FORGET.PAGE_REDIRECT' | translate }}</p>
+			</div>
+
+			<div *ngIf="backendErrorMessage">
+				<p>{{ backendErrorMessage }}</p>
+				<p>{{ 'PASSWORD_RESET.FORGET.ERROR_INFO' | translate }}</p>
+			</div>
+
+			<button ion-button color="light" block round (click)="onReset()" [disabled]="!forgetPassForm.valid">
+				{{ 'PASSWORD_RESET.BUTTON_LABEL' | translate }}
+			</button>
+		</form>
+	</div>
+</ion-content>

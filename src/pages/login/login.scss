@@ -12,24 +12,45 @@ login {
             text-align: center;
         }
     }
+    form {
+		bottom: 30px;
+		width: 95%;
+		margin-left: 3%;
+    }
+
     .list-md {
         width: 90%;
         margin: calc(100% - 250px) auto 0;
     }
+    .list-ios {
+        width: 90%;
+        margin: 20px auto;
+    }
 
-    .item-md {
+	.list-ios >.item-block:first-child {
+		border-top: none;
+	}
+
+    .item-md, .item-ios {
         background-color: transparent;
     }
+    .item-ios {
+        padding-left: 0;
+    }
 
-    .item-input .label-md {
+    .item-input .label-md,
+    .item-input .label-ios {
         color: white;
     }
+
     .forget {
-        width: 90%;
+        margin-right: 5%;
         color: white;
+        font-weight: bold;
         text-align: right;
-        margin-bottom: 25px;
+        text-decoration: underline;
     }
+
     .sign-in-area{
         width: 90%;
         margin: 20px auto 0;
@@ -46,5 +67,43 @@ login {
         object-fit: contain;
         background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5796cc);
         background-size: cover;
+    }
+
+    .bg-pattern {
+        position: absolute;
+        bottom: 15%;
+        right: 0;
+    }
+
+    .error {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px 20px;
+        color: white;
+        font-size: initial;
+        margin: 20px;
+        width: 90%;
+    }
+}
+
+.verify-email-alert {
+    .alert-head {
+        padding: 10px;
+    }
+
+    .alert-message {
+        padding: 10px 20px;
+        a {
+            background: #1d7f8a;
+            color: white;
+            display: block;
+            margin-top: 10px;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        strong {
+            display: block;
+            margin-bottom: 25px 0;
+        }
     }
 }

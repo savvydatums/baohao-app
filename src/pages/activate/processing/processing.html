@@ -1,0 +1,24 @@
+<ion-content padding class="processing">
+	<div class="inner-90">
+		<img src="assets/imgs/image-on-the-way.png"
+			srcset="assets/imgs/image-on-the-way@2x.png 2x, assets/imgs/image-on-the-way@3x.png 3x" />
+		<h4> {{ 'PROCESSING.TITLE' | translate }}</h4>
+		<p [innerHTML]="'PROCESSING.BODY' | translate "></p>
+
+		<div class="contact-info">
+			<h4>
+				<ion-icon name="mail"></ion-icon>
+				<a mailTo="support@baohetec.com">support@baohetec.com</a>
+			</h4>
+			<h4>
+				<ion-icon name="logo-whatsapp"></ion-icon>
+				<a href="https://api.whatsapp.com/send?phone=+85254348682&text=Hello">+852 5434 8682</a>
+			</h4>
+		</div>
+		<br/>
+		<br/>
+		<button ion-button color="light" block round (click)="backToLogin()"> 
+			{{ 'CONFIRM.BACK_TO_LOGIN' | translate }}
+		</button>
+  	</div>
+</ion-content>

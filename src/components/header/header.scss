@@ -1,0 +1,30 @@
+// Dashboard css
+$darkColor: #246383;
+
+header {
+  background: $darkColor;
+  color: white;
+  text-align: center;
+  position: relative;
+
+  h3 {
+    display: inline-block;
+    font-size: 1.7rem;
+  }
+
+  .right {
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 1.65rem;
+  }
+
+  .left {
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    font-size: 1.65rem;
+  }
+}

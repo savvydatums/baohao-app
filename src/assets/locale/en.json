@@ -1,0 +1,238 @@
+{
+    "GLOBAL_TITLE": "MyInsurBox",
+    "GLOBAL_SUBTITLE": "Powered by Baohe Tech.",
+    "GLOBAL_NEXT_BUTTON_LABEL": "Next",
+    "GLOBAL_CONTINUE_BUTTON_LABEL": "Continue",
+    "GLOBAL_SUBMIT_BUTTON_LABEL": "Submit",
+	"GLOBAL_CANCEL_BUTTON_LABEL": "Cancel",
+	"GLOBA_OK_BUTTON_LABEL": "OK",
+    "GLOBA_SUBMIT_SUCCESS": "Your information has Submitted! Thank you for your support.",
+    "GLOBAL_SAVE_LABEL": "SAVE",
+	"GLOBAL_DELETE": "DELETE",
+    "START_DESC": "MyInsurBox is Your tool to use Big Data to uncover sales opportunity!",
+    "START_BUTTON": "Get Started",
+    "LOADING": "Loading...",
+
+	"UPDATE_FAILED": "Update Failed!",
+	"UPDATE_SUCCEED": "Update Succeed!",
+	"UPDATE_PENDING_MESSAGE": "we can not update it now, try again later",
+
+	"NAVIGATION": {
+        "PROFILE": "PROFILE",
+        "CUSTOMER": "CUSTOMER",
+        "LEADS": "LEADS",
+        "STARRED": "STARRED",
+		"FAQ": "FAQ",
+		"SUPPORT": "SUPPORT",
+		"TRASH": "TRASH",
+        "LOGOUT": "LOGOUT"
+	},
+
+    "LOGIN" : {
+        "REGISTRATION_ID": "Registration ID",
+        "PASSWORD": "Password",
+        "ERROR_REGISTRATION_ID": "Please enter your registration ID",
+        "ERROR_PASSWORD": "Please enter your password",
+        "ERROR_GENERAL": "Please enter a valid registration ID and password",
+        "FORGET_PASSWORD": "Forget Password?",
+        "BUTTON": "SIGN IN",
+        "SIGN_UP_CTA": "Don't have an account? ",
+        "SIGN_UP_LINK": "Sign up",
+        "REMEMBER_REGISTRATION_ID": "Remember my Registration ID"
+    },
+    "WELCOME": {
+        "TITLE": "Welcome to MyInsurBox",
+        "BODY": "<p>Powered by proprietary AI technology, Myinsurbox provides you a powerful but affordable tool to understand and analyse Big Data that will help you generate new business opportunities </p>",
+        "INDIVIDUAL_BUTTON": "Individual SignUp",
+        "GROUP_BOOKING_TEXT": "Group Purchase (15 pax or above)"
+    },
+
+    "STEPS" : {
+        "TITLE": "Steps to get MyInsurBox services",
+        "LABEL_1": "Step 1",
+        "TITLE_1": "User Registration",
+        "LABEL_2": "Step 2",
+        "TITLE_2": "Online Payment",
+        "LABEL_3": "Step 3",
+        "TITLE_3": "Reservation of MyInsurBox’s Installation"
+    },
+
+    "SIGNUP" : {
+        "TITLE": "Sign Up",
+        "REGISTRATION_LABEL": "Registration ID",
+        "REGISTRATION_EXAMPLE": "Example: PIBAXXXXX, CIBXXXXX, HKFIXXXX",
+        "REGISTRATION_ID_FAIL": "Registration ID doesn't match required formate.",
+        "PASSWORD_LABEL": "Password",
+        "CONFIRM_PASSWORD_LABEL": "Confirm password",
+		"PASSWORD_ERROR": "Password doesn't match",
+		"PASSWORD_RULE_ERROR": "Password must include minimum 2 numbers and 2 letters",
+        "TERMS_CONTENT_SHORT": "<p> These Terms govern your use of MyInsurBox and the products, features, apps, services, technologies and software that we offer except where we expressly state that separate Terms(and not these) apply. </p><h2> 1. Our Data Policy and your privacy choices </h2> <p> To provide these services, we must collect and use your personal data.We detail our practices in the Data Policy, which you must agree to in order to use our Products. </p> <p> We also encourage you to review the privacy choices before you join the services. </p>",
+        "FULL_SCREEN_LABEL": "Full screen",
+        "TERMS_LABEL": "Terms of usage",
+        "TERMS_AGREE_LABEL": "You agree to our terms of usage *",
+        "CREATE_FAILED": "Create Account Failed!",
+        "EMAIL_NOT_VARIFIED_TITLE": "Email not Varify!"
+    },
+
+    "PASSWORD_RESET" : {
+		"TITLE": "Reset Password",
+		"CHANGE_TITLE": "Change Password",
+        "RESET_LABEL": "Please enter your registration ID and email",
+        "REGISTRATION_ID_LABEL": "Registration ID",
+        "REGISTRATION_EMAIL_LABEL": "Your Email",
+        "SUBMITTED_LABEL": "An email will been sent to the registered email address.",
+		"BUTTON_LABEL": "Reset",
+		"NEW_PASS_PLACEHOLDER": "New Password",
+		"RESET_INFO": "once reset, the next time you login, it will be using the new password.",
+		"FORGET": {
+			"ERROR_ID": {
+			  "fp01": "You must include either 'username' and 'email' var in your request.",
+			  "fp02": "Registration ID or email address does not match.",
+			  "fp03": "There is no such user in our database."
+			},
+			"ERROR_INFO": "Please contact our customer representative: cs@myinsurbox.com",
+			"PAGE_REDIRECT": "This page will redirect to Login within 5 seconds."
+		}
+    },
+
+    "PROFILE" : {
+        "TITLE": "User Registration",
+        "REGISTRATION_ID": "Registration ID",
+        "LASTNAME": "Last Name",
+        "FIRSTNAME": "First Name",
+        "EMAIL": "Email",
+        "MOBILE": "Mobile",
+        "COMPANY_NAME": "Company Name",
+        "JOB_TITLE": "Job Title",
+        "DOB": "Date of Birth",
+        "GENDER": "Gender",
+        "OPTION_FEMALE": "Female",
+		"OPTION_MALE": "Male",
+		"EXPIRED_LABEL": "End Date",
+        "ERROR_LASTNAME": "Please enter a valid surname",
+        "ERROR_FIRSTNAME": "Please enter a valid name",
+        "ERROR_EMAIL": "Please enter a valid email address",
+        "ERROR_MOBILE": "Please enter a valid mobile",
+        "ERROR_COMPANY_NAME": "Please select a company from list",
+        "ERROR_JOB_TITLE": "Please enter a valid job title",
+        "ERROR_DOB": "Please enter a valid Date of Birth",
+        "ERROR_GENDER": "Please select a gender from list",
+        "UNCHANGABLE_SMALL_PRINT": "If need to change information above, please connect to customer support.",
+        "UPDATE_PASSWORD": "Change Password",
+        "LANGUAGE": "Language",
+        "COMPANIES": {
+            "AIA": "AIA",
+            "AXA": "AXA",
+            "Bupa": "Bupa",
+            "China Life": "China Life",
+            "Cigna": "Cigna",
+            "FTLife Insurance": "FTLife Insurance",
+            "FWD": "FWD",
+            "Manulife": "Manulife",
+            "Massmutual": "Massmutual",
+            "MetLife": "MetLife",
+            "Prudential": "Prudential",
+            "Sunlife": "Sunlife",
+            "Tahoe Life Insurance": "Tahoe Life Insurance",
+            "Others": "Others"
+		},
+		"ERROR_RESPONSE": "Oops, we can not find your info in the dabase."
+    },
+
+    "GROUP_RESERVATION": {
+        "TITLE": "Make an appointment",
+        "BODY": "If you would like to subscribe Group Purchase service, please let us know the best time for our MyInsurBox’s business representative to contact you within the next 2 working days.",
+        "NAME_LABEL": "Name",
+        "EMAIL_LABEL": "Email",
+        "MOBILE_LABEL": "Mobile",
+        "ERROR_NAME": "Please enter a valid name",
+        "ERROR_EMAIL": "Please enter a valid email",
+        "ERROR_MOBILE": "Please enter a valid mobile phone number"
+    },
+
+    "PAYMENT": {
+        "SMALL_TEXT": "Early Bird Promotion",
+        "ORIGIN_PRICE": "$7300",
+        "PRICE": "$3500",
+        "POINT_1": "<p><b>180 days</b> data storage</p>",
+        "POINT_2": "<p><b>Free</b> MyInsurBox Device <br/>($500 deposit required)</p>",
+        "POINT_3": "<p><b>Unlimited</b> Sales Opportunities <br/> Recommanded by AI</p>",
+        "POINT_4": "<p><b>Unlimited</b> User Defined Keyword Search </p>",
+        "POINT_5": "<p><b>One Stop Shop</b> on Insurance Product Information</p>",
+        "REF_TEXT": "Referral Code",
+        "CHECKOUT": "CHECKOUT"
+    },
+
+    "APPOINTMENT": {
+        "TITLE": "Make an appointment",
+        "BODY": "We are setting up your personal MyInsurBox device and service subscription. <br/>Please let us know the best time to contact you within the next 2 working days.",
+        "TIME_TEXT": "Time",
+        "LOCATION_TEXT": "Location",
+		"MOBILE_TEXT": "Mobile Number",
+		"SUBMIT_ERROR": "Oops, error on submission this form, please make appointment again?",
+		"COOKIE_ERROR": "Oops, I couldn't find your cookie info."
+    },
+
+    "CONFIRM": {
+        "TICKET_TITLE": "Your booking number is:",
+        "TITLE": "Thank you for registration our service.",
+        "BODY": "Thanks for your booking, our customer representative will contact you shortly. If you have any questions, please contact us as below during business hours (Mon - Fri 09:00 - 19:00)",
+        "EMAIL_SENT_INFO": "Thanks for your register MyInsurBox Service. An activation email has been sent to your registered email account. ",
+        "NO_EMAIL": "Didn’t get the email?",
+        "RESEND_EMAIL": "Resend",
+        "SENT_EMAIL": "Resent email. Please allow up to 5 mins.",
+        "BACK_TO_LOGIN": "Back to LOGIN"
+    },
+
+    "PROCESSING": {
+        "TITLE": "Your MyInsurBox is on the way",
+        "BODY": "Our support will contact you within <br/> 2 working days.",
+        "FORM_TITLE": "Your appointment time",
+        "TIME_LABEL": "Time",
+        "LOCATION_LABEL": "Location",
+        "CHANGE_APPOINTMENT_TEXT": "Change Your appointment",
+        "UPDATE_SUCCESS": "We have updated youur appointment"
+	},
+
+	"INSIGHT": {
+		"CATEGORIES": "Categories",
+		"STORY": "story",
+        "ADD_NICKNAME": "add nickname",
+        "NICKNAME": "nickname",
+		"SUMMARY": {
+			"TITLE": "INSIGHT"
+		},
+		"DETAILS": {
+			"DELETE_PERIOD_INFO" : "Are you sure you want to delete this info",
+			"NO_DATA": "No Data",
+            "KEYWORD_ANALYSIS": "Keyword Analysis",
+            "CURRENT_CUSTOMER": "Current Customer",
+            "NOT_TO_DISPLAY": "Not to display ",
+            "POST_IN_TWO_MONTH": "’s posts in coming 2 months",
+            "KNOW_MORE_ABOUT": "Know more about",
+            "RECOMMEND": "Recommend Products",
+            "PRODUCT_CORRECT": "Product suggestion correct?"
+		},
+		"ARCHIVE": {
+			"UNSTAR": "Not Star",
+			"TRASH": "Trash"
+		},
+		"TRASH": {
+			"UNTRASH": "Not Trash"
+        }
+	},
+
+	"SUPPORT": {
+		"BUG_REPORT_TITLE": "To Report Bug or Error",
+		"BUG_OPTION_LABEL": "Please select one of the following",
+		"BUG_REPORT_OPTIONS": [
+			"No result After 30 mins",
+			"No display",
+			"System hang up",
+			"Data not refreshing",
+			"Result not related",
+			"Others"
+		],
+		"Message": "If your bug is others, please explain what happen?"
+	}
+}

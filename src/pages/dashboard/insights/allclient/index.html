@@ -1,0 +1,38 @@
+<ion-header>
+	<header title="Know your Client"></header>
+	<search-bar
+		[searchHandler]="searchHandler.bind(this)"
+		[selected]="insights.filterType"
+		[filters]="searchFilters"
+		[page]="'allClient'">
+	</search-bar>
+</ion-header>
+<ion-content>
+	<ion-list>
+		<ion-item-sliding *ngFor="let item of insights.filteredData">
+			<ion-item (click)="showInsightInfo(item)">
+				<ion-avatar item-start>
+					<img *ngIf="item.source == 'fb'" src="assets/icon/facebook.svg">
+					<img *ngIf="item.source == 'wex'" src="assets/icon/wechat.svg">
+				</ion-avatar>
+				<div class="list-content">
+					<h3>{{ item.authorName }}</h3>
+					<p>{{ shortenContent(translate, item.content, 8, 20) }}</p>
+				</div>
+				<div class="list-label">
+					<div class="category-list">
+						<span class="keyword-label"
+							[style.background-color]="getKeywordColor(item.categories[0])">
+							{{ getKeywordText(translate, type, item.categories[0]) }}
+						</span>
+					</div>
+					<span class="date">{{ renderTimeStamp(item.timestamp) }}</span>
+				</div>
+			</ion-item>
+			<ion-item-options side="right">
+				<button ion-button (click)="starInsight(item._id, item.source, item.categories)"> Star </button>
+				<button ion-button (click)="trashInsight(item._id, item.source, item.categories)"> Trash </button>
+			</ion-item-options>
+		</ion-item-sliding>
+	</ion-list>
+</ion-content>

@@ -38,8 +38,20 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  yellow:     #fcff3b,
+  orange:     #ff713b,
 );
+
+$dark: #454545;
+
+%background-green {
+    object-fit: contain;
+    background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5796cc);
+    background-size: cover;
+    color: white;
+    padding: 0 16px;
+}
 
 
 // App iOS Variables
@@ -90,4 +102,4 @@ $colors: (
 // common files
 // --------------------------------------------------
 @import "common";
-@import "registry";
+@import "registration";
