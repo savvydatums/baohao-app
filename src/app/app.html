@@ -1,12 +1,1 @@
 <ion-nav #myInsurContent [root]="rootPage"></ion-nav>
-
-<ion-menu side="left" type="push" [content]="myInsurContent">
-	<ion-content class="side-nav">
-		<ion-list>
-			<ion-item menuClose (click)="goToFAQ()"> {{ 'NAVIGATION.FAQ' | translate }} </ion-item>
-			<ion-item menuClose (click)="goToSupport()"> {{ 'NAVIGATION.SUPPORT' | translate }} </ion-item>
-			<ion-item menuClose (click)="goToTrash()"> {{ 'NAVIGATION.TRASH' | translate }} </ion-item>
-			<ion-item menuClose (click)="logout()"> {{ 'NAVIGATION.LOGOUT' | translate }} </ion-item>
-		</ion-list>
-	</ion-content>
-</ion-menu>

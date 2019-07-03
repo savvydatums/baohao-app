@@ -1,8 +1,6 @@
 import { ArchiveAPI } from "../api/ArchiveAPI";
 import { sendGenericUpdateAlert } from "./alert-generic";
-import { ResponseStatus, InsightResponseStatus } from "../api/Comms";
-import { keywordsSettings, insightType, insightFilterTypes } from "../pages/dashboard/insights/settings/settings"
-import { InsightAPI } from "../api/InsightAPI";
+import { ResponseStatus } from "../api/Comms";
 
 // insight list util
 export const shortenContent = (translate, content, ensize: number, cnsize: number) => {
@@ -58,49 +56,5 @@ export const trashItem = (cookie, alertCtrl, translate, record_id, source, group
 			callback && setTimeout(() => callback(), 1000)
 		}, error => {
 			sendGenericUpdateAlert(alertCtrl, translate, true, error)
-		});
-}
-
-export const getKeywordInfo = (type, keyword) => {
-	console.assert(type === insightType.all || type === insightType.potential)
-	return keywordsSettings[type][keyword]
-}
-
-export const getKeywordText = (translate, type, keyword) => {
-	const info = getKeywordInfo(type, keyword)
-	const lang = translate.currentLang || translate.defaultLang
-	return info[lang]
-}
-
-export const assignPotentialToModal = (cookie, modal, errorCallback?) => {
-	InsightAPI.getPotentialInsight(cookie, insightFilterTypes.all)
-		.then((result:any) => {
-			if (result.status == InsightResponseStatus.SUCCESS ||
-				result.status == InsightResponseStatus.CREATED ||
-				result.status == InsightResponseStatus.UPDATED) {
-				modal.addData(result.results)
-			} else {
-				errorCallback && errorCallback(result.message);
-			}
-		}, error => {
-			errorCallback && errorCallback(error);
-		});
-}
-
-
-export const assignClientInsightToModal = (cookie, modal, errorCallback?, filterType?) => {
-	const filter = filterType ? filterType : insightFilterTypes.all
-
-	InsightAPI.getAllClientInsight(cookie, filter)
-		.then((result:any) => {
-			if (result.status == InsightResponseStatus.SUCCESS ||
-				result.status == InsightResponseStatus.CREATED ||
-				result.status == InsightResponseStatus.UPDATED) {
-				modal.addData(result.results)
-			} else {
-				errorCallback && errorCallback(result.message);
-			}
-		}, error => {
-			errorCallback && errorCallback(error);
 		});
 }

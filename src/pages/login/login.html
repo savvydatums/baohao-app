@@ -40,6 +40,12 @@
 		</div>
 	</div>
 
+	<div *ngIf="approved">
+		<div class="error">
+			{{ 'LOGIN.APPROVED' | translate }}
+		</div>
+	</div>
+
 	<p class="forget" (click)="onForgotPassword()">{{ 'LOGIN.FORGET_PASSWORD' | translate }}</p>
 
 	<div class="sign-in-area">

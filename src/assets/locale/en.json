@@ -38,7 +38,8 @@
         "BUTTON": "SIGN IN",
         "SIGN_UP_CTA": "Don't have an account? ",
         "SIGN_UP_LINK": "Sign up",
-        "REMEMBER_REGISTRATION_ID": "Remember my Registration ID"
+        "REMEMBER_REGISTRATION_ID": "Remember my Registration ID",
+        "APPROVED": "Your Insurbox is already setup and approved, please login your App to check insights."
     },
     "WELCOME": {
         "TITLE": "Welcome to MyInsurBox",

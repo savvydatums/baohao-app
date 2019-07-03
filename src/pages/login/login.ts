@@ -1,5 +1,4 @@
 import { PaymentPage } from '../activate/payment/payment';
-import { DashboardPage } from '../dashboard/index/index';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -14,7 +13,7 @@ import { getTranslation } from '../../utils/Data-Fetch';
 import { ForgetPasswordPage } from '../registration/forget-password';
 import { HTTP } from '@ionic-native/http';
 
-const cookieTimes = 60 * 60;
+const cookieTimes = 60 * 60 * 60;
 const localStorageIDName = 'myInsurBox_ID';
 
 @Component({
@@ -25,6 +24,7 @@ export class LoginPage {
 
 	public credentialsForm: FormGroup;
 	public errorMsg: string = '';
+	public approved: boolean = false;
 
 	constructor(
 		public navController: NavController,
@@ -102,12 +102,12 @@ export class LoginPage {
 			break;
 
 			case LoggedInStatus.APPROVED:
-				this.navController.push(DashboardPage);
+					this.approved = true
 			break;
 
-			default:
-				this.navController.push(DashboardPage);
-			break;
+			// default:
+			// 	this.navController.push(DashboardPage);
+			// break;
 		}
 	}
 

@@ -37,7 +37,8 @@
         "BUTTON": "登入",
         "SIGN_UP_CTA": "沒有帳號?",
         "SIGN_UP_LINK": "註冊",
-        "REMEMBER_REGISTRATION_ID": "記得我的帳戶名"
+        "REMEMBER_REGISTRATION_ID": "記得我的帳戶名",
+        "APPROVED": "您的MyInsurBox已設置好，請登入APP查看您的資訊。"
     },
 
     "WELCOME": {

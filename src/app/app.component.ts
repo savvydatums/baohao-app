@@ -2,21 +2,16 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { StartPage } from '../pages/start/start'
 import { TranslateService } from '@ngx-translate/core';
 import { ProfileModel } from '../model/ProfileModel';
 import { UserAPI } from '../api/UserAPI';
 import { LoginPage } from '../pages/login/login';
-import { FaqPage } from '../pages/dashboard/faq';
-import { SupportPage } from '../pages/dashboard/support';
-import { TrashPage } from '../pages/dashboard/trash';
-
 @Component({
   templateUrl: 'app.html'
 })
 
 export class MyApp {
-	rootPage: any = StartPage;
+	rootPage: any = LoginPage;
 	@ViewChild(Nav) nav: Nav;
 
 	constructor(
@@ -48,18 +43,6 @@ export class MyApp {
 					console.log (error);
 				});
 		}
-	}
-
-	public goToFAQ() {
-		this.nav.push(FaqPage)
-	}
-
-	public goToSupport() {
-		this.nav.push(SupportPage)
-	}
-
-	public goToTrash() {
-		this.nav.push(TrashPage)
 	}
 
 }
