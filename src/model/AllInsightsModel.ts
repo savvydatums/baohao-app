@@ -31,10 +31,14 @@ export class AllInsightsModel {
 
 	public applyFilter2(keyword) {
 		this.filteredData = this.rawData.filter((item:any) => {
-			let isInCategory = true
-			item.categories.map((cat:any) => {
+			let isInCategory = false
+
+			item.categories.some((cat:any) => {
 				const optionInfo:any = this.categories.filter((option: any) => option.value == cat)[0]
-				isInCategory = optionInfo.checked
+				if (optionInfo.checked == true) {
+					isInCategory = true 
+					return true
+				}
 			})
 
 			let hasContentMatch = true
@@ -53,7 +57,6 @@ export class AllInsightsModel {
 
 			return isInCategory && hasContentMatch
 		})
-
 	}
 
 	public setCategoryInfo(language) {
