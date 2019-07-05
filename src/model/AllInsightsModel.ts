@@ -60,6 +60,12 @@ export class AllInsightsModel {
 	}
 
 	public setCategoryInfo(language) {
+		if (this.categories.length > 0 && this.topOptions.length > 0) { return false }
+
+		//reset first
+		this.categories = [];
+		this.topOptions = [];
+
 		for (let key in keywordsSettings.allClient) {
 			this.categories.push({
 				value: key,

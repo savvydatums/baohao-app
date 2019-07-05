@@ -4,7 +4,6 @@ import { ArchivePage } from '../archive/index';
 import { ProfilePage } from '../profile/index';
 import { AllInsightsModel } from '../../../model/AllInsightsModel';
 import { IonicPage, NavController, AlertController } from 'ionic-angular';
-//import { redirectIfNotLogin } from '../../../utils/login-util';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { InsightAPI } from '../../../api/InsightAPI';
 import { InsightResponseStatus } from '../../../api/Comms';
@@ -35,16 +34,13 @@ export class DashboardPage {
 		private alertCtrl: AlertController,
 		public translate: TranslateService,
 		public profile: ProfileModel) {
-	}
-
-	ionViewDidLoad() {
-		//redirectIfNotLogin(this.navCtrl, this.profile);
+		
+		const lang = this.translate.currentLang || this.translate.defaultLang
+		this.insights.setCategoryInfo(lang)
 	}
 
 	ngAfterViewInit() {
 		this.getPotentialLeads(this.profile.cookie, insightFilterTypes.all)
-		const lang = this.translate.currentLang || this.translate.defaultLang
-		this.insights.setCategoryInfo(lang)
 		this.showLoading(true)
 	}
 
