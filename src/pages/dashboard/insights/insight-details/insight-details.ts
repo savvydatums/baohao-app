@@ -47,12 +47,17 @@ export class InsightDetailsPage {
 		const mainCategory = this.insightData.categories[0]
 		this.info = getKeywordInfo(this.type, mainCategory);
 		if (this.type == insightType.potential) {
-			this._getRecommendation()
+			this._getRecommendation(this.info)
 		}
 	}
 
-	private _getRecommendation () {
-		InsightAPI.getRecommendation(this.profile.cookie, this.insightData.categories[0])
+	private _getRecommendation (catInfo) {
+
+		// the chinese one use it's language info for category
+		const lang = this.translate.currentLang || this.translate.defaultLang
+		const filterCategory = lang == 'cn' ? catInfo.cn : this.insightData.categories[0]
+
+		InsightAPI.getRecommendation(this.profile.cookie, filterCategory)
 			.then((result: any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
 					this.recommendations = result.product_link;

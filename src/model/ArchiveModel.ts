@@ -1,5 +1,3 @@
-import {insightSearchFilters} from '../pages/dashboard/insights/settings/settings';
-
 export class ArchiveModel {
 
 	public rawData: object[];
