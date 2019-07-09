@@ -223,7 +223,16 @@
             "UNTRASH": "Recovery",
             "DELETE": "Delete"
         }
-	},
+    },
+
+    "FILTER": {
+        "CLEAR": "Clear",
+        "BY_NAME": "By Name",
+        "BY_CONTENT": "By Content",
+        "BY_CATEGORY": "Category",
+        "SELECT_ALL": "Select All",
+        "DESELECT": "Deselect"
+    },
 
 	"SUPPORT": {
 		"BUG_REPORT_TITLE": "To Report Bug or Error",

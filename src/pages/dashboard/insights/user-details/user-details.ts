@@ -23,6 +23,7 @@ export class UserDetailsPage {
 	summaryRanked: TInsightSummary[] = [];
 	userDetails: TInsightPost;
 	selectedSummary: TInsightSummary;
+	currentLang: string;
 
 	@ViewChild('barChartView') barChartView;
 	barChart: any;
@@ -71,6 +72,7 @@ export class UserDetailsPage {
 		}
 		ranked.sort((a, b) => (a.key.localeCompare(b.key))).sort((a, b) => (b.amount - a.amount));
 		this.summaryRanked = ranked
+		this.currentLang = this.translate.currentLang || this.translate.defaultLang
 		this.createInsightGraph()
 	}
 
@@ -109,7 +111,7 @@ export class UserDetailsPage {
 			const withinRange = key < max && key >= min
 			if (withinRange && item.settings) {
 				data.push(item.amount);
-				labels.push(item.settings.en);
+				labels.push(item.settings[this.currentLang]);
 				colors.push(item.settings.color)
 			}
 		})

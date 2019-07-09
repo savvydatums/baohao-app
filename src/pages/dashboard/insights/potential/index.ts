@@ -36,6 +36,7 @@ export class PotentialPage {
 		public modalCtrl: ModalController,
 		private alertCtrl: AlertController) {
 	}
+
 	ionViewWillEnter() {
 		this.searchFilters.map((item:any) => {
 			const lang = this.translate.currentLang || this.translate.defaultLang

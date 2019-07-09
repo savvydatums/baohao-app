@@ -1,4 +1,4 @@
-import { insightSearchFilters, filterOptions, keywordsSettings } from '../pages/dashboard/insights/settings/settings';
+import { filterOptions, keywordsSettings } from '../pages/dashboard/insights/settings/settings';
 
 export class AllInsightsModel {
 
@@ -45,7 +45,7 @@ export class AllInsightsModel {
 		})
 	}
 
-	public setCategoryInfo(language) {
+	public setCategoryInfo() {
 		if (this.categories.length > 0 && this.topOptions.length > 0) { return false }
 
 		//reset first
@@ -55,7 +55,8 @@ export class AllInsightsModel {
 		for (let key in keywordsSettings.allClient) {
 			this.categories.push({
 				value: key,
-				name: keywordsSettings.allClient[key][language],
+				cn: keywordsSettings.allClient[key].cn,
+				en: keywordsSettings.allClient[key].en,
 				color: keywordsSettings.allClient[key].color,
 				checked: true
 			})

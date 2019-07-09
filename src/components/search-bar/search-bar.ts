@@ -3,7 +3,7 @@ import { NavController, LoadingController, ModalController } from 'ionic-angular
 import { TranslateService } from '@ngx-translate/core';
 import { AllInsightsModel } from '../../model/AllInsightsModel';
 import { ProfileModel } from '../../model/ProfileModel';
-import { FilterPopoverPage as FilterPage } from '../../pages/dashboard/filter'
+import { FilterPage } from '../../pages/dashboard/filter'
 
 @Component({
 	selector: 'search-bar',

@@ -35,8 +35,7 @@ export class DashboardPage {
 		public translate: TranslateService,
 		public profile: ProfileModel) {
 		
-		const lang = this.translate.currentLang || this.translate.defaultLang
-		this.insights.setCategoryInfo(lang)
+		this.insights.setCategoryInfo()
 	}
 
 	ngAfterViewInit() {
