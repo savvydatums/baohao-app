@@ -24,7 +24,8 @@
 		"FAQ": "問與答",
 		"SUPPORT": "支援",
 		"TRASH": "垃圾桶",
-        "LOGOUT": "登出"
+        "LOGOUT": "登出",
+        "FILTER": "篩選"
 	},
 
     "LOGIN": {
@@ -61,6 +62,7 @@
         "TITLE": "註冊帳號",
         "REGISTRATION_LABEL": "保險代理登記號碼",
         "REGISTRATION_EXAMPLE": "例如: PIBAXXXXX, CIBXXXXX, HKFIXXXX",
+        "REGISTRATION_ID_FAIL": "保險代理登記號碼不符合登記規則。",
         "PASSWORD_LABEL": "密碼",
         "CONFIRM_PASSWORD_LABEL": "確認密碼",
 		"PASSWORD_ERROR": "密碼配對不正確",
@@ -70,7 +72,7 @@
         "TERMS_LABEL": "使用款條及同意",
 		"TERMS_AGREE_LABEL": "按此確認您同意本合約內容",
 		"CREATE_FAILED": "建立帳號失敗!",
-		"EMAIL_NOT_VARIFIED_TITLE": "請確認您的Email!"
+		"EMAIL_NOT_VARIFIED_TITLE": "請確認您的電子信箱!"
     },
 
     "PASSWORD_RESET": {
@@ -89,7 +91,7 @@
         "REGISTRATION_ID": "保險員編號",
         "LASTNAME": "姓",
         "FIRSTNAME": "名",
-        "EMAIL": "Email",
+        "EMAIL": "電子信箱",
         "MOBILE": "手機號",
         "COMPANY_NAME": "公司名稱",
         "JOB_TITLE": "職稱",
@@ -100,7 +102,7 @@
 		"EXPIRED_LABEL": "到期日",
         "ERROR_LASTNAME": "請輸入有效的姓氏",
         "ERROR_FIRSTNAME": "請輸入有效的名字",
-        "ERROR_EMAIL": "請輸入有效的EMAIL",
+        "ERROR_EMAIL": "請輸入有效的電子信箱",
         "ERROR_MOBILE": "請輸入有效的手機",
         "ERROR_COMPANY_NAME": "請選公司名稱",
         "ERROR_JOB_TITLE": "請輸入職稱",
@@ -131,10 +133,10 @@
         "TITLE": "預約會面",
         "BODY": "如果您想訂購團購服務，請告知我們在未來兩個工作天內MyInsurBox營業代表與您聯繫的最佳時間。",
         "NAME_LABEL": "姓名",
-        "EMAIL_LABEL": "Email",
+        "EMAIL_LABEL": "電子信箱",
         "MOBILE_LABEL": "手機號碼",
         "ERROR_NAME": "請輸入姓名",
-        "ERROR_EMAIL": "請輸入Email",
+        "ERROR_EMAIL": "請輸入有效電子信箱",
         "ERROR_MOBILE": "請輸入有效電話號碼"
     },
 
@@ -200,11 +202,13 @@
             "PRODUCT_CORRECT": "產品建議是否正確？"
 		},
 		"ARCHIVE": {
+            "STAR": "加星號",
 			"UNSTAR" : "不加星號",
             "TRASH" : "垃圾桶"
 		},
 		"TRASH": {
-			"UNTRASH": "回收"
+            "UNTRASH": "復原",
+            "DELETE": "永久刪除"
         }
 	},
 

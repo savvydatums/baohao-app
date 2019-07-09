@@ -1,10 +1,10 @@
 <ion-header>
-	<header title="Know your Client"></header>
+	<header [title]="'NAVIGATION.CUSTOMER'|translate"></header>
 	<search-bar
 		[searchHandler]="searchHandler.bind(this)"
 		[selected]="insights.filterType"
-		[filters]="searchFilters"
-		[page]="'allClient'">
+		[page]="'allClient'"
+		[filterText]="filterText">
 	</search-bar>
 </ion-header>
 <ion-content>
@@ -30,8 +30,8 @@
 				</div>
 			</ion-item>
 			<ion-item-options side="right">
-				<button ion-button (click)="starInsight(item._id, item.source, item.categories)"> Star </button>
-				<button ion-button (click)="trashInsight(item._id, item.source, item.categories)"> Trash </button>
+				<button ion-button (click)="starInsight(item._id, item.source, item.categories)"> {{ 'INSIGHT.ARCHIVE.STAR' | translate }} </button>
+				<button ion-button (click)="trashInsight(item._id, item.source, item.categories)"> {{ 'INSIGHT.ARCHIVE.TRASH' | translate }} </button>
 			</ion-item-options>
 		</ion-item-sliding>
 	</ion-list>

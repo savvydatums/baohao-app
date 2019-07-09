@@ -25,7 +25,8 @@
 		"FAQ": "FAQ",
 		"SUPPORT": "SUPPORT",
 		"TRASH": "TRASH",
-        "LOGOUT": "LOGOUT"
+        "LOGOUT": "LOGOUT",
+        "FILTER": "Filter"
 	},
 
     "LOGIN" : {
@@ -214,11 +215,13 @@
             "PRODUCT_CORRECT": "Product suggestion correct?"
 		},
 		"ARCHIVE": {
+            "STAR": "Star",
 			"UNSTAR": "Not Star",
 			"TRASH": "Trash"
 		},
 		"TRASH": {
-			"UNTRASH": "Not Trash"
+            "UNTRASH": "Recovery",
+            "DELETE": "Delete"
         }
 	},
 

@@ -13,10 +13,12 @@ export class SearchBarComponent {
 
 	@Input() searchHandler: Function;
 	@Input() selected: string;
-	@Input() filters: string[];
+	@Input() filters?: string[];
+	@Input() filterText?: string;
 	@Input() page: string;
 	inputValue: string;
 	loader: any;
+	
 
 	constructor(
 		public navCtrl: NavController,

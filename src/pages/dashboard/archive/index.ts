@@ -8,7 +8,7 @@ import {shortenContent, renderTimeStamp, getKeywordInfo, getKeywordText, unStarI
 import { HeaderComponent } from '../../../components/header/header';
 import { SearchBarComponent } from '../../../components/search-bar/search-bar';
 import { InsightAPI } from '../../../api/InsightAPI';
-import { insightFilterTypes, insightSearchFilters, insightType } from '../insights/settings/settings';
+import { insightFilterTypes, filterOptions, insightType } from '../insights/settings/settings';
 import { showError } from '../../../utils/alert-generic';
 
 @IonicPage({ name: "archive", segment: "archive" })
@@ -24,7 +24,7 @@ export class ArchivePage {
 	shortenContent: Function = shortenContent;
 	renderTimeStamp: Function = renderTimeStamp;
 	getKeywordText: Function = getKeywordText;
-	searchFilters: string[] = insightSearchFilters;
+	searchFilters: string[] = filterOptions;
 
 	@ViewChild(forwardRef(() => HeaderComponent)) header
 	@ViewChild(forwardRef(() => SearchBarComponent)) searchBar
@@ -36,6 +36,13 @@ export class ArchivePage {
 		private alertCtrl: AlertController,
 		public translate: TranslateService,
 		public profile: ProfileModel) {
+	}
+	
+	ionViewWillEnter() {
+		this.searchFilters.map((item:any) => {
+			const lang = this.translate.currentLang || this.translate.defaultLang
+			item.label = item[lang]
+		})
 	}
 
 	ngAfterViewInit() {

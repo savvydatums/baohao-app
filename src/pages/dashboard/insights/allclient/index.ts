@@ -4,7 +4,7 @@ import { AllInsightsModel } from '../../../../model/AllInsightsModel';
 import { TranslateService } from '@ngx-translate/core';
 import { HeaderComponent } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar'
-import { insightSearchFilters, insightType } from '../settings/settings';
+import { insightType } from '../settings/settings';
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { shortenContent, renderTimeStamp, starItem, trashItem, getKeywordInfo, getKeywordText, assignClientInsightToModal} from '../../../../utils/insight-util';
 
@@ -19,10 +19,10 @@ export class AllClient {
 	type: string = insightType.all;
 	searchValue: string;
 	categoryColors: object;
-	searchFilters: string[] = insightSearchFilters;
 	renderTimeStamp: Function = renderTimeStamp;
 	shortenContent: Function = shortenContent;
 	getKeywordText: Function = getKeywordText;
+	filterText: string;
 
 	@ViewChild(forwardRef(() => HeaderComponent)) header
 	@ViewChild(forwardRef(() => SearchBarComponent)) searchBar
@@ -36,9 +36,12 @@ export class AllClient {
 		private alertCtrl: AlertController
 	) {}
 
+	ionViewWillEnter() {
+		this.filterText = this.translate.instant('NAVIGATION.FILTER')
+	}
+
 	public getKeywordColor(category) {
 		const color = getKeywordInfo(this.type, category).color
-
 		return color
 	}
 

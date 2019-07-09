@@ -5,7 +5,7 @@ import { SearchBarComponent } from '../../../../components/search-bar/search-bar
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
 import { renderTimeStamp, shortenContent, starItem, trashItem, getKeywordInfo, getKeywordText, assignPotentialToModal } from '../../../../utils/insight-util';
-import { insightSearchFilters, insightType } from '../settings/settings';
+import { filterOptions, insightType } from '../settings/settings';
 import { PotentialLeadsModel } from '../../../../model/PotentialLeadsModel';
 
 @IonicPage({ name: 'Potential', segment: 'potential'})
@@ -18,7 +18,7 @@ export class PotentialPage {
 	type: string = insightType.potential;
 	searchValue: string;
 	categoryColors: object;
-	searchFilters: string[] = insightSearchFilters;
+	searchFilters: object[] = filterOptions;
 	renderTimeStamp: Function = renderTimeStamp;
 	shortenContent: Function = shortenContent;
 	getKeywordInfo: Function = getKeywordInfo;
@@ -35,6 +35,12 @@ export class PotentialPage {
 		public potential: PotentialLeadsModel,
 		public modalCtrl: ModalController,
 		private alertCtrl: AlertController) {
+	}
+	ionViewWillEnter() {
+		this.searchFilters.map((item:any) => {
+			const lang = this.translate.currentLang || this.translate.defaultLang
+			item.label = item[lang]
+		})
 	}
 
 	public showPotentialLeads(info) {
