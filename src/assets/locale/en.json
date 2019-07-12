@@ -15,7 +15,8 @@
 
 	"UPDATE_FAILED": "Update Failed!",
 	"UPDATE_SUCCEED": "Update Succeed!",
-	"UPDATE_PENDING_MESSAGE": "we can not update it now, try again later",
+    "UPDATE_PENDING_MESSAGE": "we can not update it now, try again later",
+    "EXPIRED_MESSAGE": "Your cookie has expired, we will log you out now. please login again.",
 
 	"NAVIGATION": {
         "PROFILE": "PROFILE",

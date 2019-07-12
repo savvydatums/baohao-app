@@ -43,7 +43,6 @@ export class MyApp {
 					if (result.status == 'ok') {
 						this.nav.push (LoginPage)
 					}
-					console.log (result);
 				}, (error: any) => {
 					console.log (error);
 				});

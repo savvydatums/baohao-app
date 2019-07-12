@@ -1,6 +1,6 @@
 import { DashboardPage } from '../dashboard/index/index';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { UserAPI } from '../../api/UserAPI';
@@ -13,7 +13,7 @@ import { getTranslation } from '../../utils/Data-Fetch';
 import { ForgetPasswordPage } from '../registration/forget-password';
 import { HTTP } from '@ionic-native/http';
 
-const cookieTimes = 60 * 60 * 60;
+const cookieTimes = 60 * 60;
 const localStorageIDName = 'myInsurBox_ID';
 
 @Component({
@@ -24,6 +24,7 @@ export class LoginPage {
 
 	public credentialsForm: FormGroup;
 	public errorMsg: string = '';
+	private timer: any = null;
 
 	constructor(
 		public navController: NavController,
@@ -31,6 +32,7 @@ export class LoginPage {
 		private formBuilder: FormBuilder,
 		public translate: TranslateService,
 		private profile: ProfileModel,
+		private alertCtrl: AlertController,
 		private nativeHttp: HTTP) {
 
 		const username = this.getUserName() || ''
@@ -81,6 +83,7 @@ export class LoginPage {
 				if (result.status == 'ok') {
 					this.profile.setUserInfo(result.cookie, result.user)
 					this.goToPageBasedOnUserStatus(result.user.logged_in_status)
+					this.setExpireTimer()
 				} else {
 					this.errorMsg = result.error;
 				}
@@ -129,4 +132,32 @@ export class LoginPage {
 	public setLanguage(lan:string):void {
 		this.translate.use(lan);
 	}
+
+	private setExpireTimer () {
+		this.timer && clearTimeout(this.timer)
+		
+		this.timer = setTimeout(this.showExpired.bind(this), cookieTimes * 1000)
+	}
+
+	private showExpired() {
+		const alert = this.alertCtrl.create({			
+			message:getTranslation(this.translate, 'EXPIRED_MESSAGE'),
+			buttons: [{
+				text: getTranslation(this.translate, 'GLOBA_OK_BUTTON_LABEL'),
+				handler: () => {
+					UserAPI.logout(this.profile.cookie)
+						.then((result: any) => {
+							if (result.status == 'ok') {
+								this.navController.push (LoginPage)
+							}
+						}, (error: any) => {
+							console.log (error);
+						});
+				}	
+			}]
+		})
+
+		alert.present()
+	}
+
 }
