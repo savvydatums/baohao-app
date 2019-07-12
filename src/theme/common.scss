@@ -392,6 +392,22 @@ support, faq {
     }
 }
 
+faq {
+    .q-group {
+        margin: 13px;
+        line-height: 2rem;
+    }
+
+    .question {
+        margin-bottom: 10px;
+    }
+
+    .answer {
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
 .stripe-button-el {
 	margin: 0 10%;
 	width: 80%;

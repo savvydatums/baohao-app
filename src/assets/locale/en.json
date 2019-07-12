@@ -246,5 +246,55 @@
 			"Others"
 		],
 		"Message": "If your bug is others, please explain what happen?"
-	}
+    },
+
+    "FAQ": [{
+        "Q": "1. How can I reset the Password?",
+        "A": "You can change password in the Profile section.  The “PROFILE” button is located at the bottom right-hand corner of the App. "
+    },{
+        "Q": "2. How do I update my information if I move to a different company?",
+        "A": "Please contact our customer service or support and send us your new business card with your latest information."
+    },{
+        "Q": "3. How do I stop seeing leads or posts from selected “Friends” or “Customers”?",
+        "A": "Click on “Leads” on the interface, choose “NOT TO DISPLAY IN COMING 2 MONTHS”"
+    },{
+        "Q": "4. Can I still see leads from selected customers I have chosen “NOT TO DISPLAY IN COMING 2 MONTHS” ?",
+        "A": "It is not possible to revert back."
+    },{
+        "Q": "5. I accidentally deleted one of the important post, how do I gets it back?",
+        "A": "Posts deleted will be moved to the Trash Box under the menu bar. Just click “UN-TRUSH” and it will be restored to the inbox. Please note deleted posts in Trash Box will be kept for 30 days, after which the deleted posts are unrecoverable."
+    },{
+        "Q": "6. Can I extract / download the data from the APPS?",
+        "A": "Our APPS aim at helping users to analyze massive information from various social media accounts through the AI server. It is not possible to extract the data because all the process is done in real time through the “MyInsurBox” device. If the message is important to you, you can save the message by clicking the “STAR” button. The message will be stored for 6 months"
+    },{
+        "Q": "7. What should I do if the Apps (E-Sync / E-Link) not working?",
+        "A": "First, please check the connection of the “MyInsurBox” device and your mobile phone’s Wi-Fi signal. If there is no issue with connections and the Apps are still not working properly, please restart the “MyInsurBox” device and the Apps."
+    },{
+        "Q": "8. Why I cannot connect to the “Myinsurbox” device at home?",
+        "A": "Please allow 1-2 mins for the “MyInsurBox” device to boot up. Make sure the data cable is connected correctly to your Wi-Fi Router. Make sure your phone is connected to the Wi-Fi network."
+    },{
+        "Q": "9. Why is my Facebook message not displaying?",
+        "A": "Make sure you enter the correct password.  Check your email from Facebook to authorize the login from new device."
+    },{
+        "Q": "10. Why is my WeChat message is not displaying?",
+        "A": "Please make sure the “MyInsurBox” device is connected to the router correctly."
+    },{
+        "Q": "11. What should I do if I need to reply the message in WeChat during data processing?",
+        "A": "Just login your WeChat account on your mobile and run “MyInsurBox” device again when you are ready for data processing."
+    },{
+        "Q": "12. When I open E-Sync, it cannot find “MyInsurBox” device.",
+        "A": "Try to unplug the LAN cable at both ends and re-connect again."
+    },{
+        "Q": "13. Can I create my own category after the analysis? Can I tailor made the categories by myself?",
+        "A": "You cannot create or specify new category. You are welcome to contact our customer service or support to provide feedback to us to improve App."
+    },{
+        "Q": "14. Why is there no update in “MyInsurBox” App after the data has been processed?",
+        "A": "Try logout “MyinsurBox” App and re-login again."
+    },{
+        "Q": "15. Why is there no post in “Leads”?",
+        "A": "All posts under “Leads” are selected by our AI server for potential business opportunities. Unrelated posts will not be shown."
+    },{
+        "Q": "16. Where can I see the list of my current customers?",
+        "A": "To maximize your sales opportunities, posts are organized by timeline (latest on top). If you want to find a specific customer, you can use the search bar to search by name."
+    }]
 }

@@ -1,5 +1,13 @@
+<ion-header>
+	<header title="FAQ" toDashboard="true"></header>
+</ion-header>
 <ion-content padding>
-	<ion-header>
-		<header title="FAQ" toDashboard="true"></header>
-	</ion-header>
+	<div class="q-group" *ngFor="let question of questions">
+		<div class="question"> 
+			{{ question.Q }}
+		</div>
+		<div class="answer">
+			{{ question.A }}
+		</div>
+	</div>
 </ion-content>
