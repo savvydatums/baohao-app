@@ -6,7 +6,7 @@ import { showError } from '../../../utils/alert-generic';
 import { TranslateService } from '@ngx-translate/core';
 import { ArchiveAPI } from '../../../api/ArchiveAPI';
 import { TrashModel } from '../../../model/TrashModel';
-import { renderTimeStamp, shortenContent, getKeywordText, getKeywordInfo } from '../../../utils/insight-util';
+import { renderTimeStamp, getKeywordText, getKeywordInfo } from '../../../utils/insight-util';
 import { insightFilterTypes, insightType } from '../insights/settings/settings';
 import { InsightAPI } from '../../../api/InsightAPI';
 
@@ -20,7 +20,6 @@ export class TrashPage {
 	type: string = insightType.all;
 	loading = true;
 	renderTimeStamp: Function = renderTimeStamp;
-	shortenContent: Function = shortenContent;
 	getKeywordText: Function = getKeywordText;
 
 	constructor(

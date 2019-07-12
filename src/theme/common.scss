@@ -168,7 +168,11 @@ insight-list {
         p {
             color: white;
 			font-size: 1.2rem;
-			margin-top: 10px;
+            margin-top: 10px;
+            width: calc(100% - 100px);
+            white-space: nowrap;      /*keep text on one line */
+            overflow: hidden;         /*prevent text from being shown outside the border */
+            text-overflow: ellipsis;  /*cut off text with an ellipsis*/
         }
     }
     .list-label {

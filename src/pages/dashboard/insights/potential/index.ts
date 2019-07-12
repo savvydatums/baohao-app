@@ -4,7 +4,7 @@ import { HeaderComponent } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar';
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
-import { renderTimeStamp, shortenContent, starItem, trashItem, getKeywordInfo, getKeywordText, assignPotentialToModal } from '../../../../utils/insight-util';
+import { renderTimeStamp, starItem, trashItem, getKeywordInfo, getKeywordText, assignPotentialToModal } from '../../../../utils/insight-util';
 import { filterOptions, insightType } from '../settings/settings';
 import { PotentialLeadsModel } from '../../../../model/PotentialLeadsModel';
 
@@ -20,7 +20,6 @@ export class PotentialPage {
 	categoryColors: object;
 	searchFilters: object[] = filterOptions;
 	renderTimeStamp: Function = renderTimeStamp;
-	shortenContent: Function = shortenContent;
 	getKeywordInfo: Function = getKeywordInfo;
 	getKeywordText: Function = getKeywordText;
 

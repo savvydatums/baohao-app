@@ -4,7 +4,7 @@ import { InsightResponseStatus } from '../../../api/Comms';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { ArchiveModel } from '../../../model/ArchiveModel';
 import { TranslateService } from '@ngx-translate/core';
-import {shortenContent, renderTimeStamp, getKeywordInfo, getKeywordText, unStarItem, trashItem, assignClientInsightToModal} from '../../../utils/insight-util';
+import {renderTimeStamp, getKeywordInfo, getKeywordText, unStarItem, trashItem, assignClientInsightToModal} from '../../../utils/insight-util';
 import { HeaderComponent } from '../../../components/header/header';
 import { SearchBarComponent } from '../../../components/search-bar/search-bar';
 import { InsightAPI } from '../../../api/InsightAPI';
@@ -21,7 +21,6 @@ export class ArchivePage {
 
 	type: string = insightType.all;
 	loading = true;
-	shortenContent: Function = shortenContent;
 	renderTimeStamp: Function = renderTimeStamp;
 	getKeywordText: Function = getKeywordText;
 	searchFilters: string[] = filterOptions;

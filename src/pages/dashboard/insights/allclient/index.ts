@@ -6,7 +6,7 @@ import { HeaderComponent } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar'
 import { insightType } from '../settings/settings';
 import { ProfileModel } from '../../../../model/ProfileModel';
-import { shortenContent, renderTimeStamp, starItem, trashItem, getKeywordInfo, getKeywordText, assignClientInsightToModal} from '../../../../utils/insight-util';
+import { renderTimeStamp, starItem, trashItem, getKeywordInfo, getKeywordText, assignClientInsightToModal} from '../../../../utils/insight-util';
 
 @IonicPage({ name: "AllClient", segment: "AllClient" })
 @Component({
@@ -20,7 +20,6 @@ export class AllClient {
 	searchValue: string;
 	categoryColors: object;
 	renderTimeStamp: Function = renderTimeStamp;
-	shortenContent: Function = shortenContent;
 	getKeywordText: Function = getKeywordText;
 	filterText: string;
 
