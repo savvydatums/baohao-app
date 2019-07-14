@@ -45,7 +45,7 @@
 
 	<div class="sign-in-area">
 		<button ion-button color="light" block round (click)="onSignIn()">{{ 'LOGIN.BUTTON' | translate }}</button>
-		<p class="signup">{{ 'LOGIN.SIGN_UP_CTA' | translate }}<a href="https://registry.myinsurbox.com/#/welcome" target="_blank">{{ 'LOGIN.SIGN_UP_LINK' | translate }}</a></p>
+		<p>{{ 'LOGIN.SIGN_UP_CTA' | translate }}<span class="register-btn" (click)="goToRegister()">{{ 'LOGIN.SIGN_UP_LINK' | translate }}</span></p>
 	</div>
 
 	</form>

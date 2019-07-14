@@ -160,4 +160,8 @@ export class LoginPage {
 		alert.present()
 	}
 
+	public goToRegister () {
+		window.open("https://registry.myinsurbox.com/#/welcome",'_system', 'location=yes');
+	}
+
 }
