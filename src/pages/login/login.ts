@@ -147,10 +147,10 @@ export class LoginPage {
 				handler: () => {
 					UserAPI.logout(this.profile.cookie)
 						.then((result: any) => {
-							if (result.status == 'ok') {
-								this.navController.push (LoginPage)
-							}
+							result.status !== 'ok' && console.log (result);
+							this.navController.push (LoginPage)
 						}, (error: any) => {
+							this.navController.push (LoginPage)
 							console.log (error);
 						});
 				}	

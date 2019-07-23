@@ -29,6 +29,7 @@ export const suggestionUseful = `${insightPath}useful`
 
 // archives
 export const archiveList = `${insightPath}get_star_list`
+export const advertList = `${insightPath}get_advertising`
 export const archiveItem = `${insightPath}star`
 export const unArchiveItem = `${insightPath}remove_star`
 export const trashItem = `${insightPath}trash`

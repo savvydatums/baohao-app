@@ -21,6 +21,7 @@
 	"NAVIGATION": {
         "PROFILE": "PROFILE",
         "CUSTOMER": "CUSTOMER",
+        "ADVERT": "ADV/ARTICLE",
         "LEADS": "LEADS",
         "STARRED": "STARRED",
 		"FAQ": "FAQ",

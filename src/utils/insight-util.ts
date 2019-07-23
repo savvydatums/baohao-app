@@ -87,6 +87,20 @@ export const assignPotentialToModal = (cookie, modal, errorCallback?) => {
 		});
 }
 
+export const assignAdvertToModal = (cookie, modal, errorCallback?) => {
+	InsightAPI.getPotentialInsight(cookie, insightFilterTypes.all)
+		.then((result:any) => {
+			if (result.status == InsightResponseStatus.SUCCESS ||
+				result.status == InsightResponseStatus.CREATED ||
+				result.status == InsightResponseStatus.UPDATED) {
+				modal.addData(result.results)
+			} else {
+				errorCallback && errorCallback(result.message);
+			}
+		}, error => {
+			errorCallback && errorCallback(error);
+		});
+}
 
 export const assignClientInsightToModal = (cookie, modal, errorCallback?, filterType?) => {
 	const filter = filterType ? filterType : insightFilterTypes.all

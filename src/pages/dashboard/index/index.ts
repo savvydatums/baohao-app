@@ -12,6 +12,7 @@ import { PotentialLeadsModel } from '../../../model/PotentialLeadsModel';
 import { insightFilterTypes } from '../insights/settings/settings';
 import { showError } from '../../../utils/alert-generic';
 import { TranslateService } from '@ngx-translate/core';
+import { AdvertPage } from '../advert/index';
 
 @IonicPage({ name: "DashboardPage", segment: "DashboardPage"})
 @Component({
@@ -22,6 +23,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class DashboardPage {
 
 	tabProfile = ProfilePage;
+	tabAdvert = AdvertPage;
 	tabInsight = AllClient;
 	tabPotential = PotentialPage;
 	tabArchive = ArchivePage;

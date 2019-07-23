@@ -21,6 +21,7 @@ import { ComponentsModule } from '../components/components.module';
 import { ProfileModel } from '../model/ProfileModel';
 import { ArchiveModel } from '../model/ArchiveModel';
 import { TrashModel } from '../model/TrashModel';
+import { AdvertModel } from '../model/AdvertModel';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { TrashModel } from '../model/TrashModel';
     BrowserModule,
     ComponentsModule,
     IonicModule.forRoot(MyApp, {preloadModules: true}),
-	HttpClientModule,
+	  HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -57,6 +58,7 @@ import { TrashModel } from '../model/TrashModel';
     AllInsightsModel,
     PotentialLeadsModel,
     ArchiveModel,
+    AdvertModel,
     TrashModel,
     ProfileModel,
     StatusBar,

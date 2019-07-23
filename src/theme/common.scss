@@ -140,25 +140,41 @@ confirm {
 
 ion-header.potential {
 	header, search-bar {
-		//background: #3a7cab;
 		background: #0b8fa2;
 	}
 }
 
+ion-header.advert {
+	header, search-bar {
+		background: #d6859f;
+    }
+    search-bar li.active {
+        background: #b06e83;
+    }
+}
+
 // potential, know your client and archive style
 insight-list {
-    background-image: radial-gradient(circle at 105% 0, #1d7f8a, #3e6a90);
+    //background-image: radial-gradient(circle at 105% 0, #1d7f8a, #3e6a90);
     .content-md, .content-ios,
     .list-ios ion-item-sliding,
     .list-md ion-item-sliding {
         background-color: #27768d;
 	}
 
-	.potential.content-md, .potential.content-ios,
+    .potential.content-md, 
+    .potential.content-ios,
     .potential .list-ios ion-item-sliding,
     .potential .list-md ion-item-sliding {
 		background-color: #1aadc3;
-	}
+    }
+    
+    .advert.content-md, 
+    .advert.content-ios,
+    .advert .list-ios ion-item-sliding,
+    .advert .list-md ion-item-sliding {
+        background-color: #d6859f;
+    }
 
     .item-ios ion-avatar[item-start], .item-md ion-avatar[item-start] {
         margin: 8px 16px 8px;
@@ -175,6 +191,32 @@ insight-list {
             text-overflow: ellipsis;  /*cut off text with an ellipsis*/
         }
     }
+    .advert {
+        .list-content {
+            p {
+                color: #4c3636;
+                width: 100%;
+            }
+            h3 {
+                color: #4c3636;
+            }
+        }
+        .item-block .item-inner {
+            border-bottom: 1px solid #d6859f;
+        }
+        .list-ios > .item-block:last-child, 
+        .list-ios > .item-wrapper:last-child .item-block, 
+        .list-md > .item-block:last-child,
+        .list-md > .item-wrapper:last-child .item-block {
+            border-bottom: none;
+        }
+        .list-label .date {
+            color: #b06e83;
+            top: 6px;
+            right: 2px;
+        }
+    }
+
     .list-label {
         position: absolute;
         right: 15px;
@@ -214,7 +256,14 @@ insight-list {
 	.potential .item.item-block.item-ios,
 	.potential .item.item-block.item-md {
 		background-color: #1aadc3;
-	}
+    }
+    
+    .advert .item.item-block.item-md, 
+    .advert .item.item-block.item-ios {
+        background-color: #ffc7c7;
+        color: #c75f5f;
+    }
+
 
     .list-ios>.item-block:last-child,
     .list-ios>.item-wrapper:last-child .item-block,
@@ -314,7 +363,10 @@ profile {
 dashboardpage {
 	.scroll-content{
 		background-image: radial-gradient(circle at 105% 0, #1d7f8a, #3e6a90);
-	}
+    }
+    .advert .scroll-content{
+		background-image: radial-gradient(circle at 90% 0, #ff92b5, #ffc0ad);
+    }
 }
 
 .load-wrapper {

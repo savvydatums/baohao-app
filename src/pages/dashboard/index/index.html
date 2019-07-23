@@ -5,7 +5,8 @@
 	</div>
 </ion-content>
 <ion-tabs *ngIf="!loading" selectedIndex="2" ionTabsDidChange="tabChange">
-	<ion-tab [root]="tabProfile" [tabTitle]="'NAVIGATION.PROFILE'|translate" tabIcon="person"></ion-tab>
+	<!-- <ion-tab [root]="tabProfile" [tabTitle]="'NAVIGATION.PROFILE'|translate" tabIcon="person"></ion-tab> -->
+	<ion-tab [root]="tabAdvert" [tabTitle]="'NAVIGATION.ADVERT'|translate" tabIcon="paper"></ion-tab>
 	<ion-tab [root]="tabInsight" [tabTitle]="'NAVIGATION.CUSTOMER'|translate" tabIcon="search"></ion-tab>
 	<ion-tab [root]="tabPotential" [tabTitle]="'NAVIGATION.LEADS'|translate" tabIcon="heart"></ion-tab>
 	<ion-tab [root]="tabArchive" [tabTitle]="'NAVIGATION.STARRED'|translate" tabIcon="star"></ion-tab>

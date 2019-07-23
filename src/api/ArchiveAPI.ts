@@ -23,6 +23,19 @@ export class ArchiveAPI extends Comms {
 		});
 	}
 
+	public static getAdvertList(cookie:string,  querytype: string) : Promise < {} > {
+		return new Promise((resolve, reject) => {
+			cordova.plugin.http.post(Routes.advertList, { cookie, querytype}, {}, (response) => {
+				const result = JSON.parse(response.data)
+				if (response.status == 200 && result.status == 'ok') {
+					resolve(result)
+				} else {
+					resolve(JSON.parse(response.data))
+				}
+			}, (response) => { reject(JSON.parse(response.error)) })
+		});
+	}
+
 	// tested
 	public static archiveItem(cookie: string, record_id: string, source: string, group: string, category: string[]): Promise<{}> {
 		return new Promise((resolve, reject) => {

@@ -20,6 +20,7 @@
     "NAVIGATION": {
         "PROFILE": "帳戶",
         "CUSTOMER": "客戶",
+        "ADVERT": "廣告/文章",
         "LEADS": "商機",
         "STARRED": "已加星號",
 		"FAQ": "問與答",
