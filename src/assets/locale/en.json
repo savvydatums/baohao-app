@@ -17,6 +17,7 @@
 	"UPDATE_SUCCEED": "Update Succeed!",
     "UPDATE_PENDING_MESSAGE": "we can not update it now, try again later",
     "EXPIRED_MESSAGE": "Your cookie has expired, we will log you out now. please login again.",
+    "SEARCH_SOMETHING": "Search Something...",
 
 	"NAVIGATION": {
         "PROFILE": "PROFILE",
@@ -201,6 +202,7 @@
 		"CATEGORIES": "Categories",
 		"STORY": "story",
         "ADD_NICKNAME": "add nickname",
+        "NO_NICKNAME": "no nickname",
         "NICKNAME": "nickname",
 		"SUMMARY": {
 			"TITLE": "INSIGHT"

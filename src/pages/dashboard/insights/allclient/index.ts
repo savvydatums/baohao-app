@@ -21,7 +21,6 @@ export class AllClient {
 	categoryColors: object;
 	renderTimeStamp: Function = renderTimeStamp;
 	getKeywordText: Function = getKeywordText;
-	filterText: string;
 
 	@ViewChild(forwardRef(() => HeaderComponent)) header
 	@ViewChild(forwardRef(() => SearchBarComponent)) searchBar
@@ -36,7 +35,7 @@ export class AllClient {
 	) {}
 
 	ionViewWillEnter() {
-		this.filterText = this.translate.instant('NAVIGATION.FILTER')
+		//this.filterText = this.translate.instant('NAVIGATION.FILTER')
 	}
 
 	public getKeywordColor(category) {
@@ -64,5 +63,11 @@ export class AllClient {
 	public trashInsight(record_id, source, categories) {
 		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.insights) }
 		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories, callback.bind(this));
+	}
+
+	public fetchTranslation(key) {
+		if (key) {
+			return this.translate.instant(key);
+		}
 	}
 }

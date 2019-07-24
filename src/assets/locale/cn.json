@@ -16,6 +16,7 @@
 	"UPDATE_SUCCEED": "更新成功!",
     "UPDATE_PENDING_MESSAGE": "我們現在無法更新，請重試一次。",
     "EXPIRED_MESSAGE": "您的cookie失效了，我們現在會幫您登出，再請您重新登入一次。",
+    "SEARCH_SOMETHING": "找一找...",
     
     "NAVIGATION": {
         "PROFILE": "帳戶",
@@ -188,6 +189,7 @@
 		"CATEGORIES": "Categories",
 		"STORY": "故事",
         "ADD_NICKNAME": "加小名",
+        "NO_NICKNAME": "無小名",
         "NICKNAME": "小名",
 		"SUMMARY": {
 			"TITLE": "INSIGHT"

@@ -65,4 +65,10 @@ export class PotentialPage {
 		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, group, null, callback);
 	}
 
+	public fetchTranslation(key) {
+		if (key) {
+			return this.translate.instant(key);
+		}
+	}
+
 }

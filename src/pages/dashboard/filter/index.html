@@ -1,12 +1,10 @@
 <ion-content padding>
-  
   <div class="close-btn" (click)="closeModal()">
     <ion-icon name="close"></ion-icon>
   </div>
   <br/><br/>
-
   <input type="text"
-    placeholder="Search Something...."
+    [placeholder]="'SEARCH_SOMETHING' | translate"
     [(ngModel)]="inputValue" />
   <button class="clear-btn" (click)="clearTextAndOptions()">
     {{ 'FILTER.CLEAR'| translate }}

@@ -1,5 +1,5 @@
 import { Component, ViewChild, forwardRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { insightFilterTypes, filterOptions } from '../insights/settings/settings';
 import { HeaderComponent } from '../../../components/header/header';
 import { SearchBarComponent } from '../../../components/search-bar/search-bar';
@@ -34,6 +34,7 @@ export class AdvertPage {
     public profile: ProfileModel, 
     public advert: AdvertModel,
     private alertCtrl: AlertController,
+    private modalCtrl: ModalController,
     public translate: TranslateService,
     public navParams: NavParams) {
   }
@@ -46,7 +47,6 @@ export class AdvertPage {
 		let self = this
 		ArchiveAPI.getAdvertList(this.profile.cookie, insightFilterTypes.all)
 			.then((result: any) => {
-        console.log('getAdvertList', result)
 				if (result.status == InsightResponseStatus.SUCCESS) {
 					this.advert.addData(result.results)
 					self.showLoading(false)
@@ -66,14 +66,15 @@ export class AdvertPage {
 		this.loading = show;
   }
   
-  public showAdvertInfo (item) {
-    console.log(item)
+  public showAdvertInfo (info) {
+    console.log(info)
 
-    // let insightModal = this.modalCtrl.create(
-		// 	'InsightDetailsPage', { info, type: insightType.potential }
-		// );
+    let adverttModal = this.modalCtrl.create(
+			'advert-details', { info }
+    ); 
+    // if created with file name index.tx, then use ionicPage name, not module name
 
-		// insightModal.present();
+		adverttModal.present();
   }
 
   public starInsight(record_id, source, group, event) {
@@ -85,7 +86,11 @@ export class AdvertPage {
 	public trashInsight(record_id, source, group, event) {
 		const callback = () => { assignAdvertToModal(this.profile.cookie, this.advert) }
 		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, group, null, callback);
-	}
-
-
+  }
+  
+  public fetchTranslation(key) {
+		if (key) {
+			return this.translate.instant(key);
+		}
+  }
 }

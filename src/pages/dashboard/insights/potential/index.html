@@ -3,7 +3,8 @@
 	<search-bar
 		[searchHandler]="searchHandler.bind(this)"
 		[selected]="potential.filterType"
-		[filters]="searchFilters">
+		[filters]="searchFilters"
+		[fetchTranslation]="fetchTranslation.bind(this)">
 	</search-bar>
 </ion-header>
 <ion-content class="potential">

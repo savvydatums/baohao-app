@@ -94,4 +94,10 @@ export class ArchivePage {
 		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories, callback);
 	}
 
+	public fetchTranslation(key) {
+		if (key) {
+			return this.translate.instant(key);
+		}
+	}
+
 }

@@ -3,7 +3,8 @@
 	<search-bar
 		[searchHandler]="searchHandler.bind(this)"
 		[selected]="archive.filterType"
-		[filters]="searchFilters">
+		[filters]="searchFilters"
+		[fetchTranslation]="fetchTranslation.bind(this)">
 	</search-bar>
 </ion-header>
 <ion-content>
