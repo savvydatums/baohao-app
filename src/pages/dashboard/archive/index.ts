@@ -62,6 +62,7 @@ export class ArchivePage {
 			}, error => {
 				showError(this.alertCtrl, this.translate, error);
 			});
+		// add a call for advertising Archive API
 	}
 
 	public showInsightInfo(info) {

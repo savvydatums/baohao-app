@@ -135,29 +135,32 @@ export class LoginPage {
 
 	private setExpireTimer () {
 		this.timer && clearTimeout(this.timer)
-		
 		this.timer = setTimeout(this.showExpired.bind(this), cookieTimes * 1000)
 	}
 
 	private showExpired() {
-		const alert = this.alertCtrl.create({			
+		// todo, if ok button not been click, then it will be redirect as well.
+		const alert = this.alertCtrl.create({
 			message:getTranslation(this.translate, 'EXPIRED_MESSAGE'),
 			buttons: [{
 				text: getTranslation(this.translate, 'GLOBA_OK_BUTTON_LABEL'),
 				handler: () => {
-					UserAPI.logout(this.profile.cookie)
-						.then((result: any) => {
-							result.status !== 'ok' && console.log (result);
-							this.navController.push (LoginPage)
-						}, (error: any) => {
-							this.navController.push (LoginPage)
-							console.log (error);
-						});
-				}	
+					this.expiredHandler()
+				}
 			}]
 		})
-
 		alert.present()
+	}
+
+	private expiredHandler () {
+		UserAPI.logout(this.profile.cookie)
+			.then((result: any) => {
+				result.status !== 'ok' && console.log (result);
+				this.navController.push (LoginPage)
+			}, (error: any) => {
+				this.navController.push (LoginPage)
+				console.log (error);
+			});
 	}
 
 	public goToRegister () {

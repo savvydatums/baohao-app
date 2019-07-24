@@ -67,13 +67,10 @@ export class AdvertPage {
   }
   
   public showAdvertInfo (info) {
-    console.log(info)
-
     let adverttModal = this.modalCtrl.create(
 			'advert-details', { info }
     ); 
     // if created with file name index.tx, then use ionicPage name, not module name
-
 		adverttModal.present();
   }
 

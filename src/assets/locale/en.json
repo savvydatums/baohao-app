@@ -216,7 +216,8 @@
             "POST_IN_TWO_MONTH": "’s posts in coming 2 months",
             "KNOW_MORE_ABOUT": "Know more about",
             "RECOMMEND": "Recommend Products",
-            "PRODUCT_CORRECT": "Product suggestion correct?"
+            "PRODUCT_CORRECT": "Product suggestion correct?",
+            "ADVERT_CORRECT": "Advert suggestion correct?"
 		},
 		"ARCHIVE": {
             "STAR": "Star",

@@ -203,7 +203,8 @@
             "POST_IN_TWO_MONTH": "的貼文",
             "KNOW_MORE_ABOUT": "知道更多關於",
             "RECOMMEND": "建議產品",
-            "PRODUCT_CORRECT": "產品建議是否正確？"
+            "PRODUCT_CORRECT": "產品建議是否正確？",
+            "ADVERT_CORRECT": "廣告建議是否正確?"
 		},
 		"ARCHIVE": {
             "STAR": "加星號",

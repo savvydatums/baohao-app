@@ -9,7 +9,7 @@ import { renderTimeStampInNumber } from '../../../../utils/insight-util';
 
 @IonicPage({ name: "advert-details", segment: "advert-details" })
 @Component({
-  selector: 'insight-details', // this will get update
+  selector: 'advert-details',
   templateUrl: 'index.html',
 })
 export class AdvertDetailsPage {
@@ -27,7 +27,14 @@ export class AdvertDetailsPage {
 
   ionViewWillLoad() {
     this.insightData = this.navParams.get('info')
-    console.log('ionViewDidLoad AdvertDetailsPage', this.insightData);
+  }
+
+  ionViewDidLoad() {
+    const contentRef = this.view.contentRef()
+    const innerContent =  contentRef.nativeElement.getElementsByClassName('content')[0]
+    const content =  contentRef.nativeElement
+    const totalPaddingY = 100;
+    content.style.height = innerContent.offsetHeight + totalPaddingY + 'px';
   }
 
   public updateSuggestionUseful (isUseful) {

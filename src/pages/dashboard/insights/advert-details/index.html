@@ -1,23 +1,26 @@
-<ion-content class="advert-details">
+<ion-content>
     <div class="left" (click)="closeModal()">
       <ion-icon name="close"></ion-icon>
     </div>
     <div class="source">
-        <img *ngIf="insightData.source == 'fb'" src="assets/icon/facebook-w.svg">
-        <img *ngIf="insightData.source == 'wex'" src="assets/icon/wechat-w.svg">
+        <img *ngIf="insightData.source == 'fb'" src="assets/icon/facebook.svg">
+        <img *ngIf="insightData.source == 'wex'" src="assets/icon/wechat.svg">
       </div>
   
     <div class="content">
-        <div>
-            <h2>{{ insightData.authorName }}</h2>
-            <h4> ({{ insightData.nickname|| 'INSIGHT.NO_NICKNAME'|translate }})</h4>
-            <h5>{{ renderTimeStamp(insightData.timestamp) }}</h5>
-            <img *ngIf="insightData.source == 'wex'" src="assets/icon/advert-icon.png">
-          <p [innerHTML]="insightData.content"></p>
-          advert image
+        <div class="title-area">
+          <h5>
+            {{ insightData.authorName }} <br/> 
+            ({{ insightData.nickname|| 'INSIGHT.NO_NICKNAME'|translate }})
+          </h5>
+          <hr/>
+          <img src="assets/icon/advert-icon.png">
+          <h5>{{ renderTimeStamp(insightData.timestamp) }}</h5>
         </div>
-        <h5>
-            {{ 'INSIGHT.DETAILS.PRODUCT_CORRECT' | translate }}
+        <hr/>
+        <p [innerHTML]="insightData.content"></p>
+        <div class="suggest-area">
+            <h5>{{ 'INSIGHT.DETAILS.ADVERT_CORRECT' | translate }}</h5>
             <ion-icon 
               name="thumbs-up" 
               [ngClass]="insightData.useful == true ? 'active': ''" 
@@ -28,7 +31,7 @@
               [ngClass]="insightData.useful == false ? 'active': ''" 
               (click)="updateSuggestionUseful(false)"
             ></ion-icon>
-          </h5>
+        </div>
     </div>
 
 </ion-content>

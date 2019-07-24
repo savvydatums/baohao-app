@@ -58,10 +58,9 @@
 		<div class="recommend" *ngIf="recommendations.length > 0">
 			<h4>{{ 'INSIGHT.DETAILS.RECOMMEND' | translate }}</h4>
 			<div class="boxes">
-				<a *ngFor="let recommend of recommendations; let i = index"
-					[ngStyle]="{ 'backgroundColor': (i%2 !== 0) ? info.color : 'white' }"
+				<a *ngFor="let recommend of recommendations"
 					href="{{ recommend.link }}" target="_blank">
-					<span [ngStyle]="{ 'color': (i%2 == 0) ? info.color : 'white' }">
+					<span [ngStyle]="{ 'color': info.color }">
 						{{ recommend.name }}
 					</span>
 				</a>
