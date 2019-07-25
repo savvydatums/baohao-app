@@ -67,9 +67,19 @@ export class ArchivePage {
 	}
 
 	public showInsightInfo(info) {
-		let insightModal = this.modalCtrl.create(
-			'InsightDetailsPage', { info, type: insightType.all }
-		);
+
+		let insightModal = null
+
+		if (info.categories.indexOf('advertising') >= 0) {
+			insightModal = this.modalCtrl.create(
+				'advert-details', { info }
+			);
+		} else {
+			insightModal = this.modalCtrl.create(
+				'InsightDetailsPage', { info, type: insightType.all }
+			);
+		}
+		
 
 		insightModal.present();
 	}

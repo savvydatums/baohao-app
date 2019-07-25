@@ -107,6 +107,11 @@
 			"color": "#55697F",
 			"cn": "招聘",
 			"en": "Recruitment"
+		},
+		"advertising" : {
+			"color": "#d6859f",
+			"cn": "廣告",
+			"en": "Advertisment"
 		}
 	},
 

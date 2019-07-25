@@ -42,7 +42,7 @@ export class TrashPage {
 		InsightAPI.getAllClientInsight(this.profile.cookie, insightFilterTypes.trash)
 			.then((result: any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					this.trash.list = result.results
+					this.trash.addData (result.results)
 					self.showLoading(false)
 				} else {
 					showError(this.alertCtrl, this.translate, result.message);
@@ -57,9 +57,17 @@ export class TrashPage {
 	}
 
 	public showInsightInfo(info) {
-		let insightModal = this.modalCtrl.create(
-			'InsightDetailsPage', { info, type: insightType.all }
-		);
+		let insightModal = null
+
+		if (info.categories.indexOf('advertising') >= 0) {
+			insightModal = this.modalCtrl.create(
+				'advert-details', { info }
+			);
+		} else {
+			insightModal = this.modalCtrl.create(
+				'InsightDetailsPage', { info, type: insightType.all }
+			);
+		}
 
 		insightModal.present();
 	}

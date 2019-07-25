@@ -4,6 +4,9 @@ export class TrashModel {
 
 	public list: trashItem[];
 
-	constructor() {
+	constructor() {}
+
+	public addData(results) {
+		this.list = results;
 	}
 }
