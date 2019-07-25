@@ -2,6 +2,25 @@ import { getTranslation } from "./Data-Fetch";
 import { InsightAPI } from "../api/InsightAPI";
 import { ResponseStatus } from "../api/Comms";
 
+export const sendGenericToastMessage = (toastCtrl, translate, messagekey, isSuccess) => {
+	
+	// if has message, use the message one, otherwise, 
+	// check if isSuccessed detected, then use isSuccessed to detect
+	const isSuccessDefined = isSuccess !== undefined && isSuccess !== null; 
+	let message = messagekey !== null ? getTranslation(translate, messagekey) : '';
+
+	if (message && message.length <= 0) {
+		message = isSuccess? getTranslation(translate, 'UPDATE_SUCCEED') : getTranslation(translate, 'UPDATE_FAILED')
+	}
+
+	const toast = toastCtrl.create({
+		message: message,
+		duration: 3000,
+    	position: 'bottom'
+	})
+
+	toast.present()
+}
 
 export const sendGenericUpdateAlert = (alertCtrl, translate, isFail, info?) => {
 

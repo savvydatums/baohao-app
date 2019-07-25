@@ -226,7 +226,10 @@
 		},
 		"TRASH": {
             "UNTRASH": "Recovery",
-            "DELETE": "Delete"
+            "DELETE": "Delete",
+            "UNTRASH_MESSAGE": "Recovered",
+            "DELETE_MESSSAGE": "Deleted"
+
         }
     },
 

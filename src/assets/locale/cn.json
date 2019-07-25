@@ -223,7 +223,9 @@
 		},
 		"TRASH": {
             "UNTRASH": "復原",
-            "DELETE": "永久刪除"
+            "DELETE": "永久刪除",
+            "UNTRASH_MESSAGE": "已復原",
+            "DELETE_MESSSAGE": "已刪除"
         }
     },
     
