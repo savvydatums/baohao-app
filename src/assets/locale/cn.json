@@ -80,13 +80,23 @@
 
     "PASSWORD_RESET": {
         "TITLE": "重設密碼",
+        "CHANGE_TITLE": "變更密碼",
         "RESET_LABEL": "請輸入您的保險專員編號與EMAIL",
         "REGISTRATION_ID_LABEL": "保險專員編號",
         "REGISTRATION_EMAIL_LABEL": "您的Email",
         "SUBMITTED_LABEL": "系統將寄出信件到您的信箱裡，若未寄送需重新寄送",
 		"BUTTON_LABEL": "重設",
 		"NEW_PASS_PLACEHOLDER": "新密碼",
-		"RESET_INFO": "注意！一旦重設密碼，下次登入需使用新的密碼登入。"
+        "RESET_INFO": "注意！一旦重設密碼，下次登入需使用新的密碼登入。",
+        "FORGET": {
+			"ERROR_ID": {
+			  "fp01": "您必須包含username或者email在您的需求內。",
+			  "fp02": "保險代理登記號碼和註冊電郵不合。",
+			  "fp03": "無此使用者。"
+			},
+			"ERROR_INFO": "請與我們的客服連絡：cs@myinsurbox.com",
+			"PAGE_REDIRECT": "本頁面分鐘內會自動導入到登入畫面。"
+		}
     },
 
     "PROFILE" : {
@@ -186,7 +196,7 @@
     },
 
 	"INSIGHT": {
-		"CATEGORIES": "Categories",
+		"CATEGORIES": "分類",
 		"STORY": "故事",
         "ADD_NICKNAME": "加小名",
         "NO_NICKNAME": "無小名",

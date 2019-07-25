@@ -67,7 +67,7 @@ export class TrashPage {
 		let self = this
 		ArchiveAPI.unTrashItem(this.profile.cookie, record_id, source)
 			.then((result: any) => {
-				if (result.status == InsightResponseStatus.DELETED) {
+				if (result.status == InsightResponseStatus.SUCCESS) {
 					self.getTrashedInsights()
 				} else {
 					showError(this.alertCtrl, this.translate, result.message);
@@ -81,7 +81,7 @@ export class TrashPage {
 		let self = this
 		ArchiveAPI.deleteTrashItem(this.profile.cookie, record_id, source)
 			.then((result: any) => {
-				if (result.status == InsightResponseStatus.UPDATED) {
+				if (result.status == InsightResponseStatus.SUCCESS) {
 					self.getTrashedInsights()
 				} else {
 					showError(this.alertCtrl, this.translate, result.message);
