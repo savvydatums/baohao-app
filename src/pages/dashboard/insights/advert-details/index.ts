@@ -30,11 +30,17 @@ export class AdvertDetailsPage {
   }
 
   ionViewDidLoad() {
+    this.calculateModalHeight()
+  }
+
+  private calculateModalHeight() {
     const contentRef = this.view.contentRef()
     const innerContent =  contentRef.nativeElement.getElementsByClassName('content')[0]
     const content =  contentRef.nativeElement
-    const totalPaddingY = 100;
-    content.style.height = innerContent.offsetHeight + totalPaddingY + 'px';
+    const totalPaddingY = 30;
+    const height = innerContent.offsetHeight + totalPaddingY
+    const maxHeight = content.offsetHeight - 48
+    content.style.height = ((maxHeight <= height) ? maxHeight : height) + 'px';
   }
 
   public updateSuggestionUseful (isUseful) {

@@ -27,7 +27,7 @@ advert-details {
 		text-align: center;
         color: #4B4747;
         background: #FFFCF2;
-        margin: 30px 5% 42px;
+        margin: 30px 5% 0;
         width: 90%;
     }
 
@@ -48,9 +48,8 @@ advert-details {
 		margin-left: -6%;
 		background: #A35B5B;
 		color: white;
-		padding: 10px 0;
-		position: absolute;
-		bottom: 0;
+		padding: 12px 0;
+
 		h5 {
 			display:inline-block;
 			margin: 0;
