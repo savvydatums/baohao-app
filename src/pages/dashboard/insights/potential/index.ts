@@ -1,5 +1,5 @@
 import { Component, ViewChild, forwardRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ToastController } from 'ionic-angular';
 import { HeaderComponent } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar';
 import { ProfileModel } from '../../../../model/ProfileModel';
@@ -30,10 +30,10 @@ export class PotentialPage {
 		public navCtrl: NavController,
 		public navParams: NavParams,
 		public profile: ProfileModel,
+		private toastCtrl: ToastController,
 		public translate: TranslateService,
 		public potential: PotentialLeadsModel,
-		public modalCtrl: ModalController,
-		private alertCtrl: AlertController) {
+		public modalCtrl: ModalController) {
 	}
 
 	ionViewWillEnter() {
@@ -57,12 +57,12 @@ export class PotentialPage {
 
 	public starInsight(record_id, source, group) {
 		const callback = () => { assignPotentialToModal(this.profile.cookie, this.potential) }
-		return starItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, group, null, callback);
+		return starItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
 	}
 
 	public trashInsight(record_id, source, group) {
 		const callback = () => { assignPotentialToModal(this.profile.cookie, this.potential) }
-		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, group, null, callback);
+		return trashItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
 	}
 
 	public fetchTranslation(key) {

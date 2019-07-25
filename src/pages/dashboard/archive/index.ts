@@ -1,5 +1,5 @@
 import { Component, ViewChild, forwardRef } from '@angular/core';
-import { IonicPage, NavController, ModalController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController, AlertController, ToastController } from 'ionic-angular';
 import { InsightResponseStatus } from '../../../api/Comms';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { ArchiveModel } from '../../../model/ArchiveModel';
@@ -31,6 +31,7 @@ export class ArchivePage {
 	constructor(
 		public navCtrl: NavController,
 		public archive: ArchiveModel,
+		private toastCtrl: ToastController,
 		public modalCtrl: ModalController,
 		private alertCtrl: AlertController,
 		public translate: TranslateService,
@@ -87,12 +88,12 @@ export class ArchivePage {
 
 	public unStarInsight(record_id, source) {
 		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.archive, null, insightFilterTypes.archive) }
-		return unStarItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, callback);
+		return unStarItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, callback);
 	}
 
 	public trashInsight(record_id, source, categories) {
 		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.archive, null, insightFilterTypes.archive) }
-		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories, callback);
+		return trashItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, null, categories, callback);
 	}
 
 	public fetchTranslation(key) {

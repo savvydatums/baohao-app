@@ -1,5 +1,5 @@
 import { Component, ViewChild, forwardRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ToastController, AlertController } from 'ionic-angular';
 import { insightFilterTypes, filterOptions } from '../insights/settings/settings';
 import { HeaderComponent } from '../../../components/header/header';
 import { SearchBarComponent } from '../../../components/search-bar/search-bar';
@@ -33,6 +33,7 @@ export class AdvertPage {
     public navCtrl: NavController,
     public profile: ProfileModel, 
     public advert: AdvertModel,
+    private toastCtrl: ToastController,
     private alertCtrl: AlertController,
     private modalCtrl: ModalController,
     public translate: TranslateService,
@@ -77,12 +78,12 @@ export class AdvertPage {
   public starInsight(record_id, source, group, event) {
     const callback = () => { assignAdvertToModal(this.profile.cookie, this.advert) }
     
-		return starItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, group, null, callback);
+		return starItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
 	}
 
 	public trashInsight(record_id, source, group, event) {
 		const callback = () => { assignAdvertToModal(this.profile.cookie, this.advert) }
-		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, group, null, callback);
+		return trashItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
   }
   
   public fetchTranslation(key) {

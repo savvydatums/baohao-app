@@ -1,5 +1,5 @@
 import { Component, ViewChild, forwardRef } from '@angular/core';
-import { IonicPage, NavController, ModalController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController, AlertController, ToastController } from 'ionic-angular';
 import { AllInsightsModel } from '../../../../model/AllInsightsModel';
 import { TranslateService } from '@ngx-translate/core';
 import { HeaderComponent } from '../../../../components/header/header';
@@ -28,10 +28,10 @@ export class AllClient {
 	constructor(
 		public navCtrl: NavController,
 		public insights: AllInsightsModel,
+		private toastCtrl: ToastController,
 		public profile: ProfileModel,
 		public translate: TranslateService,
 		public modalCtrl: ModalController,
-		private alertCtrl: AlertController
 	) {}
 
 	ionViewWillEnter() {
@@ -57,12 +57,12 @@ export class AllClient {
 
 	public starInsight(record_id, source, categories) {
 		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.insights)}
-		return starItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories, callback.bind(this));
+		return starItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, null, categories, callback.bind(this));
 	}
 
 	public trashInsight(record_id, source, categories) {
 		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.insights) }
-		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories, callback.bind(this));
+		return trashItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, null, categories, callback.bind(this));
 	}
 
 	public fetchTranslation(key) {

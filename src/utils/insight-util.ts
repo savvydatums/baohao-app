@@ -1,5 +1,5 @@
 import { ArchiveAPI } from "../api/ArchiveAPI";
-import { sendGenericUpdateAlert } from "./alert-generic";
+import { sendGenericUpdateAlert, sendGenericToastMessage } from "./alert-generic";
 import { ResponseStatus, InsightResponseStatus } from "../api/Comms";
 import { keywordsSettings, insightType, insightFilterTypes } from "../pages/dashboard/insights/settings/settings"
 import { InsightAPI } from "../api/InsightAPI";
@@ -28,36 +28,36 @@ export const renderTimeStampInNumber = (timestamp : number) => {
 	return `${year} ${month} ${date} | ${hour}.${minutes}`
 }
 
-export const starItem = (cookie, alertCtrl, translate, record_id, source, group, category, callback?) => {
+export const starItem = (cookie, toastCtrl, translate, record_id, source, group, category, callback?) => {
 	ArchiveAPI.archiveItem(cookie, record_id, source, group, category)
 		.then((result: any) => {
 			const isFail = result.status === ResponseStatus.ERROR
-			sendGenericUpdateAlert(alertCtrl, translate, isFail)
+			sendGenericToastMessage(toastCtrl, translate, null, !isFail)
 			callback && setTimeout(() => callback(), 1000)
 		}, error => {
-			sendGenericUpdateAlert(alertCtrl, translate, true, error)
+			sendGenericToastMessage(toastCtrl, translate, true, error)
 		});
 }
 
-export const unStarItem = (cookie, alertCtrl, translate, record_id, source, callback?) => {
+export const unStarItem = (cookie, toastCtrl, translate, record_id, source, callback?) => {
 	ArchiveAPI.unArchiveItem(cookie, record_id, source)
 		.then((result: any) => {
 			const isFail = result.status === ResponseStatus.ERROR
-			sendGenericUpdateAlert(alertCtrl, translate, isFail)
+			sendGenericToastMessage(toastCtrl, translate, null, !isFail)
 			callback && setTimeout(() => callback(), 1000)
 		}, error => {
-			sendGenericUpdateAlert(alertCtrl, translate, true, error)
+			sendGenericToastMessage(toastCtrl, translate, true, error)
 		});
 }
 
-export const trashItem = (cookie, alertCtrl, translate, record_id, source, group, category, callback?) => {
+export const trashItem = (cookie, toastCtrl, translate, record_id, source, group, category, callback?) => {
 	ArchiveAPI.trashItem(cookie, record_id, source, group, category)
 		.then((result: any) => {
 			const isFail = result.status === ResponseStatus.ERROR
-			sendGenericUpdateAlert(alertCtrl, translate, isFail)
+			sendGenericToastMessage(toastCtrl, translate, null, !isFail)
 			callback && setTimeout(() => callback(), 1000)
 		}, error => {
-			sendGenericUpdateAlert(alertCtrl, translate, true, error)
+			sendGenericToastMessage(toastCtrl, translate, true, error)
 		});
 }
 
