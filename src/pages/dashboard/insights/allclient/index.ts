@@ -1,5 +1,5 @@
 import { Component, ViewChild, forwardRef } from '@angular/core';
-import { IonicPage, NavController, ModalController, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController, ToastController } from 'ionic-angular';
 import { AllInsightsModel } from '../../../../model/AllInsightsModel';
 import { TranslateService } from '@ngx-translate/core';
 import { HeaderComponent } from '../../../../components/header/header';

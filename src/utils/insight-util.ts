@@ -1,5 +1,5 @@
 import { ArchiveAPI } from "../api/ArchiveAPI";
-import { sendGenericUpdateAlert, sendGenericToastMessage } from "./alert-generic";
+import { sendGenericToastMessage } from "./alert-generic";
 import { ResponseStatus, InsightResponseStatus } from "../api/Comms";
 import { keywordsSettings, insightType, insightFilterTypes } from "../pages/dashboard/insights/settings/settings"
 import { InsightAPI } from "../api/InsightAPI";
