@@ -25,6 +25,7 @@ export class LoginPage {
 	public credentialsForm: FormGroup;
 	public errorMsg: string = '';
 	private timer: any = null;
+	public appVersion: string = '';
 
 	constructor(
 		public navController: NavController,
@@ -46,6 +47,7 @@ export class LoginPage {
 	ionViewDidLoad() {
 		isDebug() && setTimeout(() => this.onSignIn(), 1000); // this is only for testing
 		//this.getData();
+		this.getAppVersion();	
 	}
 
 	public onSignIn() {
@@ -165,6 +167,19 @@ export class LoginPage {
 
 	public goToRegister () {
 		window.open("https://registry.myinsurbox.com/#/welcome",'_system', 'location=yes');
+	}
+
+	public getAppVersion() {
+		var xhr = new XMLHttpRequest();
+		let _this = this;
+		xhr.addEventListener("load", function () {
+			var parser = new DOMParser();
+			var doc = parser.parseFromString(xhr.responseText, "application/xml");
+			_this.appVersion = doc.getElementsByTagName("widget")[0].getAttribute("version")
+			
+		});
+		xhr.open("get", "../config.xml", true);
+		xhr.send();
 	}
 
 }

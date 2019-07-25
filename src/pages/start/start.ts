@@ -24,7 +24,7 @@ export class StartPage {
 	}
 
 	swapeProloadImage () {
-		const video = document.getElementById("intro-video");
+		const video : HTMLElement|any = document.getElementById("intro-video");
 		const preloadImg = document.getElementById("preload-image");
 		video.onloadeddata = function() {
 			video.classList.remove('dismiss')
