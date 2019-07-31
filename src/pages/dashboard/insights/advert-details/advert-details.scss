@@ -48,7 +48,9 @@ advert-details {
 		margin-left: -6%;
 		background: #A35B5B;
 		color: white;
-		padding: 12px 0;
+		padding: 12px 0 14px;
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
 
 		h5 {
 			display:inline-block;

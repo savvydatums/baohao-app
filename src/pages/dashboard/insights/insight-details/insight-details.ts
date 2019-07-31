@@ -131,13 +131,13 @@ export class InsightDetailsPage {
 	}
 
 	public updateSuggestionUseful (isUseful) {
-		isUseful = (this.insightData.useful === isUseful) ? 'null' : isUseful
+		const useful = (this.insightData.useful == isUseful) ? 'null' : isUseful
 
 		InsightAPI.updateInsightUseful(
-			this.profile.cookie, this.insightData.source, this.insightData._id, isUseful)
+			this.profile.cookie, this.insightData.source, this.insightData._id, useful.toString())
 			.then((result: any) => {
 				const isFail = (result.status == ResponseStatus.ERROR)
-				!isFail && this.potential.updateUsefulData(this.insightData.source, this.insightData._id, isUseful)
+				!isFail && this.potential.updateUsefulData(this.insightData.source, this.insightData._id, useful)
 			}, error => {
 				console.log(error)
 			})
