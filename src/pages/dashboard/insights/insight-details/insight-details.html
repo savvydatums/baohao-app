@@ -59,7 +59,7 @@
 			<h4>{{ 'INSIGHT.DETAILS.RECOMMEND' | translate }}</h4>
 			<div class="boxes">
 				<a *ngFor="let recommend of recommendations"
-					href="{{ recommend.link }}" target="_blank">
+					(click)="openExternalLink(recommend.link)">
 					<span [ngStyle]="{ 'color': info.color }">
 						{{ recommend.name }}
 					</span>
@@ -67,6 +67,7 @@
 			</div>
 			<h5>
 				{{ 'INSIGHT.DETAILS.PRODUCT_CORRECT' | translate }}
+				<span class="hidden">{{ insightData.useful }}</span><!-- use to force data update --->
 				<ion-icon 
 					name="thumbs-up" 
 					[ngClass]="insightData.useful == true ? 'active': ''" 

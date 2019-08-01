@@ -1,6 +1,6 @@
 import { DashboardPage } from '../dashboard/index/index';
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ViewController, IonicApp } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { UserAPI } from '../../api/UserAPI';
@@ -30,9 +30,11 @@ export class LoginPage {
 	constructor(
 		public navController: NavController,
 		public navParams: NavParams,
+		public ionicApp: IonicApp,
 		private formBuilder: FormBuilder,
 		public translate: TranslateService,
 		private profile: ProfileModel,
+		private viewCtrl: ViewController,
 		private alertCtrl: AlertController,
 		private nativeHttp: HTTP) {
 
@@ -57,7 +59,7 @@ export class LoginPage {
 		if (isDebug()){
 			// registration_id = 'PIBAxxx';
 			// password = 'lulu1234';
-			registration_id = 'jimmytest';
+			registration_id = 'cib999';
 			password = 'password';
 
 		} else {
@@ -155,6 +157,12 @@ export class LoginPage {
 	}
 
 	private expiredHandler () {
+		this.viewCtrl.dismiss().then(_=>{
+			let activePortal = this.ionicApp._modalPortal.getActive()
+			if (activePortal) {
+				activePortal.dismiss(); //can use another .then here
+			}
+		});
 		UserAPI.logout(this.profile.cookie)
 			.then((result: any) => {
 				result.status !== 'ok' && console.log (result);

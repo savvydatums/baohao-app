@@ -147,4 +147,8 @@ export class InsightDetailsPage {
 		this.view.dismiss()
 	}
 
+	public openExternalLink(link) {
+		window.open(link,'_system', 'location=yes');
+	}
+
 }
