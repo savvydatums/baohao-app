@@ -236,14 +236,14 @@ registration, activate {
             position: absolute;
             text-align: center;
             width: 110%;
-            height: 40%;
+            height: 32%;
             display: block;
             color: #8c8c8c;
             left: -5%;
             h1 {
-                font-size: 48px;
+                font-size: 30px;
                 font-weight: 400;
-                margin: 0;
+                margin-top: 8px;
                 color: #F15725;
             }
             h3 { 
@@ -275,7 +275,7 @@ registration, activate {
         // points
         .content-wrapper {
             width: 91%;
-            top: 48%;
+            top: 42%;
             list-style: none;
             position: absolute;
             left: 7%;

@@ -52,10 +52,8 @@ export class LoginPage {
 		let password = ''
 
 		if (isDebug()){
-			// registration_id = 'PIBAxxx';
-			// password = 'lulu1234';
-			registration_id = 'jimmytest';
-			password = 'password';
+			registration_id = 'PIBAxxx';
+			password = 'lulu1234';
 
 		} else {
 			if (this.credentialsForm.invalid) {
