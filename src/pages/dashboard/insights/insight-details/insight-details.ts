@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavParams, ViewController, AlertController, ModalController } from 'ionic-angular';
-import { renderTimeStampInNumber, getKeywordInfo, getKeywordText, assignPotentialToModal, assignClientInsightToModal } from '../../../../utils/insight-util';
+import { renderTimeStampInNumber, getKeywordInfo, getKeywordText, assignPotentialToModal, assignClientInsightToModal, assignAdvertToModal } from '../../../../utils/insight-util';
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
 import { InsightAPI } from '../../../../api/InsightAPI';
@@ -11,6 +11,7 @@ import { openEditNoteForNickName, sendGenericUpdateAlert, showError } from '../.
 import { AllInsightsModel } from '../../../../model/AllInsightsModel';
 import { PotentialLeadsModel } from '../../../../model/PotentialLeadsModel';
 import { getTranslation } from '../../../../utils/Data-Fetch';
+import { AdvertModel } from '../../../../model/AdvertModel';
 
 @IonicPage()
 @Component({
@@ -21,6 +22,7 @@ export class InsightDetailsPage {
 
 	is_existing_customer: boolean = false;
 	is_remove_two_month: boolean = false;
+	is_agent: boolean = false;
 
 	insightData: TInsightPost;
 	type: string;
@@ -35,6 +37,7 @@ export class InsightDetailsPage {
 		public profile: ProfileModel,
 		private allClient: AllInsightsModel,
 		private potential: PotentialLeadsModel,
+		public advert: AdvertModel,
 		public translate: TranslateService,
 		public navParams: NavParams,
 		private alertCtrl: AlertController,
@@ -88,27 +91,30 @@ export class InsightDetailsPage {
 	public updateUserPreference () {
 		let exist = this.is_existing_customer == true ? true : null
 		let remove = this.is_remove_two_month == true ? true : null
+		let agent = this.is_agent == true ? true : null
 		let timestamp = this.is_remove_two_month == true ? new Date().getTime().toString() : null
 
 		InsightAPI.updateUserPreference(
 			this.profile.cookie, this.insightData.source, this.insightData.authorId,
-			null, exist, remove, timestamp)
+			null, exist, remove, timestamp, agent)
 			.then((result: any) => {
 				const isFail = (result.status == ResponseStatus.ERROR)
-				!isFail && this.reLoadData(true)
+				!isFail && this.reLoadData(true, agent)
+
 				sendGenericUpdateAlert(this.alertCtrl, this.translate, isFail)
 			}, error => {
 				sendGenericUpdateAlert(this.alertCtrl, this.translate, true)
 			})
 	}
 
-	private reLoadData (closeModal) {
+	private reLoadData (closeModal, isAgent?) {
 		const errorCallback = (message) => {
 			showError(this.alertCtrl, this.translate, message)
 		}
 
 		this.type == insightType.potential && assignPotentialToModal(this.profile.cookie, this.potential, errorCallback.bind(this))
 		this.type == insightType.all && assignClientInsightToModal(this.profile.cookie, this.allClient, errorCallback.bind(this))
+		isAgent == true &&  assignAdvertToModal(this.profile.cookie, this.advert) 
 
 		closeModal && this.closeModal()
 	}

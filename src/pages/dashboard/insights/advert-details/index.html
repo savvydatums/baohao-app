@@ -19,6 +19,15 @@
         </div>
         <hr/>
         <p [innerHTML]="insightData.content"></p>
+        <ion-item *ngIf="insightData.agent" class="agent">
+          <ion-label>
+            agent {{ 'INSIGHT.DETAILS.NOT_AGENT' | translate }}
+          </ion-label>
+          <ion-checkbox
+            (click)="notAgent()"
+            color="light" >
+          </ion-checkbox>
+        </ion-item>
         <div class="suggest-area">
             <h5>{{ 'INSIGHT.DETAILS.ADVERT_CORRECT' | translate }}</h5>
             <ion-icon 

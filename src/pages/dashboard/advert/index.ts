@@ -75,13 +75,13 @@ export class AdvertPage {
 		adverttModal.present();
   }
 
-  public starInsight(record_id, source, group, event) {
+  public starInsight(record_id, source, group) {
     const callback = () => { assignAdvertToModal(this.profile.cookie, this.advert) }
     
 		return starItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
 	}
 
-	public trashInsight(record_id, source, group, event) {
+	public trashInsight(record_id, source, group) {
 		const callback = () => { assignAdvertToModal(this.profile.cookie, this.advert) }
 		return trashItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
   }

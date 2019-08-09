@@ -214,7 +214,9 @@
             "KNOW_MORE_ABOUT": "知道更多關於",
             "RECOMMEND": "建議產品",
             "PRODUCT_CORRECT": "產品建議是否正確？",
-            "ADVERT_CORRECT": "廣告建議是否正確?"
+            "ADVERT_CORRECT": "廣告建議是否正確?",
+            "AGENT": "經紀",
+            "NOT_AGENT": "他／她不是經紀"
 		},
 		"ARCHIVE": {
             "STAR": "加星號",

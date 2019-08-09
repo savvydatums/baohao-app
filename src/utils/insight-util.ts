@@ -88,7 +88,7 @@ export const assignPotentialToModal = (cookie, modal, errorCallback?) => {
 }
 
 export const assignAdvertToModal = (cookie, modal, errorCallback?) => {
-	InsightAPI.getPotentialInsight(cookie, insightFilterTypes.all)
+	ArchiveAPI.getAdvertList(cookie, insightFilterTypes.all)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||

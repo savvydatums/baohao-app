@@ -76,13 +76,14 @@ export class InsightAPI extends Comms {
 
 	public static updateUserPreference(
 		cookie: string, source: string, authorid: string, nickname?: string | null, existing_customer?: boolean | null,
-		remove_two_months?: boolean | null, timestamp?: string | null): Promise<{}> {
+		remove_two_months?: boolean | null, timestamp?: string | null, agent?: boolean | null): Promise<{}> {
 
 		let basic = { cookie, source, authorid }
 		let payload = {}
 		nickname && (payload = { ...basic, nickname })
 		existing_customer && (payload = { ...basic, existing_customer })
 		remove_two_months && (payload = { ...basic, remove_two_months, timestamp })
+		agent !== null && (payload = { ...basic, agent })
 
 		return new Promise((resolve, reject) => {
 			cordova.plugin.http.post(Routes.editUserPreference, payload, {}, (response) => {

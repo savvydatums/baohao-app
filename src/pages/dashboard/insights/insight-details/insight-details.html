@@ -47,6 +47,16 @@
 					color="light" >
 				</ion-checkbox>
 			</ion-item>
+			<ion-item>
+				<ion-label>
+					{{ 'INSIGHT.DETAILS.AGENT' | translate }}
+				</ion-label>
+				<ion-checkbox
+					(click)="updateUserPreference()"
+					[(ngModel)]="is_agent"
+					color="light" >
+				</ion-checkbox>
+			</ion-item>
 		</div>
 		<div class="know-more-wrap" *ngIf="type !== 'potential'">
 			<button class="user-details-btn" (click)="goToAuthorPage()">

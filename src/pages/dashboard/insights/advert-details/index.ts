@@ -5,7 +5,8 @@ import { InsightAPI } from '../../../../api/InsightAPI';
 import { AdvertModel } from '../../../../model/AdvertModel';
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { ResponseStatus } from '../../../../api/Comms';
-import { renderTimeStampInNumber } from '../../../../utils/insight-util';
+import { renderTimeStampInNumber, assignAdvertToModal, assignPotentialToModal } from '../../../../utils/insight-util';
+import { PotentialLeadsModel } from '../../../../model/PotentialLeadsModel';
 
 @IonicPage({ name: "advert-details", segment: "advert-details" })
 @Component({
@@ -22,6 +23,7 @@ export class AdvertDetailsPage {
     public navCtrl: NavController,
     public advert: AdvertModel,
     public profile: ProfileModel, 
+    public potential: PotentialLeadsModel,
     public navParams: NavParams) {
   }
 
@@ -57,6 +59,23 @@ export class AdvertDetailsPage {
   }
   public closeModal() {
     this.view.dismiss()
+  }
+
+  public notAgent() {
+    const callback = () => { 
+      assignAdvertToModal(this.profile.cookie, this.advert) 
+      assignPotentialToModal(this.profile.cookie, this.potential)
+    }
+
+    InsightAPI.updateUserPreference(
+			this.profile.cookie, this.insightData.source, this.insightData.authorId,
+			null, null, null, null, false)
+			.then((result: any) => {
+				const isFail = (result.status == ResponseStatus.ERROR)
+        !isFail && callback()
+        this.closeModal()
+			}, error => {
+			})
   }
 
 }

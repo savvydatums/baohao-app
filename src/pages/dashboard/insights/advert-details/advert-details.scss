@@ -80,5 +80,15 @@ advert-details {
 			line-height: 2.4rem;
 		}
 	}
+
+	.agent.item-ios, .agent.item-md {
+		background-color: #ecd9d6;
+		width: 120%;
+		margin-left: -20px;
+		padding-left: 20% !important;
+		ion-label { 
+			color: rgba(72,12,12, 1);
+		}
+	}
 	
 }

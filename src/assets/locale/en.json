@@ -217,7 +217,9 @@
             "KNOW_MORE_ABOUT": "Know more about",
             "RECOMMEND": "Recommend Products",
             "PRODUCT_CORRECT": "Product suggestion correct?",
-            "ADVERT_CORRECT": "Advert suggestion correct?"
+            "ADVERT_CORRECT": "Advert suggestion correct?",
+            "AGENT": "Agent",
+            "NOT_AGENT": "He/She is not an agent"
 		},
 		"ARCHIVE": {
             "STAR": "Star",
