@@ -14,7 +14,7 @@ export class ProcessingPage {
 	constructor(
 		public navCtrl: NavController,
 		public modalCtrl: ModalController,
-		public translate: TranslateService,)
+		public translate: TranslateService)
 	{
 
 	}

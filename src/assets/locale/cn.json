@@ -141,16 +141,25 @@
     },
 
     "PAYMENT": {
-        "SMALL_TEXT": "年度會員費",
+        "SMALL_TEXT": "會員服務年費",
         "ORIGIN_PRICE": "(原價$7300)",
-        "PRICE": "HKD7,300",
+        "PRICE": "HKD3,500",
         "POINT_1": "<p><b>一百八十天</b> 資料儲存</p>",
-        "POINT_2": "<p><b>免費</b> MyInsurBox設備一個 <br/> (須繳付$500按金)</p>",
+        "POINT_2": "<p>MyInsurBox設備一個 <br/> (須繳付$500按金)</p>",
         "POINT_3": "<p><b>無限</b>個人工智能銷售機會推薦</p>",
         "POINT_4": "<p><b>無限</b>無限個用戶自定關鍵字搜索</p>",
         "POINT_5": "<p><b>一站式</b>保險產品參考資料</p>",
         "REF_TEXT": "推薦人號碼",
-        "CHECKOUT": "付款"
+        "CHECKOUT_METHOD": "付款方式",
+        "CHECKOUT": "付款",
+        "DETAILS": {
+            "CHECK": "港元支票",
+            "CHECK_DETAILS": "<p>1.支票抬頭請寫 Baohe Tech. <br/> 2.將賬戶號碼寫在支票上。 <br/>3. 郵寄至：<br/>6F, KOHO, Hung To Road, Kwun Tong, Kowloon, HK</p>",
+            "TRANSFER": "銀行轉帳",
+            "TRANSFER_DETAILS": "<p>匯款資訊：<br/>匯款銀行：HSBC匯豐銀行<br/> 帳戶名稱：Baohe Tech <br/>匯款帳號：227506068562<br/> 匯款完成後請郵寄至：info@baohetec.com</p>",
+            "CREDIT": "信用卡",
+            "CREDIT_DETAILS": "<p>請使用以下按鍵進行繳款。</p>"
+        }
     },
 
     "APPOINTMENT": {

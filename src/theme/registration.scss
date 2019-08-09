@@ -260,6 +260,9 @@ registration, activate {
                 font-weight:200;
                 color: black;
             }
+            img {
+                width: 80px;
+            }
             .back-circle {
                 background-image: linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0.80));
                 border-bottom-left-radius: 100%;
@@ -407,9 +410,36 @@ activate {
 			height: 100%;
 			border: none;
 		}
-	}
+    }
+    .payment-method-btn {
+        width: 95%;
+    }
 }
 
 .no-border {
     border: none !important;
+}
+.payment-modal {
+    background: rgba(0,0,0,0.15);
+}
+
+payment-details.ion-page {
+    position: relative;
+    width: 90%;
+    height: 70%;
+    margin: 20% 5% 10%;
+    .close-btn {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 40px;
+        line-height: 1rem;
+        z-index: 3;
+    }
+    .slide-zoom {
+        width: 90%;
+        p.left { 
+            text-align: left;
+        }
+    }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, ModalController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { ProfileModel } from '../../../model/ProfileModel';
 
@@ -12,21 +12,13 @@ import { ProfileModel } from '../../../model/ProfileModel';
 export class PaymentPage {
 	constructor(
 		public profile: ProfileModel,
-		public translate: TranslateService) {
+		public translate: TranslateService,
+		private modalCtrl: ModalController) {
 	}
 
-	ionViewDidLoad() {
-
-		var stripScript = document.createElement('script');
-		stripScript.setAttribute('src', 'https://checkout.stripe.com/checkout.js');
-		stripScript.setAttribute('class', 'stripe-button');
-		stripScript.setAttribute('data-description', 'Access for a year');
-		stripScript.setAttribute('data-key', 'pk_test_sGSThVPlCiA4xglP9SA7mQyj');
-		stripScript.setAttribute('data-amount', '5000');
-		stripScript.setAttribute('data-locale', 'auto');
-		document.getElementById('strip-form').appendChild(stripScript);
-
-		var cookieInput = document.getElementById("cookie")
-		cookieInput.setAttribute('value', this.profile.cookie);
+	public openPaymentDetails() {
+		const lang = this.translate.currentLang || this.translate.defaultLang
+		const paymentDetail = this.modalCtrl.create('PaymentDetailsPage', { lang }, {cssClass: 'payment-modal'});
+		paymentDetail.present();
 	}
 }
