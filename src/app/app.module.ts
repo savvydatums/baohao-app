@@ -16,6 +16,7 @@ import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { ProfileModel } from '../model/ProfileModel';
 import { TrashModel } from '../model/TrashModel';
+import { InAppPurchase } from '@ionic-native/in-app-purchase';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { TrashModel } from '../model/TrashModel';
     StatusBar,
     SplashScreen,
     HTTP,
-      {provide: ErrorHandler, useClass: IonicErrorHandler}
+      {provide: ErrorHandler, useClass: IonicErrorHandler},
+      InAppPurchase
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

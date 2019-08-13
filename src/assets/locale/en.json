@@ -169,7 +169,9 @@
             "TRANSFER": "Bank Transfer",
             "TRANSFER_DETAILS": "<p>Bank transfer Information: <br/>Bank Name: Bank of China (Hong Kong)<br/> Account Name: Baohe Tech Limited <br/>Account Number: 012-699-2-003872-8<br/> Please email receipt to：info@baohetec.com</p>",
             "CREDIT": "Credit Card",
-            "CREDIT_DETAILS": "<p>Please click the below button to start payment</p>"
+            "CREDIT_DETAILS": "<p>Please click the below button to start payment</p>",
+            "IN_APP_PURCHASE": "Use In App Purchase",
+            "IN_APP_PURCHASE_DETAIL": "<p>Purchase with the payment method you setup with IOS.</p>"
         }
     },
 

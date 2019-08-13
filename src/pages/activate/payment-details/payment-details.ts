@@ -1,23 +1,24 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavParams, ViewController, AlertController } from 'ionic-angular';
 import { ProfileModel } from '../../../model/ProfileModel';
+import { InAppPurchase } from '@ionic-native/in-app-purchase';
 
 @IonicPage()
 @Component({
   selector: 'payment-details',
   templateUrl: 'payment-details.html',
 })
+
 export class PaymentDetailsPage {
 
-	SlideOpts: object = {
-		initialSlide: 1,
-		speed: 400
-	  };
+	productID:string = 'com.baohao.myinsurbox.yearlyservice';
 
 	constructor(
 		public profile: ProfileModel, 
 		public navParams: NavParams,
-		public viewCtrl : ViewController, 
+		public viewCtrl : ViewController,
+		private iap: InAppPurchase,
+		public alertCtrl: AlertController
 		) {
 	}
 
@@ -37,6 +38,28 @@ export class PaymentDetailsPage {
 
 	public closeModal(){
 		this.viewCtrl.dismiss();
+	}
+
+	public IAPbuy() {
+		let self = this
+		this.iap.buy(this.productID)
+			.then((data)=> {
+				self.showConfirm('finish purchase', JSON.stringify(data))
+			})
+			.catch((err)=> {
+				console.log(err);
+				self.showConfirm('error', JSON.stringify(err))
+			});
+	}
+
+	public showConfirm (title, message) {
+		const alert = this.alertCtrl.create({
+			title: title,
+			message: message,
+			buttons: [{　text: 'ok'　}]
+		})
+
+		alert.present()
 	}
 
 }

@@ -158,7 +158,9 @@
             "TRANSFER": "銀行轉帳",
             "TRANSFER_DETAILS": "<p>匯款資訊：<br/>銀行名稱： 中國銀行（香港）<br/> 帳戶名稱： Baohe Tech Limited<br/>帳戶號碼： 012-699-2-003872-8<br/> 匯款完成後請將收據或證明郵寄至：info@baohetec.com</p>",
             "CREDIT": "信用卡",
-            "CREDIT_DETAILS": "<p>請使用以下按鍵進行繳款。</p>"
+            "CREDIT_DETAILS": "<p>請使用以下按鍵進行繳款。</p>",
+            "IN_APP_PURCHASE": "使用APP購買",
+            "IN_APP_PURCHASE_DETAIL": "<p>使用IOS內建購買本服務。</p>"
         }
     },
 

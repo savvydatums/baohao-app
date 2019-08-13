@@ -4,7 +4,7 @@
       <ion-slide>
         <img src="assets/imgs/check.svg" />
         <h3>{{ 'PAYMENT.DETAILS.CHECK' | translate }}</h3>
-        <p class="left" [innerHTML]="'PAYMENT.DETAILS.CHECK_DETAILS' | translate "></p>
+        <div class="left" [innerHTML]="'PAYMENT.DETAILS.CHECK_DETAILS' | translate "></div>
       </ion-slide>
       <ion-slide>
         <img src="assets/imgs/bank-transfer.svg" />
@@ -15,12 +15,17 @@
         <img src="assets/imgs/credit-card.png"
           srcset="assets/imgs/credit-card@2x.png 2x, assets/imgs/credit-card@3x.png 3x" />
         <h3>{{ 'PAYMENT.DETAILS.CREDIT' | translate }}</h3>
-        <p [innerHTML]="'PAYMENT.DETAILS.CREDIT_DETAILS' | translate "></p>
+        <div [innerHTML]="'PAYMENT.DETAILS.CREDIT_DETAILS' | translate "></div>
         <div class="referal">
             <form id="strip-form" #stripForm action="https://api.myinsurbox.com/stripe/charge.php" method="post">
               <input id="cookie" type="hidden" name="cookie" value="xxxx">
             </form>
           </div>
+      </ion-slide>
+      <ion-slide>
+        <h3> {{ 'PAYMENT.DETAILS.IN_APP_PURCHASE' | translate }}</h3>
+        <div [innerHTML]="'PAYMENT.DETAILS.IN_APP_PURCHASE_DETAIL' | translate"></div>
+        <button ion-button (click)="IAPbuy()">{{ 'PAYMENT.CHECKOUT' | translate }}</button>
       </ion-slide>
     </ion-slides>
 </ion-content>

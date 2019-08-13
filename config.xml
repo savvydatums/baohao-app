@@ -15,7 +15,6 @@
     <allow-navigation href="http://*/*" />
     <allow-navigation href="https://api.myinsurbox.com/*" />
     <preference name="ScrollEnabled" value="false" />
-    <preference name="android-minSdkVersion" value="19" />
     <preference name="android-minSdkVersion" value="22" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
