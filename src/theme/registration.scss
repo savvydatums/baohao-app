@@ -277,8 +277,10 @@ registration, activate {
             }
 
             &.ios {
+                height: 36%;
+                
                 h1 {
-                    font-size: 48px;
+                    font-size: 40px;
                 }
             }
 
@@ -448,7 +450,7 @@ payment-details.ion-page {
     }
     .slide-zoom {
         width: 90%;
-        p.left { 
+        .left { 
             text-align: left;
         }
     }
