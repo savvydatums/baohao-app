@@ -22,6 +22,7 @@ import { ProfileModel } from '../model/ProfileModel';
 import { ArchiveModel } from '../model/ArchiveModel';
 import { TrashModel } from '../model/TrashModel';
 import { AdvertModel } from '../model/AdvertModel';
+import { InAppPurchase } from '@ionic-native/in-app-purchase';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { AdvertModel } from '../model/AdvertModel';
     StatusBar,
     SplashScreen,
     HTTP,
-      {provide: ErrorHandler, useClass: IonicErrorHandler}
+      {provide: ErrorHandler, useClass: IonicErrorHandler},
+      InAppPurchase
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
@@ -72,4 +74,10 @@ export class AppModule {}
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locale/', '.json');
+}
+
+export const platforms = {
+	Browser: 'browser',
+	Android: 'android:',
+	Ios: 'ios'
 }

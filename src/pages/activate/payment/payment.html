@@ -1,0 +1,27 @@
+<ion-content padding class="payment">
+	<div class="head-nav">
+		<ion-icon class="back" name="arrow-back" navPop></ion-icon>
+	</div>
+	<head [ngClass]="shouldShowIOSInfo == true ? 'ios' : ''">
+		<div class="back-circle"></div>
+		<h3>{{ (shouldShowIOSInfo ? 'PAYMENT.IOS.SMALL_TEXT' : 'PAYMENT.SMALL_TEXT') | translate }}</h3>
+		<img src="assets/imgs/membership.svg" />
+		<span *ngIf="!shouldShowIOSInfo" class="strike">
+			<span>{{ 'PAYMENT.ORIGIN_PRICE' | translate }}</span>
+		</span>
+		<h1>{{ (shouldShowIOSInfo ? 'PAYMENT.IOS.PRICE' : 'PAYMENT.PRICE') | translate }}</h1>
+	</head>
+	<div class="content-wrapper">
+		<ul>
+			<li [innerHTML]="'PAYMENT.POINT_1' | translate"></li>
+			<li [innerHTML]="'PAYMENT.POINT_2' | translate"></li>
+			<li [innerHTML]="'PAYMENT.POINT_3' | translate"></li>
+			<li [innerHTML]="'PAYMENT.POINT_4' | translate"></li>
+			<li [innerHTML]="'PAYMENT.POINT_5' | translate"></li>
+		</ul>
+		<button class="payment-method-btn" ion-button round color="light" (click)="openPaymentDetails()"> 
+			{{ 'PAYMENT.CHECKOUT_METHOD' | translate }}
+		</button>
+	</div>
+</ion-content>
+

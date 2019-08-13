@@ -1,0 +1,44 @@
+<ion-content padding>
+  <div class="head-nav">
+    <ion-icon class="back" name="arrow-back" navPush="WelcomePage"></ion-icon>
+  </div>
+  <div class="steps">
+    <h1 class="title">{{ 'STEPS.TITLE' | translate }}</h1>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <img src="assets/imgs/step-1.png" srcset="assets/imgs/step-1@2x.png 2x, assets/imgs/step-1@3x.png 3x" />
+        </ion-col>
+        <ion-col col-9>
+          <h3>{{ 'STEPS.LABEL_1' | translate }}</h3>
+          <h2>{{ 'STEPS.TITLE_1' | translate }}</h2>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <img src="assets/imgs/step-2.png" srcset="assets/imgs/step-2@2x.png 2x, assets/imgs/step-2@3x.png 3x" />
+        </ion-col>
+        <ion-col col-9>
+            <h3>{{ 'STEPS.LABEL_2' | translate }}</h3>
+            <h2>{{ 'STEPS.TITLE_2' | translate }}</h2>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <img src="assets/imgs/step-3.png" srcset="assets/imgs/step-3@2x.png 2x, assets/imgs/step-3@3x.png 3x" />
+        </ion-col>
+        <ion-col col-9>
+          <h3>{{ 'STEPS.LABEL_3' | translate }}</h3>
+          <h2>{{ 'STEPS.TITLE_3' | translate }}</h2>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="bottom-fix">
+      <button ion-button color="light" block round navPush="SignupPage"> {{ 'GLOBAL_CONTINUE_BUTTON_LABEL' | translate }} </button>
+    </div>
+
+  </div>
+</ion-content>

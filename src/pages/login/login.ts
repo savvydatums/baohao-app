@@ -12,6 +12,11 @@ import { isDebug } from '../../utils/url-util';
 import { getTranslation } from '../../utils/Data-Fetch';
 import { ForgetPasswordPage } from '../registration/forget-password';
 import { HTTP } from '@ionic-native/http';
+import { PaymentPage } from '../activate/payment/payment';
+import { WelcomePage } from '../registration/welcome/welcome';
+import { platforms } from '../../app/app.module';
+
+declare var cordova: any;
 
 const cookieTimes = 60 * 60;
 const localStorageIDName = 'myInsurBox_ID';
@@ -26,6 +31,7 @@ export class LoginPage {
 	public errorMsg: string = '';
 	private timer: any = null;
 	public appVersion: string = '';
+	public showLoginInAPP: boolean = false;
 
 	constructor(
 		public navController: NavController,
@@ -99,18 +105,29 @@ export class LoginPage {
 	private goToPageBasedOnUserStatus (status) {
 
 		switch (status) {
-			case LoggedInStatus.PROCESSING:
 			case LoggedInStatus.PENDING:
+				this.navController.push(PaymentPage);
+			break;
+
+			case LoggedInStatus.PROCESSING:
 				this.navController.push(ProcessingPage);
 			break;
 
 			case LoggedInStatus.APPROVED:
-				this.navController.push(DashboardPage);
+				this.checkIfGoToDashbaord()
 			break;
 
 			default:
-				this.navController.push(DashboardPage);
+				this.checkIfGoToDashbaord()
 			break;
+		}
+	}
+
+	private checkIfGoToDashbaord () {
+		if (cordova.platformId === platforms.Browser) {
+			this.showLoginInAPP = true
+		} else {
+			this.navController.push(DashboardPage);
 		}
 	}
 
@@ -174,7 +191,7 @@ export class LoginPage {
 	}
 
 	public goToRegister () {
-		window.open("https://registry.myinsurbox.com/#/welcome",'_system', 'location=yes');
+		this.navController.push(WelcomePage);
 	}
 
 	public getAppVersion() {

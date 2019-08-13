@@ -1,0 +1,48 @@
+<ion-content padding>
+	<div class="head-nav">
+		<ion-icon class="back" name="arrow-back" navPush="WelcomePage"></ion-icon>
+	</div>
+
+	<div class="inner-90 group-reservation">
+		<img src="assets/imgs/appointment.png"
+			srcset="assets/imgs/appointment@2x.png 2x, assets/imgs/appointment@3x.png 3x" />
+
+		<form [formGroup]="registrationForm">
+		<h4> {{ 'GROUP_RESERVATION.TITLE' | translate }}</h4>
+		<p>{{ 'GROUP_RESERVATION.BODY' | translate }}</p>
+
+		<ion-list>
+			<ion-item>
+			<ion-label floating>{{ 'GROUP_RESERVATION.NAME_LABEL' | translate }}</ion-label>
+			<ion-input type="text" formControlName="name"></ion-input>
+			</ion-item>
+
+			<ion-item>
+			<ion-label floating>{{ 'GROUP_RESERVATION.EMAIL_LABEL' | translate }}</ion-label>
+			<ion-input type="email" formControlName="email"></ion-input>
+			</ion-item>
+
+			<ion-item>
+			<ion-label floating>{{ 'GROUP_RESERVATION.MOBILE_LABEL' | translate }}</ion-label>
+			<ion-input type="number" formControlName="mobile"></ion-input>
+			</ion-item>
+		</ion-list>
+
+		<div *ngIf="!registrationForm.valid">
+			<div class="error" *ngIf="registrationForm.controls.name.invalid && (registrationForm.controls.name.dirty || registrationForm.controls.name.touched)">
+				<ion-icon name="information-circle"></ion-icon>
+				{{ 'GROUP_RESERVATION.ERROR_NAME' | translate }}
+			</div>
+			<div class="error" *ngIf="registrationForm.controls.email.invalid && (registrationForm.controls.email.dirty || registrationForm.controls.email.touched)">
+				<ion-icon name="information-circle"></ion-icon>
+				{{ 'GROUP_RESERVATION.ERROR_EMAIL' | translate }}
+			</div>
+			<div class="error" *ngIf="registrationForm.controls.mobile.invalid && (registrationForm.controls.mobile.dirty || registrationForm.controls.mobile.touched)">
+				<ion-icon name="information-circle"></ion-icon>
+				{{ 'GROUP_RESERVATION.ERROR_MOBILE' | translate }}
+			</div>
+		</div>
+		<button ion-button color="light" block round (click)="onRegister()" [disabled]="!registrationForm.valid"> {{ 'GLOBAL_SUBMIT_BUTTON_LABEL' | translate }} </button>
+		</form>
+	</div>
+</ion-content>

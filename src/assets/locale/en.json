@@ -42,7 +42,8 @@
         "BUTTON": "SIGN IN",
         "SIGN_UP_CTA": "Don't have an account? ",
         "SIGN_UP_LINK": "Sign up",
-        "REMEMBER_REGISTRATION_ID": "Remember my Registration ID"
+        "REMEMBER_REGISTRATION_ID": "Remember my Registration ID",
+        "APPROVED": "Your Insurbox is already setup and approved, please login your App to check insights."
     },
     "WELCOME": {
         "TITLE": "Welcome to MyInsurBox",
@@ -155,16 +156,27 @@
     },
 
     "PAYMENT": {
-        "SMALL_TEXT": "Early Bird Promotion",
+        "SMALL_TEXT": "MyInsurbox Annual Fee",
         "ORIGIN_PRICE": "$7300",
-        "PRICE": "$3500",
+        "PRICE": "HKD$7300",
         "POINT_1": "<p><b>180 days</b> data storage</p>",
         "POINT_2": "<p><b>Free</b> MyInsurBox Device <br/>($500 deposit required)</p>",
         "POINT_3": "<p><b>Unlimited</b> Sales Opportunities <br/> Recommanded by AI</p>",
         "POINT_4": "<p><b>Unlimited</b> User Defined Keyword Search </p>",
         "POINT_5": "<p><b>One Stop Shop</b> on Insurance Product Information</p>",
         "REF_TEXT": "Referral Code",
-        "CHECKOUT": "CHECKOUT"
+        "CHECKOUT_METHOD": "Checkout methods",
+        "CHECKOUT": "CHECKOUT",
+        "DETAILS": {
+            "CHECK": "HKD Cheque",
+            "CHECK_DETAILS": "<p>1. Check title: Baohe Tech Limited. <br/> 2.Write the account number on the check.。 <br/>3. Eamil to Office Address: <br/>6F, KOHO, Hung To Road, Kwun Tong, Kowloon, HK</p>",
+            "TRANSFER": "Bank Transfer",
+            "TRANSFER_DETAILS": "<p>Bank transfer Information: <br/>Bank Name: Bank of China (Hong Kong)<br/> Account Name: Baohe Tech Limited <br/>Account Number: 012-699-2-003872-8<br/> Please email receipt to：info@baohetec.com</p>",
+            "CREDIT": "Credit Card",
+            "CREDIT_DETAILS": "<p>Please click the below button to start payment</p>",
+            "IN_APP_PURCHASE": "Use In App Purchase",
+            "IN_APP_PURCHASE_DETAIL": "<p>Purchase with the payment method you setup with IOS.</p>"
+        }
     },
 
     "APPOINTMENT": {
