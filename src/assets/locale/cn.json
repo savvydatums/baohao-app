@@ -141,11 +141,11 @@
     },
 
     "PAYMENT": {
-        "SMALL_TEXT": "會員服務年費",
+        "SMALL_TEXT": "MyInsurBox年費",
         "ORIGIN_PRICE": "(原價$7300)",
-        "PRICE": "HKD3,500",
+        "PRICE": "HKD7,300",
         "POINT_1": "<p><b>一百八十天</b> 資料儲存</p>",
-        "POINT_2": "<p>MyInsurBox設備一個 <br/> (須繳付$500按金)</p>",
+        "POINT_2": "<p>免費MyInsurBox設備一個 <br/> (須繳付$500按金)</p>",
         "POINT_3": "<p><b>無限</b>個人工智能銷售機會推薦</p>",
         "POINT_4": "<p><b>無限</b>無限個用戶自定關鍵字搜索</p>",
         "POINT_5": "<p><b>一站式</b>保險產品參考資料</p>",
@@ -154,9 +154,9 @@
         "CHECKOUT": "付款",
         "DETAILS": {
             "CHECK": "港元支票",
-            "CHECK_DETAILS": "<p>1.支票抬頭請寫 Baohe Tech. <br/> 2.將賬戶號碼寫在支票上。 <br/>3. 郵寄至：<br/>6F, KOHO, Hung To Road, Kwun Tong, Kowloon, HK</p>",
+            "CHECK_DETAILS": "<p>1.支票抬頭: Baohe Tech Limited <br/> 2.將賬戶號碼寫在支票上。 <br/>3. 郵寄至公司地址：<br/>香港，九龍觀塘鴻圖道75號，KOHO 6樓</p>",
             "TRANSFER": "銀行轉帳",
-            "TRANSFER_DETAILS": "<p>匯款資訊：<br/>匯款銀行：HSBC匯豐銀行<br/> 帳戶名稱：Baohe Tech <br/>匯款帳號：227506068562<br/> 匯款完成後請郵寄至：info@baohetec.com</p>",
+            "TRANSFER_DETAILS": "<p>匯款資訊：<br/>銀行名稱： 中國銀行（香港）<br/> 帳戶名稱： Baohe Tech Limited<br/>帳戶號碼： 012-699-2-003872-8<br/> 匯款完成後請將收據或證明郵寄至：info@baohetec.com</p>",
             "CREDIT": "信用卡",
             "CREDIT_DETAILS": "<p>請使用以下按鍵進行繳款。</p>"
         }

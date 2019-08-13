@@ -152,9 +152,9 @@
     },
 
     "PAYMENT": {
-        "SMALL_TEXT": "Annual membership",
+        "SMALL_TEXT": "MyInsurbox Annual Fee",
         "ORIGIN_PRICE": "$7300",
-        "PRICE": "HKD$3500",
+        "PRICE": "HKD$7300",
         "POINT_1": "<p><b>180 days</b> data storage</p>",
         "POINT_2": "<p><b>Free</b> MyInsurBox Device <br/>($500 deposit required)</p>",
         "POINT_3": "<p><b>Unlimited</b> Sales Opportunities <br/> Recommanded by AI</p>",
@@ -165,9 +165,9 @@
         "CHECKOUT": "CHECKOUT",
         "DETAILS": {
             "CHECK": "HKD Cheque",
-            "CHECK_DETAILS": "<p>1. Check title: Baohe Tech. <br/> 2.Write the account number on the check.。 <br/>3. Eamil to：<br/>6F, KOHO, Hung To Road, Kwun Tong, Kowloon, HK</p>",
+            "CHECK_DETAILS": "<p>1. Check title: Baohe Tech Limited. <br/> 2.Write the account number on the check.。 <br/>3. Eamil to Office Address: <br/>6F, KOHO, Hung To Road, Kwun Tong, Kowloon, HK</p>",
             "TRANSFER": "Bank Transfer",
-            "TRANSFER_DETAILS": "<p>Bank transfer Information: <br/>Bank Infomation: Hongkong and Shanghai Banking Company Limited<br/> Account Name: Baohao Tech <br/>Account Number：227506068562<br/> Please email the receipt to：info@baohetec.com</p>",
+            "TRANSFER_DETAILS": "<p>Bank transfer Information: <br/>Bank Name: Bank of China (Hong Kong)<br/> Account Name: Baohe Tech Limited <br/>Account Number: 012-699-2-003872-8<br/> Please email receipt to：info@baohetec.com</p>",
             "CREDIT": "Credit Card",
             "CREDIT_DETAILS": "<p>Please click the below button to start payment</p>"
         }
