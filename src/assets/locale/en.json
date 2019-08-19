@@ -175,7 +175,11 @@
             "CREDIT": "Credit Card",
             "CREDIT_DETAILS": "<p>Please click the below button to start payment</p>",
             "IN_APP_PURCHASE": "Use In App Purchase",
-            "IN_APP_PURCHASE_DETAIL": "<p>Purchase with the payment method you setup with IOS.</p>"
+            "IN_APP_PURCHASE_DETAIL": "<p>Purchase with the payment method you setup with IOS.</p>",
+            "IAP_SUCCESS": "Thanks for your purchase",
+            "IAP_SUCCESS_INFO": "We are going to the appointment form, please fill out the time you available for myInsurbox installation.",
+            "IAP_ERROR": "Sorry, We are unable to finish your purchase",
+            "IAP_ERROR_INFO": "There seem to have some system mistakes, please purchase with other methods, cheque, bank transfer or pay by credit card."
         }
     },
 

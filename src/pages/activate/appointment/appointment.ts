@@ -6,7 +6,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { ConfirmComponent } from '../../../components/confirm/confirm.component'
 import { RegistrationAPI } from '../../../api/RegistrationAPI';
 import { TFormResponse } from '../../../model/types';
-//import { redirectIfNotLogin } from '../../../utils/login-util';
 import { getTicketInfo, getTranslation } from '../../../utils/Data-Fetch';
 import { showError } from '../../../utils/alert-generic';
 import { UserAPI } from '../../../api/UserAPI';

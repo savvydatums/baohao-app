@@ -178,7 +178,11 @@
             "CREDIT": "信用卡",
             "CREDIT_DETAILS": "<p>請使用以下按鍵進行繳款。</p>",
             "IN_APP_PURCHASE": "使用APP購買",
-            "IN_APP_PURCHASE_DETAIL": "<p>使用IOS內建購買本服務。</p>"
+            "IN_APP_PURCHASE_DETAIL": "<p>使用IOS內建購買本服務。</p>",
+            "IAP_SUCCESS": "完成購買",
+            "IAP_SUCCESS_INFO": "我們將會進入到下一個預約會面的表格，請填寫您有空的安裝時間。",
+            "IAP_ERROR": "無法完成購買",
+            "IAP_ERROR_INFO": "與Ａｐｐｌｅ的系統連線似乎有誤，建議可以使用別的購買方式，支票、轉帳或信用卡付款。"
         }
     },
 

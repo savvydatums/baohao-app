@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavParams, ViewController, AlertController } from 'ionic-angular';
+import { IonicPage, ViewController, AlertController, NavController } from 'ionic-angular';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { InAppPurchase } from '@ionic-native/in-app-purchase';
 import { platforms } from '../../../app/app.module';
+import { TranslateService } from '@ngx-translate/core';
+import { Appointment } from '../appointment/appointment';
 
 declare var cordova: any;
 
@@ -19,9 +21,10 @@ export class PaymentDetailsPage {
 
 	constructor(
 		public profile: ProfileModel, 
-		public navParams: NavParams,
+		public navCtrl: NavController,
 		public viewCtrl : ViewController,
 		private iap: InAppPurchase,
+		public translate: TranslateService,
 		public alertCtrl: AlertController
 		) {
 	}
@@ -42,8 +45,6 @@ export class PaymentDetailsPage {
 
 		var cookieInput = document.getElementById("cookie")
 		cookieInput.setAttribute('value', this.profile.cookie);
-		
-		
 	}
 
 	public closeModal(){
@@ -52,24 +53,45 @@ export class PaymentDetailsPage {
 
 	public IAPbuy() {
 		let self = this
-		this.iap.buy(this.productID)
-			.then((data)=> {
-				self.showConfirm('finish purchase', JSON.stringify(data))
+		const successTitle = this.translate.instant('PAYMENT.DETAILS.IAP_SUCCESS')
+		const successInfo = this.translate.instant('PAYMENT.DETAILS.IAP_SUCCESS_INFO')
+		const errorTitle = this.translate.instant('PAYMENT.DETAILS.IAP_ERROR')
+		const errorInfo = this.translate.instant('PAYMENT.DETAILS.IAP_ERROR_INFO')
+
+		this.iap
+			.getProducts([this.productID]) // need to request product first always
+			.then((productData) => {
+				this.iap
+				.buy(productData[0].productId)
+				.then((data)=> {
+					self.showConfirm(successTitle, successInfo, true)
+				})
+				.catch((err)=> {
+					self.showConfirm(errorTitle, errorInfo, false)
+					console.log('purchase error', JSON.stringify(err))
+				});
 			})
-			.catch((err)=> {
-				console.log(err);
-				self.showConfirm('error', JSON.stringify(err))
+			.catch((err) => {
+				self.showConfirm(errorTitle, errorInfo, false)
+				console.log('purchase error', JSON.stringify(err))
 			});
 	}
 
-	public showConfirm (title, message) {
+	public showConfirm (title, message, isSuccess) {
 		const alert = this.alertCtrl.create({
 			title: title,
 			message: message,
-			buttons: [{　text: 'ok'　}]
+			buttons: [
+			{　text: 'ok',
+				handler: () => {
+					if (isSuccess == true) {
+						this.navCtrl.push(Appointment, { cookie: this.profile.cookie })
+					}
+					this.closeModal();
+				}
+		　	}]
 		})
 
 		alert.present()
 	}
-
 }
