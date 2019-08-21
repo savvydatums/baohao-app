@@ -5,6 +5,8 @@ import { InAppPurchase } from '@ionic-native/in-app-purchase';
 import { platforms } from '../../../app/app.module';
 import { TranslateService } from '@ngx-translate/core';
 import { Appointment } from '../appointment/appointment';
+import { RegistrationAPI } from '../../../api/RegistrationAPI';
+import { ResponseStatus } from '../../../api/Comms';
 
 declare var cordova: any;
 
@@ -18,6 +20,7 @@ export class PaymentDetailsPage {
 
 	productID:string = 'com.baohao.myinsurbox.yearlyservice';
 	shouldShowInAppPurchase: boolean = false;
+	iAPProcessing = false
 
 	constructor(
 		public profile: ProfileModel, 
@@ -53,8 +56,7 @@ export class PaymentDetailsPage {
 
 	public IAPbuy() {
 		let self = this
-		const successTitle = this.translate.instant('PAYMENT.DETAILS.IAP_SUCCESS')
-		const successInfo = this.translate.instant('PAYMENT.DETAILS.IAP_SUCCESS_INFO')
+		this.iAPProcessing = true
 		const errorTitle = this.translate.instant('PAYMENT.DETAILS.IAP_ERROR')
 		const errorInfo = this.translate.instant('PAYMENT.DETAILS.IAP_ERROR_INFO')
 
@@ -64,14 +66,16 @@ export class PaymentDetailsPage {
 				this.iap
 				.buy(productData[0].productId)
 				.then((data)=> {
-					self.showConfirm(successTitle, successInfo, true)
+					self.saveReceipt(data)
 				})
 				.catch((err)=> {
+					this.iAPProcessing = false
 					self.showConfirm(errorTitle, errorInfo, false)
 					console.log('purchase error', JSON.stringify(err))
 				});
 			})
 			.catch((err) => {
+				this.iAPProcessing = false
 				self.showConfirm(errorTitle, errorInfo, false)
 				console.log('purchase error', JSON.stringify(err))
 			});
@@ -93,5 +97,24 @@ export class PaymentDetailsPage {
 		})
 
 		alert.present()
+	}
+
+	public saveReceipt (data) {
+		let self = this
+		const successTitle = this.translate.instant('PAYMENT.DETAILS.IAP_SUCCESS')
+		const successInfo = this.translate.instant('PAYMENT.DETAILS.IAP_SUCCESS_INFO')
+		console.log(data.transactionId, data.receipt)
+
+		RegistrationAPI.inAppPurchase(this.profile.cookie, data.transactionId, data.receipt)
+			.then((result: any)=> {
+				if (result.code !== ResponseStatus.SUCCESS) {
+					console.log('error', result)
+				}
+				self.showConfirm(successTitle, successInfo, true)
+				this.iAPProcessing = false
+			},(error:any) => {
+				this.iAPProcessing = false
+				console.log('error', error)
+			});
 	}
 }

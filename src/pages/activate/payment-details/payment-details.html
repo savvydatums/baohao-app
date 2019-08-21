@@ -1,5 +1,9 @@
 <ion-content padding>
   <ion-icon (click)="closeModal()" name="close" class="close-btn"></ion-icon>
+  <div *ngIf="iAPProcessing" class="load-wrapper">
+		<ion-spinner name="crescent" color="light"></ion-spinner>
+		<p> {{ 'LOADING' | translate }} </p>
+	</div>
   <ion-slides pager="true">
       <ion-slide>
         <img src="assets/imgs/check.svg" />
@@ -25,7 +29,7 @@
       <ion-slide *ngIf="shouldShowInAppPurchase">
         <h3> {{ 'PAYMENT.DETAILS.IN_APP_PURCHASE' | translate }}</h3>
         <div [innerHTML]="'PAYMENT.DETAILS.IN_APP_PURCHASE_DETAIL' | translate"></div>
-        <button ion-button (click)="IAPbuy()">{{ 'PAYMENT.CHECKOUT' | translate }}</button>
+        <button ion-button (click)="IAPbuy()" [disabled]="iAPProcessing">{{ 'PAYMENT.CHECKOUT' | translate }}</button>
       </ion-slide>
     </ion-slides>
 </ion-content>
