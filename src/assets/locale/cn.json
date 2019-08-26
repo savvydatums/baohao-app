@@ -160,7 +160,7 @@
         "PRICE": "HKD3,500",
         "IOS": {
             "SMALL_TEXT": "MyInsurBox年費",
-            "PRICE": "HKD7,300"
+            "PRICE": "HKD7,888"
         },
         "POINT_1": "<p><b>一百八十天</b> 資料儲存</p>",
         "POINT_2": "<p>免費MyInsurBox設備一個 <br/> (須繳付$500按金)</p>",
@@ -172,7 +172,7 @@
         "CHECKOUT": "付款",
         "DETAILS": {
             "CHECK": "港元支票",
-            "CHECK_DETAILS": "<p>1.支票抬頭: Baohe Tech Limited <br/> 2.將賬戶號碼寫在支票上。 <br/>3. 郵寄至公司地址：<br/>香港，九龍觀塘鴻圖道75號，KOHO 6樓</p>",
+            "CHECK_DETAILS": "<p>1.支票抬頭: Baohe Tech Limited <br/> 2.請把登記帳戶號碼寫在支票背面。 <br/>3. 郵寄至：<br/>香港，九龍觀塘鴻圖道75號，KOHO 6樓</p>",
             "TRANSFER": "銀行轉帳",
             "TRANSFER_DETAILS": "<p>匯款資訊：<br/>銀行名稱： 中國銀行（香港）<br/> 帳戶名稱： Baohe Tech Limited<br/>帳戶號碼： 012-699-2-003872-8<br/> 匯款完成後請將收據或證明郵寄至：info@baohetec.com</p>",
             "CREDIT": "信用卡",

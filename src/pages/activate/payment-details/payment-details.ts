@@ -103,7 +103,6 @@ export class PaymentDetailsPage {
 		let self = this
 		const successTitle = this.translate.instant('PAYMENT.DETAILS.IAP_SUCCESS')
 		const successInfo = this.translate.instant('PAYMENT.DETAILS.IAP_SUCCESS_INFO')
-		console.log(data.transactionId, data.receipt)
 
 		RegistrationAPI.inAppPurchase(this.profile.cookie, data.transactionId, data.receipt)
 			.then((result: any)=> {

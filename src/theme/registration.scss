@@ -69,8 +69,11 @@ registration, activate {
 
     // page welcome
     .welcome, .activate {
+        .title {
+            font-size: 2rem;
+        }
         img {
-            margin: 50px auto;
+            margin: 10px auto;
             display: inherit;
         }
     }
