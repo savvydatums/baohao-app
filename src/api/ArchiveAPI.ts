@@ -10,7 +10,7 @@ export class ArchiveAPI extends Comms {
 	}
 
 	// tested, not use anymore
-	public static getArchiveList(cookie:string) : Promise < {} > {
+	public static getArchiveList(cookie:string) : Promise <{}> {
 		return new Promise((resolve, reject) => {
 			cordova.plugin.http.post(Routes.archiveList, { cookie }, {}, (response) => {
 				const result = JSON.parse(response.data)
@@ -23,9 +23,10 @@ export class ArchiveAPI extends Comms {
 		});
 	}
 
-	public static getAdvertList(cookie:string,  querytype: string) : Promise < {} > {
+	public static getAdvertList(cookie:string,  querytype: string, page?: Number) : Promise <{}> {
+		let payload = page ? { cookie, querytype, page } : { cookie, querytype }
 		return new Promise((resolve, reject) => {
-			cordova.plugin.http.post(Routes.advertList, { cookie, querytype}, {}, (response) => {
+			cordova.plugin.http.post(Routes.advertList, payload, {}, (response) => {
 				const result = JSON.parse(response.data)
 				if (response.status == 200 && result.status == 'ok') {
 					resolve(result)

@@ -63,8 +63,8 @@ export class AdvertDetailsPage {
 
   public notAgent() {
     const callback = () => { 
-      assignAdvertToModal(this.profile.cookie, this.advert) 
-      assignPotentialToModal(this.profile.cookie, this.potential)
+      assignAdvertToModal(this.profile.cookie, this.advert, 1) 
+      assignPotentialToModal(this.profile.cookie, this.potential, 1)
     }
 
     InsightAPI.updateUserPreference(

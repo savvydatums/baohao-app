@@ -51,7 +51,6 @@ export class DashboardPage {
 		InsightAPI.getPotentialInsight(cookie, insightType, currentLoadPage)
 			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					console.log('get potential insights', result)
 					self.potential.addData(result.results, currentLoadPage, result.num_of_pages)
 					self.getClientInsights(this.profile.cookie, insightType)
 				} else {
@@ -68,7 +67,6 @@ export class DashboardPage {
 		InsightAPI.getAllClientInsight(cookie, insightType, currentLoadPage)
 			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					console.log('get all client insights', result)
 					self.insights.addData(result.results, currentLoadPage, result.num_of_pages)	
 					self.showLoading(false)
 				} else {

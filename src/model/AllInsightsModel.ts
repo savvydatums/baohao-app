@@ -18,7 +18,6 @@ export class AllInsightsModel {
 		(loadedPage == 1) && (this.rawData = [])
 		this.rawData = this.rawData.concat(results)
 		this.filteredData = this.rawData; // when filter is done, this will removed.
-		console.log('current loaded page', this.rawData.length);
 
 		(numberOfPages) && (this.numberOfPages = numberOfPages)
 		this.loadedPage = loadedPage;

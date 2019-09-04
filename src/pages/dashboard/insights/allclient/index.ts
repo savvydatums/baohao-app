@@ -47,9 +47,9 @@ export class AllClient {
 		insightModal.present();
 	}
 
-	public loadMoreData (infiniteScroll) {
-		const successCallBack = () => { infiniteScroll.complete(); }
-		const errorCallBack = () => { console.log('error getting stuff back'); }
+	public loadMoreData (event) {
+		const successCallBack = () => { event.complete(); }
+		const errorCallBack = (error) => { console.log(error); }
 		const page = this.insights.loadedPage + 1
 
 		assignClientInsightToModal(this.profile.cookie, this.insights, page, successCallBack, errorCallBack)

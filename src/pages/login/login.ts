@@ -65,8 +65,8 @@ export class LoginPage {
 		if (isDebug()){
 			// registration_id = 'PIBAxxx';
 			// password = 'lulu1234';
-			registration_id = 'cib999';
-			//registration_id = 'jimmytest';
+			//registration_id = 'cib999';
+			registration_id = 'jimmytest';
 			password = 'password';
 
 		} else {

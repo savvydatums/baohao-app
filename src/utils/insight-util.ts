@@ -72,13 +72,14 @@ export const getKeywordText = (translate, type, keyword) => {
 	return info[lang]
 }
 
-export const assignPotentialToModal = (cookie, modal, errorCallback?) => {
-	InsightAPI.getPotentialInsight(cookie, insightFilterTypes.all)
+export const assignPotentialToModal = (cookie, modal, page, successCallback?, errorCallback?) => {
+	InsightAPI.getPotentialInsight(cookie, insightFilterTypes.all, page)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
 				result.status == InsightResponseStatus.UPDATED) {
-				modal.addData(result.results)
+				modal.addData(result.results, page)
+				successCallback && successCallback(result.results)
 			} else {
 				errorCallback && errorCallback(result.message);
 			}
@@ -87,13 +88,14 @@ export const assignPotentialToModal = (cookie, modal, errorCallback?) => {
 		});
 }
 
-export const assignAdvertToModal = (cookie, modal, errorCallback?) => {
-	ArchiveAPI.getAdvertList(cookie, insightFilterTypes.all)
+export const assignAdvertToModal = (cookie, modal, page, successCallback?, errorCallback?) => {
+	ArchiveAPI.getAdvertList(cookie, insightFilterTypes.all, page)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
 				result.status == InsightResponseStatus.UPDATED) {
-				modal.addData(result.results)
+				modal.addData(result.results, page)
+				successCallback && successCallback(result.results)
 			} else {
 				errorCallback && errorCallback(result.message);
 			}

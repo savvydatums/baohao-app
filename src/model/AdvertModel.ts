@@ -2,12 +2,20 @@ export class AdvertModel {
 
 	public rawData: object[];
 	public filteredData: object[];
+	public numberOfPages: Number = 0;
+	public loadedPage: any = 0;
 
 	constructor() {
 
 	}
-	public addData(results) {
-		this.filteredData = this.rawData = results;
+	public addData(results, loadedPage, numberOfPages?) {
+
+		(loadedPage == 1) && (this.rawData = [])
+		this.rawData = this.rawData.concat(results)
+		this.filteredData = this.rawData; // when filter is done, this will removed.
+		(numberOfPages) && (this.numberOfPages = numberOfPages)
+		this.loadedPage = loadedPage;
+
 	}
 
 	public applyFilter(keyword, filter) {

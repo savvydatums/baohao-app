@@ -54,12 +54,12 @@ export class PotentialPage {
 	}
 
 	public starInsight(record_id, source, group) {
-		const callback = () => { assignPotentialToModal(this.profile.cookie, this.potential) }
+		const callback = () => { assignPotentialToModal(this.profile.cookie, this.potential, 1) }
 		return starItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
 	}
 
 	public trashInsight(record_id, source, group) {
-		const callback = () => { assignPotentialToModal(this.profile.cookie, this.potential) }
+		const callback = () => { assignPotentialToModal(this.profile.cookie, this.potential, 1) }
 		return trashItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
 	}
 
@@ -67,6 +67,14 @@ export class PotentialPage {
 		if (key) {
 			return this.translate.instant(key);
 		}
+	}
+
+	public loadMoreData(event) {
+		const successCallBack = () => { event.complete(); }
+		const errorCallBack = (error) => { console.log(error); }
+		const page = this.potential.loadedPage + 1
+
+		assignPotentialToModal(this.profile.cookie, this.potential, page, successCallBack, errorCallBack)
 	}
 
 }

@@ -45,11 +45,12 @@ export class AdvertPage {
   }
 
   private getAdvertList() {
-		let self = this
-		ArchiveAPI.getAdvertList(this.profile.cookie, insightFilterTypes.all)
+    let self = this
+    const loadedPage = 1;
+		ArchiveAPI.getAdvertList(this.profile.cookie, insightFilterTypes.all, loadedPage)
 			.then((result: any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					this.advert.addData(result.results)
+					this.advert.addData(result.results, loadedPage, result.num_of_pages)
 					self.showLoading(false)
 				} else {
 					showError(this.alertCtrl, this.translate, result.message);
@@ -76,13 +77,12 @@ export class AdvertPage {
   }
 
   public starInsight(record_id, source, group) {
-    const callback = () => { assignAdvertToModal(this.profile.cookie, this.advert) }
-    
+    const callback = () => { assignAdvertToModal(this.profile.cookie, this.advert, 1) }
 		return starItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
 	}
 
 	public trashInsight(record_id, source, group) {
-		const callback = () => { assignAdvertToModal(this.profile.cookie, this.advert) }
+		const callback = () => { assignAdvertToModal(this.profile.cookie, this.advert, 1) }
 		return trashItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
   }
   
@@ -90,5 +90,13 @@ export class AdvertPage {
 		if (key) {
 			return this.translate.instant(key);
 		}
+  }
+  
+  public loadMoreData(event) {
+    const successCallBack = () => { event.complete(); }
+		const errorCallBack = (error) => { console.log(error); }
+    const page = this.advert.loadedPage + 1
+    
+		assignAdvertToModal(this.profile.cookie, this.advert, page, successCallBack, errorCallBack)
   }
 }
