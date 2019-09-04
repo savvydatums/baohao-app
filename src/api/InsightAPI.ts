@@ -9,9 +9,10 @@ export class InsightAPI extends Comms {
         super();
 	}
 
-	public static getAllClientInsight(cookie: string, querytype: string): Promise<{}> {
+	public static getAllClientInsight(cookie: string, querytype: string, page?: Number): Promise<{}> {
 		return new Promise((resolve, reject) => {
-			cordova.plugin.http.post(Routes.groupInsight, { cookie, querytype }, {}, (response) => {
+			let payload = page ? { cookie, querytype, page } : { cookie, querytype }
+			cordova.plugin.http.post(Routes.groupInsight, payload, {}, (response) => {
 				const result = JSON.parse(response.data)
 				if (response.status == 200 && result.status == 'ok') {
 					resolve(result)
@@ -22,9 +23,11 @@ export class InsightAPI extends Comms {
 		})
 	}
 
-	public static getPotentialInsight(cookie: string, querytype: string): Promise<{}> {
+	public static getPotentialInsight(cookie: string, querytype: string, page?: Number): Promise<{}> {
 		return new Promise((resolve, reject) => {
-			cordova.plugin.http.post(Routes.potentialInsight, { cookie, querytype }, {}, (response) => {
+			let payload = page ? { cookie, querytype, page } : { cookie, querytype }
+
+			cordova.plugin.http.post(Routes.potentialInsight, payload, {}, (response) => {
 				const result = JSON.parse(response.data)
 				if (response.status == 200 && result.status == 'ok') {
 					resolve(result)

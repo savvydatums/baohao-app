@@ -2,15 +2,23 @@ export class PotentialLeadsModel {
 
 	public rawData: object[];
 	public filteredData: object[];
+	public numberOfPages: Number;
+	public loadedPage: Number;
 
 	constructor() {}
 
-	public addData(results) {
+	public addData(results, loadedPage,  numberOfPages?) {
 		this.rawData = [];
-		for(let key in results) {
+		for (let key in results) {
 			results[key]._id && this.rawData.push(results[key]);
 		}
-		this.filteredData = this.rawData;
+		this.filteredData = this.rawData;		
+		this.loadedPage = loadedPage;
+		console.log('current loaded page')
+
+		if (numberOfPages) {
+			this.numberOfPages = numberOfPages;
+		}
 	}
 
 	public applyFilter(keyword, filter) {

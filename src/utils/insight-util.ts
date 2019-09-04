@@ -102,15 +102,16 @@ export const assignAdvertToModal = (cookie, modal, errorCallback?) => {
 		});
 }
 
-export const assignClientInsightToModal = (cookie, modal, errorCallback?, filterType?) => {
+export const assignClientInsightToModal = (cookie, modal, page, successCallback?, errorCallback?, filterType?) => {
 	const filter = filterType ? filterType : insightFilterTypes.all
 
-	InsightAPI.getAllClientInsight(cookie, filter)
+	InsightAPI.getAllClientInsight(cookie, filter, page)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
 				result.status == InsightResponseStatus.UPDATED) {
-				modal.addData(result.results)
+				modal.addData(result.results, page)
+				successCallback && successCallback(result.results)
 			} else {
 				errorCallback && errorCallback(result.message);
 			}

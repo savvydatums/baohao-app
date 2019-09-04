@@ -44,11 +44,9 @@ export class PotentialPage {
 	}
 
 	public showPotentialLeads(info) {
-
 		let insightModal = this.modalCtrl.create(
 			'InsightDetailsPage', { info, type: insightType.potential }
 		);
-
 		insightModal.present();
 	}
 	public searchHandler (keyword, filter) {

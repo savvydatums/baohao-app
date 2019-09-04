@@ -97,12 +97,12 @@ export class ArchivePage {
 	}
 
 	public unStarInsight(record_id, source) {
-		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.archive, null, insightFilterTypes.archive) }
+		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.archive, 1, null, null, insightFilterTypes.archive) }
 		return unStarItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, callback);
 	}
 
 	public trashInsight(record_id, source, categories) {
-		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.archive, null, insightFilterTypes.archive) }
+		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.archive, 1, null, null, insightFilterTypes.archive) }
 		return trashItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, null, categories, callback);
 	}
 

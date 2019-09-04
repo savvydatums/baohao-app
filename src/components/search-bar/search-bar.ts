@@ -46,7 +46,7 @@ export class SearchBarComponent {
 	}
 
 	public onSearchHandler(keyword) {
-		this.insights.applyFilter2(keyword)
+		this.insights.applyFilter(keyword)
 	}
 
 	public onResetFilter(type) {

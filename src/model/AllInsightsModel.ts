@@ -2,20 +2,30 @@ import { filterOptions, keywordsSettings } from '../pages/dashboard/insights/set
 
 export class AllInsightsModel {
 
-	public rawData: object[];
+	public rawData: object[] = [];
 	public filteredData: object[];
 	public filters: object[];
 	public categories: object[] = [];
 	public topOptions: object[] = [];
+	public numberOfPages: Number = 0;
+	public loadedPage: any = 0;
 
 	constructor() {
 	}
 
-	public addData(results) {
-		this.filteredData = this.rawData = results;
+	public addData(results, loadedPage, numberOfPages?) {
+
+		(loadedPage == 1) && (this.rawData = [])
+		this.rawData = this.rawData.concat(results)
+		this.filteredData = this.rawData; // when filter is done, this will removed.
+		console.log('current loaded page', this.rawData.length);
+
+		(numberOfPages) && (this.numberOfPages = numberOfPages)
+		this.loadedPage = loadedPage;
 	}
 
-	public applyFilter2(keyword) {
+	public applyFilter(keyword) {
+		// change to call rawData and the whole filter function will have to change
 		this.filteredData = this.rawData.filter((item:any) => {
 			let isInCategory = false
 

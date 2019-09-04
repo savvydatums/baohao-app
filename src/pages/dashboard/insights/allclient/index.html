@@ -35,4 +35,12 @@
 			</ion-item-options>
 		</ion-item-sliding>
 	</ion-list>
+	<ion-infinite-scroll
+		*ngIf="insights.loadedPage < insights.numberOfPages" 
+		(ionInfinite)="loadMoreData($event)">
+		<ion-infinite-scroll-content
+			loadingSpinner="bubbles"
+			[loadingText]="'LOADING'|translate"
+	  	></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
 </ion-content>

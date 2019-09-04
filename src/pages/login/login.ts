@@ -66,6 +66,7 @@ export class LoginPage {
 			// registration_id = 'PIBAxxx';
 			// password = 'lulu1234';
 			registration_id = 'cib999';
+			//registration_id = 'jimmytest';
 			password = 'password';
 
 		} else {
@@ -124,7 +125,8 @@ export class LoginPage {
 	}
 
 	private checkIfGoToDashbaord () {
-		if (cordova.platformId === platforms.Browser) {
+		if (cordova.platformId !== platforms.Browser) { // this is for testing on web
+		//if (cordova.platformId === platforms.Browser) { // this is for production
 			this.showLoginInAPP = true
 		} else {
 			this.navController.push(DashboardPage);

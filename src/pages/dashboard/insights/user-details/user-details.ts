@@ -27,7 +27,6 @@ export class UserDetailsPage {
 
 	@ViewChild('barChartView') barChartView;
 	barChart: any;
-	openEditNote: Function = openEditNoteForNickName;
 	renderTimeStamp: Function = renderTimeStampInNumber;
 
 	constructor(
@@ -42,6 +41,13 @@ export class UserDetailsPage {
 	ionViewWillLoad() {
 		this.userDetails = this.navParams.get('info');
 		this.getAuthorCategoryList(this.profile.cookie, this.userDetails.authorId, this.userDetails.source)
+	}
+
+	public openEditNote () {
+		const callback = (nickname) => {
+			this.userDetails.nickname = nickname
+		}
+		openEditNoteForNickName(this.alertCtrl, this.translate, this.userDetails, this.profile.cookie, callback.bind(this))
 	}
 
 	private getAuthorCategoryList (cookie, authorId, source) {

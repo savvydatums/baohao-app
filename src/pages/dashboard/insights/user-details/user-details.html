@@ -6,7 +6,7 @@
 		<div class="title">
 			<h2>{{ userDetails.authorName }}</h2>
 			<h4 class="nickname">( {{ userDetails.nickname || 'INSIGHT.ADD_NICKNAME'|translate }} )
-				<img class="edit" src="assets/icon/edit.svg" (click)="openEditNote(alertCtrl, translate, userDetails, profile.cookie)">
+				<img class="edit" src="assets/icon/edit.svg" (click)="openEditNote()">
 			</h4>
 		</div>
 		<div class="source">

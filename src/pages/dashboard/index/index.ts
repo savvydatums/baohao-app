@@ -47,10 +47,12 @@ export class DashboardPage {
 
 	private getPotentialLeads (cookie, insightType) {
 		let self = this
-		InsightAPI.getPotentialInsight(cookie, insightType)
+		const currentLoadPage = 1
+		InsightAPI.getPotentialInsight(cookie, insightType, currentLoadPage)
 			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					self.potential.addData(result.results)
+					console.log('get potential insights', result)
+					self.potential.addData(result.results, currentLoadPage, result.num_of_pages)
 					self.getClientInsights(this.profile.cookie, insightType)
 				} else {
 					showError(this.alertCtrl, this.translate, result.message);
@@ -62,10 +64,12 @@ export class DashboardPage {
 
 	private getClientInsights(cookie, insightType) {
 		let self = this
-		InsightAPI.getAllClientInsight(cookie, insightType)
+		const currentLoadPage = 1
+		InsightAPI.getAllClientInsight(cookie, insightType, currentLoadPage)
 			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					self.insights.addData(result.results)					
+					console.log('get all client insights', result)
+					self.insights.addData(result.results, currentLoadPage, result.num_of_pages)	
 					self.showLoading(false)
 				} else {
 					showError(this.alertCtrl, this.translate, result.message);

@@ -34,10 +34,6 @@ export class AllClient {
 		public modalCtrl: ModalController,
 	) {}
 
-	ionViewWillEnter() {
-		//this.filterText = this.translate.instant('NAVIGATION.FILTER')
-	}
-
 	public getKeywordColor(category) {
 		const color = getKeywordInfo(this.type, category).color
 		return color
@@ -51,17 +47,25 @@ export class AllClient {
 		insightModal.present();
 	}
 
+	public loadMoreData (infiniteScroll) {
+		const successCallBack = () => { infiniteScroll.complete(); }
+		const errorCallBack = () => { console.log('error getting stuff back'); }
+		const page = this.insights.loadedPage + 1
+
+		assignClientInsightToModal(this.profile.cookie, this.insights, page, successCallBack, errorCallBack)
+	}
+
 	public searchHandler(keyword) {
-		this.insights.applyFilter2(keyword);
+		this.insights.applyFilter(keyword);
 	}
 
 	public starInsight(record_id, source, categories) {
-		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.insights)}
+		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.insights, 1)}
 		return starItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, null, categories, callback.bind(this));
 	}
 
 	public trashInsight(record_id, source, categories) {
-		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.insights) }
+		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.insights, 1) }
 		return trashItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, null, categories, callback.bind(this));
 	}
 

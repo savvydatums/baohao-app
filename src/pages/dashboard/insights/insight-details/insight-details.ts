@@ -82,7 +82,6 @@ export class InsightDetailsPage {
 
 	public openEditNote () {
 		const callback = (nickname) => {
-			this.reLoadData(false)
 			this.insightData.nickname = nickname
 		}
 		openEditNoteForNickName(this.alertCtrl, this.translate, this.insightData, this.profile.cookie, callback.bind(this))
@@ -113,7 +112,7 @@ export class InsightDetailsPage {
 		}
 
 		this.type == insightType.potential && assignPotentialToModal(this.profile.cookie, this.potential, errorCallback.bind(this))
-		this.type == insightType.all && assignClientInsightToModal(this.profile.cookie, this.allClient, errorCallback.bind(this))
+		this.type == insightType.all && assignClientInsightToModal(this.profile.cookie, this.allClient, 1, null, errorCallback.bind(this))
 		isAgent == true &&  assignAdvertToModal(this.profile.cookie, this.advert) 
 
 		closeModal && this.closeModal()

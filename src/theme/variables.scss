@@ -99,6 +99,10 @@ $dark: #454545;
 @import "roboto";
 @import "noto-sans";
 
+
+$infinite-scroll-loading-color : #fff;
+$infinite-scroll-loading-margin-start: '32px';
+
 // common files
 // --------------------------------------------------
 @import "common";
