@@ -50,7 +50,8 @@ export class PotentialPage {
 		insightModal.present();
 	}
 	public searchHandler (keyword, filter) {
-		this.potential.applyFilter(keyword, filter);
+		const search = { keyword, searchtype: filter ? filter : 'both' }
+		assignPotentialToModal(this.profile.cookie, this.potential, null, search)
 	}
 
 	public starInsight(record_id, source, group) {
@@ -74,7 +75,7 @@ export class PotentialPage {
 		const errorCallBack = (error) => { console.log(error); }
 		const page = this.potential.loadedPage + 1
 
-		assignPotentialToModal(this.profile.cookie, this.potential, page, successCallBack, errorCallBack)
+		assignPotentialToModal(this.profile.cookie, this.potential, page, null, successCallBack, errorCallBack)
 	}
 
 }

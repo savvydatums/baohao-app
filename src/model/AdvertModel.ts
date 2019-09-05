@@ -10,25 +10,12 @@ export class AdvertModel {
 	}
 	public addData(results, loadedPage, numberOfPages?) {
 
-		(loadedPage == 1) && (this.rawData = [])
+		// todo numberOfPage change when loadedPage is all
+		(loadedPage == 1 || !loadedPage) && (this.rawData = [])
 		this.rawData = this.rawData.concat(results)
 		this.filteredData = this.rawData; // when filter is done, this will removed.
 		(numberOfPages) && (this.numberOfPages = numberOfPages)
 		this.loadedPage = loadedPage;
-
-	}
-
-	public applyFilter(keyword, filter) {
-		this.filteredData = this.rawData.filter((item: any) => {
-			if (filter == 'name' && keyword.length > 0) {
-				return item.authorName.toLowerCase().includes(keyword.toLowerCase())
-			} else if (filter == 'content' && keyword.length > 0) {
-				return item.content.toLowerCase().includes(keyword.toLowerCase())
-			} else {
-				return item.content.toLowerCase().includes(keyword.toLowerCase())
-					|| item.authorName.toLowerCase().includes(keyword.toLowerCase())
-			}
-		})
 	}
 	
 	public updateUsefulData (source, id, isUseful) {

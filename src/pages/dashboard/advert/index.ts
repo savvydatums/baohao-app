@@ -61,7 +61,8 @@ export class AdvertPage {
   }
 
   public searchHandler (keyword, filter) {
-		this.advert.applyFilter(keyword, filter);
+    const search = { keyword, searchtype: filter ? filter : 'both' }
+		assignAdvertToModal(this.profile.cookie, this.advert, null, search)
 	}
 
   private showLoading(show) {
@@ -97,6 +98,6 @@ export class AdvertPage {
 		const errorCallBack = (error) => { console.log(error); }
     const page = this.advert.loadedPage + 1
     
-		assignAdvertToModal(this.profile.cookie, this.advert, page, successCallBack, errorCallBack)
+		assignAdvertToModal(this.profile.cookie, this.advert, page, null, successCallBack, errorCallBack)
   }
 }

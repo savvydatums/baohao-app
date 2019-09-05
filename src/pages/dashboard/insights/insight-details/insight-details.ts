@@ -111,7 +111,7 @@ export class InsightDetailsPage {
 			showError(this.alertCtrl, this.translate, message)
 		}
 
-		this.type == insightType.potential && assignPotentialToModal(this.profile.cookie, this.potential, 1, null, errorCallback.bind(this))
+		this.type == insightType.potential && assignPotentialToModal(this.profile.cookie, this.potential, 1, null, null, errorCallback.bind(this))
 		this.type == insightType.all && assignClientInsightToModal(this.profile.cookie, this.allClient, 1, null, errorCallback.bind(this))
 		isAgent == true &&  assignAdvertToModal(this.profile.cookie, this.advert, 1) 
 

@@ -62,6 +62,7 @@ export class AdvertDetailsPage {
   }
 
   public notAgent() {
+    // TODO: might keep search filter
     const callback = () => { 
       assignAdvertToModal(this.profile.cookie, this.advert, 1) 
       assignPotentialToModal(this.profile.cookie, this.potential, 1)

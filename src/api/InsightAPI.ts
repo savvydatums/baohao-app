@@ -1,5 +1,6 @@
 import { Comms } from './Comms';
 import * as Routes from './routes';
+import { configInsightListPayload } from '../utils/insight-util';
 
 declare var cordova: any;
 
@@ -9,9 +10,9 @@ export class InsightAPI extends Comms {
         super();
 	}
 
-	public static getAllClientInsight(cookie: string, querytype: string, page?: Number): Promise<{}> {
+	public static getAllClientInsight(cookie: string, querytype: string, page?: Number, search?:any): Promise<{}> {
 		return new Promise((resolve, reject) => {
-			let payload = page ? { cookie, querytype, page } : { cookie, querytype }
+			let payload = configInsightListPayload (cookie, querytype, page, search)
 			cordova.plugin.http.post(Routes.groupInsight, payload, {}, (response) => {
 				const result = JSON.parse(response.data)
 				if (response.status == 200 && result.status == 'ok') {
@@ -23,9 +24,9 @@ export class InsightAPI extends Comms {
 		})
 	}
 
-	public static getPotentialInsight(cookie: string, querytype: string, page?: Number): Promise<{}> {
+	public static getPotentialInsight(cookie: string, querytype: string, page?: Number, search?:any): Promise<{}> {
 		return new Promise((resolve, reject) => {
-			let payload = page ? { cookie, querytype, page } : { cookie, querytype }
+			let payload = configInsightListPayload (cookie, querytype, page, search)
 
 			cordova.plugin.http.post(Routes.potentialInsight, payload, {}, (response) => {
 				const result = JSON.parse(response.data)
@@ -101,7 +102,6 @@ export class InsightAPI extends Comms {
 	}
 
 	public static getAuthorCategoryList(cookie, authorid, source): Promise<{}> {
-
 		return new Promise((resolve, reject) => {
 			cordova.plugin.http.post(Routes.totalAmountByAuthorId, { cookie, authorid, source }, {}, (response) => {
 				const result = JSON.parse(response.data)

@@ -72,8 +72,8 @@ export const getKeywordText = (translate, type, keyword) => {
 	return info[lang]
 }
 
-export const assignPotentialToModal = (cookie, modal, page, successCallback?, errorCallback?) => {
-	InsightAPI.getPotentialInsight(cookie, insightFilterTypes.all, page)
+export const assignPotentialToModal = (cookie, modal, page, search?, successCallback?, errorCallback?) => {
+	InsightAPI.getPotentialInsight(cookie, insightFilterTypes.all, page, search)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
@@ -88,8 +88,8 @@ export const assignPotentialToModal = (cookie, modal, page, successCallback?, er
 		});
 }
 
-export const assignAdvertToModal = (cookie, modal, page, successCallback?, errorCallback?) => {
-	ArchiveAPI.getAdvertList(cookie, insightFilterTypes.all, page)
+export const assignAdvertToModal = (cookie, modal, page, search?, successCallback?, errorCallback?) => {
+	ArchiveAPI.getAdvertList(cookie, insightFilterTypes.all, page, search)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
@@ -120,4 +120,17 @@ export const assignClientInsightToModal = (cookie, modal, page, successCallback?
 		}, error => {
 			errorCallback && errorCallback(error);
 		});
+}
+
+export const configInsightListPayload = (cookie: string, querytype: string, page?: Number, search?:any) => {
+	
+	let basic = page ? { cookie, querytype, page } : { cookie, querytype }
+	let payload:any = { ...basic }
+	if (search && search.keyword && search.keyword.length > 0 && search.searchtype.length > 0) {
+		payload.keyword = search.keyword
+		payload.searchtype = search.searchtype
+	}
+
+	console.log('search payload', payload);
+	return payload
 }
