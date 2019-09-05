@@ -126,11 +126,11 @@ export const configInsightListPayload = (cookie: string, querytype: string, page
 	
 	let basic = page ? { cookie, querytype, page } : { cookie, querytype }
 	let payload:any = { ...basic }
-	if (search && search.keyword && search.keyword.length > 0 && search.searchtype.length > 0) {
+	if (search && search.keyword && search.keyword.length > 0 && search.searchtype.length > 0) 
+	{
 		payload.keyword = search.keyword
 		payload.searchtype = search.searchtype
 	}
 
-	console.log('search payload', payload);
 	return payload
 }

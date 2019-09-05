@@ -2,14 +2,14 @@
 	<div class="head-nav">
 		<ion-icon class="back" name="arrow-back" navPop></ion-icon>
 	</div>
-	<head [ngClass]="shouldShowIOSInfo == true ? 'ios' : ''">
+	<head>
 		<div class="back-circle"></div>
-		<h3>{{ (shouldShowIOSInfo ? 'PAYMENT.IOS.SMALL_TEXT' : 'PAYMENT.SMALL_TEXT') | translate }}</h3>
+		<h3>{{ 'PAYMENT.SMALL_TEXT'|translate }}</h3>
 		<img src="assets/imgs/membership.svg" />
-		<span *ngIf="!shouldShowIOSInfo" class="strike">
+		<span  class="strike">
 			<span>{{ 'PAYMENT.ORIGIN_PRICE' | translate }}</span>
 		</span>
-		<h1>{{ (shouldShowIOSInfo ? 'PAYMENT.IOS.PRICE' : 'PAYMENT.PRICE') | translate }}</h1>
+		<h1>{{ 'PAYMENT.PRICE'|translate }}</h1>
 	</head>
 	<div class="content-wrapper">
 		<ul>

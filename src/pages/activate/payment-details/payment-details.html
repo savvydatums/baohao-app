@@ -26,10 +26,5 @@
             </form>
           </div>
       </ion-slide>
-      <ion-slide *ngIf="shouldShowInAppPurchase">
-        <h3> {{ 'PAYMENT.DETAILS.IN_APP_PURCHASE' | translate }}</h3>
-        <div [innerHTML]="'PAYMENT.DETAILS.IN_APP_PURCHASE_DETAIL' | translate"></div>
-        <button ion-button (click)="IAPbuy()" [disabled]="iAPProcessing">{{ 'PAYMENT.CHECKOUT' | translate }}</button>
-      </ion-slide>
     </ion-slides>
 </ion-content>
