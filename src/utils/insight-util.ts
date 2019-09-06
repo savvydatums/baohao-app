@@ -104,10 +104,10 @@ export const assignAdvertToModal = (cookie, modal, page, search?, successCallbac
 		});
 }
 
-export const assignClientInsightToModal = (cookie, modal, page, successCallback?, errorCallback?, filterType?) => {
+export const assignClientInsightToModal = (cookie, modal, page, search?, successCallback?, errorCallback?, filterType?) => {
 	const filter = filterType ? filterType : insightFilterTypes.all
 
-	InsightAPI.getAllClientInsight(cookie, filter, page)
+	InsightAPI.getAllClientInsight(cookie, filter, page, search)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
@@ -126,11 +126,19 @@ export const configInsightListPayload = (cookie: string, querytype: string, page
 	
 	let basic = page ? { cookie, querytype, page } : { cookie, querytype }
 	let payload:any = { ...basic }
-	if (search && search.keyword && search.keyword.length > 0 && search.searchtype.length > 0) 
-	{
-		payload.keyword = search.keyword
-		payload.searchtype = search.searchtype
+
+	if (search) {
+		if (search.keyword && search.keyword.length > 0 && search.searchtype.length > 0) 
+		{
+			payload.keyword = search.keyword
+			payload.searchtype = search.searchtype
+		}
+
+		if (search.categories && search.categories.length > 0) {
+			payload.categoriesfilter = JSON.stringify(search.categories)
+		}
 	}
+	console.log(payload)
 
 	return payload
 }

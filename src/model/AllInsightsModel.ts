@@ -15,7 +15,7 @@ export class AllInsightsModel {
 
 	public addData(results, loadedPage, numberOfPages?) {
 
-		(loadedPage == 1) && (this.rawData = [])
+		(loadedPage == 1 || !loadedPage) && (this.rawData = [])
 		this.rawData = this.rawData.concat(results)
 		this.filteredData = this.rawData; // when filter is done, this will removed.
 
@@ -84,5 +84,32 @@ export class AllInsightsModel {
 		}
 	
 		this.filteredData =  this.rawData;
+	}
+
+	public getCategories () {
+		let results = []
+		this.categories.map((item:any) => {
+			if (item.checked == true) {
+				results.push(item.value)
+			}
+		})
+		console.log(results)
+		return results
+	}
+
+	public getOptions () {
+		let results = []
+		this.topOptions.map((item:any) => {
+			if (item.checked == true) {
+				results.push(item.value)
+			}
+		})
+		let searchMethod = ''
+		if (results.length > 1) { 
+			searchMethod = 'both'
+		} else if (results.length <= 1) {
+			searchMethod =  results[0].value
+		}
+		return searchMethod
 	}
 }

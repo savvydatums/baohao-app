@@ -56,7 +56,13 @@ export class AllClient {
 	}
 
 	public searchHandler(keyword) {
-		this.insights.applyFilter(keyword);
+		//this.insights.applyFilter(keyword);
+		const search = {
+			keyword: keyword, 
+			searchtype: this.insights.getOptions(),
+			categories: this.insights.getCategories()
+		}
+		assignClientInsightToModal(this.profile.cookie, this.insights, null, search)
 	}
 
 	public starInsight(record_id, source, categories) {

@@ -125,8 +125,9 @@ export class LoginPage {
 	}
 
 	private checkIfGoToDashbaord () {
-		//if (cordova.platformId !== platforms.Browser) { // this is for testing on web
-		if (cordova.platformId === platforms.Browser) { // this is for production
+		const isRegistry= location.href.indexOf('registry') >= 0
+		const isBrowser = cordova.platformId === platforms.Browser
+		if (isRegistry && isBrowser) { // this is for production
 			this.showLoginInAPP = true
 		} else {
 			this.navController.push(DashboardPage);

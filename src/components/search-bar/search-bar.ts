@@ -3,6 +3,7 @@ import { NavController, LoadingController, ModalController } from 'ionic-angular
 import { AllInsightsModel } from '../../model/AllInsightsModel';
 import { ProfileModel } from '../../model/ProfileModel';
 import { FilterPage } from '../../pages/dashboard/filter'
+import { assignClientInsightToModal } from '../../utils/insight-util';
 
 @Component({
 	selector: 'search-bar',
@@ -46,7 +47,13 @@ export class SearchBarComponent {
 	}
 
 	public onSearchHandler(keyword) {
-		this.insights.applyFilter(keyword)
+		//this.insights.applyFilter(keyword)
+		const search = {
+			keyword: keyword, 
+			searchtype: this.insights.getOptions(),
+			categories: this.insights.getCategories()
+		}
+		assignClientInsightToModal(this.profile.cookie, this.insights, null, search)
 	}
 
 	public onResetFilter(type) {

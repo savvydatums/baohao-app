@@ -12,7 +12,9 @@ export class InsightAPI extends Comms {
 
 	public static getAllClientInsight(cookie: string, querytype: string, page?: Number, search?:any): Promise<{}> {
 		return new Promise((resolve, reject) => {
+			
 			let payload = configInsightListPayload (cookie, querytype, page, search)
+
 			cordova.plugin.http.post(Routes.groupInsight, payload, {}, (response) => {
 				const result = JSON.parse(response.data)
 				if (response.status == 200 && result.status == 'ok') {
