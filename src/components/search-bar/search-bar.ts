@@ -47,12 +47,12 @@ export class SearchBarComponent {
 	}
 
 	public onSearchHandler(keyword) {
-		//this.insights.applyFilter(keyword)
 		const search = {
 			keyword: keyword, 
 			searchtype: this.insights.getOptions(),
 			categories: this.insights.getCategories()
 		}
+		this.insights.keyword = keyword
 		assignClientInsightToModal(this.profile.cookie, this.insights, null, search)
 	}
 

@@ -148,7 +148,7 @@ export class LoginPage {
 
 	public getData () {
 		const testUrl = 'https://api.myinsurbox.com/index.php/api/es/test/'
-		this.nativeHttp.get(testUrl, {}, {}).then(data =>{
+		this.nativeHttp.get(testUrl, {}, {}).then(data => {
 			console.log ('test native',data)
 		});
 	}
@@ -177,7 +177,7 @@ export class LoginPage {
 	}
 
 	private expiredHandler () {
-		this.viewCtrl.dismiss().then(_=>{
+		this.viewCtrl.dismiss().then( _ => {
 			let activePortal = this.ionicApp._modalPortal.getActive()
 			if (activePortal) {
 				activePortal.dismiss(); //can use another .then here

@@ -73,12 +73,13 @@ export const getKeywordText = (translate, type, keyword) => {
 }
 
 export const assignPotentialToModal = (cookie, modal, page, search?, successCallback?, errorCallback?) => {
+	const numOfPage = search ? 1 : null
 	InsightAPI.getPotentialInsight(cookie, insightFilterTypes.all, page, search)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
 				result.status == InsightResponseStatus.UPDATED) {
-				modal.addData(result.results, page)
+				modal.addData(result.results, page, numOfPage)
 				successCallback && successCallback(result.results)
 			} else {
 				errorCallback && errorCallback(result.message);
@@ -89,12 +90,13 @@ export const assignPotentialToModal = (cookie, modal, page, search?, successCall
 }
 
 export const assignAdvertToModal = (cookie, modal, page, search?, successCallback?, errorCallback?) => {
+	const numOfPage = search ? 1 : null
 	ArchiveAPI.getAdvertList(cookie, insightFilterTypes.all, page, search)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
 				result.status == InsightResponseStatus.UPDATED) {
-				modal.addData(result.results, page)
+				modal.addData(result.results, page, numOfPage)
 				successCallback && successCallback(result.results)
 			} else {
 				errorCallback && errorCallback(result.message);
@@ -106,13 +108,14 @@ export const assignAdvertToModal = (cookie, modal, page, search?, successCallbac
 
 export const assignClientInsightToModal = (cookie, modal, page, search?, successCallback?, errorCallback?, filterType?) => {
 	const filter = filterType ? filterType : insightFilterTypes.all
-
 	InsightAPI.getAllClientInsight(cookie, filter, page, search)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
 				result.status == InsightResponseStatus.UPDATED) {
-				modal.addData(result.results, page)
+
+				const numOfPage = search && (result.num_of_pages || 1)
+				modal.addData(result.results, page, numOfPage)
 				successCallback && successCallback(result.results)
 			} else {
 				errorCallback && errorCallback(result.message);
@@ -134,11 +137,11 @@ export const configInsightListPayload = (cookie: string, querytype: string, page
 			payload.searchtype = search.searchtype
 		}
 
-		if (search.categories && search.categories.length > 0) {
-			payload.categoriesfilter = JSON.stringify(search.categories)
+		if (search.categories && search.categories.length > 0) 
+		{
+			payload.categoriesfilter = JSON.stringify(search.categories).replace(/\"/g, "")
 		}
 	}
-	console.log(payload)
 
 	return payload
 }

@@ -9,6 +9,7 @@ export class AllInsightsModel {
 	public topOptions: object[] = [];
 	public numberOfPages: Number = 0;
 	public loadedPage: any = 0;
+	public keyword: string = '';
 
 	constructor() {
 	}
@@ -21,37 +22,6 @@ export class AllInsightsModel {
 
 		(numberOfPages) && (this.numberOfPages = numberOfPages)
 		this.loadedPage = loadedPage;
-	}
-
-	public applyFilter(keyword) {
-		// change to call rawData and the whole filter function will have to change
-		this.filteredData = this.rawData.filter((item:any) => {
-			let isInCategory = false
-
-			item.categories.some((cat:any) => {
-				const optionInfo:any = this.categories.filter((option: any) => option.value == cat)[0]
-				if (optionInfo.checked == true) {
-					isInCategory = true 
-					return true
-				}
-			})
-
-			let hasContentMatch = true
-			if (keyword.length > 0 && isInCategory) {
-				let isNameChecked = false
-				let isContentChecked = false
-				this.topOptions.map((option:any) => {
-					if (option.value == 'name') { isNameChecked = option.checked }
-					if (option.value == 'content') { isContentChecked = option.checked }
-				})
-
-				const nameMatched = isNameChecked && item.authorName.toLowerCase().includes(keyword.toLowerCase())
-				const contentMatched = isContentChecked && item.content.toLowerCase().includes(keyword.toLowerCase())
-				hasContentMatch = nameMatched || contentMatched
-			}
-
-			return isInCategory && hasContentMatch
-		})
 	}
 
 	public setCategoryInfo() {
@@ -93,7 +63,6 @@ export class AllInsightsModel {
 				results.push(item.value)
 			}
 		})
-		console.log(results)
 		return results
 	}
 
@@ -105,10 +74,10 @@ export class AllInsightsModel {
 			}
 		})
 		let searchMethod = ''
-		if (results.length > 1) { 
+		if (results.length > 1 || results.length == 0) { 
 			searchMethod = 'both'
 		} else if (results.length <= 1) {
-			searchMethod =  results[0].value
+			searchMethod = results[0].value
 		}
 		return searchMethod
 	}

@@ -52,16 +52,23 @@ export class AllClient {
 		const errorCallBack = (error) => { console.log(error); }
 		const page = this.insights.loadedPage + 1
 
-		assignClientInsightToModal(this.profile.cookie, this.insights, page, successCallBack, errorCallBack)
+		const search = {
+			keyword: this.insights.keyword,
+			searchtype: this.insights.getOptions(),
+			categories: this.insights.getCategories()
+		}
+
+		assignClientInsightToModal(this.profile.cookie, this.insights, page, search, successCallBack, errorCallBack)
 	}
 
 	public searchHandler(keyword) {
-		//this.insights.applyFilter(keyword);
 		const search = {
 			keyword: keyword, 
 			searchtype: this.insights.getOptions(),
 			categories: this.insights.getCategories()
 		}
+		this.insights.keyword = keyword
+
 		assignClientInsightToModal(this.profile.cookie, this.insights, null, search)
 	}
 
