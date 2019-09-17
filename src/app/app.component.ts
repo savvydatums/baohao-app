@@ -34,8 +34,8 @@ export class MyApp {
 		platform.ready().then(() => {
 			statusBar.styleDefault();
 			splashScreen.hide();
-			let orientation:any = window.screen.orientation;
-			orientation.lock('portrait');
+			//let orientation:any = window.screen.orientation;
+			//orientation.lock('portrait');
 
 		});
 	}

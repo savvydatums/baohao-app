@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, ViewController, AlertController, NavController } from 'ionic-angular';
+import { IonicPage, ViewController } from 'ionic-angular';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -13,10 +13,8 @@ export class PaymentDetailsPage {
 
 	constructor(
 		public profile: ProfileModel, 
-		public navCtrl: NavController,
 		public viewCtrl : ViewController,
-		public translate: TranslateService,
-		public alertCtrl: AlertController
+		public translate: TranslateService
 		) {
 	}
 

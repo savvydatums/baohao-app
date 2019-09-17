@@ -1,15 +1,22 @@
 <ion-content padding class="payment">
+	<div *ngIf="iAPProcessing" class="load-wrapper">
+		<ion-spinner name="crescent" color="light"></ion-spinner>
+		<p> {{ 'LOADING' | translate }} </p>
+	</div>
 	<div class="head-nav">
 		<ion-icon class="back" name="arrow-back" navPop></ion-icon>
 	</div>
-	<head>
+	<head [ngClass]="shouldShowIOSInfo == true ? 'ios' : ''">
 		<div class="back-circle"></div>
-		<h3>{{ 'PAYMENT.SMALL_TEXT'|translate }}</h3>
+		<h3 >{{ this.smallText }}</h3>
 		<img src="assets/imgs/membership.svg" />
-		<span  class="strike">
+		<span *ngIf="!shouldShowIOSInfo" class="strike">
 			<span>{{ 'PAYMENT.ORIGIN_PRICE' | translate }}</span>
 		</span>
-		<h1>{{ 'PAYMENT.PRICE'|translate }}</h1>
+		<h1>{{ this.price }}</h1>
+		<h5 *ngIf="shouldShowIOSInfo">
+			{{ 'PAYMENT.DETAILS.IN_APP_PURCHASE' | translate }}
+		</h5>
 	</head>
 	<div class="content-wrapper">
 		<ul>
@@ -19,8 +26,11 @@
 			<li [innerHTML]="'PAYMENT.POINT_4' | translate"></li>
 			<li [innerHTML]="'PAYMENT.POINT_5' | translate"></li>
 		</ul>
-		<button class="payment-method-btn" ion-button round color="light" (click)="openPaymentDetails()"> 
+		<button *ngIf="!shouldShowIOSInfo" class="payment-method-btn" ion-button round color="light" (click)="openPaymentDetails()"> 
 			{{ 'PAYMENT.CHECKOUT_METHOD' | translate }}
+		</button>
+		<button *ngIf="shouldShowIOSInfo" class="payment-method-btn" ion-button round color="light" (click)="IAPbuy()" [disabled]="iAPProcessing">
+			{{ 'PAYMENT.CHECKOUT' | translate }}
 		</button>
 	</div>
 </ion-content>

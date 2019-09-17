@@ -159,6 +159,9 @@
         "SMALL_TEXT": "Early Bird Promotion",
         "ORIGIN_PRICE": "$7300",
         "PRICE": "HKD$3,650",
+        "IOS": {
+            "SMALL_TEXT": "MyInsurBox Annual Fee"
+        },
         "POINT_1": "<p><b>180 days</b> data storage</p>",
         "POINT_2": "<p><b>Free</b> MyInsurBox Device <br/>($500 deposit required)</p>",
         "POINT_3": "<p><b>Unlimited</b> Sales Opportunities <br/> Recommanded by AI</p>",
@@ -173,7 +176,12 @@
             "TRANSFER": "Bank Transfer",
             "TRANSFER_DETAILS": "<p>Bank transfer Information: <br/>Bank Name: Bank of China (Hong Kong)<br/> Account Name: Baohe Tech Limited <br/>Account Number: 012-699-2-003872-8<br/> Please email receipt to：info@baohetec.com</p>",
             "CREDIT": "Credit Card",
-            "CREDIT_DETAILS": "<p>Please click the below button to start payment</p>"
+            "CREDIT_DETAILS": "<p>Please click the below button to start payment</p>",
+            "IN_APP_PURCHASE": "Use In App Purchase",
+            "IAP_SUCCESS": "Thanks for your purchase",
+            "IAP_SUCCESS_INFO": "We are going to the appointment form, please fill out the time you available for myInsurbox installation.",
+            "IAP_ERROR": "Sorry, We are unable to finish your purchase",
+            "IAP_ERROR_INFO": "There seem to have some system mistakes, please purchase with other methods, cheque, bank transfer or pay by credit card."
         }
     },
 
