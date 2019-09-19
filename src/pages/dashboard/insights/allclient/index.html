@@ -7,7 +7,7 @@
 		[fetchTranslation]="fetchTranslation.bind(this)">
 	</search-bar>
 </ion-header>
-<ion-content>
+<ion-content *ngIf="insights.rawData">
 	<ion-list>
 		<ion-item-sliding *ngFor="let item of insights.filteredData">
 			<ion-item (click)="showInsightInfo(item)">
@@ -43,4 +43,8 @@
 			[loadingText]="'LOADING'|translate"
 	  	></ion-infinite-scroll-content>
 	</ion-infinite-scroll>
+</ion-content>
+
+<ion-content class="no_data" *ngIf="!insights.rawData">
+	<p>{{ 'GLOBAL_NO_DATA' | translate }} </p>
 </ion-content>

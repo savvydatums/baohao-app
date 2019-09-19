@@ -18,6 +18,7 @@
     "UPDATE_PENDING_MESSAGE": "we can not update it now, try again later",
     "EXPIRED_MESSAGE": "Login time expired, please re-login.",
     "SEARCH_SOMETHING": "Search Something...",
+    "GLOBAL_NO_DATA": "Oops, there is no data yet!",
 
 	"NAVIGATION": {
         "PROFILE": "PROFILE",

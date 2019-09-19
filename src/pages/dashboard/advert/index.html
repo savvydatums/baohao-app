@@ -8,7 +8,7 @@
   </search-bar>
 </ion-header>
 
-<ion-content class="advert">
+<ion-content class="advert" *ngIf="advert.rawData">
   <div *ngIf="loading" class="loading">
     <div class="load-wrapper">
       <ion-spinner name="crescent" color="light"></ion-spinner>
@@ -44,4 +44,8 @@
       [loadingText]="'LOADING'|translate"
     ></ion-infinite-scroll-content>
   </ion-infinite-scroll>
+</ion-content>
+
+<ion-content class="advert no_data" *ngIf="!advert.rawData">
+	<p>{{ 'GLOBAL_NO_DATA' | translate }} </p>
 </ion-content>

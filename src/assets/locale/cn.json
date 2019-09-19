@@ -17,7 +17,8 @@
     "UPDATE_PENDING_MESSAGE": "我們現在無法更新，請重試一次。",
     "EXPIRED_MESSAGE": "您登入時間逾時，請重新登入。",
     "SEARCH_SOMETHING": "找一找...",
-    
+    "GLOBAL_NO_DATA": "無法尋找到任何數據！",
+
     "NAVIGATION": {
         "PROFILE": "帳戶",
         "CUSTOMER": "客戶",

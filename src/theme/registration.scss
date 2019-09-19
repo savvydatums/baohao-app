@@ -463,3 +463,11 @@ payment-details.ion-page {
         z-index: 10;
     }
 }
+
+.no_data {
+    text-align: center;
+    p {
+        color: white;
+        margin-top: 20%;
+    }
+}

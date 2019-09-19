@@ -1,7 +1,7 @@
 export class AdvertModel {
 
-	public rawData: object[];
-	public filteredData: object[];
+	public rawData: object[] = [];
+	public filteredData: object[] = [];
 	public numberOfPages: Number = 0;
 	public loadedPage: any = 0;
 
@@ -10,12 +10,15 @@ export class AdvertModel {
 	}
 	public addData(results, loadedPage, numberOfPages?) {
 
-		// todo numberOfPage change when loadedPage is all
-		(loadedPage == 1 || !loadedPage) && (this.rawData = [])
-		this.rawData = this.rawData.concat(results)
-		this.filteredData = this.rawData; // when filter is done, this will removed.
-		(numberOfPages) && (this.numberOfPages = numberOfPages)
-		this.loadedPage = loadedPage;
+		if (results) {
+			(loadedPage == 1 || !loadedPage) && (this.rawData = [])
+			this.rawData = this.rawData.concat(results)
+			this.filteredData = this.rawData; // when filter is done, this will removed.
+			(numberOfPages) && (this.numberOfPages = numberOfPages)
+			this.loadedPage = loadedPage;
+		} else {
+			this.rawData = null
+		}
 	}
 	
 	public updateUsefulData (source, id, isUseful) {
