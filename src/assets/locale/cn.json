@@ -43,7 +43,10 @@
         "SIGN_UP_CTA": "沒有帳號?",
         "SIGN_UP_LINK": "註冊",
         "REMEMBER_REGISTRATION_ID": "記得我的帳戶名",
-        "APPROVED": "您的MyInsurBox已設置好，請登入APP查看您的資訊。"
+        "APPROVED": "您的MyInsurBox已設置好，請登入APP查看您的資訊。",
+        "UNKOWN": "沒找到您的帳號，請至註冊網站註冊一個",
+        "PENDING": "您的帳戶還未開通，請至登入至Register網站查看訊息",
+        "PROCESSING": "您的MyInsurBox還在準備中，請靜待服務人員與您聯絡"
     },
 
     "WELCOME": {

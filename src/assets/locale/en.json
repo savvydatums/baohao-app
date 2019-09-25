@@ -44,7 +44,10 @@
         "SIGN_UP_CTA": "Don't have an account? ",
         "SIGN_UP_LINK": "Sign up",
         "REMEMBER_REGISTRATION_ID": "Remember my Registration ID",
-        "APPROVED": "Your Insurbox is already setup and approved, please login your App to check insights."
+        "APPROVED": "Your Insurbox is already setup and approved, please login your App to check insights.",
+        "UNKOWN": "We haven't found your account, please go to register site register one",
+        "PENDING": "Your account is pending, please login to register site check info",
+        "PROCESSING": "We are still preparing your MyInsurBox, please wait for our staff to contact to you."
     },
     "WELCOME": {
         "TITLE": "Welcome to MyInsurBox",

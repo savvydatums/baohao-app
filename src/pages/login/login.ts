@@ -14,9 +14,6 @@ import { ForgetPasswordPage } from '../registration/forget-password';
 import { HTTP } from '@ionic-native/http';
 import { PaymentPage } from '../activate/payment/payment';
 import { WelcomePage } from '../registration/welcome/welcome';
-import { platforms } from '../../app/app.module';
-
-declare var cordova: any;
 
 const cookieTimes = 60 * 60;
 const localStorageIDName = 'myInsurBox_ID';
@@ -31,7 +28,8 @@ export class LoginPage {
 	public errorMsg: string = '';
 	private timer: any = null;
 	public appVersion: string = '';
-	public showLoginInAPP: boolean = false;
+	public isInApp: boolean = false;
+	public loginWongSiteMsg: string = '';
 
 	constructor(
 		public navController: NavController,
@@ -54,8 +52,10 @@ export class LoginPage {
 
 	ionViewDidLoad() {
 		isDebug() && setTimeout(() => this.onSignIn(), 1000); // this is only for testing
-		//this.getData();
-		this.getAppVersion();	
+		this.getAppVersion();
+
+		const isRegistry= location.href.indexOf('registry') >= 0
+		!isRegistry && (this.isInApp = true)
 	}
 
 	public onSignIn() {
@@ -107,34 +107,49 @@ export class LoginPage {
 
 	private goToPageBasedOnUserStatus (status) {
 
-		switch (status) {
-			case LoggedInStatus.PENDING:
-				this.navController.push(PaymentPage);
-			break;
-
-			case LoggedInStatus.PROCESSING:
-				this.navController.push(ProcessingPage);
-			break;
-
-			case LoggedInStatus.APPROVED:
-				this.checkIfGoToDashbaord()
-			break;
-
-			default:
-				this.checkIfGoToDashbaord()
-			break;
-		}
-	}
-
-	private checkIfGoToDashbaord () {
-		const isRegistry= location.href.indexOf('registry') >= 0
-		const isBrowser = cordova.platformId === platforms.Browser
-		if (isRegistry && isBrowser) { // this is for production
-			this.showLoginInAPP = true
+		if (this.isInApp) {
+			switch (status) {
+				case LoggedInStatus.PENDING:
+					this.loginWongSiteMsg = this.translate.instant('LOGIN.PENDING');
+				break;
+	
+				case LoggedInStatus.PROCESSING:
+						this.loginWongSiteMsg = this.translate.instant('LOGIN.PROCESSING');
+				break;
+	
+				case LoggedInStatus.APPROVED:
+					this.loginWongSiteMsg = ''
+					this.navController.push(DashboardPage);
+				break;
+	
+				// default:
+				// 	this.loginWongSiteMsg = this.translate.instant('LOGIN.UNKOWN') 
+				// break;
+			}
 		} else {
-			this.navController.push(DashboardPage);
+			// in the register
+			switch (status) {
+				case LoggedInStatus.PENDING:
+					this.loginWongSiteMsg = ''
+					this.navController.push(PaymentPage);
+				break;
+	
+				case LoggedInStatus.PROCESSING:
+					this.loginWongSiteMsg = ''
+					this.navController.push(ProcessingPage);
+				break;
+	
+				case LoggedInStatus.APPROVED:
+					this.loginWongSiteMsg = this.translate.instant('LOGIN.APPROVED') 
+				break;
+	
+				// default:
+				// 	this.loginWongSiteMsg = this.translate.instant('LOGIN.UNKOWN') 
+				// break;
+			}
 		}
 	}
+
 
 	public onForgotPassword() {
 		this.navController.push(ForgetPasswordPage);
