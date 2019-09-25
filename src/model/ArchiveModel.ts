@@ -23,4 +23,18 @@ export class ArchiveModel {
 		})
 	}
 
+	public updateUsefulData (source, id, isUseful) {
+		this.filteredData.map ((item:any) => {
+			if (item.source == source && item._id == id) {
+				item.useful = isUseful
+			}
+		})
+
+		this.rawData.map ((item:any) => {
+			if (item.source == source && item._id == id) {
+				item.useful = isUseful
+			}
+		})
+	}
+
 }

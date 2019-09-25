@@ -7,6 +7,8 @@ import { ProfileModel } from '../../../../model/ProfileModel';
 import { ResponseStatus } from '../../../../api/Comms';
 import { renderTimeStampInNumber, assignAdvertToModal, assignPotentialToModal } from '../../../../utils/insight-util';
 import { PotentialLeadsModel } from '../../../../model/PotentialLeadsModel';
+import { ArchiveModel } from '../../../../model/ArchiveModel';
+import { TrashModel } from '../../../../model/TrashModel';
 
 @IonicPage({ name: "advert-details", segment: "advert-details" })
 @Component({
@@ -23,6 +25,8 @@ export class AdvertDetailsPage {
     public navCtrl: NavController,
     public advert: AdvertModel,
     public profile: ProfileModel, 
+    public archive: ArchiveModel,
+    public trash: TrashModel,
     public potential: PotentialLeadsModel,
     public navParams: NavParams) {
   }
@@ -52,13 +56,19 @@ export class AdvertDetailsPage {
 			this.profile.cookie, this.insightData.source, this.insightData._id, useful.toString())
 			.then((result: any) => {
 				const isFail = (result.status == ResponseStatus.ERROR)
-				!isFail && this.advert.updateUsefulData(this.insightData.source, this.insightData._id, useful)
+        !isFail && this.advert.updateUsefulData(this.insightData.source, this.insightData._id, useful)
+        !isFail && this.updateArchiveTrash(this.insightData.source, this.insightData._id, useful)
 			}, error => {
 				console.log(error)
 			})
   }
   public closeModal() {
     this.view.dismiss()
+  }
+
+  public updateArchiveTrash (source, id, isUseful) {
+    this.archive.updateUsefulData (source, id, isUseful) 
+    this.trash.updateUsefulData (source, id, isUseful) 
   }
 
   public notAgent() {
