@@ -24,6 +24,7 @@ export class ArchivePage {
 	renderTimeStamp: Function = renderTimeStamp;
 	getKeywordText: Function = getKeywordText;
 	searchFilters: string[] = filterOptions;
+	search: any;
 
 	@ViewChild(forwardRef(() => HeaderComponent)) header
 	@ViewChild(forwardRef(() => SearchBarComponent)) searchBar
@@ -79,7 +80,6 @@ export class ArchivePage {
 				'InsightDetailsPage', { info, type: insightType.all }
 			);
 		}
-		
 
 		insightModal.present();
 	}
@@ -93,16 +93,28 @@ export class ArchivePage {
 	}
 
 	public searchHandler (keyword, filter) {
+		this.search = keyword.length > 0 ? { keyword, filter } : null
 		this.archive.applyFilter(keyword, filter);
 	}
 
 	public unStarInsight(record_id, source) {
-		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.archive, 1, null, null, insightFilterTypes.archive) }
+		const successCallback = () => {
+			this.search && this.archive.applyFilter(this.search.keyword, this.search.filter);
+		}
+		const callback = () => { 
+			assignClientInsightToModal(this.profile.cookie, this.archive, 1, null, successCallback.bind(this), null, insightFilterTypes.archive) 
+		}
 		return unStarItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, callback);
 	}
 
 	public trashInsight(record_id, source, categories) {
-		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.archive, 1, null, null, insightFilterTypes.archive) }
+		const successCallback = () => {
+			this.search && this.archive.applyFilter(this.search.keyword, this.search.filter);
+		}
+
+		const callback = () => { 
+			assignClientInsightToModal(this.profile.cookie, this.archive, 1, null, successCallback.bind(this), null, insightFilterTypes.archive) 
+		}
 		return trashItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, null, categories, callback);
 	}
 

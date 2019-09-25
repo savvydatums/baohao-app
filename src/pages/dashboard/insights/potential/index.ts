@@ -4,9 +4,11 @@ import { HeaderComponent } from '../../../../components/header/header';
 import { SearchBarComponent } from '../../../../components/search-bar/search-bar';
 import { ProfileModel } from '../../../../model/ProfileModel';
 import { TranslateService } from '@ngx-translate/core';
-import { renderTimeStamp, starItem, trashItem, getKeywordInfo, getKeywordText, assignPotentialToModal } from '../../../../utils/insight-util';
-import { filterOptions, insightType } from '../settings/settings';
+import { renderTimeStamp, starItem, trashItem, getKeywordInfo, getKeywordText, assignPotentialToModal, assignClientInsightToModal } from '../../../../utils/insight-util';
+import { filterOptions, insightType, insightFilterTypes } from '../settings/settings';
 import { PotentialLeadsModel } from '../../../../model/PotentialLeadsModel';
+import { ArchiveModel } from '../../../../model/ArchiveModel';
+import { TrashModel } from '../../../../model/TrashModel';
 
 @IonicPage({ name: 'Potential', segment: 'potential'})
 @Component({
@@ -30,6 +32,8 @@ export class PotentialPage {
 		public navCtrl: NavController,
 		public navParams: NavParams,
 		public profile: ProfileModel,
+		public archive: ArchiveModel,
+		public trash: TrashModel,
 		private toastCtrl: ToastController,
 		public translate: TranslateService,
 		public potential: PotentialLeadsModel,
@@ -55,12 +59,18 @@ export class PotentialPage {
 	}
 
 	public starInsight(record_id, source, group) {
-		const callback = () => { assignPotentialToModal(this.profile.cookie, this.potential, 1) }
+		const callback = () => { 
+			assignPotentialToModal(this.profile.cookie, this.potential, 1) 
+			assignClientInsightToModal(this.profile.cookie, this.archive, 1, null, null, null, insightFilterTypes.archive) 
+		}
 		return starItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
 	}
 
 	public trashInsight(record_id, source, group) {
-		const callback = () => { assignPotentialToModal(this.profile.cookie, this.potential, 1) }
+		const callback = () => { 
+			assignPotentialToModal(this.profile.cookie, this.potential, 1) 
+			assignClientInsightToModal(this.profile.cookie, this.trash, 1, null, null, null, insightFilterTypes.trash)
+		}
 		return trashItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
 	}
 

@@ -8,8 +8,10 @@ import { showError } from '../../../utils/alert-generic';
 import { AdvertModel } from '../../../model/AdvertModel';
 import { InsightResponseStatus } from '../../../api/Comms';
 import { TranslateService } from '@ngx-translate/core';
-import { getKeywordText, getKeywordInfo, renderTimeStamp, starItem, trashItem, assignAdvertToModal } from '../../../utils/insight-util';
+import { getKeywordText, getKeywordInfo, renderTimeStamp, starItem, trashItem, assignAdvertToModal, assignClientInsightToModal } from '../../../utils/insight-util';
 import { ArchiveAPI } from '../../../api/ArchiveAPI';
+import { ArchiveModel } from '../../../model/ArchiveModel';
+import { TrashModel } from '../../../model/TrashModel';
 
 @IonicPage({ name: "advert", segment: "advert" })
 @Component({
@@ -33,6 +35,8 @@ export class AdvertPage {
     public navCtrl: NavController,
     public profile: ProfileModel, 
     public advert: AdvertModel,
+    public archive: ArchiveModel,
+		public trash: TrashModel,
     private toastCtrl: ToastController,
     private alertCtrl: AlertController,
     private modalCtrl: ModalController,
@@ -78,12 +82,18 @@ export class AdvertPage {
   }
 
   public starInsight(record_id, source, group) {
-    const callback = () => { assignAdvertToModal(this.profile.cookie, this.advert, 1) }
+    const callback = () => { 
+        assignAdvertToModal(this.profile.cookie, this.advert, 1)
+        assignClientInsightToModal(this.profile.cookie, this.archive, 1, null, null, null, insightFilterTypes.archive) 
+    }
 		return starItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
 	}
 
 	public trashInsight(record_id, source, group) {
-		const callback = () => { assignAdvertToModal(this.profile.cookie, this.advert, 1) }
+		const callback = () => { 
+      assignAdvertToModal(this.profile.cookie, this.advert, 1) 
+      assignClientInsightToModal(this.profile.cookie, this.trash, 1, null, null, null, insightFilterTypes.trash)
+    }
 		return trashItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
   }
   
