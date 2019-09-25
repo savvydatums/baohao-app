@@ -266,17 +266,9 @@
     },
 
 	"SUPPORT": {
-		"BUG_REPORT_TITLE": "To Report Bug or Error",
-		"BUG_OPTION_LABEL": "Please select one of the following",
-		"BUG_REPORT_OPTIONS": [
-			"No result After 30 mins",
-			"No display",
-			"System hang up",
-			"Data not refreshing",
-			"Result not related",
-			"Others"
-		],
-		"Message": "If your bug is others, please explain what happen?"
+        "Message_P1": "Please check FAQ first",
+        "Message_P2": "If you could not find relevant answer, please email to",
+        "Message_P3": "Thank you for your support!"
     },
 
     "FAQ": [{

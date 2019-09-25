@@ -402,7 +402,7 @@ dashboardpage {
 	}
 }
 
-support, faq {
+faq {
 	background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5796cc);
 
 	.content-ios, .content-md, .toolbar-background-ios {
@@ -410,6 +410,7 @@ support, faq {
 		color: white;
 		border: none;
     }
+
     .select-md .select-icon {
         .select-icon-inner {
             color: white;
@@ -432,9 +433,6 @@ support, faq {
     .dark-text .item-datetime .label-ios {
         color: white;
     }
-}
-
-faq {
     .q-group {
         margin: 13px;
         line-height: 2rem;
@@ -448,6 +446,29 @@ faq {
         padding: 10px;
         background: rgba(255, 255, 255, 0.15);
     }
+}
+
+support {
+    background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5796cc);
+    text-align: center;
+    .content-ios, .content-md, .toolbar-background-ios {
+		background-color: transparent;
+		color: white;
+		border: none;
+    }
+
+    img {
+        width: 30%;
+        padding-top: 10%;
+    }
+
+    .button-ios-light{
+        width: 60%;
+        margin: 0 auto;
+        height: 34px;
+        color: #246383;
+    }
+
 }
 
 .stripe-button-el {

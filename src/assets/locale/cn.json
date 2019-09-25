@@ -263,18 +263,11 @@
     },
 
 	"SUPPORT": {
-		"BUG_REPORT_TITLE": "To Report Bug or Error",
-		"BUG_OPTION_LABEL": "Please select one of the following",
-		"BUG_REPORT_OPTIONS": [
-			"No result After 30 mins",
-			"No display",
-			"System hang up",
-			"Data not refreshing",
-			"Result not related",
-			"Others"
-		],
-		"Message": "If your bug is others, please explain what happen?"
+        "Message_P1": "有任何的問題，請先查看",
+        "Message_P2": "如果沒尋找到您的問題，請Email至",
+        "Message_P3": "感謝您的支持！"
     },
+
     "FAQ": [{
         "Q": "1. 如何更改登入密碼？",
         "A": "更改密碼位置於「帳戶」內。"

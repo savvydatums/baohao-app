@@ -3,27 +3,10 @@
 	<header title="Support" toDashboard="true"></header>
 </ion-header>
 <ion-content padding>
-	<h3>{{ 'SUPPORT.BUG_REPORT_TITLE' | translate }} </h3>
-	<form [formGroup]="bugForm" class="dark-text">
-		<ion-list>
-			<ion-item>
-				<ion-label floating>{{ 'SUPPORT.BUG_OPTION_LABEL' | translate }}</ion-label>
-				<ion-select formControlName="bugs">
-					<ion-option *ngFor="let bug of bugList" value="{{bug}}"> {{ bug }} </ion-option>
-				</ion-select>
-			</ion-item>
-
-			<ion-item>
-				<ion-textarea [attr.rows]="10" formControlName="info"
-				[placeholder]="'SUPPORT.Message' | translate"
-				></ion-textarea>
-			</ion-item>
-		</ion-list>
-	</form>
-	<button ion-button round block color="light">
-		{{ 'GLOBAL_SUBMIT_BUTTON_LABEL' | translate }}
-	</button>
-	<div *ngIf="submitted" class="success-msg">
-		{{ 'GLOBA_SUBMIT_SUCCESS' | translate }}
-	</div>
+	<img src="assets/icon/support.svg" />
+	<p [innerHTML]="'SUPPORT.Message_P1' | translate" ></p>
+	<button ion-button color="light" block round (click)="goToFAQ()">FAQ</button>
+	<p [innerHTML]="'SUPPORT.Message_P2' | translate" ></p>
+	<a href='mailto:support@myinsurbox.com'>support@myinsurbox.com</a>
+	<p [innerHTML]="'SUPPORT.Message_P3' | translate" ></p>
 </ion-content>
