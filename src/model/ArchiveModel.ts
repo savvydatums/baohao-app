@@ -1,7 +1,7 @@
 export class ArchiveModel {
 
-	public rawData: object[];
-	public filteredData: object[];
+	public rawData: object[] = [];
+	public filteredData: object[] = [];
 
 	constructor() {
 

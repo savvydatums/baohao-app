@@ -145,3 +145,28 @@ export const configInsightListPayload = (cookie: string, querytype: string, page
 
 	return payload
 }
+
+export const updateAuthorNickNameForModel = (modal, authorId, source, nickname) => {
+	// TODO: this wait until we have author specific API
+	console.log('updateAuthorNickNameForModel', modal, authorId, source, nickname)
+
+	const isDataLoaded = modal.rawData && modal.rawData.length > 0
+
+	if (isDataLoaded) {
+		modal.rawData.map((item:any) => {
+			if (item.authorId == authorId && item.source == source) {
+				item.nickname = nickname
+			}
+		})
+	}
+
+	const isFilterDataExist = modal.filteredData && modal.filteredData.length > 0
+
+	if (isFilterDataExist) {
+		modal.filteredData.map((item:any) => {
+			if (item.authorId == authorId && item.source == source) {
+				item.nickname = nickname
+			}
+		})
+	}
+}

@@ -18,7 +18,7 @@ export class AllInsightsModel {
 
 		if (results) {
 			(loadedPage == 1 || !loadedPage) && (this.rawData = [])
-			this.rawData = this.rawData.concat(results)
+			this.rawData = this.rawData.concat(results);
 			this.filteredData = this.rawData; // when filter is done, this will removed.
 
 			(numberOfPages) && (this.numberOfPages = numberOfPages)
@@ -57,7 +57,7 @@ export class AllInsightsModel {
 			this.categories.map((item:any) =>  item.checked = true)
 		}
 	
-		this.filteredData =  this.rawData;
+		this.filteredData = this.rawData;
 	}
 
 	public getCategories () {
@@ -85,4 +85,16 @@ export class AllInsightsModel {
 		}
 		return searchMethod
 	}
+	
+	// public updateAuthorNickName (authorId, source, nickname) {
+
+	// 	const isDataLoaded = this.rawData && this.rawData.length >= 0
+	// 	if (isDataLoaded) {
+	// 		this.rawData.map((item:any) => {
+	// 			if (item.authorId == authorId && item.source == source) {
+	// 				item.nickname = nickname
+	// 			}
+	// 		})
+	// 	}
+	// }
 }

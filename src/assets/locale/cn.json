@@ -29,7 +29,8 @@
 		"SUPPORT": "支援",
 		"TRASH": "垃圾桶",
         "LOGOUT": "登出",
-        "FILTER": "篩選"
+        "FILTER": "篩選",
+        "INFO": "資訊"
 	},
 
     "LOGIN": {

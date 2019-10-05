@@ -41,7 +41,7 @@ export class AdvertDetailsPage {
 
   private calculateModalHeight() {
     const contentRef = this.view.contentRef()
-    const innerContent =  contentRef.nativeElement.getElementsByClassName('content')[0]
+    const innerContent = contentRef.nativeElement.getElementsByClassName('content')[0]
     const content =  contentRef.nativeElement
     const totalPaddingY = 30;
     const height = innerContent.offsetHeight + totalPaddingY
@@ -62,6 +62,7 @@ export class AdvertDetailsPage {
 				console.log(error)
 			})
   }
+
   public closeModal() {
     this.view.dismiss()
   }
@@ -86,6 +87,7 @@ export class AdvertDetailsPage {
         !isFail && callback()
         this.closeModal()
 			}, error => {
+        this.closeModal()
 			})
   }
 

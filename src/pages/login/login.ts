@@ -150,7 +150,6 @@ export class LoginPage {
 		}
 	}
 
-
 	public onForgotPassword() {
 		this.navController.push(ForgetPasswordPage);
 	}

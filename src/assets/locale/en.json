@@ -30,7 +30,8 @@
 		"SUPPORT": "SUPPORT",
 		"TRASH": "TRASH",
         "LOGOUT": "LOGOUT",
-        "FILTER": "Filter"
+        "FILTER": "Filter",
+        "INFO": "Info"
 	},
 
     "LOGIN" : {

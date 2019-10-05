@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { AllClient } from '../insights/allclient/index';
-import { ArchivePage } from '../archive/index';
-import { ProfilePage } from '../profile/index';
 import { AllInsightsModel } from '../../../model/AllInsightsModel';
 import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { ProfileModel } from '../../../model/ProfileModel';
@@ -13,6 +11,7 @@ import { insightFilterTypes } from '../insights/settings/settings';
 import { showError } from '../../../utils/alert-generic';
 import { TranslateService } from '@ngx-translate/core';
 import { AdvertPage } from '../advert/index';
+import { InfoPage } from '../info/index';
 
 @IonicPage({ name: "DashboardPage", segment: "DashboardPage"})
 @Component({
@@ -22,11 +21,10 @@ import { AdvertPage } from '../advert/index';
 
 export class DashboardPage {
 
-	tabProfile = ProfilePage;
 	tabAdvert = AdvertPage;
 	tabInsight = AllClient;
 	tabPotential = PotentialPage;
-	tabArchive = ArchivePage;
+	tabInfo = InfoPage;
 	loading = true;
 
 	constructor(

@@ -39,3 +39,6 @@ export const trashItem = `${insightPath}trash`
 export const trashList = `${insightPath}get_trash_list`
 export const unTrashItem = `${insightPath}remove_trash`
 export const deleteTrashItem = `${insightPath}delete`
+
+// posts
+export const postList = `${insightPath}get_posts`

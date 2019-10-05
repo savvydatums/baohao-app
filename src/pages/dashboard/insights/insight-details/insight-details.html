@@ -1,4 +1,4 @@
-<ion-content [ngStyle]="{ 'backgroundColor': info.color }">
+<ion-content [ngStyle]="{ 'backgroundColor': info.color }" [ngClass]="platformClass">
 	<div class="left" (click)="closeModal()">
 		<ion-icon name="close"></ion-icon>
 	</div>
@@ -75,20 +75,20 @@
 					</span>
 				</a>
 			</div>
-			<h5>
-				{{ 'INSIGHT.DETAILS.PRODUCT_CORRECT' | translate }}
-				<span class="hidden">{{ insightData.useful }}</span><!-- use to force data update --->
-				<ion-icon 
-					name="thumbs-up" 
-					[ngClass]="insightData.useful == true ? 'active': ''" 
-					(click)="updateSuggestionUseful(true)"
-				></ion-icon>
-				<ion-icon 
-					name="thumbs-down" 
-					[ngClass]="insightData.useful == false ? 'active': ''" 
-					(click)="updateSuggestionUseful(false)"
-				></ion-icon>
-			</h5>
 		</div>
+		<div class="suggest-area"  *ngIf="type == 'potential'">
+			<h5>{{ 'INSIGHT.DETAILS.PRODUCT_CORRECT' | translate }}</h5>
+			<ion-icon 
+				name="thumbs-up" 
+				[ngClass]="insightData.useful == true ? 'active': ''" 
+				(click)="updateSuggestionUseful(true)"
+			></ion-icon>
+			<ion-icon 
+				name="thumbs-down" 
+				[ngClass]="insightData.useful == false ? 'active': ''" 
+				(click)="updateSuggestionUseful(false)"
+			></ion-icon>
+		</div>
+		<span class="hidden">{{ insightData.useful }}</span><!-- use to force data update --->
 	</div>
 </ion-content>

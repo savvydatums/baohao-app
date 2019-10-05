@@ -559,8 +559,7 @@ filter {
         padding: 6px 10px;
     }
     .category-wrapper{
-       button {
-           
+        button {
             margin: 3px 6px;
             color: white;
         }
@@ -576,6 +575,7 @@ filter {
 }
 
 .hidden {
-    visibility: hidden;
-    font-size: 1px;
+    //display: none; // android
+    visibility: hidden; // ios
+    font-size: 0px;
 }

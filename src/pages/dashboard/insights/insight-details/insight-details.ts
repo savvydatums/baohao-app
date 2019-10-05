@@ -12,6 +12,9 @@ import { AllInsightsModel } from '../../../../model/AllInsightsModel';
 import { PotentialLeadsModel } from '../../../../model/PotentialLeadsModel';
 import { getTranslation } from '../../../../utils/Data-Fetch';
 import { AdvertModel } from '../../../../model/AdvertModel';
+import { platforms } from '../../../../app/app.module';
+
+declare var cordova: any;
 
 @IonicPage()
 @Component({
@@ -22,7 +25,8 @@ export class InsightDetailsPage {
 
 	is_existing_customer: boolean = false;
 	is_remove_two_month: boolean = false;
-	is_agent: boolean = false;
+	is_agent: boolean = null;
+	platformClass: string = '';
 
 	insightData: TInsightPost;
 	type: string;
@@ -49,6 +53,10 @@ export class InsightDetailsPage {
 		this.type = this.navParams.get('type')
 		const mainCategory = this.insightData.categories[0]
 		this.info = getKeywordInfo(this.type, mainCategory);
+
+		(cordova.platformId === platforms.Ios) && (this.platformClass = 'ios');
+		(cordova.platformId === platforms.Android) && (this.platformClass = 'android');
+
 		if (this.type == insightType.potential) {
 			this._getRecommendation(this.info)
 		}
@@ -83,6 +91,9 @@ export class InsightDetailsPage {
 	public openEditNote () {
 		const callback = (nickname) => {
 			this.insightData.nickname = nickname
+
+			// TODO: this wait until we have author specific API
+			// updateAuthorNickNameForModel(this.potential, this.insightData.authorId, this.insightData.source, nickname)
 		}
 		openEditNoteForNickName(this.alertCtrl, this.translate, this.insightData, this.profile.cookie, callback.bind(this))
 	}
@@ -90,7 +101,7 @@ export class InsightDetailsPage {
 	public updateUserPreference () {
 		let exist = this.is_existing_customer == true ? true : null
 		let remove = this.is_remove_two_month == true ? true : null
-		let agent = this.is_agent == true ? true : null
+		let agent = (typeof this.is_agent === 'boolean' ) ? this.is_agent : null
 		let timestamp = this.is_remove_two_month == true ? new Date().getTime().toString() : null
 
 		InsightAPI.updateUserPreference(

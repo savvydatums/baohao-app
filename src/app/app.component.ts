@@ -11,6 +11,7 @@ import { FaqPage } from '../pages/dashboard/faq';
 import { SupportPage } from '../pages/dashboard/support';
 import { TrashPage } from '../pages/dashboard/trash';
 import { ProfilePage } from '../pages/dashboard/profile/index';
+import { ArchivePage } from '../pages/dashboard/archive';
 
 @Component({
   templateUrl: 'app.html'
@@ -60,6 +61,10 @@ export class MyApp {
 	public goToSupport() {
 		this.nav.push(SupportPage)
 	}
+	
+	public goToArchive() {
+		this.nav.push(ArchivePage)
+	}
 
 	public goToTrash() {
 		this.nav.push(TrashPage)
@@ -68,5 +73,4 @@ export class MyApp {
 	public goToProfile() {
 		this.nav.push(ProfilePage)
 	}
-
 }
