@@ -15,9 +15,11 @@ import { showError } from '../../../utils/alert-generic';
 })
 export class InfoPage {
 
-	tabElementWidth_px :number= 50;
+	tabElementWidth_px :number= 100;
 	tabs:string[] = ["news","wine","medical"];
 	loading: boolean = true;
+	
+	defaultBgUrl: string = '/assets/imgs/default_logo_bg.jpg';
 
 	@ViewChild(forwardRef(() => HeaderComponent)) header
 	@ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides

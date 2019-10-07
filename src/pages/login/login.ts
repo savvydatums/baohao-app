@@ -121,10 +121,6 @@ export class LoginPage {
 					this.loginWongSiteMsg = ''
 					this.navController.push(DashboardPage);
 				break;
-	
-				// default:
-				// 	this.loginWongSiteMsg = this.translate.instant('LOGIN.UNKOWN') 
-				// break;
 			}
 		} else {
 			// in the register
@@ -142,10 +138,6 @@ export class LoginPage {
 				case LoggedInStatus.APPROVED:
 					this.loginWongSiteMsg = this.translate.instant('LOGIN.APPROVED') 
 				break;
-	
-				// default:
-				// 	this.loginWongSiteMsg = this.translate.instant('LOGIN.UNKOWN') 
-				// break;
 			}
 		}
 	}

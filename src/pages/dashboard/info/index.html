@@ -2,7 +2,7 @@
 	<header [title]="'NAVIGATION.INFO'|translate"></header>
 
 	<ion-content #scroll scrollX="true" scrollY="false">
-		<ion-segment  class="SwipedTabs-tabs"  >
+		<ion-segment  class="SwipedTabs-tabs">
 			<ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)"
 			[ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'  [ngStyle]="{'width.px': (this.tabElementWidth_px)}" >
 			{{tab}}
@@ -14,7 +14,7 @@
 	</ion-content>
 </ion-header>
 
-<ion-content>
+<ion-content class="info-content">
 	<div *ngIf="loading" class="loading">
 		<div class="load-wrapper">
 			<ion-spinner name="crescent" color="light"></ion-spinner>
@@ -32,8 +32,9 @@
 			<ng-container *ngIf="posts.allPost[tabs[0]]">
 				<div *ngFor="let item of posts.allPost[tabs[0]]" 
 					class="thumbnail" (click)="onClickPost(item)">
-					{{ item.post_title }}
-					<div class="date"> {{item.post_date}}</div>
+					<div class="background" [ngStyle]="{ 'backgroundImage': 'url(' + defaultBgUrl + ')' }"></div>
+					<h4>{{ item.post_title }}</h4>
+					<p class="date"> {{item.post_date}}</p>
 				</div>
 			</ng-container>
 		</ion-slide>
@@ -41,8 +42,9 @@
 			<ng-container *ngIf="posts.allPost[tabs[1]]">
 				<div *ngFor="let item of posts.allPost[tabs[1]]"
 					class="thumbnail" (click)="onClickPost(item)">
-					{{ item.post_title }}
-					<div class="date"> {{item.post_date}}</div>
+					<div class="background" [ngStyle]="{ 'backgroundImage': 'url(' + defaultBgUrl + ')' }"></div>
+					<h4>{{ item.post_title }}</h4>
+					<p class="date"> {{item.post_date}}</p>
 				</div>
 			</ng-container>
 		</ion-slide>
@@ -50,8 +52,9 @@
 			<ng-container *ngIf="posts.allPost[tabs[2]]">
 				<div *ngFor="let item of posts.allPost[tabs[2]]"
 					class="thumbnail" (click)="onClickPost(item)">
-					{{ item.post_title }}
-					<div class="date"> {{item.post_date}}</div>
+					<div class="background" [ngStyle]="{ 'backgroundImage': 'url(' + defaultBgUrl + ')' }"></div>
+					<h4>{{ item.post_title }}</h4>
+					<p class="date"> {{item.post_date}}</p>
 				</div>
 			</ng-container>
 		</ion-slide>
