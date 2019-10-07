@@ -1,0 +1,11 @@
+<ion-content padding>
+    <div class="left" (click)="closeModal()">
+    	<ion-icon name="close"></ion-icon>
+    </div>
+    <div class="hero">
+		<div class="background" [ngStyle]="{ 'backgroundImage': 'url(' + defaultBgUrl + ')' }"></div>
+		<h2>{{ postData.post_title }}</h2>
+		<p>{{ postData.post_date }}</p>
+	</div>
+	<div class="content" [innerHTML]="postData.post_content"></div>
+</ion-content>

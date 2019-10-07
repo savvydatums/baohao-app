@@ -13,6 +13,7 @@ export class PostAPI extends Comms {
         return new Promise((resolve, reject)=>{
 			cordova.plugin.http.post(Routes.postList, {cookie, category}, {}, (response) => {
 				const result = JSON.parse(response.data)
+				console.log(result)
 				if (response.status == 200) {
 					resolve(result)
 				} else {

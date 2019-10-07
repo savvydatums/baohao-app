@@ -1,5 +1,5 @@
 import { Component, forwardRef, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content, Slides, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content, Slides, AlertController, ModalController } from 'ionic-angular';
 import { HeaderComponent } from '../../../components/header/header';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { PostModel } from '../../../model/PostModel';
@@ -31,6 +31,7 @@ export class InfoPage {
 		public profile: ProfileModel,
 		private alertCtrl: AlertController,
 		public translate: TranslateService,
+		public modalCtrl: ModalController,
 		) {
 	}
 
@@ -78,6 +79,13 @@ export class InfoPage {
 	animateIndicator($event) {
 		if(this.SwipedTabsIndicator)
 			this.SwipedTabsIndicator.nativeElement.style.webkitTransform = 'translate3d(' + (($event.progress* (this.SwipedTabsSlider.length()-1))*100) + '%,0,0)';
+	}
+
+	onClickPost(postData) {
+		let infoDetailsModal = this.modalCtrl.create(
+			'InfoDetailsPage', { postData }
+		);
+		infoDetailsModal.present();		
 	}
 
 }

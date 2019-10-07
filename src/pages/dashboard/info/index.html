@@ -30,27 +30,27 @@
 	>
 		<ion-slide>
 			<ng-container *ngIf="posts.allPost[tabs[0]]">
-				<div *ngFor="let item of posts.allPost[tabs[0]]">
+				<div *ngFor="let item of posts.allPost[tabs[0]]" 
+					class="thumbnail" (click)="onClickPost(item)">
 					{{ item.post_title }}
-					<div [innerHTML]="item.post_content"></div>
 					<div class="date"> {{item.post_date}}</div>
 				</div>
 			</ng-container>
 		</ion-slide>
 		<ion-slide>
 			<ng-container *ngIf="posts.allPost[tabs[1]]">
-				<div *ngFor="let item of posts.allPost[tabs[1]]">
+				<div *ngFor="let item of posts.allPost[tabs[1]]"
+					class="thumbnail" (click)="onClickPost(item)">
 					{{ item.post_title }}
-					<div [innerHTML]="item.post_content"></div>
 					<div class="date"> {{item.post_date}}</div>
 				</div>
 			</ng-container>
 		</ion-slide>
 		<ion-slide>
 			<ng-container *ngIf="posts.allPost[tabs[2]]">
-				<div *ngFor="let item of posts.allPost[tabs[2]]">
+				<div *ngFor="let item of posts.allPost[tabs[2]]"
+					class="thumbnail" (click)="onClickPost(item)">
 					{{ item.post_title }}
-					<div [innerHTML]="item.post_content"></div>
 					<div class="date"> {{item.post_date}}</div>
 				</div>
 			</ng-container>
