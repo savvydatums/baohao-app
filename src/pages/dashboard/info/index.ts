@@ -90,4 +90,12 @@ export class InfoPage {
 		infoDetailsModal.present();		
 	}
 
+	getPath (imgPath) {
+		return (imgPath && imgPath.length > 0) ? imgPath : this.defaultBgUrl
+	}
+
+	getClass (imgPath) {
+		return imgPath == false ? 'default' : ''
+	}
+
 }

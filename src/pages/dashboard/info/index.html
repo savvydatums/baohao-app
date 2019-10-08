@@ -32,9 +32,13 @@
 			<ng-container *ngIf="posts.allPost[tabs[0]]">
 				<div *ngFor="let item of posts.allPost[tabs[0]]" 
 					class="thumbnail" (click)="onClickPost(item)">
-					<div class="background" [ngStyle]="{ 'backgroundImage': 'url(' + defaultBgUrl + ')' }"></div>
-					<h4>{{ item.post_title }}</h4>
-					<p class="date"> {{item.post_date}}</p>
+					<div class="background" 
+					[ngClass]=" getClass(item.post_image)"
+					[ngStyle]="{ 'backgroundImage': 'url(' + getPath(item.post_image) + ')' }"></div>
+					<div class="title">
+						<h4>{{ item.post_title }}</h4>
+						<p class="date"> {{item.post_date}}</p>
+					</div>
 				</div>
 			</ng-container>
 		</ion-slide>
@@ -42,9 +46,13 @@
 			<ng-container *ngIf="posts.allPost[tabs[1]]">
 				<div *ngFor="let item of posts.allPost[tabs[1]]"
 					class="thumbnail" (click)="onClickPost(item)">
-					<div class="background" [ngStyle]="{ 'backgroundImage': 'url(' + defaultBgUrl + ')' }"></div>
-					<h4>{{ item.post_title }}</h4>
-					<p class="date"> {{item.post_date}}</p>
+					<div class="background" 
+					[ngClass]=" getClass(item.post_image)"
+					[ngStyle]="{ 'backgroundImage': 'url(' + getPath(item.post_image) + ')' }"></div>
+					<div class="title">
+						<h4>{{ item.post_title }}</h4>
+						<p class="date"> {{item.post_date}}</p>
+					</div>
 				</div>
 			</ng-container>
 		</ion-slide>
@@ -52,9 +60,13 @@
 			<ng-container *ngIf="posts.allPost[tabs[2]]">
 				<div *ngFor="let item of posts.allPost[tabs[2]]"
 					class="thumbnail" (click)="onClickPost(item)">
-					<div class="background" [ngStyle]="{ 'backgroundImage': 'url(' + defaultBgUrl + ')' }"></div>
-					<h4>{{ item.post_title }}</h4>
-					<p class="date"> {{item.post_date}}</p>
+					<div class="background" 
+					[ngClass]=" getClass(item.post_image)"
+					[ngStyle]="{ 'backgroundImage': 'url(' + getPath(item.post_image) + ')' }"></div>
+					<div class="title">
+						<h4>{{ item.post_title }}</h4>
+						<p class="date"> {{item.post_date}}</p>
+					</div>
 				</div>
 			</ng-container>
 		</ion-slide>

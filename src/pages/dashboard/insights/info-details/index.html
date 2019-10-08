@@ -3,7 +3,9 @@
     	<ion-icon name="close"></ion-icon>
     </div>
     <div class="hero">
-		<div class="background" [ngStyle]="{ 'backgroundImage': 'url(' + defaultBgUrl + ')' }"></div>
+		<div class="background" 
+		[ngClass]="postData.post_image == false ? 'default' : ''"
+		[ngStyle]="{ 'backgroundImage': 'url(' + getPath(postData.post_image) + ')' }"></div>
 		<div class="title">
 			<h4>{{ postData.post_title }}</h4>
 			<p>{{ postData.post_date }}</p>

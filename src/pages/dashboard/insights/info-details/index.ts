@@ -21,6 +21,10 @@ export class InfoDetailsPage {
 		this.postData = this.navParams.get('postData')
 	}
 
+	getPath (imgPath) {
+		return (imgPath && imgPath.length > 0) ? imgPath : this.defaultBgUrl
+	}
+
 	closeModal () {
 		this.view.dismiss()
 	}
