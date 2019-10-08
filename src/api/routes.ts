@@ -42,3 +42,4 @@ export const deleteTrashItem = `${insightPath}delete`
 
 // posts
 export const postList = `${insightPath}get_posts`
+export const postCategory = `${insightPath}get_posts_category`

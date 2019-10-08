@@ -16,7 +16,7 @@ import { showError } from '../../../utils/alert-generic';
 export class InfoPage {
 
 	tabElementWidth_px :number= 100;
-	tabs:string[] = ["news","wine","medical"];
+	tabs:string[] = [];
 	loading: boolean = true;
 	
 	defaultBgUrl: string = '/assets/imgs/default_logo_bg.jpg';
@@ -38,7 +38,22 @@ export class InfoPage {
 	}
 
 	ionViewDidLoad() {
-		this.getPostsDataFromCategory()
+		this.getPostCategory()
+	}
+
+	getPostCategory() {
+
+		PostAPI.getPostsCategories(this.profile.cookie)
+			.then((result:any) => {
+				if (result.status == InsightResponseStatus.SUCCESS) {
+					this.tabs = result.posts_category;
+					this.getPostsDataFromCategory()
+				} else {
+					showError(this.alertCtrl, this.translate, result.message);
+				}
+			}, error => {
+				showError(this.alertCtrl, this.translate, error);
+			});
 	}
 
 	getPostsDataFromCategory () {
