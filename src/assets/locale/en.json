@@ -232,7 +232,7 @@
 		},
 		"DETAILS": {
 			"DELETE_PERIOD_INFO" : "Are you sure you want to delete this info",
-			"NO_DATA": "No Data",
+			"NO_DATA": "Oopd, No Data",
             "KEYWORD_ANALYSIS": "Keyword Analysis",
             "CURRENT_CUSTOMER": "Current Customer",
             "NOT_TO_DISPLAY": "Not to display ",

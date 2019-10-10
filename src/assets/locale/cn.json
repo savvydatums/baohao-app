@@ -229,7 +229,7 @@
 		},
 		"DETAILS": {
 			"DELETE_PERIOD_INFO" : "您確定你要刪除此資料?",
-			"NO_DATA": "無數據",
+			"NO_DATA": "沒有尋找到數據",
             "KEYWORD_ANALYSIS": "關鍵字",
             "CURRENT_CUSTOMER": "現存客戶",
             "NOT_TO_DISPLAY": "兩個月內不顯示",

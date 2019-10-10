@@ -40,6 +40,9 @@
 						<p class="date"> {{item.post_date}}</p>
 					</div>
 				</div>
+				<div class="no-data" *ngIf="posts.allPost[name].length <= 0">
+					<p>{{ 'INSIGHT.DETAILS.NO_DATA' | translate }}</p>
+				</div>
 			</ng-container>
 		</ion-slide>
 	</ion-slides>
