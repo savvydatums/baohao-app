@@ -41,9 +41,9 @@
 		</div>
 	</div>
 
-	<div *ngIf="loginWongSiteMsg.length > 0">
+	<div *ngIf="showLoginInAPP">
 		<div class="error">
-			{{ loginWongSiteMsg }}
+			{{ 'LOGIN.APPROVED' | translate }}
 		</div>
 	</div>
 
@@ -51,7 +51,7 @@
 
 	<div class="sign-in-area" >
 		<button ion-button color="light" block round (click)="onSignIn()">{{ 'LOGIN.BUTTON' | translate }}</button>
-		<p *ngIf="!isInApp">{{ 'LOGIN.SIGN_UP_CTA' | translate }}<span class="register-btn" (click)="goToRegister()">{{ 'LOGIN.SIGN_UP_LINK' | translate }}</span></p>
+		<p>{{ 'LOGIN.SIGN_UP_CTA' | translate }}<span class="register-btn" (click)="goToRegister()">{{ 'LOGIN.SIGN_UP_LINK' | translate }}</span></p>
 	</div>
 
 	<div class="version"> App Version: {{ appVersion }}</div>

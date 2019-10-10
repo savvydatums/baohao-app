@@ -22,7 +22,7 @@ import { ProfileModel } from '../model/ProfileModel';
 import { ArchiveModel } from '../model/ArchiveModel';
 import { TrashModel } from '../model/TrashModel';
 import { AdvertModel } from '../model/AdvertModel';
-// import { InAppPurchase } from '@ionic-native/in-app-purchase';
+import { InAppPurchase } from '@ionic-native/in-app-purchase';
 import { PostModel } from '../model/PostModel';
 
 @NgModule({
@@ -68,7 +68,7 @@ import { PostModel } from '../model/PostModel';
     SplashScreen,
     HTTP,
       {provide: ErrorHandler, useClass: IonicErrorHandler},
-      // InAppPurchase
+      InAppPurchase
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

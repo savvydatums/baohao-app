@@ -14,6 +14,9 @@ import { ForgetPasswordPage } from '../registration/forget-password';
 import { HTTP } from '@ionic-native/http';
 import { PaymentPage } from '../activate/payment/payment';
 import { WelcomePage } from '../registration/welcome/welcome';
+import { platforms } from '../../app/app.module';
+
+declare var cordova: any;
 
 const cookieTimes = 60 * 60;
 const localStorageIDName = 'myInsurBox_ID';
@@ -28,8 +31,7 @@ export class LoginPage {
 	public errorMsg: string = '';
 	private timer: any = null;
 	public appVersion: string = '';
-	public isInApp: boolean = false;
-	public loginWongSiteMsg: string = '';
+	public showLoginInAPP: boolean = false;
 
 	constructor(
 		public navController: NavController,
@@ -53,9 +55,6 @@ export class LoginPage {
 	ionViewDidLoad() {
 		isDebug() && setTimeout(() => this.onSignIn(), 1000); // this is only for testing
 		this.getAppVersion();
-
-		const isRegistry= location.href.indexOf('registry') >= 0
-		!isRegistry && (this.isInApp = true)
 	}
 
 	public onSignIn() {
@@ -65,11 +64,11 @@ export class LoginPage {
 		if (isDebug()){
 			// registration_id = 'test123';
 			// password = '123456';
-			// registration_id = 'PIBAxxx';
-			// password = 'lulu1234';
+			registration_id = 'PIBAxxx';
+			password = 'lulu1234';
 			//registration_id = 'cib999';
-			registration_id = 'jimmytest';
-			password = 'password';
+			// registration_id = 'jimmytest';
+			// password = 'password';
 
 		} else {
 			if (this.credentialsForm.invalid) {
@@ -107,38 +106,32 @@ export class LoginPage {
 
 	private goToPageBasedOnUserStatus (status) {
 
-		if (this.isInApp) {
-			switch (status) {
-				case LoggedInStatus.PENDING:
-					this.loginWongSiteMsg = this.translate.instant('LOGIN.PENDING');
-				break;
-	
-				case LoggedInStatus.PROCESSING:
-						this.loginWongSiteMsg = this.translate.instant('LOGIN.PROCESSING');
-				break;
-	
-				case LoggedInStatus.APPROVED:
-					this.loginWongSiteMsg = ''
-					this.navController.push(DashboardPage);
-				break;
-			}
+		switch (status) {
+			case LoggedInStatus.PENDING:
+				this.navController.push(PaymentPage);
+			break;
+
+			case LoggedInStatus.PROCESSING:
+				this.navController.push(ProcessingPage);
+			break;
+
+			case LoggedInStatus.APPROVED:
+				this.checkIfGoToDashbaord()
+			break;
+
+			default:
+				this.checkIfGoToDashbaord()
+			break;
+		}
+	}
+
+	private checkIfGoToDashbaord () {
+		const isRegistry= location.href.indexOf('registry') >= 0
+		const isBrowser = cordova.platformId === platforms.Browser
+		if (isRegistry && isBrowser) { // this is for production
+			this.showLoginInAPP = true
 		} else {
-			// in the register
-			switch (status) {
-				case LoggedInStatus.PENDING:
-					this.loginWongSiteMsg = ''
-					this.navController.push(PaymentPage);
-				break;
-	
-				case LoggedInStatus.PROCESSING:
-					this.loginWongSiteMsg = ''
-					this.navController.push(ProcessingPage);
-				break;
-	
-				case LoggedInStatus.APPROVED:
-					this.loginWongSiteMsg = this.translate.instant('LOGIN.APPROVED') 
-				break;
-			}
+			this.navController.push(DashboardPage);
 		}
 	}
 
