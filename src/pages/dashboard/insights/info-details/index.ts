@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage({ name: "InfoDetailsPage", segment: "InfoDetailsPage"})
 @Component({
@@ -10,11 +11,15 @@ export class InfoDetailsPage {
 
 	defaultBgUrl: string = '/assets/imgs/default_logo_bg.jpg';
 	postData: any = {};
+	lang : string ;
 
 	constructor(
 		private view: ViewController,
-		public navCtrl: NavController, 
+		public navCtrl: NavController,
+		public translate: TranslateService, 
 		public navParams: NavParams) {
+
+		this.lang =  translate.currentLang || translate.defaultLang
 	}
 
 	ionViewWillLoad() {

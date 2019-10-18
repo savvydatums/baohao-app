@@ -36,7 +36,8 @@
 					[ngClass]=" getClass(item.post_image)"
 					[ngStyle]="{ 'backgroundImage': 'url(' + getPath(item.post_image) + ')' }"></div>
 					<div class="title">
-						<h4>{{ item.post_title }}</h4>
+						<h4 *ngIf="lang == 'cn'">{{ item.title_zh }}</h4>
+						<h4 *ngIf="lang !== 'cn'">{{ item.title_en }}</h4>
 						<p class="date"> {{item.post_date}}</p>
 					</div>
 				</div>

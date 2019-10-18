@@ -165,7 +165,7 @@
         "ORIGIN_PRICE": "$7300",
         "PRICE": "HKD$3,650",
         "IOS": {
-            "SMALL_TEXT": "MyInsurBox Annual Fee"
+            "SMALL_TEXT": "MyInsurBox Service Fee"
         },
         "POINT_1": "<p><b>180 days</b> data storage</p>",
         "POINT_2": "<p><b>Free</b> MyInsurBox Device</p>",
@@ -232,7 +232,7 @@
 		},
 		"DETAILS": {
 			"DELETE_PERIOD_INFO" : "Are you sure you want to delete this info",
-			"NO_DATA": "Oopd, No Data",
+			"NO_DATA": "Oops, No Data",
             "KEYWORD_ANALYSIS": "Keyword Analysis",
             "CURRENT_CUSTOMER": "Current Customer",
             "NOT_TO_DISPLAY": "Not to display ",

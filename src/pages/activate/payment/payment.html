@@ -10,7 +10,7 @@
 		<div class="back-circle"></div>
 		<h3 >{{ this.smallText }}</h3>
 		<img src="assets/imgs/membership.svg" />
-		<span  class="strike">
+		<span *ngIf="!shouldShowIOSInfo" class="strike">
 			<span>{{ 'PAYMENT.ORIGIN_PRICE' | translate }}</span>
 		</span>
 		<h1>{{ this.price }}</h1>

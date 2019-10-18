@@ -7,9 +7,11 @@
 		[ngClass]="postData.post_image == false ? 'default' : ''"
 		[ngStyle]="{ 'backgroundImage': 'url(' + getPath(postData.post_image) + ')' }"></div>
 		<div class="title">
-			<h4>{{ postData.post_title }}</h4>
+			<h4 *ngIf="lang == 'cn'">{{ postData.title_zh }}</h4>
+			<h4 *ngIf="lang !== 'cn'">{{ postData.title_en }}</h4>
 			<p>{{ postData.post_date }}</p>
 		</div>
 	</div>
-	<div class="content" [innerHTML]="postData.post_content"></div>
+	<div class="content" *ngIf="lang == 'cn'" [innerHTML]="postData.content_zh"></div>
+	<div class="content" *ngIf="lang !== 'cn'" [innerHTML]="postData.content_en"></div>
 </ion-content>

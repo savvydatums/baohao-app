@@ -18,7 +18,8 @@ export class InfoPage {
 	tabElementWidth_px :number= 100;
 	tabs:string[] = [];
 	loading: boolean = true;
-	
+	lang : string ;
+
 	defaultBgUrl: string = '/assets/imgs/default_logo_bg.jpg';
 
 	@ViewChild(forwardRef(() => HeaderComponent)) header
@@ -35,6 +36,7 @@ export class InfoPage {
 		public translate: TranslateService,
 		public modalCtrl: ModalController,
 		) {
+		this.lang =  translate.currentLang || translate.defaultLang
 	}
 
 	ionViewDidLoad() {
