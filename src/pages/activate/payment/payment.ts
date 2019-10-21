@@ -18,7 +18,7 @@ declare var cordova: any;
 
 export class PaymentPage {
 
-	productID: string = 'com.baohao.myinsurbox.subscription';
+	productID: string = 'com.baohao.myinsurbox.service';
 	shouldShowIOSInfo: boolean = false;
 	iAPProcessing = false;
 	isInApp: boolean = false;
