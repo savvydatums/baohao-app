@@ -186,8 +186,8 @@
             "IAP_SUCCESS": "完成購買",
             "IAP_SUCCESS_INFO": "我們將會進入到下一個預約會面的表格，請填寫您有空的安裝時間。",
             "IAP_ERROR": "無法完成購買",
-            "IAP_ERROR_INFO": "與Ａｐｐｌｅ的系統連線似乎有誤，建議可以使用別的購買方式，支票、轉帳或信用卡付款。",
-            "IAP_RESTORE_INFO": "已經有付款過此產品?",
+            "IAP_ERROR_INFO": "與Ａｐｐｌｅ的系統連線似乎有誤，建議您可以稍後再試試。",
+            "IAP_RESTORE_INFO": "已經付款過此產品?",
             "IAP_PURCHASE_NOTFOUND": "不好意思，我們尋找不到您的購買記錄！"
         }
     },

@@ -128,7 +128,6 @@ export class PaymentPage {
 	public restoreIAP () {
 
 		this.iap.restorePurchases().then( result => {
-			console.log ('restore purchase', result) 
 			if (result.length > 0) {
 				this.navCtrl.push(DashboardPage);
 			} else {
