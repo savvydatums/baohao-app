@@ -175,6 +175,7 @@
         "REF_TEXT": "Referral Code",
         "CHECKOUT_METHOD": "Checkout methods",
         "CHECKOUT": "CHECKOUT",
+        "RESTORE": "RESTORE PURCHASE",
         "DETAILS": {
             "CHECK": "HKD Cheque",
             "CHECK_DETAILS": "<p>1. Account Name: Baohe Tech Limited. <br/> 2.Write your Register Username on the back. <br/>3. Post to: <br/>6F, KOHO, Hung To Road, Kwun Tong, Kowloon, HK</p>",
@@ -186,7 +187,9 @@
             "IAP_SUCCESS": "Thanks for your purchase",
             "IAP_SUCCESS_INFO": "We are going to the appointment form, please fill out the time you available for myInsurbox installation.",
             "IAP_ERROR": "Sorry, We are unable to finish your purchase",
-            "IAP_ERROR_INFO": "There seem to have some system mistakes, please purchase with other methods, cheque, bank transfer or pay by credit card."
+            "IAP_ERROR_INFO": "There seem to have some system mistakes, please try it again later.",
+            "IAP_RESTORE_INFO": "Already Purchase ?",
+            "IAP_PURCHASE_NOTFOUND": "Sorry, We can not find your purchase."
         }
     },
 

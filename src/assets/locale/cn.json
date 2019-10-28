@@ -174,6 +174,7 @@
         "REF_TEXT": "推薦人號碼",
         "CHECKOUT_METHOD": "付款方式",
         "CHECKOUT": "付款",
+        "RESTORE": "恢復購買紀錄",
         "DETAILS": {
             "CHECK": "港元支票",
             "CHECK_DETAILS": "<p>1.支票抬頭: Baohe Tech Limited <br/> 2.請把登記帳戶號碼寫在支票背面。 <br/>3. 郵寄至：<br/>香港，九龍觀塘鴻圖道75號，KOHO 6樓</p>",
@@ -185,7 +186,9 @@
             "IAP_SUCCESS": "完成購買",
             "IAP_SUCCESS_INFO": "我們將會進入到下一個預約會面的表格，請填寫您有空的安裝時間。",
             "IAP_ERROR": "無法完成購買",
-            "IAP_ERROR_INFO": "與Ａｐｐｌｅ的系統連線似乎有誤，建議可以使用別的購買方式，支票、轉帳或信用卡付款。"
+            "IAP_ERROR_INFO": "與Ａｐｐｌｅ的系統連線似乎有誤，建議可以使用別的購買方式，支票、轉帳或信用卡付款。",
+            "IAP_RESTORE_INFO": "已經有付款過此產品?",
+            "IAP_PURCHASE_NOTFOUND": "不好意思，我們尋找不到您的購買記錄！"
         }
     },
 

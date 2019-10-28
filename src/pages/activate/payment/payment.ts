@@ -7,6 +7,8 @@ import { InAppPurchase } from '@ionic-native/in-app-purchase';
 import { Appointment } from '../appointment/appointment';
 import { RegistrationAPI } from '../../../api/RegistrationAPI';
 import { ResponseStatus } from '../../../api/Comms';
+import { DashboardPage } from '../../dashboard/index/index';
+import { getTranslation } from '../../../utils/Data-Fetch';
 
 declare var cordova: any;
 
@@ -121,5 +123,35 @@ export class PaymentPage {
 		const lang = this.translate.currentLang || this.translate.defaultLang
 		const paymentDetail = this.modalCtrl.create('PaymentDetailsPage', { lang }, {cssClass: 'payment-modal'});
 		paymentDetail.present();
+	}
+
+	public restoreIAP () {
+
+		this.iap.restorePurchases().then( result => {
+			console.log ('restore purchase', result) 
+			if (result.length > 0) {
+				this.navCtrl.push(DashboardPage);
+			} else {
+				this.sendError('PAYMENT.DETAILS.IAP_PURCHASE_NOTFOUND');
+			}
+	
+		})
+		.catch( err => {
+			console.log(err)
+			this.sendError('PAYMENT.DETAILS.IAP_ERROR_INFO');
+			
+			return false
+		})
+	}
+
+	private sendError = (messageKey) => {
+		const alert = this.alertCtrl.create({
+			message: getTranslation(this.translate,messageKey),
+			buttons: [{
+				text:  getTranslation(this.translate,'GLOBA_OK_BUTTON_LABEL')
+			}]
+		})
+
+		alert.present()
 	}
 }

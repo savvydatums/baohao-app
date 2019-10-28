@@ -29,9 +29,16 @@
 		<button *ngIf="!shouldShowIOSInfo" class="payment-method-btn" ion-button round color="light" (click)="openPaymentDetails()"> 
 			{{ 'PAYMENT.CHECKOUT_METHOD' | translate }}
 		</button>
-		<button *ngIf="shouldShowIOSInfo" class="payment-method-btn" ion-button round color="light" (click)="IAPbuy()" [disabled]="iAPProcessing">
-			{{ 'PAYMENT.CHECKOUT' | translate }}
-		</button>
+		<div *ngIf="shouldShowIOSInfo">
+			<button class="payment-method-btn" ion-button round color="light" (click)="IAPbuy()" [disabled]="iAPProcessing">
+				{{ 'PAYMENT.CHECKOUT' | translate }}
+			</button>
+			<div class="clear"> </div>
+			<p class="restore-info"> {{ 'PAYMENT.DETAILS.IAP_RESTORE_INFO' | translate }}  </p>
+			<button class="payment-method-btn" ion-button round color="secondary" (click)="restoreIAP()" [disabled]="iAPProcessing">
+				{{ 'PAYMENT.RESTORE' | translate }}
+			</button>
+		</div>
 	</div>
 </ion-content>
 
