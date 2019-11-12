@@ -41,5 +41,6 @@ export const unTrashItem = `${insightPath}remove_trash`
 export const deleteTrashItem = `${insightPath}delete`
 
 // posts
-export const postList = `${insightPath}get_posts`
-export const postCategory = `${insightPath}get_posts_category`
+const infoPath = `${baseApiPath}api/info_page/`
+export const postList = `${infoPath}get_posts`
+export const postCategory = `${infoPath}get_posts_category`

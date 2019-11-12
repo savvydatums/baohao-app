@@ -28,7 +28,7 @@
 		(pan)="updateIndicatorPosition()"
 		[pager]="false"
 	>
-		<ion-slide *ngFor="let name of tabs">
+		<ion-slide *ngFor="let name of categories">
 			<ng-container *ngIf="posts.allPost[name]">
 				<div *ngFor="let item of posts.allPost[name]" 
 					class="thumbnail" (click)="onClickPost(item)">

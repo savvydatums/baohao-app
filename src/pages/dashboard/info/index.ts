@@ -17,6 +17,7 @@ export class InfoPage {
 
 	tabElementWidth_px :number= 100;
 	tabs:string[] = [];
+	categories:string[] = [];
 	loading: boolean = true;
 	lang : string ;
 
@@ -48,8 +49,9 @@ export class InfoPage {
 		PostAPI.getPostsCategories(this.profile.cookie)
 			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					this.tabs = result.posts_category;
-					this.getPostsDataFromCategory()
+					this.tabs = this.lang == 'en' ? result.posts_category_en : result.posts_category_zh;
+					this.categories = result.posts_category
+					this.getPostsDataFromCategory(result.posts_category)
 				} else {
 					showError(this.alertCtrl, this.translate, result.message);
 				}
@@ -58,11 +60,11 @@ export class InfoPage {
 			});
 	}
 
-	getPostsDataFromCategory () {
-		let count = this.tabs.length;
+	getPostsDataFromCategory (categories) {
+		let count = categories.length;
 
 		const self = this;
-		this.tabs.map (catName => {
+		categories.map (catName => {
 			PostAPI.getPostsFromCategory(self.profile.cookie, catName)
 				.then((result:any) => {
 					if (result.status == InsightResponseStatus.SUCCESS) {
