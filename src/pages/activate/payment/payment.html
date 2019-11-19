@@ -8,11 +8,8 @@
 	</div>
 	<head>
 		<div class="back-circle"></div>
-		<h3 >{{ this.smallText }}</h3>
+		<h3>{{ 'PAYMENT.TITLE' | translate }}</h3>
 		<img src="assets/imgs/membership.svg" />
-		<span *ngIf="!shouldShowIOSInfo" class="strike">
-			<span>{{ 'PAYMENT.ORIGIN_PRICE' | translate }}</span>
-		</span>
 		<h1>{{ this.price }}</h1>
 		<h5 *ngIf="shouldShowIOSInfo">
 			{{ 'PAYMENT.DETAILS.IN_APP_PURCHASE' | translate }}

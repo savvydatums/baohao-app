@@ -43,9 +43,6 @@ export class PaymentPage {
 		this.shouldShowIOSInfo = cordova.platformId === platforms.Ios
 		this.price = this.shouldShowIOSInfo ? 'loading' : this.translate.instant('PAYMENT.PRICE') 
 
-		const smallTextKey = this.shouldShowIOSInfo ? 'PAYMENT.IOS.SMALL_TEXT' : 'PAYMENT.SMALL_TEXT'
-		this.smallText = this.translate.instant(smallTextKey)
-
 		if (this.shouldShowIOSInfo) {
 			this.iap
 			.getProducts([this.productID])

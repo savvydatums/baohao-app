@@ -161,12 +161,8 @@
     },
 
     "PAYMENT": {
-        "SMALL_TEXT": "Early Bird Promotion",
-        "ORIGIN_PRICE": "$7300",
-        "PRICE": "HKD$3,650",
-        "IOS": {
-            "SMALL_TEXT": "MyInsurBox Service Fee"
-        },
+        "TITLE": "MyInsurBox Service Fee",
+        "PRICE": "HKD$8",
         "POINT_1": "<p><b>180 days</b> data storage</p>",
         "POINT_2": "<p><b>Free</b> MyInsurBox Device</p>",
         "POINT_3": "<p><b>Unlimited</b> Sales Opportunities <br/> Recommanded by AI</p>",

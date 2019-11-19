@@ -160,12 +160,8 @@
     },
 
     "PAYMENT": {
-        "SMALL_TEXT": "早鳥優惠",
-        "ORIGIN_PRICE": "(原價$7300)",
-        "PRICE": "HKD3,650",
-        "IOS": {
-            "SMALL_TEXT": "MyInsurBox服務費"
-        },
+        "TITLE": "MyInsurBox服務費",
+        "PRICE": "HKD$8",
         "POINT_1": "<p><b>一百八十天</b> 資料儲存</p>",
         "POINT_2": "<p>免費MyInsurBox設備一個</p>",
         "POINT_3": "<p><b>無限</b>個人工智能銷售機會推薦</p>",
