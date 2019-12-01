@@ -24,8 +24,8 @@ export class PaymentDetailsPage {
 		stripScript.setAttribute('class', 'stripe-button');
 		stripScript.setAttribute('data-description', 'Access for a year');
 		stripScript.setAttribute('data-key', 'pk_test_sGSThVPlCiA4xglP9SA7mQyj');
-		stripScript.setAttribute('data-amount', '5000');
-		stripScript.setAttribute('data-locale', 'auto');
+		stripScript.setAttribute('data-amount', '800');
+		stripScript.setAttribute('data-locale', 'hkd');
 		document.getElementById('strip-form').appendChild(stripScript);
 
 		var cookieInput = document.getElementById("cookie")

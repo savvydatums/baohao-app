@@ -106,7 +106,7 @@ export class Appointment {
 			[inputRef.phone] : this.appointment.mobile,
 			[inputRef.registration_id]: this.registrationId
 		}
-
+		
 		RegistrationAPI.sendIndividualAppointment(payload)
 			.then((result: TFormResponse) => {
 				if (result.is_valid === true) {

@@ -13,6 +13,7 @@ import { PotentialLeadsModel } from '../../../../model/PotentialLeadsModel';
 import { getTranslation } from '../../../../utils/Data-Fetch';
 import { AdvertModel } from '../../../../model/AdvertModel';
 import { platforms } from '../../../../app/app.module';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 declare var cordova: any;
 
@@ -45,7 +46,8 @@ export class InsightDetailsPage {
 		public translate: TranslateService,
 		public navParams: NavParams,
 		private alertCtrl: AlertController,
-		private modalCtrl: ModalController) {
+		private modalCtrl: ModalController, 
+		private iab: InAppBrowser) {
 	}
 
 	ionViewWillLoad() {
@@ -164,7 +166,8 @@ export class InsightDetailsPage {
 	}
 
 	public openExternalLink(link) {
-		window.open(link,'_system', 'location=yes');
+		const browser = this.iab.create(link, '_system');
+		browser.show();
 	}
 
 }

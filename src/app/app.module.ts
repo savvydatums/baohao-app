@@ -15,6 +15,7 @@ import { LoggedInUserModel } from './../model/LoggedInUserModel';
 import { AppointmentModel } from './../model/AppointmentModel';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { HTTP } from '@ionic-native/http';
+import { InAppBrowser } from '@ionic-native/in-app-browser'; 
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { ComponentsModule } from '../components/components.module';
@@ -67,8 +68,9 @@ import { PostModel } from '../model/PostModel';
     StatusBar,
     SplashScreen,
     HTTP,
-      {provide: ErrorHandler, useClass: IonicErrorHandler},
-      InAppPurchase
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    InAppPurchase,
+    InAppBrowser
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
