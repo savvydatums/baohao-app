@@ -18,7 +18,7 @@ import { TrashModel } from '../../../../model/TrashModel';
 export class PotentialPage {
 
 	type: string = insightType.potential;
-	searchValue: string;
+	search: object;
 	categoryColors: object;
 	searchFilters: object[] = filterOptions;
 	renderTimeStamp: Function = renderTimeStamp;
@@ -54,8 +54,8 @@ export class PotentialPage {
 		insightModal.present();
 	}
 	public searchHandler (keyword, filter) {
-		const search = { keyword, searchtype: filter ? filter : 'both' }
-		assignPotentialToModal(this.profile.cookie, this.potential, null, search)
+		this.search = { keyword, searchtype: filter ? filter : 'both' }
+		assignPotentialToModal(this.profile.cookie, this.potential, 1, this.search)
 	}
 
 	public starInsight(record_id, source, group) {
@@ -85,7 +85,7 @@ export class PotentialPage {
 		const errorCallBack = (error) => { console.log(error); }
 		const page = this.potential.loadedPage + 1
 
-		assignPotentialToModal(this.profile.cookie, this.potential, page, null, successCallBack, errorCallBack)
+		assignPotentialToModal(this.profile.cookie, this.potential, page, this.search, successCallBack, errorCallBack)
 	}
 
 }

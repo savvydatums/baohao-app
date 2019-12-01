@@ -5,9 +5,8 @@ export class AdvertModel {
 	public numberOfPages: Number = 0;
 	public loadedPage: any = 0;
 
-	constructor() {
+	constructor() {}
 
-	}
 	public addData(results, loadedPage, numberOfPages?) {
 
 		if (results) {

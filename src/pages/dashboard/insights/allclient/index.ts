@@ -19,7 +19,7 @@ import { TrashModel } from '../../../../model/TrashModel';
 export class AllClient {
 
 	type: string = insightType.all;
-	searchValue: string;
+	//search: object;
 	categoryColors: object;
 	renderTimeStamp: Function = renderTimeStamp;
 	getKeywordText: Function = getKeywordText;
@@ -72,8 +72,10 @@ export class AllClient {
 			categories: this.insights.getCategories()
 		}
 		this.insights.keyword = keyword
+		console.log('this.searchBar.', this.searchBar.inputValue)
+		this.searchBar.inputValue = keyword
 
-		assignClientInsightToModal(this.profile.cookie, this.insights, null, search)
+		assignClientInsightToModal(this.profile.cookie, this.insights, 1, search)
 	}
 
 	public starInsight(record_id, source, categories) {

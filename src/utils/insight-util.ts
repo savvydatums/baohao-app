@@ -73,13 +73,12 @@ export const getKeywordText = (translate, type, keyword) => {
 }
 
 export const assignPotentialToModal = (cookie, modal, page, search?, successCallback?, errorCallback?) => {
-	const numOfPage = search ? 1 : null
 	InsightAPI.getPotentialInsight(cookie, insightFilterTypes.all, page, search)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
 				result.status == InsightResponseStatus.UPDATED) {
-				modal.addData(result.results, page, numOfPage)
+				modal.addData(result.results, page, result.num_of_pages)
 				successCallback && successCallback(result.results)
 			} else {
 				errorCallback && errorCallback(result.message);
@@ -90,13 +89,12 @@ export const assignPotentialToModal = (cookie, modal, page, search?, successCall
 }
 
 export const assignAdvertToModal = (cookie, modal, page, search?, successCallback?, errorCallback?) => {
-	const numOfPage = search ? 1 : null
 	ArchiveAPI.getAdvertList(cookie, insightFilterTypes.all, page, search)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
 				result.status == InsightResponseStatus.UPDATED) {
-				modal.addData(result.results, page, numOfPage)
+				modal.addData(result.results, page, result.num_of_pages)
 				successCallback && successCallback(result.results)
 			} else {
 				errorCallback && errorCallback(result.message);
@@ -113,9 +111,7 @@ export const assignClientInsightToModal = (cookie, modal, page, search?, success
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
 				result.status == InsightResponseStatus.UPDATED) {
-
-				const numOfPage = search && (result.num_of_pages || 1)
-				modal.addData(result.results, page, numOfPage)
+				modal.addData(result.results, page, result.num_of_pages)
 				successCallback && successCallback(result.results)
 			} else {
 				errorCallback && errorCallback(result.message);

@@ -50,7 +50,7 @@
 	<p class="forget" (click)="onForgotPassword()">{{ 'LOGIN.FORGET_PASSWORD' | translate }}</p>
 
 	<div class="sign-in-area" >
-		<button ion-button color="light" block round (click)="onSignIn()">{{ 'LOGIN.BUTTON' | translate }}</button>
+		<button ion-button color="light" block round (click)="onSignIn()" [disabled]="disableSignIn">{{ 'LOGIN.BUTTON' | translate }}</button>
 		<p>{{ 'LOGIN.SIGN_UP_CTA' | translate }}<span class="register-btn" (click)="goToRegister()">{{ 'LOGIN.SIGN_UP_LINK' | translate }}</span></p>
 	</div>
 

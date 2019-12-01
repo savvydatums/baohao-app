@@ -21,9 +21,10 @@ import { TrashModel } from '../../../model/TrashModel';
 export class AdvertPage {
 
   loading = true;
-  searchValue: string;
+  search: object;
 	categoryColors: object;
-	searchFilters: object[] = filterOptions;
+  searchFilters: object[] = filterOptions;
+  
 	renderTimeStamp: Function = renderTimeStamp;
 	getKeywordInfo: Function = getKeywordInfo;
 	getKeywordText: Function = getKeywordText;
@@ -65,8 +66,8 @@ export class AdvertPage {
   }
 
   public searchHandler (keyword, filter) {
-    const search = { keyword, searchtype: filter ? filter : 'both' }
-		assignAdvertToModal(this.profile.cookie, this.advert, null, search)
+    this.search = { keyword, searchtype: filter ? filter : 'both' }
+		assignAdvertToModal(this.profile.cookie, this.advert, 1, this.search)
 	}
 
   private showLoading(show) {
@@ -74,17 +75,15 @@ export class AdvertPage {
   }
   
   public showAdvertInfo (info) {
-    let adverttModal = this.modalCtrl.create(
-			'advert-details', { info }
-    ); 
+    let adverttModal = this.modalCtrl.create( 'advert-details', { info }); 
     // if created with file name index.tx, then use ionicPage name, not module name
 		adverttModal.present();
   }
 
   public starInsight(record_id, source, group) {
-    const callback = () => { 
-        assignAdvertToModal(this.profile.cookie, this.advert, 1)
-        assignClientInsightToModal(this.profile.cookie, this.archive, 1, null, null, null, insightFilterTypes.archive) 
+    const callback = () => {
+      assignAdvertToModal(this.profile.cookie, this.advert, 1)
+      assignClientInsightToModal(this.profile.cookie, this.archive, 1, null, null, null, insightFilterTypes.archive) 
     }
 		return starItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, group, null, callback);
 	}
@@ -108,6 +107,6 @@ export class AdvertPage {
 		const errorCallBack = (error) => { console.log(error); }
     const page = this.advert.loadedPage + 1
     
-		assignAdvertToModal(this.profile.cookie, this.advert, page, null, successCallBack, errorCallBack)
+		assignAdvertToModal(this.profile.cookie, this.advert, page, this.search, successCallBack, errorCallBack)
   }
 }

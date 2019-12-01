@@ -45,7 +45,7 @@ export class SearchBarComponent {
 		this.inputValue = ''
 		this.onSearch()
 	}
-
+	// below only apply to all client
 	public onSearchHandler(keyword) {
 		const search = {
 			keyword: keyword, 
@@ -53,7 +53,8 @@ export class SearchBarComponent {
 			categories: this.insights.getCategories()
 		}
 		this.insights.keyword = keyword
-		assignClientInsightToModal(this.profile.cookie, this.insights, null, search)
+		this.inputValue = keyword
+		assignClientInsightToModal(this.profile.cookie, this.insights, 1, search)
 	}
 
 	public onResetFilter(type) {

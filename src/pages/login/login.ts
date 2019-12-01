@@ -32,6 +32,7 @@ export class LoginPage {
 	private timer: any = null;
 	public appVersion: string = '';
 	public showLoginInAPP: boolean = false;
+	public disableSignIn: boolean = false;
 
 	constructor(
 		public navController: NavController,
@@ -60,6 +61,7 @@ export class LoginPage {
 	public onSignIn() {
 		let registration_id = ''
 		let password = ''
+		this.disableSignIn = true
 
 		if (isDebug()){
 			// registration_id = 'test123';
@@ -99,6 +101,7 @@ export class LoginPage {
 				} else {
 					this.errorMsg = result.error;
 				}
+				this.disableSignIn = false
 			},(error: any) => {
 				console.log(error);
 			});
