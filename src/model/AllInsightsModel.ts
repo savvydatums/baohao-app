@@ -81,20 +81,8 @@ export class AllInsightsModel {
 		if (results.length > 1 || results.length == 0) { 
 			searchMethod = 'both'
 		} else if (results.length <= 1) {
-			searchMethod = results[0].value
+			searchMethod = results[0]
 		}
 		return searchMethod
 	}
-	
-	// public updateAuthorNickName (authorId, source, nickname) {
-
-	// 	const isDataLoaded = this.rawData && this.rawData.length >= 0
-	// 	if (isDataLoaded) {
-	// 		this.rawData.map((item:any) => {
-	// 			if (item.authorId == authorId && item.source == source) {
-	// 				item.nickname = nickname
-	// 			}
-	// 		})
-	// 	}
-	// }
 }

@@ -170,4 +170,10 @@ export class InsightDetailsPage {
 		browser.show();
 	}
 
+	public linkToFbPage () {
+		const fbUrl = `https://m.facebook.com/${this.insightData.authorId}`
+		const browser = this.iab.create(fbUrl, '_system');
+		browser.show();	
+	}
+
 }

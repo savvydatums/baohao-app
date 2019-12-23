@@ -5,7 +5,7 @@
 	<div class="hero">
 		<div class="background" [ngStyle]="{ 'backgroundImage': 'url(' + info.img + ')' }"></div>
 		<div class="source">
-			<img *ngIf="insightData.source == 'fb'" src="assets/icon/facebook-w.svg">
+			<img *ngIf="insightData.source == 'fb'" (click)="linkToFbPage()" src="assets/icon/facebook-w.svg">
 			<img *ngIf="insightData.source == 'wex'" src="assets/icon/wechat-w.svg">
 		</div>
 		<div class="names">

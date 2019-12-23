@@ -144,7 +144,7 @@ export const configInsightListPayload = (cookie: string, querytype: string, page
 
 export const updateAuthorNickNameForModel = (modal, authorId, source, nickname) => {
 	// TODO: this wait until we have author specific API
-	console.log('updateAuthorNickNameForModel', modal, authorId, source, nickname)
+	//console.log('updateAuthorNickNameForModel', modal, authorId, source, nickname)
 
 	const isDataLoaded = modal.rawData && modal.rawData.length > 0
 

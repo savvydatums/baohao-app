@@ -10,6 +10,7 @@ import { keywordsSettings } from '../settings/settings'
 import { openEditNoteForNickName, showError } from '../../../../utils/alert-generic';
 import { TranslateService } from '@ngx-translate/core';
 import { renderTimeStampInNumber } from '../../../../utils/insight-util';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @IonicPage()
 @Component({
@@ -35,7 +36,8 @@ export class UserDetailsPage {
 		private view: ViewController,
 		public profile: ProfileModel,
 		private alertCtrl: AlertController,
-		public navParams: NavParams) {
+		public navParams: NavParams,
+		private iab: InAppBrowser) {
 	}
 
 	ionViewWillLoad() {
@@ -149,5 +151,11 @@ export class UserDetailsPage {
 
 	closeModal() {
 		this.view.dismiss()
+	}
+
+	linkToFbPage () {
+		const fbUrl = `https://m.facebook.com/${this.userDetails.authorId}`
+		const browser = this.iab.create(fbUrl, '_system');
+		browser.show();	
 	}
 }

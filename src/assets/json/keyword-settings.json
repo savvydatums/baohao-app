@@ -139,6 +139,12 @@
 			"color": "#B8575F",
 			"cn": "終身壽險或儲蓄",
 			"en": "Savings & Life"
+		},
+		"mpf": {
+			"img": "/assets/categories/potential/mpf.jpg",
+			"color": "#e4af60",
+			"cn": "強積金",
+			"en": "MPF"
 		}
 	}
 }

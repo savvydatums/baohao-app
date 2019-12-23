@@ -53,6 +53,7 @@ export class PotentialPage {
 		);
 		insightModal.present();
 	}
+
 	public searchHandler (keyword, filter) {
 		this.search = { keyword, searchtype: filter ? filter : 'both' }
 		assignPotentialToModal(this.profile.cookie, this.potential, 1, this.search)

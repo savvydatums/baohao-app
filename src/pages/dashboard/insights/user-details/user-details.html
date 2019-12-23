@@ -10,7 +10,7 @@
 			</h4>
 		</div>
 		<div class="source">
-			<img *ngIf="userDetails.source == 'fb'" src="assets/icon/facebook-w.svg">
+			<img *ngIf="userDetails.source == 'fb'" (click)="linkToFbPage()" src="assets/icon/facebook-w.svg">
 			<img *ngIf="userDetails.source == 'wex'" src="assets/icon/wechat-w.svg">
 		</div>
 		<div class="chart-container">
