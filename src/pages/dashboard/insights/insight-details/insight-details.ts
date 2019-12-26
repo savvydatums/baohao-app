@@ -14,6 +14,7 @@ import { getTranslation } from '../../../../utils/Data-Fetch';
 import { AdvertModel } from '../../../../model/AdvertModel';
 import { platforms } from '../../../../app/app.module';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { AppAvailability } from '@ionic-native/app-availability';
 
 declare var cordova: any;
 
@@ -47,7 +48,8 @@ export class InsightDetailsPage {
 		public navParams: NavParams,
 		private alertCtrl: AlertController,
 		private modalCtrl: ModalController, 
-		private iab: InAppBrowser) {
+		private iab: InAppBrowser,
+		private appAvailability: AppAvailability) {
 	}
 
 	ionViewWillLoad() {
@@ -176,4 +178,30 @@ export class InsightDetailsPage {
 		browser.show();	
 	}
 
+	openFBProfilePage () {
+		let appUrl, app, webUrl;
+
+		if (cordova.platformId === platforms.Ios) {
+			appUrl = `fb://profile/1487350501` // this is correct format to open in an app in ios
+			app = 'fb://'
+		} else if (cordova.platformId === platforms.Android) {
+			app = 'com.facebook.orca'
+			appUrl = `fb://page/1487350501` // not tested yet // https://lookup-id.com/ find my app id
+			//https://forum.ionicframework.com/t/open-my-page-facebook-in-facebook-app-via-side-menu/87198/15
+		} else if (cordova.platformId === platforms.Browser) {
+			webUrl = `https://m.facebook.com/${this.insightData.authorId}`// this is username
+		}
+
+		this.appAvailability.check(app)
+			.then(
+				(yes: boolean) => {
+					const browser = this.iab.create(appUrl, '_system');
+					browser.show();	
+				},
+				(no: boolean) => {
+					const browser = this.iab.create(webUrl, '_system');
+					browser.show();
+				}
+			);
+	}
 }

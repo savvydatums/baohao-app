@@ -24,6 +24,7 @@ import { ArchiveModel } from '../model/ArchiveModel';
 import { TrashModel } from '../model/TrashModel';
 import { AdvertModel } from '../model/AdvertModel';
 import { InAppPurchase } from '@ionic-native/in-app-purchase';
+import { AppAvailability } from '@ionic-native/app-availability';
 import { PostModel } from '../model/PostModel';
 
 @NgModule({
@@ -70,7 +71,8 @@ import { PostModel } from '../model/PostModel';
     HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     InAppPurchase,
-    InAppBrowser
+    InAppBrowser,
+    AppAvailability
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
