@@ -179,29 +179,40 @@ export class InsightDetailsPage {
 	}
 
 	openFBProfilePage () {
-		let appUrl, app, webUrl;
-
+		let appUrl, app;
+		let webUrl = `https://m.facebook.com/${this.insightData.authorId}`
+		
 		if (cordova.platformId === platforms.Ios) {
-			appUrl = `fb://profile/1487350501` // this is correct format to open in an app in ios
+			appUrl = `fb://profile/1487350501` // this is tested on ios
 			app = 'fb://'
 		} else if (cordova.platformId === platforms.Android) {
-			app = 'com.facebook.orca'
-			appUrl = `fb://page/1487350501` // not tested yet // https://lookup-id.com/ find my app id
-			//https://forum.ionicframework.com/t/open-my-page-facebook-in-facebook-app-via-side-menu/87198/15
-		} else if (cordova.platformId === platforms.Browser) {
-			webUrl = `https://m.facebook.com/${this.insightData.authorId}`// this is username
-		}
+			app = 'com.facebook.katana'
+			appUrl = `fb://profile/1487350501` // this is tested on android, worked https://lookup-id.com/ find my app id
+
+			//let appUrl = `fb://profile?id=1487350501` // this will work in android as well
+			//https://stackoverflow.com/questions/4810803/open-facebook-page-from-android-app
+			// profile page with id, in my account doesn't work
+		} 
+
+		alert('cordova.platformId:' + cordova.platformId + '/' + appUrl + '/' + app);
 
 		this.appAvailability.check(app)
 			.then(
-				(yes: boolean) => {
+				(yes) => {
+					alert(app + yes + 'exist: appUrl' + appUrl);
 					const browser = this.iab.create(appUrl, '_system');
 					browser.show();	
 				},
-				(no: boolean) => {
-					const browser = this.iab.create(webUrl, '_system');
-					browser.show();
+				(no) => {
+					alert(app + no +'not exist: webUrl' + webUrl);// undefined url and this
+					this.openWebUrl() // fall back on everything
 				}
 			);
+	}
+
+	openWebUrl () {
+		let webUrl = `https://m.facebook.com/${this.insightData.authorId}`
+		const browser = this.iab.create(webUrl, '_system');
+		browser.show();
 	}
 }

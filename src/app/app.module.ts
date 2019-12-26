@@ -84,6 +84,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 export const platforms = {
 	Browser: 'browser',
-	Android: 'android:',
+	Android: 'android',
 	Ios: 'ios'
 }
