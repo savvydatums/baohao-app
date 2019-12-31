@@ -178,33 +178,37 @@ export class InsightDetailsPage {
 		browser.show();	
 	}
 
+	// this has spend me 1.5 working day already.
 	openFBProfilePage () {
-		let appUrl, app;
+		let app;
 		let webUrl = `https://m.facebook.com/${this.insightData.authorId}`
-		
+		let appUrl = `fb://profile/${this.insightData.authorNumericId}` // this is tested on android & ios 
+
 		if (cordova.platformId === platforms.Ios) {
-			appUrl = `fb://profile/1487350501` // this is tested on ios
 			app = 'fb://'
 		} else if (cordova.platformId === platforms.Android) {
 			app = 'com.facebook.katana'
-			appUrl = `fb://profile/1487350501` // this is tested on android, worked https://lookup-id.com/ find my app id
 
 			//let appUrl = `fb://profile?id=1487350501` // this will work in android as well
 			//https://stackoverflow.com/questions/4810803/open-facebook-page-from-android-app
-			// profile page with id, in my account doesn't work
 		} 
 
-		alert('cordova.platformId:' + cordova.platformId + '/' + appUrl + '/' + app);
+		//alert('cordova.platformId:' + cordova.platformId + '/' + appUrl + '/' + app);
 
 		this.appAvailability.check(app)
 			.then(
 				(yes) => {
-					alert(app + yes + 'exist: appUrl' + appUrl);
-					const browser = this.iab.create(appUrl, '_system');
-					browser.show();	
+					if (this.insightData.authorNumericId) {
+						//alert(this.insightData.authorNumericId + 'exist: appUrl' + appUrl);
+						const browser = this.iab.create(appUrl, '_system');
+						browser.show();	
+					} else {
+						//alert(this.insightData.authorNumericId +'not exist: webUrl' + webUrl);// undefined url and this
+						this.openWebUrl() // fall back on everything
+					}
 				},
 				(no) => {
-					alert(app + no +'not exist: webUrl' + webUrl);// undefined url and this
+					//alert(app + no +'not exist: webUrl' + webUrl);// undefined url and this
 					this.openWebUrl() // fall back on everything
 				}
 			);
