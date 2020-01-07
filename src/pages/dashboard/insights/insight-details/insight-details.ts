@@ -181,7 +181,6 @@ export class InsightDetailsPage {
 	// this has spend me 1.5 working day already.
 	openFBProfilePage () {
 		let app;
-		let webUrl = `https://m.facebook.com/${this.insightData.authorId}`
 		let appUrl = `fb://profile/${this.insightData.authorNumericId}` // this is tested on android & ios 
 
 		if (cordova.platformId === platforms.Ios) {

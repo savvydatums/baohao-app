@@ -160,7 +160,6 @@ export class UserDetailsPage {
 
 	openFBProfilePage () {
 		let app;
-		let webUrl = `https://m.facebook.com/${this.userDetails.authorId}`
 		let appUrl = `fb://profile/${this.userDetails.authorNumericId}` // this is tested on android & ios 
 
 		if (cordova.platformId === platforms.Ios) {
