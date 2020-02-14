@@ -187,28 +187,22 @@ export class InsightDetailsPage {
 			app = 'fb://'
 		} else if (cordova.platformId === platforms.Android) {
 			app = 'com.facebook.katana'
-
 			//let appUrl = `fb://profile?id=1487350501` // this will work in android as well
 			//https://stackoverflow.com/questions/4810803/open-facebook-page-from-android-app
 		} 
-
-		//alert('cordova.platformId:' + cordova.platformId + '/' + appUrl + '/' + app);
 
 		this.appAvailability.check(app)
 			.then(
 				(yes) => {
 					if (this.insightData.authorNumericId) {
-						//alert(this.insightData.authorNumericId + 'exist: appUrl' + appUrl);
 						const browser = this.iab.create(appUrl, '_system');
 						browser.show();	
 					} else {
-						//alert(this.insightData.authorNumericId +'not exist: webUrl' + webUrl);// undefined url and this
-						this.openWebUrl() // fall back on everything
+						this.openWebUrl()
 					}
 				},
 				(no) => {
-					//alert(app + no +'not exist: webUrl' + webUrl);// undefined url and this
-					this.openWebUrl() // fall back on everything
+					this.openWebUrl()
 				}
 			);
 	}
