@@ -27,7 +27,7 @@ export class SignupPage {
 			registration_id: ['',
 				Validators.compose([
 					Validators.required,
-				Validators.pattern(`^(PIBA|CIB|HKFI).*`)
+					Validators.pattern(/^(PIBA|CIB|HKFI).*/i)
 				])],
 			password: ['',
 				Validators.compose([

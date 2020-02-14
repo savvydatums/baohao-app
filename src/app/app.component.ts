@@ -10,6 +10,8 @@ import { LoginPage } from '../pages/login/login';
 import { FaqPage } from '../pages/dashboard/faq';
 import { SupportPage } from '../pages/dashboard/support';
 import { TrashPage } from '../pages/dashboard/trash';
+import { ProfilePage } from '../pages/dashboard/profile/index';
+import { ArchivePage } from '../pages/dashboard/archive';
 
 @Component({
   templateUrl: 'app.html'
@@ -33,6 +35,9 @@ export class MyApp {
 		platform.ready().then(() => {
 			statusBar.styleDefault();
 			splashScreen.hide();
+			//let orientation:any = window.screen.orientation;
+			//orientation.lock('portrait');
+
 		});
 	}
 
@@ -43,7 +48,6 @@ export class MyApp {
 					if (result.status == 'ok') {
 						this.nav.push (LoginPage)
 					}
-					console.log (result);
 				}, (error: any) => {
 					console.log (error);
 				});
@@ -57,9 +61,16 @@ export class MyApp {
 	public goToSupport() {
 		this.nav.push(SupportPage)
 	}
+	
+	public goToArchive() {
+		this.nav.push(ArchivePage)
+	}
 
 	public goToTrash() {
 		this.nav.push(TrashPage)
 	}
 
+	public goToProfile() {
+		this.nav.push(ProfilePage)
+	}
 }

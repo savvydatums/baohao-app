@@ -1,6 +1,6 @@
 
 export const createBarChartOptions = (data) => {
-	console.assert(data.labels && data.data && data.colors)
+	//console.assert(data.labels && data.data && data.colors)
 
 	return {
 		type: 'bar',

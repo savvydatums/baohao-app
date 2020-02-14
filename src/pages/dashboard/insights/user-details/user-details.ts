@@ -10,6 +10,11 @@ import { keywordsSettings } from '../settings/settings'
 import { openEditNoteForNickName, showError } from '../../../../utils/alert-generic';
 import { TranslateService } from '@ngx-translate/core';
 import { renderTimeStampInNumber } from '../../../../utils/insight-util';
+import { platforms } from '../../../../app/app.module';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { AppAvailability } from '@ionic-native/app-availability';
+
+declare var cordova: any;
 
 @IonicPage()
 @Component({
@@ -23,10 +28,10 @@ export class UserDetailsPage {
 	summaryRanked: TInsightSummary[] = [];
 	userDetails: TInsightPost;
 	selectedSummary: TInsightSummary;
+	currentLang: string;
 
 	@ViewChild('barChartView') barChartView;
 	barChart: any;
-	openEditNote: Function = openEditNoteForNickName;
 	renderTimeStamp: Function = renderTimeStampInNumber;
 
 	constructor(
@@ -35,12 +40,21 @@ export class UserDetailsPage {
 		private view: ViewController,
 		public profile: ProfileModel,
 		private alertCtrl: AlertController,
-		public navParams: NavParams) {
+		public navParams: NavParams,
+		private iab: InAppBrowser,
+		private appAvailability: AppAvailability) {
 	}
 
 	ionViewWillLoad() {
 		this.userDetails = this.navParams.get('info');
 		this.getAuthorCategoryList(this.profile.cookie, this.userDetails.authorId, this.userDetails.source)
+	}
+
+	public openEditNote () {
+		const callback = (nickname) => {
+			this.userDetails.nickname = nickname
+		}
+		openEditNoteForNickName(this.alertCtrl, this.translate, this.userDetails, this.profile.cookie, callback.bind(this))
 	}
 
 	private getAuthorCategoryList (cookie, authorId, source) {
@@ -71,6 +85,7 @@ export class UserDetailsPage {
 		}
 		ranked.sort((a, b) => (a.key.localeCompare(b.key))).sort((a, b) => (b.amount - a.amount));
 		this.summaryRanked = ranked
+		this.currentLang = this.translate.currentLang || this.translate.defaultLang
 		this.createInsightGraph()
 	}
 
@@ -109,7 +124,7 @@ export class UserDetailsPage {
 			const withinRange = key < max && key >= min
 			if (withinRange && item.settings) {
 				data.push(item.amount);
-				labels.push(item.settings.en);
+				labels.push(item.settings[this.currentLang]);
 				colors.push(item.settings.color)
 			}
 		})
@@ -141,5 +156,42 @@ export class UserDetailsPage {
 
 	closeModal() {
 		this.view.dismiss()
+	}
+
+	openFBProfilePage () {
+		let app;
+		let appUrl = `fb://profile/${this.userDetails.authorNumericId}` // this is tested on android & ios 
+
+		if (cordova.platformId === platforms.Ios) {
+			app = 'fb://'
+		} else if (cordova.platformId === platforms.Android) {
+			app = 'com.facebook.katana'
+		} 
+
+		//alert('cordova.platformId:' + cordova.platformId + '/' + appUrl + '/' + app);
+
+		this.appAvailability.check(app)
+			.then(
+				(yes) => {
+					if (this.userDetails.authorNumericId) {
+						//alert(this.userDetails.authorNumericId + 'exist: appUrl' + appUrl);
+						const browser = this.iab.create(appUrl, '_system');
+						browser.show();	
+					} else {
+						//alert(this.userDetails.authorNumericId +'not exist: webUrl' + webUrl);// undefined url and this
+						this.openWebUrl() // fall back on everything
+					}
+				},
+				(no) => {
+					//alert(app + no +'not exist: webUrl' + webUrl);// undefined url and this
+					this.openWebUrl() // fall back on everything
+				}
+			);
+	}
+
+	openWebUrl () {
+		let webUrl = `https://m.facebook.com/${this.userDetails.authorId}`
+		const browser = this.iab.create(webUrl, '_system');
+		browser.show();
 	}
 }

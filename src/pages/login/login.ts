@@ -1,7 +1,6 @@
-import { PaymentPage } from '../activate/payment/payment';
 import { DashboardPage } from '../dashboard/index/index';
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ViewController, IonicApp } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { UserAPI } from '../../api/UserAPI';
@@ -13,6 +12,11 @@ import { isDebug } from '../../utils/url-util';
 import { getTranslation } from '../../utils/Data-Fetch';
 import { ForgetPasswordPage } from '../registration/forget-password';
 import { HTTP } from '@ionic-native/http';
+import { PaymentPage } from '../activate/payment/payment';
+import { WelcomePage } from '../registration/welcome/welcome';
+import { platforms } from '../../app/app.module';
+
+declare var cordova: any;
 
 const cookieTimes = 60 * 60;
 const localStorageIDName = 'myInsurBox_ID';
@@ -25,13 +29,20 @@ export class LoginPage {
 
 	public credentialsForm: FormGroup;
 	public errorMsg: string = '';
+	private timer: any = null;
+	public appVersion: string = '';
+	public showLoginInAPP: boolean = false;
+	public disableSignIn: boolean = false;
 
 	constructor(
 		public navController: NavController,
 		public navParams: NavParams,
+		public ionicApp: IonicApp,
 		private formBuilder: FormBuilder,
 		public translate: TranslateService,
 		private profile: ProfileModel,
+		private viewCtrl: ViewController,
+		private alertCtrl: AlertController,
 		private nativeHttp: HTTP) {
 
 		const username = this.getUserName() || ''
@@ -44,16 +55,20 @@ export class LoginPage {
 
 	ionViewDidLoad() {
 		isDebug() && setTimeout(() => this.onSignIn(), 1000); // this is only for testing
-		//this.getData();
+		this.getAppVersion();
 	}
 
 	public onSignIn() {
 		let registration_id = ''
 		let password = ''
+		this.disableSignIn = true
 
 		if (isDebug()){
-			// registration_id = 'PIBAxxx';
-			// password = 'lulu1234';
+			// registration_id = 'test123';
+			// password = '123456';
+			//registration_id = 'PIBAxxx';
+			//password = 'lulu1234';
+			//registration_id = 'cib999';
 			registration_id = 'jimmytest';
 			password = 'password';
 
@@ -82,9 +97,11 @@ export class LoginPage {
 				if (result.status == 'ok') {
 					this.profile.setUserInfo(result.cookie, result.user)
 					this.goToPageBasedOnUserStatus(result.user.logged_in_status)
+					this.setExpireTimer()
 				} else {
 					this.errorMsg = result.error;
 				}
+				this.disableSignIn = false
 			},(error: any) => {
 				console.log(error);
 			});
@@ -102,12 +119,22 @@ export class LoginPage {
 			break;
 
 			case LoggedInStatus.APPROVED:
-				this.navController.push(DashboardPage);
+				this.checkIfGoToDashbaord()
 			break;
 
 			default:
-				this.navController.push(DashboardPage);
+				this.checkIfGoToDashbaord()
 			break;
+		}
+	}
+
+	private checkIfGoToDashbaord () {
+		const isRegistry= location.href.indexOf('registry') >= 0
+		const isBrowser = cordova.platformId === platforms.Browser
+		if (isRegistry && isBrowser) { // this is for production
+			this.showLoginInAPP = true
+		} else {
+			this.navController.push(DashboardPage);
 		}
 	}
 
@@ -125,7 +152,7 @@ export class LoginPage {
 
 	public getData () {
 		const testUrl = 'https://api.myinsurbox.com/index.php/api/es/test/'
-		this.nativeHttp.get(testUrl, {}, {}).then(data =>{
+		this.nativeHttp.get(testUrl, {}, {}).then(data => {
 			console.log ('test native',data)
 		});
 	}
@@ -133,4 +160,58 @@ export class LoginPage {
 	public setLanguage(lan:string):void {
 		this.translate.use(lan);
 	}
+
+	private setExpireTimer () {
+		this.timer && clearTimeout(this.timer)
+		this.timer = setTimeout(this.showExpired.bind(this), cookieTimes * 1000)
+	}
+
+	private showExpired() {
+		// todo, if ok button not been click, then it will be redirect as well.
+		const alert = this.alertCtrl.create({
+			message:getTranslation(this.translate, 'EXPIRED_MESSAGE'),
+			buttons: [{
+				text: getTranslation(this.translate, 'GLOBA_OK_BUTTON_LABEL'),
+				handler: () => {
+					this.expiredHandler()
+				}
+			}]
+		})
+		alert.present()
+	}
+
+	private expiredHandler () {
+		this.viewCtrl.dismiss().then( _ => {
+			let activePortal = this.ionicApp._modalPortal.getActive()
+			if (activePortal) {
+				activePortal.dismiss(); //can use another .then here
+			}
+		});
+		UserAPI.logout(this.profile.cookie)
+			.then((result: any) => {
+				result.status !== 'ok' && console.log (result);
+				this.navController.push (LoginPage)
+			}, (error: any) => {
+				this.navController.push (LoginPage)
+				console.log (error);
+			});
+	}
+
+	public goToRegister () {
+		this.navController.push(WelcomePage);
+	}
+
+	public getAppVersion() {
+		var xhr = new XMLHttpRequest();
+		let _this = this;
+		xhr.addEventListener("load", function () {
+			var parser = new DOMParser();
+			var doc = parser.parseFromString(xhr.responseText, "application/xml");
+			_this.appVersion = doc.getElementsByTagName("widget")[0].getAttribute("version")
+			
+		});
+		xhr.open("get", "../config.xml", true);
+		xhr.send();
+	}
+
 }

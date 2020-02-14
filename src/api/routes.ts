@@ -7,6 +7,7 @@ export const individualReserve = `${baseApiPath}wp-json/gf/v2/forms/1/submission
 
 // register new Users
 export const register = `${baseApiPath}wp-json/wp/v2/users/register`
+export const inAppPurchase = `${authPath}in_app_purchase` // not really use anymore
 
 // authentication
 export const login = `${authPath}generate_auth_cookie`
@@ -29,6 +30,7 @@ export const suggestionUseful = `${insightPath}useful`
 
 // archives
 export const archiveList = `${insightPath}get_star_list`
+export const advertList = `${insightPath}get_advertising`
 export const archiveItem = `${insightPath}star`
 export const unArchiveItem = `${insightPath}remove_star`
 export const trashItem = `${insightPath}trash`
@@ -37,3 +39,8 @@ export const trashItem = `${insightPath}trash`
 export const trashList = `${insightPath}get_trash_list`
 export const unTrashItem = `${insightPath}remove_trash`
 export const deleteTrashItem = `${insightPath}delete`
+
+// posts
+const infoPath = `${baseApiPath}api/info_page/`
+export const postList = `${infoPath}get_posts`
+export const postCategory = `${infoPath}get_posts_category`

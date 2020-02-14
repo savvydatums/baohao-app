@@ -1,0 +1,114 @@
+info {
+
+    .info-content .scroll-content {
+        background: #EDFFFF;
+    }
+
+    ion-header ion-content {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        height: 40px;
+        .scroll-content {
+            overflow-x: initial;
+            overflow-y: initial;
+            height: 36px;
+            margin-bottom: 0 !important;
+            background: white;
+        }
+    }
+    
+    .SwipedTabs-indicatorSegment
+    {
+        -webkit-transition: 0.3s all;
+        -moz-transition:  0.3s all;
+        -o-transition:  0.3s all;
+        transition:  0.3s all;
+        transform-origin: top 0 left 0;
+        height: 3px;
+        position: relative;
+        top: -2px;
+        background-color: #246383 !important;
+    }
+
+    .SwipedTabs-tabs
+    {
+        width: fit-content !important;
+        border-bottom: solid 1px #e6e6e6  !important;
+        background: white;
+        margin-top: 3px;
+
+        ion-segment-button
+        {
+            border:none !important;
+            color:grey !important;
+            background-color:white !important;
+            height: 3.5rem !important;;
+            font-size: 1.4rem !important;
+            text-transform: capitalize;
+
+            &.SwipedTabs-activeTab
+            {
+                color:#246383 !important;
+            }
+    
+        }
+    }
+
+    .swiper-slide {
+        align-items: start;
+        padding-top: 20px;
+        overflow: auto;
+    }
+    
+    .thumbnail{
+        width: 90%;
+        background: white;
+        box-shadow: 0px 0px 8px #162c31;
+        color: white;
+        margin: 20px auto;
+        border-radius: 6px;
+        min-height: 130px;
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+
+        .background {
+            width: 100%;
+            height: 100%;
+            background-position: center 68%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            z-index: 0;
+            &.default {
+                background-size: 13%;
+            }
+        }
+
+        .title {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+        }
+        h4 {
+            line-height: 18px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        p {
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+    }
+
+    .no-data {
+        margin-top: 20%;
+        color:  #246383;
+    }
+}

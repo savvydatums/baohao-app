@@ -4,9 +4,8 @@
 	<input #search type="text"
 		(keyup)="updateInput($event)"
 		(keyup.enter)="onSearch()"
-		placeholder="Search Something...."
+		[placeholder]="fetchTranslation('SEARCH_SOMETHING')"
 		[value]="inputValue" />
-
 </div>
 <ng-container
   	*ngIf="page === 'allClient'; then allClient; else normal">
@@ -14,14 +13,14 @@
 <ng-template #normal>
 	<ul #normal class="search-filter">
 		<li *ngFor="let item of filters"
-			class="{{ selected == item ? 'active' : '' }}"
-			(click)="onFilterClick(item)">
-			{{ item }}
+			class="{{ selected == item.value ? 'active' : '' }}"
+			(click)="onFilterClick(item.value)">
+			{{ item.label }}
 		</li>
 	</ul>
 </ng-template>
 <ng-template #allClient>
 	<div class="filter-btn">
-		<button color="light" (click)="openFilter($event)">搜詢規則</button>
+		<button color="light" (click)="openFilter($event)">{{ fetchTranslation('NAVIGATION.FILTER') }}</button>
 	</div>
 </ng-template>

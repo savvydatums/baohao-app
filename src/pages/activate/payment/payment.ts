@@ -1,7 +1,16 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, ModalController, AlertController, NavController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { ProfileModel } from '../../../model/ProfileModel';
+import { platforms } from '../../../app/app.module';
+import { InAppPurchase } from '@ionic-native/in-app-purchase';
+import { Appointment } from '../appointment/appointment';
+import { RegistrationAPI } from '../../../api/RegistrationAPI';
+import { ResponseStatus } from '../../../api/Comms';
+import { DashboardPage } from '../../dashboard/index/index';
+import { getTranslation } from '../../../utils/Data-Fetch';
+
+declare var cordova: any;
 
 @IonicPage()
 @Component({
@@ -10,23 +19,135 @@ import { ProfileModel } from '../../../model/ProfileModel';
 })
 
 export class PaymentPage {
+
+	productID: string = 'com.baohao.myinsurbox.service';
+	shouldShowIOSInfo: boolean = false;
+	iAPProcessing = false;
+	isInApp: boolean = false;
+
+	price: string = '';
+	smallText: string = '';
+
 	constructor(
 		public profile: ProfileModel,
-		public translate: TranslateService) {
+		public translate: TranslateService,
+		private iap: InAppPurchase,
+		public alertCtrl: AlertController,
+		public navCtrl: NavController,
+		private modalCtrl: ModalController) {
 	}
 
-	ionViewDidLoad() {
+	ionViewWillEnter() {
+		const isRegistry= location.href.indexOf('registry') >= 0
+		isRegistry && (this.isInApp = true)
+		this.shouldShowIOSInfo = cordova.platformId === platforms.Ios
+		this.price = this.shouldShowIOSInfo ? 'loading' : this.translate.instant('PAYMENT.PRICE') 
 
-		var stripScript = document.createElement('script');
-		stripScript.setAttribute('src', 'https://checkout.stripe.com/checkout.js');
-		stripScript.setAttribute('class', 'stripe-button');
-		stripScript.setAttribute('data-description', 'Access for a year');
-		stripScript.setAttribute('data-key', 'pk_test_sGSThVPlCiA4xglP9SA7mQyj');
-		stripScript.setAttribute('data-amount', '5000');
-		stripScript.setAttribute('data-locale', 'auto');
-		document.getElementById('strip-form').appendChild(stripScript);
+		if (this.shouldShowIOSInfo) {
+			this.iap
+			.getProducts([this.productID])
+			.then((productData) => {
+				const data = productData[0]
+				console.log(JSON.stringify(data))
+				this.price = data.currency + ' '+ data.price
+				this.productID = productData[0].productId
+			})
+			.catch((err) => {
+				this.iAPProcessing = false
+				this.showConfirm(false)
+				console.log('purchase error', JSON.stringify(err))
+			});
+		}
+	}
 
-		var cookieInput = document.getElementById("cookie")
-		cookieInput.setAttribute('value', this.profile.cookie);
+	public IAPbuy() {
+		let self = this
+		this.iAPProcessing = true
+
+		this.iap
+			.buy(this.productID)
+			.then((data)=> {
+				self.saveReceipt(data)
+			})
+			.catch((err)=> {
+				this.iAPProcessing = false
+				self.showConfirm(false)
+				console.log('purchase error', JSON.stringify(err))
+			});
+	}
+
+	public showConfirm (isSuccess) {
+		const errorTitle = this.translate.instant('PAYMENT.DETAILS.IAP_ERROR')
+		const errorInfo = this.translate.instant('PAYMENT.DETAILS.IAP_ERROR_INFO')
+		const successTitle = this.translate.instant('PAYMENT.DETAILS.IAP_SUCCESS')
+		const successInfo = this.translate.instant('PAYMENT.DETAILS.IAP_SUCCESS_INFO')
+
+		// title, message, 
+		const alert = this.alertCtrl.create({
+			title: isSuccess ? successTitle : errorTitle,
+			message: isSuccess ? successInfo : errorInfo,
+			buttons: [
+			{　text: 'ok',
+				handler: () => {
+					if (isSuccess == true) {
+						this.navCtrl.push(Appointment, { cookie: this.profile.cookie })
+					}
+				}
+		　	}]
+		})
+
+		alert.present()
+	}
+
+	public saveReceipt (data) {
+		let self = this
+		
+		RegistrationAPI.inAppPurchase(this.profile.cookie, data.transactionId, data.receipt)
+			.then((result: any)=> {
+				if (result.code !== ResponseStatus.SUCCESS) {
+					console.log('error', result)
+				}
+				self.showConfirm(true)
+				this.iAPProcessing = false
+			},(error:any) => {
+				this.iAPProcessing = false
+				console.log('error', error)
+			});
+	}
+
+
+	public openPaymentDetails() {
+		const lang = this.translate.currentLang || this.translate.defaultLang
+		const paymentDetail = this.modalCtrl.create('PaymentDetailsPage', { lang }, {cssClass: 'payment-modal'});
+		paymentDetail.present();
+	}
+
+	public restoreIAP () {
+
+		this.iap.restorePurchases().then( result => {
+			if (result.length > 0) {
+				this.navCtrl.push(DashboardPage);
+			} else {
+				this.sendError('PAYMENT.DETAILS.IAP_PURCHASE_NOTFOUND');
+			}
+	
+		})
+		.catch( err => {
+			console.log(err)
+			this.sendError('PAYMENT.DETAILS.IAP_ERROR_INFO');
+			
+			return false
+		})
+	}
+
+	private sendError = (messageKey) => {
+		const alert = this.alertCtrl.create({
+			message: getTranslation(this.translate,messageKey),
+			buttons: [{
+				text:  getTranslation(this.translate,'GLOBA_OK_BUTTON_LABEL')
+			}]
+		})
+
+		alert.present()
 	}
 }

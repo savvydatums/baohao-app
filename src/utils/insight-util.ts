@@ -1,5 +1,5 @@
 import { ArchiveAPI } from "../api/ArchiveAPI";
-import { sendGenericUpdateAlert } from "./alert-generic";
+import { sendGenericToastMessage } from "./alert-generic";
 import { ResponseStatus, InsightResponseStatus } from "../api/Comms";
 import { keywordsSettings, insightType, insightFilterTypes } from "../pages/dashboard/insights/settings/settings"
 import { InsightAPI } from "../api/InsightAPI";
@@ -28,36 +28,36 @@ export const renderTimeStampInNumber = (timestamp : number) => {
 	return `${year} ${month} ${date} | ${hour}.${minutes}`
 }
 
-export const starItem = (cookie, alertCtrl, translate, record_id, source, group, category, callback?) => {
+export const starItem = (cookie, toastCtrl, translate, record_id, source, group, category, callback?) => {
 	ArchiveAPI.archiveItem(cookie, record_id, source, group, category)
 		.then((result: any) => {
 			const isFail = result.status === ResponseStatus.ERROR
-			sendGenericUpdateAlert(alertCtrl, translate, isFail)
+			sendGenericToastMessage(toastCtrl, translate, null, !isFail)
 			callback && setTimeout(() => callback(), 1000)
 		}, error => {
-			sendGenericUpdateAlert(alertCtrl, translate, true, error)
+			sendGenericToastMessage(toastCtrl, translate, true, error)
 		});
 }
 
-export const unStarItem = (cookie, alertCtrl, translate, record_id, source, callback?) => {
+export const unStarItem = (cookie, toastCtrl, translate, record_id, source, callback?) => {
 	ArchiveAPI.unArchiveItem(cookie, record_id, source)
 		.then((result: any) => {
 			const isFail = result.status === ResponseStatus.ERROR
-			sendGenericUpdateAlert(alertCtrl, translate, isFail)
+			sendGenericToastMessage(toastCtrl, translate, null, !isFail)
 			callback && setTimeout(() => callback(), 1000)
 		}, error => {
-			sendGenericUpdateAlert(alertCtrl, translate, true, error)
+			sendGenericToastMessage(toastCtrl, translate, true, error)
 		});
 }
 
-export const trashItem = (cookie, alertCtrl, translate, record_id, source, group, category, callback?) => {
+export const trashItem = (cookie, toastCtrl, translate, record_id, source, group, category, callback?) => {
 	ArchiveAPI.trashItem(cookie, record_id, source, group, category)
 		.then((result: any) => {
 			const isFail = result.status === ResponseStatus.ERROR
-			sendGenericUpdateAlert(alertCtrl, translate, isFail)
+			sendGenericToastMessage(toastCtrl, translate, null, !isFail)
 			callback && setTimeout(() => callback(), 1000)
 		}, error => {
-			sendGenericUpdateAlert(alertCtrl, translate, true, error)
+			sendGenericToastMessage(toastCtrl, translate, true, error)
 		});
 }
 
@@ -72,13 +72,14 @@ export const getKeywordText = (translate, type, keyword) => {
 	return info[lang]
 }
 
-export const assignPotentialToModal = (cookie, modal, errorCallback?) => {
-	InsightAPI.getPotentialInsight(cookie, insightFilterTypes.all)
+export const assignPotentialToModal = (cookie, modal, page, search?, successCallback?, errorCallback?) => {
+	InsightAPI.getPotentialInsight(cookie, insightFilterTypes.all, page, search)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
 				result.status == InsightResponseStatus.UPDATED) {
-				modal.addData(result.results)
+				modal.addData(result.results, page, result.num_of_pages)
+				successCallback && successCallback(result.results)
 			} else {
 				errorCallback && errorCallback(result.message);
 			}
@@ -87,20 +88,81 @@ export const assignPotentialToModal = (cookie, modal, errorCallback?) => {
 		});
 }
 
-
-export const assignClientInsightToModal = (cookie, modal, errorCallback?, filterType?) => {
-	const filter = filterType ? filterType : insightFilterTypes.all
-
-	InsightAPI.getAllClientInsight(cookie, filter)
+export const assignAdvertToModal = (cookie, modal, page, search?, successCallback?, errorCallback?) => {
+	ArchiveAPI.getAdvertList(cookie, insightFilterTypes.all, page, search)
 		.then((result:any) => {
 			if (result.status == InsightResponseStatus.SUCCESS ||
 				result.status == InsightResponseStatus.CREATED ||
 				result.status == InsightResponseStatus.UPDATED) {
-				modal.addData(result.results)
+				modal.addData(result.results, page, result.num_of_pages)
+				successCallback && successCallback(result.results)
 			} else {
 				errorCallback && errorCallback(result.message);
 			}
 		}, error => {
 			errorCallback && errorCallback(error);
 		});
+}
+
+export const assignClientInsightToModal = (cookie, modal, page, search?, successCallback?, errorCallback?, filterType?) => {
+	const filter = filterType ? filterType : insightFilterTypes.all
+	InsightAPI.getAllClientInsight(cookie, filter, page, search)
+		.then((result:any) => {
+			if (result.status == InsightResponseStatus.SUCCESS ||
+				result.status == InsightResponseStatus.CREATED ||
+				result.status == InsightResponseStatus.UPDATED) {
+				modal.addData(result.results, page, result.num_of_pages)
+				successCallback && successCallback(result.results)
+			} else {
+				errorCallback && errorCallback(result.message);
+			}
+		}, error => {
+			errorCallback && errorCallback(error);
+		});
+}
+
+export const configInsightListPayload = (cookie: string, querytype: string, page?: Number, search?:any) => {
+	
+	let basic = page ? { cookie, querytype, page } : { cookie, querytype }
+	let payload:any = { ...basic }
+
+	if (search) {
+		if (search.keyword && search.keyword.length > 0 && search.searchtype.length > 0) 
+		{
+			payload.keyword = search.keyword
+			payload.searchtype = search.searchtype
+		}
+
+		if (search.categories && search.categories.length > 0) 
+		{
+			payload.categoriesfilter = JSON.stringify(search.categories).replace(/\"/g, "")
+		}
+	}
+
+	return payload
+}
+
+export const updateAuthorNickNameForModel = (modal, authorId, source, nickname) => {
+	// TODO: this wait until we have author specific API
+	//console.log('updateAuthorNickNameForModel', modal, authorId, source, nickname)
+
+	const isDataLoaded = modal.rawData && modal.rawData.length > 0
+
+	if (isDataLoaded) {
+		modal.rawData.map((item:any) => {
+			if (item.authorId == authorId && item.source == source) {
+				item.nickname = nickname
+			}
+		})
+	}
+
+	const isFilterDataExist = modal.filteredData && modal.filteredData.length > 0
+
+	if (isFilterDataExist) {
+		modal.filteredData.map((item:any) => {
+			if (item.authorId == authorId && item.source == source) {
+				item.nickname = nickname
+			}
+		})
+	}
 }

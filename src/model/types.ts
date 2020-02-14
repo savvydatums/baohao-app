@@ -37,6 +37,7 @@ export type TResendEmail = {
 }
 
 export type TInsightPost = {
+	authorNumericId:number|string|null;
 	authorId: string;
 	authorName: string;
 	categories: string[];

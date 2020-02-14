@@ -1,31 +1,25 @@
-import { insightSearchFilters } from '../pages/dashboard/insights/settings/settings';
-
 export class PotentialLeadsModel {
 
-	public rawData: object[];
-	public filteredData: object[];
+	public rawData: object[] = [];
+	public filteredData: object[] = [];
+	public numberOfPages: Number;
+	public loadedPage: any;
 
 	constructor() {}
 
-	public addData(results) {
-		this.rawData = [];
-		for(let key in results) {
-			results[key]._id && this.rawData.push(results[key]);
-		}
-		this.filteredData = this.rawData;
-	}
+	public addData(results, loadedPage,  numberOfPages?) {
 
-	public applyFilter(keyword, filter) {
-		this.filteredData = this.rawData.filter((item:any) => {
-			if (filter == insightSearchFilters[0] && keyword.length > 0) {
-				return item.authorName.toLowerCase().includes(keyword.toLowerCase())
-			} else if (filter == insightSearchFilters[1] && keyword.length > 0) {
-				return item.content.toLowerCase().includes(keyword.toLowerCase())
-			} else {
-				return item.content.toLowerCase().includes(keyword.toLowerCase())
-					|| item.authorName.toLowerCase().includes(keyword.toLowerCase())
-			}
-		})
+		if (results) {
+			(loadedPage == 1 || !loadedPage) && (this.rawData = [])
+			this.rawData = this.rawData.concat(results)
+			this.filteredData = this.rawData; // when filter is done, this will removed.
+
+			(numberOfPages) && (this.numberOfPages = numberOfPages)
+			this.loadedPage = loadedPage;
+		} else {
+			this.rawData = null
+		}
+		
 	}
 
 	public updateUsefulData (source, id, isUseful) {

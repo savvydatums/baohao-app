@@ -1,13 +1,13 @@
 <ion-header>
-	<header title="Know your Client"></header>
+	<header [title]="'NAVIGATION.CUSTOMER'|translate"></header>
 	<search-bar
 		[searchHandler]="searchHandler.bind(this)"
 		[selected]="insights.filterType"
-		[filters]="searchFilters"
-		[page]="'allClient'">
+		[page]="'allClient'"
+		[fetchTranslation]="fetchTranslation.bind(this)">
 	</search-bar>
 </ion-header>
-<ion-content>
+<ion-content *ngIf="insights.rawData">
 	<ion-list>
 		<ion-item-sliding *ngFor="let item of insights.filteredData">
 			<ion-item (click)="showInsightInfo(item)">
@@ -17,7 +17,7 @@
 				</ion-avatar>
 				<div class="list-content">
 					<h3>{{ item.authorName }}</h3>
-					<p>{{ shortenContent(translate, item.content, 8, 20) }}</p>
+					<p>{{ item.content }} </p>
 				</div>
 				<div class="list-label">
 					<div class="category-list">
@@ -30,9 +30,21 @@
 				</div>
 			</ion-item>
 			<ion-item-options side="right">
-				<button ion-button (click)="starInsight(item._id, item.source, item.categories)"> Star </button>
-				<button ion-button (click)="trashInsight(item._id, item.source, item.categories)"> Trash </button>
+				<button ion-button (click)="starInsight(item._id, item.source, item.categories)"> {{ 'INSIGHT.ARCHIVE.STAR' | translate }} </button>
+				<button ion-button (click)="trashInsight(item._id, item.source, item.categories)"> {{ 'INSIGHT.ARCHIVE.TRASH' | translate }} </button>
 			</ion-item-options>
 		</ion-item-sliding>
 	</ion-list>
+	<ion-infinite-scroll
+		*ngIf="insights.loadedPage < insights.numberOfPages" 
+		(ionInfinite)="loadMoreData($event)">
+		<ion-infinite-scroll-content
+			loadingSpinner="bubbles"
+			[loadingText]="'LOADING'|translate"
+	  	></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>
+
+<ion-content class="no_data" *ngIf="!insights.rawData">
+	<p>{{ 'GLOBAL_NO_DATA' | translate }} </p>
 </ion-content>

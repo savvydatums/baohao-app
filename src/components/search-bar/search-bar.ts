@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { NavController, LoadingController, ModalController } from 'ionic-angular';
-import { TranslateService } from '@ngx-translate/core';
 import { AllInsightsModel } from '../../model/AllInsightsModel';
 import { ProfileModel } from '../../model/ProfileModel';
-import { FilterPopoverPage as FilterPage } from '../../pages/dashboard/filter'
+import { FilterPage } from '../../pages/dashboard/filter'
+import { assignClientInsightToModal } from '../../utils/insight-util';
 
 @Component({
 	selector: 'search-bar',
@@ -13,19 +13,18 @@ export class SearchBarComponent {
 
 	@Input() searchHandler: Function;
 	@Input() selected: string;
-	@Input() filters: string[];
+	@Input() filters?: string[];
+	@Input() fetchTranslation: Function;
 	@Input() page: string;
 	inputValue: string;
 	loader: any;
-
+	
 	constructor(
 		public navCtrl: NavController,
 		public insights: AllInsightsModel,
 		public profile: ProfileModel,
-		public translate: TranslateService,
 		public loadingCtrl: LoadingController,
 		public modalCtrl: ModalController) {
-
 		this.inputValue = '';
 	}
 
@@ -46,9 +45,16 @@ export class SearchBarComponent {
 		this.inputValue = ''
 		this.onSearch()
 	}
-
+	// below only apply to all client
 	public onSearchHandler(keyword) {
-		this.insights.applyFilter2(keyword)
+		const search = {
+			keyword: keyword, 
+			searchtype: this.insights.getOptions(),
+			categories: this.insights.getCategories()
+		}
+		this.insights.keyword = keyword
+		this.inputValue = keyword
+		assignClientInsightToModal(this.profile.cookie, this.insights, 1, search)
 	}
 
 	public onResetFilter(type) {

@@ -1,37 +1,37 @@
 <ion-content padding>
-  
   <div class="close-btn" (click)="closeModal()">
     <ion-icon name="close"></ion-icon>
   </div>
-
-  <h4>文字搜詢</h4>
+  <br/><br/>
   <input type="text"
-    placeholder="Search Something...."
+    [placeholder]="'SEARCH_SOMETHING' | translate"
     [(ngModel)]="inputValue" />
   <button class="clear-btn" (click)="clearTextAndOptions()">
-    清除
+    {{ 'FILTER.CLEAR'| translate }}
   </button>
   <div class="clear"></div>
 
   <div class="option-wrapper">
     <div *ngFor="let option of topOptions">
       <ion-checkbox [(ngModel)]="option.checked" slot="start"></ion-checkbox>
-      <ion-label>{{ option.cn }}</ion-label>
+      <ion-label>{{ option[currentLang] }}</ion-label>
     </div>
   </div>
   <hr />
-  <h4 class="inline"> 根據類別 </h4>
+  <h4 class="inline"> {{ 'FILTER.BY_CATEGORY'| translate }} </h4>
   <div class="right">
-    <button (click)="updateAllCategoriesStatus(true)">選擇全部</button>
-    <button (click)="updateAllCategoriesStatus(false)">全部不選</button>
+    <button (click)="updateAllCategoriesStatus(true)"> {{ 'FILTER.SELECT_ALL'| translate }}</button>
+    <button (click)="updateAllCategoriesStatus(false)">{{ 'FILTER.DESELECT'| translate }}</button>
   </div>
   <div class="clear"></div>
 
   <div class="category-wrapper">
     <button *ngFor="let category of categories" 
       [ngStyle]="{ 'backgroundColor': category.checked ? category.color : '#ccc' }"
-      (click)="updateCategoryStatus(category.value)">{{ category.name }} </button>
+      (click)="updateCategoryStatus(category.value)">{{ category[currentLang] }} </button>
   </div>
   <br/>
-  <button ion-button block (click)="applyFilterToModel()">搜詢</button>
+  <button ion-button block (click)="applyFilterToModel()">
+    <ion-icon name="search"></ion-icon>
+  </button>
 </ion-content>

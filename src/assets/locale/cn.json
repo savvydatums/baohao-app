@@ -15,16 +15,22 @@
 	"UPDATE_FAILED": "更新失敗!",
 	"UPDATE_SUCCEED": "更新成功!",
     "UPDATE_PENDING_MESSAGE": "我們現在無法更新，請重試一次。",
-    
+    "EXPIRED_MESSAGE": "您登入時間逾時，請重新登入。",
+    "SEARCH_SOMETHING": "找一找...",
+    "GLOBAL_NO_DATA": "無法尋找到任何數據！",
+
     "NAVIGATION": {
         "PROFILE": "帳戶",
         "CUSTOMER": "客戶",
+        "ADVERT": "廣告/文章",
         "LEADS": "商機",
         "STARRED": "已加星號",
 		"FAQ": "問與答",
 		"SUPPORT": "支援",
 		"TRASH": "垃圾桶",
-        "LOGOUT": "登出"
+        "LOGOUT": "登出",
+        "FILTER": "篩選",
+        "INFO": "資訊"
 	},
 
     "LOGIN": {
@@ -37,7 +43,11 @@
         "BUTTON": "登入",
         "SIGN_UP_CTA": "沒有帳號?",
         "SIGN_UP_LINK": "註冊",
-        "REMEMBER_REGISTRATION_ID": "記得我的帳戶名"
+        "REMEMBER_REGISTRATION_ID": "記得我的帳戶名",
+        "APPROVED": "您的MyInsurBox已設置好，請登入APP查看您的資訊。",
+        "UNKOWN": "沒找到您的帳號，請至註冊網站註冊一個",
+        "PENDING": "您的帳戶還未開通，請至登入至Register網站查看訊息",
+        "PROCESSING": "您的MyInsurBox還在準備中，請靜待服務人員與您聯絡"
     },
 
     "WELCOME": {
@@ -61,6 +71,7 @@
         "TITLE": "註冊帳號",
         "REGISTRATION_LABEL": "保險代理登記號碼",
         "REGISTRATION_EXAMPLE": "例如: PIBAXXXXX, CIBXXXXX, HKFIXXXX",
+        "REGISTRATION_ID_FAIL": "保險代理登記號碼不符合登記規則。",
         "PASSWORD_LABEL": "密碼",
         "CONFIRM_PASSWORD_LABEL": "確認密碼",
 		"PASSWORD_ERROR": "密碼配對不正確",
@@ -70,18 +81,28 @@
         "TERMS_LABEL": "使用款條及同意",
 		"TERMS_AGREE_LABEL": "按此確認您同意本合約內容",
 		"CREATE_FAILED": "建立帳號失敗!",
-		"EMAIL_NOT_VARIFIED_TITLE": "請確認您的Email!"
+		"EMAIL_NOT_VARIFIED_TITLE": "請確認您的電子信箱!"
     },
 
     "PASSWORD_RESET": {
         "TITLE": "重設密碼",
+        "CHANGE_TITLE": "變更密碼",
         "RESET_LABEL": "請輸入您的保險專員編號與EMAIL",
         "REGISTRATION_ID_LABEL": "保險專員編號",
         "REGISTRATION_EMAIL_LABEL": "您的Email",
         "SUBMITTED_LABEL": "系統將寄出信件到您的信箱裡，若未寄送需重新寄送",
 		"BUTTON_LABEL": "重設",
 		"NEW_PASS_PLACEHOLDER": "新密碼",
-		"RESET_INFO": "注意！一旦重設密碼，下次登入需使用新的密碼登入。"
+        "RESET_INFO": "注意！一旦重設密碼，下次登入需使用新的密碼登入。",
+        "FORGET": {
+			"ERROR_ID": {
+			  "fp01": "您必須包含username或者email在您的需求內。",
+			  "fp02": "保險代理登記號碼和註冊電郵不合。",
+			  "fp03": "無此使用者。"
+			},
+			"ERROR_INFO": "請與我們的客服連絡：cs@myinsurbox.com",
+			"PAGE_REDIRECT": "本頁面分鐘內會自動導入到登入畫面。"
+		}
     },
 
     "PROFILE" : {
@@ -89,7 +110,7 @@
         "REGISTRATION_ID": "保險員編號",
         "LASTNAME": "姓",
         "FIRSTNAME": "名",
-        "EMAIL": "Email",
+        "EMAIL": "電子信箱",
         "MOBILE": "手機號",
         "COMPANY_NAME": "公司名稱",
         "JOB_TITLE": "職稱",
@@ -100,7 +121,7 @@
 		"EXPIRED_LABEL": "到期日",
         "ERROR_LASTNAME": "請輸入有效的姓氏",
         "ERROR_FIRSTNAME": "請輸入有效的名字",
-        "ERROR_EMAIL": "請輸入有效的EMAIL",
+        "ERROR_EMAIL": "請輸入有效的電子信箱",
         "ERROR_MOBILE": "請輸入有效的手機",
         "ERROR_COMPANY_NAME": "請選公司名稱",
         "ERROR_JOB_TITLE": "請輸入職稱",
@@ -131,24 +152,40 @@
         "TITLE": "預約會面",
         "BODY": "如果您想訂購團購服務，請告知我們在未來兩個工作天內MyInsurBox營業代表與您聯繫的最佳時間。",
         "NAME_LABEL": "姓名",
-        "EMAIL_LABEL": "Email",
+        "EMAIL_LABEL": "電子信箱",
         "MOBILE_LABEL": "手機號碼",
         "ERROR_NAME": "請輸入姓名",
-        "ERROR_EMAIL": "請輸入Email",
+        "ERROR_EMAIL": "請輸入有效電子信箱",
         "ERROR_MOBILE": "請輸入有效電話號碼"
     },
 
     "PAYMENT": {
-        "SMALL_TEXT": "早鳥優惠",
-        "ORIGIN_PRICE": "(原價$7300)",
-        "PRICE": "$3500",
+        "TITLE": "MyInsurBox服務費",
+        "PRICE": "HKD$8",
         "POINT_1": "<p><b>一百八十天</b> 資料儲存</p>",
-        "POINT_2": "<p><b>免費</b> MyInsurBox設備一個 <br/> (須繳付$500按金)</p>",
+        "POINT_2": "<p>免費MyInsurBox設備一個</p>",
         "POINT_3": "<p><b>無限</b>個人工智能銷售機會推薦</p>",
         "POINT_4": "<p><b>無限</b>無限個用戶自定關鍵字搜索</p>",
         "POINT_5": "<p><b>一站式</b>保險產品參考資料</p>",
         "REF_TEXT": "推薦人號碼",
-        "CHECKOUT": "付款"
+        "CHECKOUT_METHOD": "付款方式",
+        "CHECKOUT": "付款",
+        "RESTORE": "恢復購買紀錄",
+        "DETAILS": {
+            "CHECK": "港元支票",
+            "CHECK_DETAILS": "<p>1.支票抬頭: Baohe Tech Limited <br/> 2.請把登記帳戶號碼寫在支票背面。 <br/>3. 郵寄至：<br/>香港，九龍觀塘鴻圖道75號，KOHO 6樓</p>",
+            "TRANSFER": "銀行轉帳",
+            "TRANSFER_DETAILS": "<p>匯款資訊：<br/>銀行名稱： 中國銀行（香港）<br/> 帳戶名稱： Baohe Tech Limited<br/>帳戶號碼： 012-699-2-003872-8<br/> 匯款完成後請將收據或證明郵寄至：info@baohetec.com</p>",
+            "CREDIT": "信用卡",
+            "CREDIT_DETAILS": "<p>請使用以下按鍵進行繳款。</p>",
+            "IN_APP_PURCHASE": "使用In App Purchase購買本服務",
+            "IAP_SUCCESS": "完成購買",
+            "IAP_SUCCESS_INFO": "我們將會進入到下一個預約會面的表格，請填寫您有空的安裝時間。",
+            "IAP_ERROR": "無法完成購買",
+            "IAP_ERROR_INFO": "與Ａｐｐｌｅ的系統連線似乎有誤，建議您可以稍後再試試。",
+            "IAP_RESTORE_INFO": "已經付款過此產品?",
+            "IAP_PURCHASE_NOTFOUND": "不好意思，我們尋找不到您的購買記錄！"
+        }
     },
 
     "APPOINTMENT": {
@@ -178,47 +215,106 @@
         "LOCATION_LABEL": "地點",
         "CHANGE_APPOINTMENT_TEXT": "更改您的會面",
         "UPDATE_SUCCESS": "我們已更新您的會面時間與地點"
-	},
+    },
 
 	"INSIGHT": {
-		"CATEGORIES": "Categories",
+		"CATEGORIES": "分類",
 		"STORY": "故事",
         "ADD_NICKNAME": "加小名",
+        "NO_NICKNAME": "無小名",
         "NICKNAME": "小名",
 		"SUMMARY": {
 			"TITLE": "INSIGHT"
 		},
 		"DETAILS": {
 			"DELETE_PERIOD_INFO" : "您確定你要刪除此資料?",
-			"NO_DATA": "無數據",
+			"NO_DATA": "沒有尋找到數據",
             "KEYWORD_ANALYSIS": "關鍵字",
             "CURRENT_CUSTOMER": "現存客戶",
             "NOT_TO_DISPLAY": "兩個月內不顯示",
             "POST_IN_TWO_MONTH": "的貼文",
             "KNOW_MORE_ABOUT": "知道更多關於",
             "RECOMMEND": "建議產品",
-            "PRODUCT_CORRECT": "產品建議是否正確？"
+            "PRODUCT_CORRECT": "產品建議是否正確？",
+            "ADVERT_CORRECT": "廣告建議是否正確?",
+            "AGENT": "經紀",
+            "NOT_AGENT": "他／她不是經紀"
 		},
 		"ARCHIVE": {
+            "STAR": "加星號",
 			"UNSTAR" : "不加星號",
             "TRASH" : "垃圾桶"
 		},
 		"TRASH": {
-			"UNTRASH": "回收"
+            "UNTRASH": "復原",
+            "DELETE": "永久刪除",
+            "UNTRASH_MESSAGE": "已復原",
+            "DELETE_MESSSAGE": "已刪除"
         }
-	},
+    },
+    
+    "FILTER": {
+        "CLEAR": "清除",
+        "BY_NAME": "根據名字",
+        "BY_CONTENT": "根據內容",
+        "BY_CATEGORY": "類別",
+        "SELECT_ALL": "選擇全部",
+        "DESELECT": "全部不選"
+    },
 
 	"SUPPORT": {
-		"BUG_REPORT_TITLE": "To Report Bug or Error",
-		"BUG_OPTION_LABEL": "Please select one of the following",
-		"BUG_REPORT_OPTIONS": [
-			"No result After 30 mins",
-			"No display",
-			"System hang up",
-			"Data not refreshing",
-			"Result not related",
-			"Others"
-		],
-		"Message": "If your bug is others, please explain what happen?"
-	}
+        "Message_P1": "有任何的問題，請先查看",
+        "Message_P2": "如果沒尋找到您的問題，請Email至",
+        "Message_P3": "感謝您的支持！"
+    },
+
+    "FAQ": [{
+        "Q": "1. 如何更改登入密碼？",
+        "A": "更改密碼位置於「帳戶」內。"
+    },{
+        "Q": "2. 我已經換了另外一家公司，如何更新我的資料？",
+        "A": "請聯絡我們的客戶服務主任，及把你最新的公司名片轉發給我們，我們很樂意為你服務。"
+    },{
+        "Q": "3. 如何跳過我不想看到的朋友或客戶的信息？",
+        "A": "在「商機」內可以點選“未來兩個月不再顯示”。"
+    },{
+        "Q": "4. 若已選擇了“在兩個月內不再顯示任何的帖子”, 有甚麼辦法可還原？",
+        "A": "標記為“在2個月內不顯示”後，是不可能還原。"
+    },{
+        "Q": "5. 意外地刪除了一個重要訊息，如何取回？",
+        "A": "刪除的信息會轉到你的垃圾箱內, 在菜單下面可以找到你的垃圾箱, 按還原則可. 請注意 垃圾箱內的信息會保留三十天, 在這裏刪除的信息不可能再被取回。"
+    },{
+        "Q": "6. 可否下載儲存我的訊息？",
+        "A": "我們服務主要目的是利用人工智能來為你篩選大量的社交媒體訊息，過程是即是在 ”MyInsurBox” 內進行，所以不能下載，如果有重要訊息需要保存，請加上「星號」，我們會為你保存六個月。"
+    },{
+        "Q": "7. 若 E-Link 或 E-Sync未能正常運作, 我可以點做?",
+        "A": "首先，請檢查 ”MyInsurBox” 盒子的網絡連接線及手機的Wi-Fi是否連接好，亦可以嘗試把電源線拔掉 ，再重新連接。"
+    },{
+        "Q": "8. 為何在家未能連接 ”MyInsurBox” 盒子？",
+        "A": "“MyInsurBox” 盒子需要一至兩分鐘左右時間啟動，請檢查網絡連接線是否已經連接好，及手機已經連線到Wi-Fi無線網絡。"
+    },{
+        "Q": "9. 為何我的面書訊息好像未能顯示？",
+        "A": "請確認已經輸入正確的面書密碼。及請檢查你的電子郵箱，容許面書在新設備上登陸。"
+    },{
+        "Q": "10. 為何我的微信訊息好像未能顯示？",
+        "A": "請確認”MyInsurBox” 已經正確連接到路由器。"
+    },{
+        "Q": "11. 若臨時需要回覆微信私訊，如何暫停”MyInsurBox”盒子的運作?",
+        "A": "請在你的手機重新登陸微信，另再找時間啟動 ”MyInsurBox”盒子。"
+    },{
+        "Q": "12. 當打開E-Sync一直在搜尋，未能連接 ”MyInsurBox” 盒子。",
+        "A": "一般是網絡連接線的問題，請嘗試拔出再重新連接網絡連接線。"
+    },{
+        "Q": "13. 對於分析後的類別，我們可以自己定制類別嗎？",
+        "A": "類別是不能自定的，但歡迎將你的意見給我們的客戶服務。"
+    },{
+        "Q": "14. 數據更新後，為何在”MyInsurBox” 的程式內沒有更新資料？",
+        "A": "請嘗試登出及重新登入”MyInsurBox” 程式。"
+    },{
+        "Q": "15. 為何在“商機”內沒有帖子？",
+        "A": "在“商機”內的帖子通過人工智能篩選出最大的銷售機會，關係較少的帖子不會在這裡顯示。"
+    },{
+        "Q": "16. 我在哪裡可以看到我的客戶列表？",
+        "A": "希望及時回應您朋友的帖子來增加您的銷售機會，最新的帖子都會在頂部顯示。 如果想要查找特定客戶，可以使用搜索欄來搜尋名稱。"
+    }]
 }

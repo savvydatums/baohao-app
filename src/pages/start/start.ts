@@ -18,8 +18,20 @@ export class StartPage {
 		) {
 	}
 
-	ngAfterViewInit() {
+	ionViewDidLoad() {
 		isDebug() && setTimeout(() => this.gotoLogin(), 1000);
+		this.swapeProloadImage()
+	}
+
+	swapeProloadImage () {
+		const video : HTMLElement|any = document.getElementById("intro-video");
+		const preloadImg = document.getElementById("preload-image");
+		video.onloadeddata = function() {
+			video.classList.remove('dismiss')
+			video.muted = true; 
+			video.play()
+			preloadImg.classList.add('dismiss')
+		}
 	}
 
 	public setLanguage(lan:string):void {

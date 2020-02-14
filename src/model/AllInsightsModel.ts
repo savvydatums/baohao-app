@@ -1,72 +1,51 @@
-import { insightSearchFilters, filterTopOptions, keywordsSettings } from '../pages/dashboard/insights/settings/settings';
+import { filterOptions, keywordsSettings } from '../pages/dashboard/insights/settings/settings';
 
 export class AllInsightsModel {
 
-	public rawData: object[];
+	public rawData: object[] = [];
 	public filteredData: object[];
 	public filters: object[];
 	public categories: object[] = [];
 	public topOptions: object[] = [];
+	public numberOfPages: Number = 0;
+	public loadedPage: any = 0;
+	public keyword: string = '';
 
 	constructor() {
 	}
 
-	public addData(results) {
-		this.filteredData = this.rawData = results;
-		
+	public addData(results, loadedPage, numberOfPages?) {
+
+		if (results) {
+			(loadedPage == 1 || !loadedPage) && (this.rawData = [])
+			this.rawData = this.rawData.concat(results);
+			this.filteredData = this.rawData; // when filter is done, this will removed.
+
+			(numberOfPages) && (this.numberOfPages = numberOfPages)
+			this.loadedPage = loadedPage;
+		} else {
+			this.rawData = null
+		}
 	}
 
-	public applyFilter(keyword, filter) {
-		this.filteredData = this.rawData.filter((item:any) => {
-			if (filter == insightSearchFilters[0] && keyword.length > 0) {
-				return item.authorName.toLowerCase().includes(keyword.toLowerCase())
-			} else if (filter == insightSearchFilters[1] && keyword.length > 0) {
-				return item.content.toLowerCase().includes(keyword.toLowerCase())
-			} else {
-				return item.content.toLowerCase().includes(keyword.toLowerCase())
-					|| item.authorName.toLowerCase().includes(keyword.toLowerCase())
-			}
-		})
-	}
+	public setCategoryInfo() {
+		if (this.categories.length > 0 && this.topOptions.length > 0) { return false }
 
-	public applyFilter2(keyword) {
-		this.filteredData = this.rawData.filter((item:any) => {
-			let isInCategory = true
-			item.categories.map((cat:any) => {
-				const optionInfo:any = this.categories.filter((option: any) => option.value == cat)[0]
-				isInCategory = optionInfo.checked
-			})
+		//reset first
+		this.categories = [];
+		this.topOptions = [];
 
-			let hasContentMatch = true
-			if (keyword.length > 0 && isInCategory) {
-				let isNameChecked = false
-				let isContentChecked = false
-				this.topOptions.map((option:any) => {
-					if (option.value == 'name') { isNameChecked = option.checked }
-					if (option.value == 'content') { isContentChecked = option.checked }
-				})
-
-				const nameMatched = isNameChecked && item.authorName.toLowerCase().includes(keyword.toLowerCase())
-				const contentMatched = isContentChecked && item.content.toLowerCase().includes(keyword.toLowerCase())
-				hasContentMatch = nameMatched || contentMatched
-			}
-
-			return isInCategory && hasContentMatch
-		})
-
-	}
-
-	public setCategoryInfo(language) {
 		for (let key in keywordsSettings.allClient) {
 			this.categories.push({
 				value: key,
-				name: keywordsSettings.allClient[key][language],
+				cn: keywordsSettings.allClient[key].cn,
+				en: keywordsSettings.allClient[key].en,
 				color: keywordsSettings.allClient[key].color,
 				checked: true
 			})
 		}
 
-		this.topOptions = filterTopOptions
+		this.topOptions = filterOptions
 	}
 
 	public resetFilter(type) {
@@ -78,6 +57,32 @@ export class AllInsightsModel {
 			this.categories.map((item:any) =>  item.checked = true)
 		}
 	
-		this.filteredData =  this.rawData;
+		this.filteredData = this.rawData;
+	}
+
+	public getCategories () {
+		let results = []
+		this.categories.map((item:any) => {
+			if (item.checked == true) {
+				results.push(item.value)
+			}
+		})
+		return results
+	}
+
+	public getOptions () {
+		let results = []
+		this.topOptions.map((item:any) => {
+			if (item.checked == true) {
+				results.push(item.value)
+			}
+		})
+		let searchMethod = ''
+		if (results.length > 1 || results.length == 0) { 
+			searchMethod = 'both'
+		} else if (results.length <= 1) {
+			searchMethod = results[0]
+		}
+		return searchMethod
 	}
 }

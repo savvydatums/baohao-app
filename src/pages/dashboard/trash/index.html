@@ -1,11 +1,11 @@
 <ion-header>
-	<header title="Trash Box" toDashboard="true"></header>
+	<header [title]="'NAVIGATION.TRASH'|translate" toDashboard="true"></header>
 </ion-header>
 <ion-content>
 	<div *ngIf="loading" class="loading">
 		<div class="load-wrapper">
 			<ion-spinner name="crescent" color="light"></ion-spinner>
-			<p> Loading </p>
+			<p>{{ 'LOADING' | translate }}</p>
 		</div>
 	</div>
 	<ion-list>
@@ -17,7 +17,7 @@
 				</ion-avatar>
 				<div class="list-content">
 					<h3>{{ item.authorName }}</h3>
-					<p>{{ shortenContent(translate, item.content, 8, 20) }}</p>
+					<p>{{ item.content }}</p>
 				</div>
 				<div class="list-label">
 				  <div class="category-list">
@@ -30,7 +30,7 @@
 			</ion-item>
 			<ion-item-options side="right">
 				<button ion-button (click)="unTrashItem(item._id, item.source)"> {{ 'INSIGHT.TRASH.UNTRASH' | translate }} </button>
-				<button ion-button (click)="deletePermentaly(item._id, item.source)"> {{ 'GLOBAL_DELETE' | translate }} </button>
+				<button ion-button (click)="deletePermentaly(item._id, item.source)"> {{ 'INSIGHT.TRASH.DELETE' | translate }} </button>
 			</ion-item-options>
 		</ion-item-sliding>
 	</ion-list>

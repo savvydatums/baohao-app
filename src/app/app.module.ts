@@ -15,12 +15,17 @@ import { LoggedInUserModel } from './../model/LoggedInUserModel';
 import { AppointmentModel } from './../model/AppointmentModel';
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { HTTP } from '@ionic-native/http';
+import { InAppBrowser } from '@ionic-native/in-app-browser'; 
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { ComponentsModule } from '../components/components.module';
 import { ProfileModel } from '../model/ProfileModel';
 import { ArchiveModel } from '../model/ArchiveModel';
 import { TrashModel } from '../model/TrashModel';
+import { AdvertModel } from '../model/AdvertModel';
+import { InAppPurchase } from '@ionic-native/in-app-purchase';
+import { AppAvailability } from '@ionic-native/app-availability';
+import { PostModel } from '../model/PostModel';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,7 @@ import { TrashModel } from '../model/TrashModel';
     BrowserModule,
     ComponentsModule,
     IonicModule.forRoot(MyApp, {preloadModules: true}),
-	HttpClientModule,
+	  HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -57,12 +62,17 @@ import { TrashModel } from '../model/TrashModel';
     AllInsightsModel,
     PotentialLeadsModel,
     ArchiveModel,
+    AdvertModel,
     TrashModel,
     ProfileModel,
+    PostModel,
     StatusBar,
     SplashScreen,
     HTTP,
-      {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    InAppPurchase,
+    InAppBrowser,
+    AppAvailability
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
@@ -70,4 +80,10 @@ export class AppModule {}
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locale/', '.json');
+}
+
+export const platforms = {
+	Browser: 'browser',
+	Android: 'android',
+	Ios: 'ios'
 }

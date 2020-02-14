@@ -140,25 +140,41 @@ confirm {
 
 ion-header.potential {
 	header, search-bar {
-		//background: #3a7cab;
 		background: #0b8fa2;
 	}
 }
 
+ion-header.advert {
+	header, search-bar {
+		background: #d6859f;
+    }
+    search-bar li.active {
+        background: #b06e83;
+    }
+}
+
 // potential, know your client and archive style
 insight-list {
-    background-image: radial-gradient(circle at 105% 0, #1d7f8a, #3e6a90);
+    //background-image: radial-gradient(circle at 105% 0, #1d7f8a, #3e6a90);
     .content-md, .content-ios,
     .list-ios ion-item-sliding,
     .list-md ion-item-sliding {
         background-color: #27768d;
 	}
 
-	.potential.content-md, .potential.content-ios,
+    .potential.content-md, 
+    .potential.content-ios,
     .potential .list-ios ion-item-sliding,
     .potential .list-md ion-item-sliding {
 		background-color: #1aadc3;
-	}
+    }
+    
+    .advert.content-md, 
+    .advert.content-ios,
+    .advert .list-ios ion-item-sliding,
+    .advert .list-md ion-item-sliding {
+        background-color: #d6859f;
+    }
 
     .item-ios ion-avatar[item-start], .item-md ion-avatar[item-start] {
         margin: 8px 16px 8px;
@@ -168,9 +184,39 @@ insight-list {
         p {
             color: white;
 			font-size: 1.2rem;
-			margin-top: 10px;
+            margin-top: 10px;
+            width: calc(100% - 100px);
+            white-space: nowrap;      /*keep text on one line */
+            overflow: hidden;         /*prevent text from being shown outside the border */
+            text-overflow: ellipsis;  /*cut off text with an ellipsis*/
         }
     }
+    .advert {
+        .list-content {
+            p {
+                color: #4c3636;
+                width: 100%;
+            }
+            h3 {
+                color: #4c3636;
+            }
+        }
+        .item-block .item-inner {
+            border-bottom: 1px solid #d6859f;
+        }
+        .list-ios > .item-block:last-child, 
+        .list-ios > .item-wrapper:last-child .item-block, 
+        .list-md > .item-block:last-child,
+        .list-md > .item-wrapper:last-child .item-block {
+            border-bottom: none;
+        }
+        .list-label .date {
+            color: #b06e83;
+            top: 6px;
+            right: 2px;
+        }
+    }
+
     .list-label {
         position: absolute;
         right: 15px;
@@ -210,7 +256,14 @@ insight-list {
 	.potential .item.item-block.item-ios,
 	.potential .item.item-block.item-md {
 		background-color: #1aadc3;
-	}
+    }
+    
+    .advert .item.item-block.item-md, 
+    .advert .item.item-block.item-ios {
+        background-color: #ffc7c7;
+        color: #c75f5f;
+    }
+
 
     .list-ios>.item-block:last-child,
     .list-ios>.item-wrapper:last-child .item-block,
@@ -241,20 +294,6 @@ profile {
     }
     .scroll-content {
         padding: 20px;
-    }
-    .head {
-        position: relative;
-        img {
-            position: absolute;
-            right: 0;
-            top: -20px;
-            border-radius: 50%;
-            width: 70px;
-        }
-        h3 {
-            font-weight: bold;
-            margin: 25px 0 10px;
-        }
     }
     .row {
         position: relative;
@@ -310,7 +349,10 @@ profile {
 dashboardpage {
 	.scroll-content{
 		background-image: radial-gradient(circle at 105% 0, #1d7f8a, #3e6a90);
-	}
+    }
+    .advert .scroll-content{
+		background-image: radial-gradient(circle at 90% 0, #ff92b5, #ffc0ad);
+    }
 }
 
 .load-wrapper {
@@ -360,14 +402,73 @@ dashboardpage {
 	}
 }
 
-support, faq {
+faq {
 	background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5796cc);
 
 	.content-ios, .content-md, .toolbar-background-ios {
 		background-color: transparent;
 		color: white;
 		border: none;
-	}
+    }
+
+    .select-md .select-icon {
+        .select-icon-inner {
+            color: white;
+        }
+    }
+    .select-text {
+        color: white;
+    }
+    .text-input-md {
+        color: white;
+        &::placeholder {
+            color: white;
+        }
+    }
+    .dark-text .item-input .label-md, 
+    .dark-text .item-select .label-md, 
+    .dark-text .item-datetime .label-md, 
+    .dark-text .item-input .label-ios, 
+    .dark-text .item-select .label-ios, 
+    .dark-text .item-datetime .label-ios {
+        color: white;
+    }
+    .q-group {
+        margin: 13px;
+        line-height: 2rem;
+    }
+
+    .question {
+        margin-bottom: 10px;
+    }
+
+    .answer {
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
+support {
+    background-image: radial-gradient(circle at 105% 0, #0ec7c0, #5796cc);
+    text-align: center;
+    .content-ios, .content-md, .toolbar-background-ios {
+		background-color: transparent;
+		color: white;
+		border: none;
+    }
+
+    img {
+        width: 30%;
+        padding-top: 10%;
+    }
+
+    .button-ios-light{
+        width: 60%;
+        margin: 0 auto;
+        height: 34px;
+        color: #246383;
+    }
+
 }
 
 .stripe-button-el {
@@ -458,8 +559,7 @@ filter {
         padding: 6px 10px;
     }
     .category-wrapper{
-       button {
-           
+        button {
             margin: 3px 6px;
             color: white;
         }
@@ -470,4 +570,12 @@ filter {
     clear:both;
 }
 
+.advert-details.content{
+    background: #0ec7c0;
+}
 
+.hidden {
+    //display: none; // android
+    visibility: hidden; // ios
+    font-size: 0px;
+}

@@ -6,11 +6,11 @@
 		<div class="title">
 			<h2>{{ userDetails.authorName }}</h2>
 			<h4 class="nickname">( {{ userDetails.nickname || 'INSIGHT.ADD_NICKNAME'|translate }} )
-				<img class="edit" src="assets/icon/edit.svg" (click)="openEditNote(alertCtrl, translate, userDetails, profile.cookie)">
+				<img class="edit" src="assets/icon/edit.svg" (click)="openEditNote()">
 			</h4>
 		</div>
 		<div class="source">
-			<img *ngIf="userDetails.source == 'fb'" src="assets/icon/facebook-w.svg">
+			<img *ngIf="userDetails.source == 'fb'" (click)="openFBProfilePage()" src="assets/icon/facebook-w.svg">
 			<img *ngIf="userDetails.source == 'wex'" src="assets/icon/wechat-w.svg">
 		</div>
 		<div class="chart-container">
@@ -30,7 +30,7 @@
 			[ngStyle]="{ 'backgroundImage': 'url(' + selectedSummary.settings.img + ')' }">
 		</div>
 		<div class="story-wrapper">
-			<h3> {{ selectedSummary.settings.cn }} {{ 'INSIGHT.STORY' | translate }}</h3>
+			<h3> {{ selectedSummary.settings[currentLang] }} {{ 'INSIGHT.STORY' | translate }}</h3>
 			<h4 class="story-no-data" *ngIf=" selectedSummary.amount == 0">
 				{{ 'INSIGHT.DETAILS.NO_DATA' | translate }}
 			</h4>

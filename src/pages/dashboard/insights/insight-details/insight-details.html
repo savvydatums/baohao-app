@@ -1,17 +1,17 @@
-<ion-content [ngStyle]="{ 'backgroundColor': info.color }">
+<ion-content [ngStyle]="{ 'backgroundColor': info.color }" [ngClass]="platformClass">
 	<div class="left" (click)="closeModal()">
 		<ion-icon name="close"></ion-icon>
 	</div>
 	<div class="hero">
 		<div class="background" [ngStyle]="{ 'backgroundImage': 'url(' + info.img + ')' }"></div>
 		<div class="source">
-			<img *ngIf="insightData.source == 'fb'" src="assets/icon/facebook-w.svg">
+			<img *ngIf="insightData.source == 'fb'" (click)="openFBProfilePage()" src="assets/icon/facebook-w.svg">
 			<img *ngIf="insightData.source == 'wex'" src="assets/icon/wechat-w.svg">
 		</div>
 		<div class="names">
 			<h2>{{ insightData.authorName }}</h2>
 			<h4>
-				({{ insightData.nickname|| 'add nickname' }})
+				({{ insightData.nickname|| 'INSIGHT.ADD_NICKNAME'|translate }})
 				<img class="edit" src="assets/icon/edit.svg" (click)="openEditNote()">
 			</h4>
 		</div>
@@ -47,6 +47,16 @@
 					color="light" >
 				</ion-checkbox>
 			</ion-item>
+			<ion-item>
+				<ion-label>
+					{{ 'INSIGHT.DETAILS.AGENT' | translate }}
+				</ion-label>
+				<ion-checkbox
+					(click)="updateUserPreference()"
+					[(ngModel)]="is_agent"
+					color="light" >
+				</ion-checkbox>
+			</ion-item>
 		</div>
 		<div class="know-more-wrap" *ngIf="type !== 'potential'">
 			<button class="user-details-btn" (click)="goToAuthorPage()">
@@ -58,27 +68,27 @@
 		<div class="recommend" *ngIf="recommendations.length > 0">
 			<h4>{{ 'INSIGHT.DETAILS.RECOMMEND' | translate }}</h4>
 			<div class="boxes">
-				<a *ngFor="let recommend of recommendations; let i = index"
-					[ngStyle]="{ 'backgroundColor': (i%2 !== 0) ? info.color : 'white' }"
-					href="{{ recommend.link }}" target="_blank">
-					<span [ngStyle]="{ 'color': (i%2 == 0) ? info.color : 'white' }">
+				<a *ngFor="let recommend of recommendations"
+					(click)="openExternalLink(recommend.link)">
+					<span [ngStyle]="{ 'color': info.color }">
 						{{ recommend.name }}
 					</span>
 				</a>
 			</div>
-			<h5>
-				{{ 'INSIGHT.DETAILS.PRODUCT_CORRECT' | translate }}
-				<ion-icon 
-					name="thumbs-up" 
-					[ngClass]="insightData.useful == true ? 'active': ''" 
-					(click)="updateSuggestionUseful(true)"
-				></ion-icon>
-				<ion-icon 
-					name="thumbs-down" 
-					[ngClass]="insightData.useful == false ? 'active': ''" 
-					(click)="updateSuggestionUseful(false)"
-				></ion-icon>
-			</h5>
 		</div>
+		<div class="suggest-area"  *ngIf="type == 'potential'">
+			<h5>{{ 'INSIGHT.DETAILS.PRODUCT_CORRECT' | translate }}</h5>
+			<ion-icon 
+				name="thumbs-up" 
+				[ngClass]="insightData.useful == true ? 'active': ''" 
+				(click)="updateSuggestionUseful(true)"
+			></ion-icon>
+			<ion-icon 
+				name="thumbs-down" 
+				[ngClass]="insightData.useful == false ? 'active': ''" 
+				(click)="updateSuggestionUseful(false)"
+			></ion-icon>
+		</div>
+		<span class="hidden">{{ insightData.useful }}</span><!-- use to force data update --->
 	</div>
 </ion-content>

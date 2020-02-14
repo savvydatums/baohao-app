@@ -1,5 +1,6 @@
 import { Comms } from './Comms';
 import * as Routes from './routes';
+import { configInsightListPayload } from '../utils/insight-util';
 
 declare var cordova : any;
 
@@ -10,9 +11,23 @@ export class ArchiveAPI extends Comms {
 	}
 
 	// tested, not use anymore
-	public static getArchiveList(cookie:string) : Promise < {} > {
+	public static getArchiveList(cookie:string) : Promise <{}> {
 		return new Promise((resolve, reject) => {
 			cordova.plugin.http.post(Routes.archiveList, { cookie }, {}, (response) => {
+				const result = JSON.parse(response.data)
+				if (response.status == 200 && result.status == 'ok') {
+					resolve(result)
+				} else {
+					resolve(JSON.parse(response.data))
+				}
+			}, (response) => { reject(JSON.parse(response.error)) })
+		});
+	}
+
+	public static getAdvertList(cookie:string,  querytype: string, page?: Number, search?:any) : Promise <{}> {
+		return new Promise((resolve, reject) => {
+			let payload = configInsightListPayload (cookie, querytype, page, search)
+			cordova.plugin.http.post(Routes.advertList, payload, {}, (response) => {
 				const result = JSON.parse(response.data)
 				if (response.status == 200 && result.status == 'ok') {
 					resolve(result)

@@ -1,14 +1,14 @@
 import { Component, ViewChild, forwardRef } from '@angular/core';
-import { IonicPage, NavController, ModalController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController, AlertController, ToastController } from 'ionic-angular';
 import { InsightResponseStatus } from '../../../api/Comms';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { ArchiveModel } from '../../../model/ArchiveModel';
 import { TranslateService } from '@ngx-translate/core';
-import {shortenContent, renderTimeStamp, getKeywordInfo, getKeywordText, unStarItem, trashItem, assignClientInsightToModal} from '../../../utils/insight-util';
+import {renderTimeStamp, getKeywordInfo, getKeywordText, unStarItem, trashItem, assignClientInsightToModal} from '../../../utils/insight-util';
 import { HeaderComponent } from '../../../components/header/header';
 import { SearchBarComponent } from '../../../components/search-bar/search-bar';
 import { InsightAPI } from '../../../api/InsightAPI';
-import { insightFilterTypes, insightSearchFilters, insightType } from '../insights/settings/settings';
+import { insightFilterTypes, filterOptions, insightType } from '../insights/settings/settings';
 import { showError } from '../../../utils/alert-generic';
 
 @IonicPage({ name: "archive", segment: "archive" })
@@ -21,10 +21,10 @@ export class ArchivePage {
 
 	type: string = insightType.all;
 	loading = true;
-	shortenContent: Function = shortenContent;
 	renderTimeStamp: Function = renderTimeStamp;
 	getKeywordText: Function = getKeywordText;
-	searchFilters: string[] = insightSearchFilters;
+	searchFilters: string[] = filterOptions;
+	search: any;
 
 	@ViewChild(forwardRef(() => HeaderComponent)) header
 	@ViewChild(forwardRef(() => SearchBarComponent)) searchBar
@@ -32,10 +32,18 @@ export class ArchivePage {
 	constructor(
 		public navCtrl: NavController,
 		public archive: ArchiveModel,
+		private toastCtrl: ToastController,
 		public modalCtrl: ModalController,
 		private alertCtrl: AlertController,
 		public translate: TranslateService,
 		public profile: ProfileModel) {
+	}
+	
+	ionViewWillEnter() {
+		this.searchFilters.map((item:any) => {
+			const lang = this.translate.currentLang || this.translate.defaultLang
+			item.label = item[lang]
+		})
 	}
 
 	ngAfterViewInit() {
@@ -56,12 +64,22 @@ export class ArchivePage {
 			}, error => {
 				showError(this.alertCtrl, this.translate, error);
 			});
+		// add a call for advertising Archive API
 	}
 
 	public showInsightInfo(info) {
-		let insightModal = this.modalCtrl.create(
-			'InsightDetailsPage', { info, type: insightType.all }
-		);
+
+		let insightModal = null
+
+		if (info.categories.indexOf('advertising') >= 0) {
+			insightModal = this.modalCtrl.create(
+				'advert-details', { info }
+			);
+		} else {
+			insightModal = this.modalCtrl.create(
+				'InsightDetailsPage', { info, type: insightType.all }
+			);
+		}
 
 		insightModal.present();
 	}
@@ -75,17 +93,35 @@ export class ArchivePage {
 	}
 
 	public searchHandler (keyword, filter) {
+		this.search = keyword.length > 0 ? { keyword, filter } : null
 		this.archive.applyFilter(keyword, filter);
 	}
 
 	public unStarInsight(record_id, source) {
-		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.archive, null, insightFilterTypes.archive) }
-		return unStarItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, callback);
+		const successCallback = () => {
+			this.search && this.archive.applyFilter(this.search.keyword, this.search.filter);
+		}
+		const callback = () => { 
+			assignClientInsightToModal(this.profile.cookie, this.archive, 1, null, successCallback.bind(this), null, insightFilterTypes.archive) 
+		}
+		return unStarItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, callback);
 	}
 
 	public trashInsight(record_id, source, categories) {
-		const callback = () => { assignClientInsightToModal(this.profile.cookie, this.archive, null, insightFilterTypes.archive) }
-		return trashItem(this.profile.cookie, this.alertCtrl, this.translate, record_id, source, null, categories, callback);
+		const successCallback = () => {
+			this.search && this.archive.applyFilter(this.search.keyword, this.search.filter);
+		}
+
+		const callback = () => { 
+			assignClientInsightToModal(this.profile.cookie, this.archive, 1, null, successCallback.bind(this), null, insightFilterTypes.archive) 
+		}
+		return trashItem(this.profile.cookie, this.toastCtrl, this.translate, record_id, source, null, categories, callback);
+	}
+
+	public fetchTranslation(key) {
+		if (key) {
+			return this.translate.instant(key);
+		}
 	}
 
 }

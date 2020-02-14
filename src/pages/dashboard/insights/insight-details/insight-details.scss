@@ -118,13 +118,20 @@ insight-details {
 				box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 				margin-bottom: 12px;
 				line-height: 18px;
+				background: white;
 			}
-			ion-icon {
-				padding: 10px 5px;
-				font-size: 24px;
-				&.active{
-					color: #ffcb2ce8;
-				}
+		}
+	}
+
+	.suggest-area {
+		h5 {
+			display: inline-block;
+		}
+		ion-icon {
+			padding: 10px 5px;
+			font-size: 24px;
+			&.active{
+				color: #ffcb2c;
 			}
 		}
 	}
@@ -141,6 +148,7 @@ insight-details {
 		width: 100%;
 		padding: 15px;
 		font-size: 16px;
+		background: white;
 	}
 
 	.source{

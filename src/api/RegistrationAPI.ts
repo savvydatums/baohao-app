@@ -48,4 +48,17 @@ export class RegistrationAPI extends Comms {
 			}, (response) => { reject(JSON.parse(response.error)) });
         });
 	}
+
+	public static inAppPurchase(cookie, transaction_id, receipt): Promise<{}> {
+        return new Promise((resolve, reject) => {
+			cordova.plugin.http.post(Routes.inAppPurchase, {cookie, transaction_id, receipt}, {}, (response) => {
+				const result = JSON.parse(response.data)
+				if (response.status == 200 && result.status == 'ok') {
+					resolve(result)
+				} else {
+					resolve(JSON.parse(response.data))
+				}
+			}, (response) => { reject(JSON.parse(response.error)) });
+        });
+	}
 }

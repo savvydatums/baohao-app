@@ -15,17 +15,23 @@
 
 	"UPDATE_FAILED": "Update Failed!",
 	"UPDATE_SUCCEED": "Update Succeed!",
-	"UPDATE_PENDING_MESSAGE": "we can not update it now, try again later",
+    "UPDATE_PENDING_MESSAGE": "we can not update it now, try again later",
+    "EXPIRED_MESSAGE": "Login time expired, please re-login.",
+    "SEARCH_SOMETHING": "Search Something...",
+    "GLOBAL_NO_DATA": "Oops, there is no data yet!",
 
 	"NAVIGATION": {
         "PROFILE": "PROFILE",
         "CUSTOMER": "CUSTOMER",
+        "ADVERT": "ADV/ARTICLE",
         "LEADS": "LEADS",
         "STARRED": "STARRED",
 		"FAQ": "FAQ",
 		"SUPPORT": "SUPPORT",
 		"TRASH": "TRASH",
-        "LOGOUT": "LOGOUT"
+        "LOGOUT": "LOGOUT",
+        "FILTER": "Filter",
+        "INFO": "Info"
 	},
 
     "LOGIN" : {
@@ -38,7 +44,11 @@
         "BUTTON": "SIGN IN",
         "SIGN_UP_CTA": "Don't have an account? ",
         "SIGN_UP_LINK": "Sign up",
-        "REMEMBER_REGISTRATION_ID": "Remember my Registration ID"
+        "REMEMBER_REGISTRATION_ID": "Remember my Registration ID",
+        "APPROVED": "Your Insurbox is already setup and approved, please login your App to check insights.",
+        "UNKOWN": "We haven't found your account, please go to register site register one",
+        "PENDING": "Your account is pending, please login to register site check info",
+        "PROCESSING": "We are still preparing your MyInsurBox, please wait for our staff to contact to you."
     },
     "WELCOME": {
         "TITLE": "Welcome to MyInsurBox",
@@ -151,16 +161,32 @@
     },
 
     "PAYMENT": {
-        "SMALL_TEXT": "Early Bird Promotion",
-        "ORIGIN_PRICE": "$7300",
-        "PRICE": "$3500",
+        "TITLE": "MyInsurBox Service Fee",
+        "PRICE": "HKD$8",
         "POINT_1": "<p><b>180 days</b> data storage</p>",
-        "POINT_2": "<p><b>Free</b> MyInsurBox Device <br/>($500 deposit required)</p>",
+        "POINT_2": "<p><b>Free</b> MyInsurBox Device</p>",
         "POINT_3": "<p><b>Unlimited</b> Sales Opportunities <br/> Recommanded by AI</p>",
         "POINT_4": "<p><b>Unlimited</b> User Defined Keyword Search </p>",
         "POINT_5": "<p><b>One Stop Shop</b> on Insurance Product Information</p>",
         "REF_TEXT": "Referral Code",
-        "CHECKOUT": "CHECKOUT"
+        "CHECKOUT_METHOD": "Checkout methods",
+        "CHECKOUT": "CHECKOUT",
+        "RESTORE": "RESTORE PURCHASE",
+        "DETAILS": {
+            "CHECK": "HKD Cheque",
+            "CHECK_DETAILS": "<p>1. Account Name: Baohe Tech Limited. <br/> 2.Write your Register Username on the back. <br/>3. Post to: <br/>6F, KOHO, Hung To Road, Kwun Tong, Kowloon, HK</p>",
+            "TRANSFER": "Bank Transfer",
+            "TRANSFER_DETAILS": "<p>Bank transfer Information: <br/>Bank Name: Bank of China (Hong Kong)<br/> Account Name: Baohe Tech Limited <br/>Account Number: 012-699-2-003872-8<br/> Please email receipt to：info@baohetec.com</p>",
+            "CREDIT": "Credit Card",
+            "CREDIT_DETAILS": "<p>Please click the below button to start payment</p>",
+            "IN_APP_PURCHASE": "Use In App Purchase",
+            "IAP_SUCCESS": "Thanks for your purchase",
+            "IAP_SUCCESS_INFO": "We are going to the appointment form, please fill out the time you available for myInsurbox installation.",
+            "IAP_ERROR": "Sorry, We are unable to finish your purchase",
+            "IAP_ERROR_INFO": "There seem to have some system mistakes, please try it again later.",
+            "IAP_RESTORE_INFO": "Already Purchase ?",
+            "IAP_PURCHASE_NOTFOUND": "Sorry, We can not find your purchase."
+        }
     },
 
     "APPOINTMENT": {
@@ -198,41 +224,100 @@
 		"CATEGORIES": "Categories",
 		"STORY": "story",
         "ADD_NICKNAME": "add nickname",
+        "NO_NICKNAME": "no nickname",
         "NICKNAME": "nickname",
 		"SUMMARY": {
 			"TITLE": "INSIGHT"
 		},
 		"DETAILS": {
 			"DELETE_PERIOD_INFO" : "Are you sure you want to delete this info",
-			"NO_DATA": "No Data",
+			"NO_DATA": "Oops, No Data",
             "KEYWORD_ANALYSIS": "Keyword Analysis",
             "CURRENT_CUSTOMER": "Current Customer",
             "NOT_TO_DISPLAY": "Not to display ",
             "POST_IN_TWO_MONTH": "’s posts in coming 2 months",
             "KNOW_MORE_ABOUT": "Know more about",
             "RECOMMEND": "Recommend Products",
-            "PRODUCT_CORRECT": "Product suggestion correct?"
+            "PRODUCT_CORRECT": "Product suggestion correct?",
+            "ADVERT_CORRECT": "Advert suggestion correct?",
+            "AGENT": "Agent",
+            "NOT_AGENT": "He/She is not an agent"
 		},
 		"ARCHIVE": {
+            "STAR": "Star",
 			"UNSTAR": "Not Star",
 			"TRASH": "Trash"
 		},
 		"TRASH": {
-			"UNTRASH": "Not Trash"
+            "UNTRASH": "Recovery",
+            "DELETE": "Delete",
+            "UNTRASH_MESSAGE": "Recovered",
+            "DELETE_MESSSAGE": "Deleted"
         }
-	},
+    },
+
+    "FILTER": {
+        "CLEAR": "Clear",
+        "BY_NAME": "By Name",
+        "BY_CONTENT": "By Content",
+        "BY_CATEGORY": "Category",
+        "SELECT_ALL": "Select All",
+        "DESELECT": "Deselect"
+    },
 
 	"SUPPORT": {
-		"BUG_REPORT_TITLE": "To Report Bug or Error",
-		"BUG_OPTION_LABEL": "Please select one of the following",
-		"BUG_REPORT_OPTIONS": [
-			"No result After 30 mins",
-			"No display",
-			"System hang up",
-			"Data not refreshing",
-			"Result not related",
-			"Others"
-		],
-		"Message": "If your bug is others, please explain what happen?"
-	}
+        "Message_P1": "Please check FAQ first",
+        "Message_P2": "If you could not find relevant answer, please email to",
+        "Message_P3": "Thank you for your support!"
+    },
+
+    "FAQ": [{
+        "Q": "1. How can I reset the Password?",
+        "A": "You can change password in the Profile section.  The “PROFILE” button is located at the bottom right-hand corner of the App. "
+    },{
+        "Q": "2. How do I update my information if I move to a different company?",
+        "A": "Please contact our customer service or support and send us your new business card with your latest information."
+    },{
+        "Q": "3. How do I stop seeing leads or posts from selected “Friends” or “Customers”?",
+        "A": "Click on “Leads” on the interface, choose “NOT TO DISPLAY IN COMING 2 MONTHS”"
+    },{
+        "Q": "4. Can I still see leads from selected customers I have chosen “NOT TO DISPLAY IN COMING 2 MONTHS” ?",
+        "A": "It is not possible to revert back."
+    },{
+        "Q": "5. I accidentally deleted one of the important post, how do I gets it back?",
+        "A": "Posts deleted will be moved to the Trash Box under the menu bar. Just click “UN-TRUSH” and it will be restored to the inbox. Please note deleted posts in Trash Box will be kept for 30 days, after which the deleted posts are unrecoverable."
+    },{
+        "Q": "6. Can I extract / download the data from the APPS?",
+        "A": "Our APPS aim at helping users to analyze massive information from various social media accounts through the AI server. It is not possible to extract the data because all the process is done in real time through the “MyInsurBox” device. If the message is important to you, you can save the message by clicking the “STAR” button. The message will be stored for 6 months"
+    },{
+        "Q": "7. What should I do if the Apps (E-Sync / E-Link) not working?",
+        "A": "First, please check the connection of the “MyInsurBox” device and your mobile phone’s Wi-Fi signal. If there is no issue with connections and the Apps are still not working properly, please restart the “MyInsurBox” device and the Apps."
+    },{
+        "Q": "8. Why I cannot connect to the “Myinsurbox” device at home?",
+        "A": "Please allow 1-2 mins for the “MyInsurBox” device to boot up. Make sure the data cable is connected correctly to your Wi-Fi Router. Make sure your phone is connected to the Wi-Fi network."
+    },{
+        "Q": "9. Why is my Facebook message not displaying?",
+        "A": "Make sure you enter the correct password.  Check your email from Facebook to authorize the login from new device."
+    },{
+        "Q": "10. Why is my WeChat message is not displaying?",
+        "A": "Please make sure the “MyInsurBox” device is connected to the router correctly."
+    },{
+        "Q": "11. What should I do if I need to reply the message in WeChat during data processing?",
+        "A": "Just login your WeChat account on your mobile and run “MyInsurBox” device again when you are ready for data processing."
+    },{
+        "Q": "12. When I open E-Sync, it cannot find “MyInsurBox” device.",
+        "A": "Try to unplug the LAN cable at both ends and re-connect again."
+    },{
+        "Q": "13. Can I create my own category after the analysis? Can I tailor made the categories by myself?",
+        "A": "You cannot create or specify new category. You are welcome to contact our customer service or support to provide feedback to us to improve App."
+    },{
+        "Q": "14. Why is there no update in “MyInsurBox” App after the data has been processed?",
+        "A": "Try logout “MyinsurBox” App and re-login again."
+    },{
+        "Q": "15. Why is there no post in “Leads”?",
+        "A": "All posts under “Leads” are selected by our AI server for potential business opportunities. Unrelated posts will not be shown."
+    },{
+        "Q": "16. Where can I see the list of my current customers?",
+        "A": "To maximize your sales opportunities, posts are organized by timeline (latest on top). If you want to find a specific customer, you can use the search bar to search by name."
+    }]
 }

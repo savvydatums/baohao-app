@@ -69,8 +69,11 @@ registration, activate {
 
     // page welcome
     .welcome, .activate {
+        .title {
+            font-size: 2rem;
+        }
         img {
-            margin: 50px auto;
+            margin: 10px auto;
             display: inherit;
         }
     }
@@ -236,14 +239,14 @@ registration, activate {
             position: absolute;
             text-align: center;
             width: 110%;
-            height: 40%;
+            height: 37%;
             display: block;
             color: #8c8c8c;
             left: -5%;
             h1 {
-                font-size: 48px;
+                font-size: 38px;
                 font-weight: 400;
-                margin: 0;
+                margin-top: 20px;
                 color: #F15725;
             }
             h3 { 
@@ -254,11 +257,16 @@ registration, activate {
                 font-size: 24px;
                 color:#F15725;
                 text-decoration:line-through;
+                display: block;
             }
             span.strike>span {
                 color: grey;
                 font-weight:200;
                 color: black;
+            }
+            img {
+                width: 80px;
+                margin-top: 10px;
             }
             .back-circle {
                 background-image: linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0.80));
@@ -271,6 +279,17 @@ registration, activate {
                 left: -5%;
                 z-index: -1;
             }
+
+            &.ios {
+                height: 34%;
+                
+                h1 {
+                    font-size: 40px;
+                    margin-top: 20px;
+                }
+            }
+
+
         }
         // points
         .content-wrapper {
@@ -407,9 +426,54 @@ activate {
 			height: 100%;
 			border: none;
 		}
-	}
+    }
+    .payment-method-btn {
+        width: 95%;
+    }
 }
 
 .no-border {
     border: none !important;
+}
+
+.payment-modal {
+    background: rgba(0,0,0,0.15);
+}
+
+payment-details.ion-page {
+    position: relative;
+    width: 90%;
+    height: 70%;
+    margin: 20% 5% 10%;
+    .close-btn {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 40px;
+        line-height: 1rem;
+        z-index: 3;
+    }
+    .slide-zoom {
+        width: 90%;
+        .left { 
+            text-align: left;
+        }
+    }
+    .load-wrapper {
+        background: #4a4949;
+        z-index: 10;
+    }
+}
+
+.no_data {
+    text-align: center;
+    p {
+        color: white;
+        margin-top: 40%;
+    }
+}
+
+.restore-info {
+    text-align:center;
+    margin: 4px auto;
 }

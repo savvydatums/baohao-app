@@ -1,0 +1,45 @@
+<ion-content>
+    <div class="left" (click)="closeModal()">
+      <ion-icon name="close"></ion-icon>
+    </div>
+    <div class="source">
+        <img *ngIf="insightData.source == 'fb'" src="assets/icon/facebook.svg">
+        <img *ngIf="insightData.source == 'wex'" src="assets/icon/wechat.svg">
+      </div>
+  
+    <div class="content">
+        <div class="title-area">
+          <h5>
+            {{ insightData.authorName }} <br/> 
+            ({{ insightData.nickname|| 'INSIGHT.NO_NICKNAME'|translate }})
+          </h5>
+          <hr/>
+          <img src="assets/icon/advert-icon.png">
+          <h5>{{ renderTimeStamp(insightData.timestamp) }}</h5>
+        </div>
+        <hr/>
+        <p [innerHTML]="insightData.content"></p>
+        <ion-item *ngIf="insightData.agent" class="agent">
+          <ion-label>
+            agent {{ 'INSIGHT.DETAILS.NOT_AGENT' | translate }}
+          </ion-label>
+          <ion-checkbox
+            (click)="notAgent()"
+            color="light" >
+          </ion-checkbox>
+        </ion-item>
+        <div class="suggest-area">
+            <h5>{{ 'INSIGHT.DETAILS.ADVERT_CORRECT' | translate }}</h5>
+            <ion-icon 
+              name="thumbs-up" 
+              [ngClass]="insightData.useful == true ? 'active': ''" 
+              (click)="updateSuggestionUseful(true)"
+            ></ion-icon>
+            <ion-icon 
+              name="thumbs-down" 
+              [ngClass]="insightData.useful == false ? 'active': ''" 
+              (click)="updateSuggestionUseful(false)"
+            ></ion-icon>
+        </div>
+    </div>
+</ion-content>

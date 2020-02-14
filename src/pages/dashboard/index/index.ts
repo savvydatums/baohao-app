@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { AllClient } from '../insights/allclient/index';
-import { ArchivePage } from '../archive/index';
-import { ProfilePage } from '../profile/index';
 import { AllInsightsModel } from '../../../model/AllInsightsModel';
 import { IonicPage, NavController, AlertController } from 'ionic-angular';
-//import { redirectIfNotLogin } from '../../../utils/login-util';
 import { ProfileModel } from '../../../model/ProfileModel';
 import { InsightAPI } from '../../../api/InsightAPI';
 import { InsightResponseStatus } from '../../../api/Comms';
@@ -13,6 +10,8 @@ import { PotentialLeadsModel } from '../../../model/PotentialLeadsModel';
 import { insightFilterTypes } from '../insights/settings/settings';
 import { showError } from '../../../utils/alert-generic';
 import { TranslateService } from '@ngx-translate/core';
+import { AdvertPage } from '../advert/index';
+import { InfoPage } from '../info/index';
 
 @IonicPage({ name: "DashboardPage", segment: "DashboardPage"})
 @Component({
@@ -22,10 +21,10 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class DashboardPage {
 
-	tabProfile = ProfilePage;
+	tabAdvert = AdvertPage;
 	tabInsight = AllClient;
 	tabPotential = PotentialPage;
-	tabArchive = ArchivePage;
+	tabInfo = InfoPage;
 	loading = true;
 
 	constructor(
@@ -35,25 +34,22 @@ export class DashboardPage {
 		private alertCtrl: AlertController,
 		public translate: TranslateService,
 		public profile: ProfileModel) {
-	}
-
-	ionViewDidLoad() {
-		//redirectIfNotLogin(this.navCtrl, this.profile);
+		
+		this.insights.setCategoryInfo()
 	}
 
 	ngAfterViewInit() {
 		this.getPotentialLeads(this.profile.cookie, insightFilterTypes.all)
-		const lang = this.translate.currentLang || this.translate.defaultLang
-		this.insights.setCategoryInfo(lang)
 		this.showLoading(true)
 	}
 
 	private getPotentialLeads (cookie, insightType) {
 		let self = this
-		InsightAPI.getPotentialInsight(cookie, insightType)
+		const currentLoadPage = 1
+		InsightAPI.getPotentialInsight(cookie, insightType, currentLoadPage)
 			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					self.potential.addData(result.results)
+					self.potential.addData(result.results, currentLoadPage, result.num_of_pages)
 					self.getClientInsights(this.profile.cookie, insightType)
 				} else {
 					showError(this.alertCtrl, this.translate, result.message);
@@ -65,10 +61,11 @@ export class DashboardPage {
 
 	private getClientInsights(cookie, insightType) {
 		let self = this
-		InsightAPI.getAllClientInsight(cookie, insightType)
+		const currentLoadPage = 1
+		InsightAPI.getAllClientInsight(cookie, insightType, currentLoadPage)
 			.then((result:any) => {
 				if (result.status == InsightResponseStatus.SUCCESS) {
-					self.insights.addData(result.results)					
+					self.insights.addData(result.results, currentLoadPage, result.num_of_pages)	
 					self.showLoading(false)
 				} else {
 					showError(this.alertCtrl, this.translate, result.message);

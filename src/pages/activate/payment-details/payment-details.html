@@ -1,0 +1,16 @@
+<ion-content padding>
+  <ion-icon (click)="closeModal()" name="close" class="close-btn"></ion-icon>
+  <ion-slides pager="true">
+    <ion-slide>
+      <img src="assets/imgs/credit-card.png"
+        srcset="assets/imgs/credit-card@2x.png 2x, assets/imgs/credit-card@3x.png 3x" />
+      <h3>{{ 'PAYMENT.DETAILS.CREDIT' | translate }}</h3>
+      <div [innerHTML]="'PAYMENT.DETAILS.CREDIT_DETAILS' | translate "></div>
+      <div class="referal">
+          <form id="strip-form" #stripForm action="https://api.myinsurbox.com/stripe/charge.php" method="post">
+            <input id="cookie" type="hidden" name="cookie" value="xxxx">
+          </form>
+        </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

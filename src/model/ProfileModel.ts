@@ -19,6 +19,7 @@ export class ProfileModel {
 	public registered: string;
     public expire_date: string;
     public language: string;
+    public cordova: string;
 
     constructor() {
     }

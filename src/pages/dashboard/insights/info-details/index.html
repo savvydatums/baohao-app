@@ -1,0 +1,17 @@
+<ion-content padding>
+    <div class="left" (click)="closeModal()">
+    	<ion-icon name="close"></ion-icon>
+    </div>
+    <div class="hero">
+		<div class="background" 
+		[ngClass]="postData.post_image == false ? 'default' : ''"
+		[ngStyle]="{ 'backgroundImage': 'url(' + getPath(postData.post_image) + ')' }"></div>
+		<div class="title">
+			<h4 *ngIf="lang == 'cn'">{{ postData.title_zh }}</h4>
+			<h4 *ngIf="lang !== 'cn'">{{ postData.title_en }}</h4>
+			<p>{{ postData.post_date }}</p>
+		</div>
+	</div>
+	<div class="content" *ngIf="lang == 'cn'" [innerHTML]="postData.content_zh"></div>
+	<div class="content" *ngIf="lang !== 'cn'" [innerHTML]="postData.content_en"></div>
+</ion-content>
