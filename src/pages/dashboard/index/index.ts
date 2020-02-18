@@ -11,7 +11,7 @@ import { insightFilterTypes } from '../insights/settings/settings';
 import { showError } from '../../../utils/alert-generic';
 import { TranslateService } from '@ngx-translate/core';
 import { AdvertPage } from '../advert/index';
-import { InfoPage } from '../info/index';
+import { RecuritPage } from '../recurit/index';
 
 @IonicPage({ name: "DashboardPage", segment: "DashboardPage"})
 @Component({
@@ -24,7 +24,7 @@ export class DashboardPage {
 	tabAdvert = AdvertPage;
 	tabInsight = AllClient;
 	tabPotential = PotentialPage;
-	tabInfo = InfoPage;
+	tabRecurit = RecuritPage;
 	loading = true;
 
 	constructor(

@@ -1,0 +1,13 @@
+<ion-content padding>
+  <div class="left" (click)="closeModal()">
+		<ion-icon name="close"></ion-icon>
+	</div>
+  <img [src]="userData.authorProfileImg">
+  <p>{{ userData.authorName }} </p>
+  <p>{{ userData.age }} {{ 'RECRUIT.AGE'|translate }}</p>
+  <p>{{ userData.attendUniversity }} {{ 'RECRUIT.UNIVERSITY'|translate }}</p>
+  <p>{{ 'RECRUIT.ARTICLES'|translate }}</p>
+  <canvas #barChartView></canvas>
+  <p>{{ 'RECRUIT.INTERESTS'|translate }}</p>
+  <canvas #pieChartView></canvas>
+</ion-content>

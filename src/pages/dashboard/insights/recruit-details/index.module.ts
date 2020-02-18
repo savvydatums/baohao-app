@@ -1,28 +1,28 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { InsightDetailsPage } from './insight-details';
+import { RecruitDetailsPage } from '.';
 import { ComponentsModule } from '../../../../components/components.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpLoaderFactory } from '../../../../app/app.module';
 import { HttpClient } from '@angular/common/http';
 
 @NgModule({
-	declarations: [
-		InsightDetailsPage,
-	],
-	imports: [
-		ComponentsModule,
-		IonicPageModule.forChild(InsightDetailsPage),
-		TranslateModule.forChild({
+  declarations: [
+    RecruitDetailsPage,
+  ],
+  imports: [
+    ComponentsModule,
+    IonicPageModule.forChild(RecruitDetailsPage),
+    TranslateModule.forChild({
 			loader: {
 				provide: TranslateLoader,
 				useFactory: (HttpLoaderFactory),
 				deps: [HttpClient]
 			}
 		})
-	],
-	entryComponents: [
-		InsightDetailsPage
+  ],
+  entryComponents: [
+    RecruitDetailsPage
 	]
 })
-export class InsightDetailsPageModule {}
+export class RecruitDetailsPageModule {}

@@ -26,6 +26,7 @@ import { AdvertModel } from '../model/AdvertModel';
 import { InAppPurchase } from '@ionic-native/in-app-purchase';
 import { AppAvailability } from '@ionic-native/app-availability';
 import { PostModel } from '../model/PostModel';
+import { RecruitModel } from '../model/RecruitModel';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { PostModel } from '../model/PostModel';
     AdvertModel,
     TrashModel,
     ProfileModel,
+    RecruitModel,
     PostModel,
     StatusBar,
     SplashScreen,

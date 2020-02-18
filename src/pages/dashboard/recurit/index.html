@@ -1,0 +1,27 @@
+<ion-header>
+    <header [title]="'RECRUIT.TITLE'|translate"></header>
+    <search-bar
+      [searchHandler]="searchHandler.bind(this)"
+      [filters]="recruit.filterOptions"
+      [selected]="recruit.filterType"
+      [fetchTranslation]="fetchTranslation.bind(this)">
+    </search-bar>
+</ion-header>
+
+<ion-content *ngIf="recruit.rawData.length > 0">
+    <div *ngIf="loading" class="loading">
+      <div class="load-wrapper">
+        <ion-spinner name="crescent" color="light"></ion-spinner>
+        <p>{{ 'LOADING' | translate }}</p>
+      </div>
+    </div>
+    <ion-thumbnail *ngFor="let item of recruit.filteredData"
+        (click)="getRecuirtUserDetails(item.authorId)" >
+        <img [src]="item.authorProfileImg">
+        <p>{{ item.authorName }}</p>
+    </ion-thumbnail>
+</ion-content>
+
+<ion-content class="no_data" *ngIf="recruit.rawData.length <= 0">
+    <p>{{ 'GLOBAL_NO_DATA' | translate }} </p>
+</ion-content>

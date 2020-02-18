@@ -129,6 +129,8 @@ export class UserDetailsPage {
 			}
 		})
 
+		console.log({ data, labels, colors })
+
 		return { data, labels, colors, callback: this.chartClicked.bind(this) }
 	}
 
@@ -166,25 +168,20 @@ export class UserDetailsPage {
 			app = 'fb://'
 		} else if (cordova.platformId === platforms.Android) {
 			app = 'com.facebook.katana'
-		} 
-
-		//alert('cordova.platformId:' + cordova.platformId + '/' + appUrl + '/' + app);
+		}
 
 		this.appAvailability.check(app)
 			.then(
 				(yes) => {
 					if (this.userDetails.authorNumericId) {
-						//alert(this.userDetails.authorNumericId + 'exist: appUrl' + appUrl);
 						const browser = this.iab.create(appUrl, '_system');
 						browser.show();	
 					} else {
-						//alert(this.userDetails.authorNumericId +'not exist: webUrl' + webUrl);// undefined url and this
-						this.openWebUrl() // fall back on everything
+						this.openWebUrl()
 					}
 				},
 				(no) => {
-					//alert(app + no +'not exist: webUrl' + webUrl);// undefined url and this
-					this.openWebUrl() // fall back on everything
+					this.openWebUrl()
 				}
 			);
 	}

@@ -58,6 +58,16 @@ export type TInsightSummary = {
 	settings?: object;
 }
 
+export type TRecuritUserDetails = {
+	_id: string;
+	authorId: string;
+	authorProfileImg: string;
+	age: string|number;
+	attendUniversity: string;
+	categoryChart: object;
+	topicChart: object;
+}
+
 export type trashItem = {
 	_id: string;
 	authorId: string;

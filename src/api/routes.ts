@@ -27,6 +27,8 @@ export const totalAmountByAuthorId = `${insightPath}get_total_amount_by_authorid
 export const potentialInsight = `${insightPath}get_potential_insight` //[onlyarchive || notrash]
 export const productLinks = `${baseApiPath}api/suggest_product_link/get_product_link`
 export const suggestionUseful = `${insightPath}useful`
+export const recuritUsers = `${insightPath}get_recruitment_user`
+export const recuritUserDetails = `${insightPath}get_recruitment_user_detail`
 
 // archives
 export const archiveList = `${insightPath}get_star_list`

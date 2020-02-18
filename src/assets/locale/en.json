@@ -31,7 +31,8 @@
 		"TRASH": "TRASH",
         "LOGOUT": "LOGOUT",
         "FILTER": "Filter",
-        "INFO": "Info"
+        "INFO": "Info",
+        "RECRUIT": "Recuritment"
 	},
 
     "LOGIN" : {
@@ -254,6 +255,14 @@
             "UNTRASH_MESSAGE": "Recovered",
             "DELETE_MESSSAGE": "Deleted"
         }
+    },
+
+    "RECRUIT": {
+        "TITLE": "New Star", 
+        "AGE": "year",
+        "UNIVERSITY": "university",
+        "ARTICLES": "Article topics",
+        "INTERESTS": "Interests"
     },
 
     "FILTER": {

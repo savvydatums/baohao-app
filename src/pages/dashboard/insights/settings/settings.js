@@ -3,13 +3,20 @@ import * as keywords from '../../../../assets/json/keyword-settings'
 export const keywordsSettings = keywords;
 
 export const insightSearchFilters = ['By Name', 'By Content'];
+export const recruitFilters = ['By Name', 'By Interest'];
 
 export const filterOptions = [
 	{ value:'name', label: '', en: 'By Name', cn: '根據名字', checked: true},
 	{ value:'content', label: '', en: 'By Content', cn: '根據內容', checked: true}
 ]
 
+export const recruitFilterOptions = [
+	{ value:'name', label: '', en: 'By Name', cn: '根據名字', checked: true},
+	{ value:'interest', label: '', en: 'By Interest', cn: '根據興趣', checked: true}
+]
+
 export const starFilters = ['Potential', 'General'];
+
 export const insightFilterTypes = {
 	all: 'notrash',
 	archive : 'onlyarchive',
