@@ -146,5 +146,28 @@
 			"cn": "強積金",
 			"en": "MPF"
 		}
+	},
+	
+	"interest" : {
+		"topicTraveling": {
+			"color": "#85BC4A",
+			"cn": "旅遊",
+			"en": "Traveling"			
+		},
+		"topicHandmade": {
+			"color": "#EBBC1D",
+			"cn": "手作",
+			"en": "Handmade"
+		},
+		"topicParenting": {
+			"color": "#BD8C98",
+			"cn": "育兒",
+			"en": "Parenting"
+		},
+		"topicMedical": {
+			"color": "#158CA7",
+			"cn": "醫療",
+			"en": "Medical"
+		}
 	}
 }

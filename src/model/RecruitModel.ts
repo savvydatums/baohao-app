@@ -25,7 +25,7 @@ export class RecruitModel {
     public filter (keyword, filterType) {
         let filtered = this.rawData.filter(item => {
             const name = item.authorName.toLowerCase();
-            const topics = Object.keys(item.topicChart).map( key => key.substring(5).toLowerCase())
+            const topics = Object.keys(item.topicChart).map(key => key.substring(5).toLowerCase())
             const word = keyword.toLowerCase()
 
              if (filterType == 'name') {

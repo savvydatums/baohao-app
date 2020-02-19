@@ -2,9 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { TRecuritUserDetails } from '../../../../model/types';
 import { Chart } from 'chart.js'
-import { createBarChartOptions, createPieChartOptions } from '../../../../utils/graph-util';
+import ChartDataLabels from 'chartjs-plugin-datalabels'
+import { createInterestChartOptions, createCategoryChartOptions } from '../../../../utils/graph-util';
 import { TranslateService } from '@ngx-translate/core';
 import { keywordsSettings } from '../settings/settings';
+
+//Chart.plugins.unregister(ChartDataLabels);
 
 @IonicPage({ name: "RecruitDetailsPage", segment: "RecruitDetailsPage" })
 @Component({
@@ -45,13 +48,13 @@ export class RecruitDetailsPage {
   // data: topicChart : 會關注的主題 InterestGraph (pie)
   private createInterestGraph () {
     let AllData = this.generateGraphData (this.userData.topicChart, false)
-    this.pieChart = new Chart(this.pieChartView.nativeElement, createPieChartOptions(AllData));
+    this.pieChart = new Chart(this.pieChartView.nativeElement, createInterestChartOptions(AllData));
   }
 
   // categoryChart : 發表文章類型 KeywordGraph (bar) with pagination
   private createCategoryGraph () {
     let AllData = this.generateGraphData (this.userData.categoryChart, true)
-    this.barChart = new Chart(this.barChartView.nativeElement, createBarChartOptions(AllData));
+    this.barChart = new Chart(this.barChartView.nativeElement, createCategoryChartOptions(AllData));
   }
 
   public generateGraphData (dataset, pagination) {
@@ -68,9 +71,9 @@ export class RecruitDetailsPage {
     // generate data
     for (let key in dataset) {
       data.push(dataset[key]);
-      const settings = keywordsSettings.allClient[key]
+      const settings = keywordsSettings.allClient[key] || keywordsSettings.interest[key]
       
-      if (settings) {
+      if (settings) { // setting never exist anymore
         labels.push(settings[currentLang] || key) 
         colors.push(settings.color)
       } else {
@@ -80,7 +83,7 @@ export class RecruitDetailsPage {
       
     }
 
-    console.log('generateGraphData', pagination, data, labels, colors ) // some has only one page, some don't
+    //console.log('generateGraphData', pagination, data, labels, colors ) // some has only one page, some don't
 
     return { data, labels, colors } 
   }

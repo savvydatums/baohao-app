@@ -1,3 +1,31 @@
 recurit {
 
+    header, search-bar{
+        background: #8972DF;
+    }
+
+    .scroll-content {
+        padding: 10px;
+        background-image: none;
+        background-color: #E9E3FF;
+        margin-top: 85px !important;
+    }
+
+    ion-thumbnail {
+        display: inline-block;
+        width: calc(100%/3);
+        padding: 14px;
+        vertical-align: top;
+
+        img {
+            display: block;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        p {
+            color: lighten($dark, 10);
+            text-align: center;
+        }
+    }
 }

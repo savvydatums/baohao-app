@@ -2,12 +2,13 @@
   <div class="left" (click)="closeModal()">
 		<ion-icon name="close"></ion-icon>
 	</div>
-  <img [src]="userData.authorProfileImg">
-  <p>{{ userData.authorName }} </p>
-  <p>{{ userData.age }} {{ 'RECRUIT.AGE'|translate }}</p>
-  <p>{{ userData.attendUniversity }} {{ 'RECRUIT.UNIVERSITY'|translate }}</p>
-  <p>{{ 'RECRUIT.ARTICLES'|translate }}</p>
+  <img class="profileImg" [src]="userData.authorProfileImg">
+  <h5>{{ userData.authorName }} </h5>
+  <h5>{{ userData.age }} {{ 'RECRUIT.AGE'|translate }}</h5>
+  <h5>{{ userData.attendUniversity }} {{ 'RECRUIT.UNIVERSITY'|translate }}</h5>
+  <div class="chart-title"><h5>{{ 'RECRUIT.ARTICLES'|translate }}</h5></div>
   <canvas #barChartView></canvas>
-  <p>{{ 'RECRUIT.INTERESTS'|translate }}</p>
+  <div class="chart-title"><h5>{{ 'RECRUIT.INTERESTS'|translate }}</h5></div>
   <canvas #pieChartView></canvas>
+  <div class="bottom-space"></div>
 </ion-content>

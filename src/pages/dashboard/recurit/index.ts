@@ -17,8 +17,6 @@ import { SearchBarComponent } from '../../../components/search-bar/search-bar';
 export class RecuritPage {
 
 	loading: boolean = true;
-	//filters: object = recruitFilterOptions;
-	//searchFilters: object[] = [];
 
 	@ViewChild(forwardRef(() => HeaderComponent)) header
 	@ViewChild(forwardRef(() => SearchBarComponent)) searchBar
