@@ -36,8 +36,10 @@ export class RecruitModel {
                 return name.indexOf(word) >= 0 || topics.indexOf(word) >= 0
             }
         });
-
-        console.log('filter',keyword, filterType, filtered)
         this.filteredData = filtered
+    }
+    
+    public reset () {
+        this.filteredData = this.rawData;
     }
 }

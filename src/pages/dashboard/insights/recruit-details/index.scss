@@ -1,6 +1,6 @@
 recruit-details {
     position: relative;
-	background: rgba(0,0,0, 0.8);
+	background: rgba(0,0,0, 0.2);
     top: 16px;
     
     .left {
@@ -12,7 +12,6 @@ recruit-details {
 		z-index: 30;
 
 		ion-icon {
-			margin-top: 10px;
 			font-size: 3.2em;
 		}
 	}
@@ -22,6 +21,8 @@ recruit-details {
         overflow: hidden;
 		margin-top: 30px;
         border-radius: 15px;
+        width: 90%;
+        margin-left: 5%;
     }
     .content { 
         text-align: center;
@@ -30,7 +31,7 @@ recruit-details {
     .profileImg {
         width: 40%;
         border-radius: 50%;
-        margin-top: 55px;
+        margin-top: 45px;
     }
     h5 {
         padding: 6px;

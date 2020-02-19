@@ -7,7 +7,7 @@ import { createInterestChartOptions, createCategoryChartOptions } from '../../..
 import { TranslateService } from '@ngx-translate/core';
 import { keywordsSettings } from '../settings/settings';
 
-//Chart.plugins.unregister(ChartDataLabels);
+Chart.plugins.unregister(ChartDataLabels); // unregistered globally, only use in specific chart
 
 @IonicPage({ name: "RecruitDetailsPage", segment: "RecruitDetailsPage" })
 @Component({
@@ -37,7 +37,6 @@ export class RecruitDetailsPage {
 
   ionViewWillLoad() {
     this.userData = this.navParams.get('info')
-    console.log('this.userData', this.userData)
   }
 
   ionViewDidLoad() {
@@ -48,7 +47,7 @@ export class RecruitDetailsPage {
   // data: topicChart : 會關注的主題 InterestGraph (pie)
   private createInterestGraph () {
     let AllData = this.generateGraphData (this.userData.topicChart, false)
-    this.pieChart = new Chart(this.pieChartView.nativeElement, createInterestChartOptions(AllData));
+    this.pieChart = new Chart(this.pieChartView.nativeElement, createInterestChartOptions(AllData) as any);
   }
 
   // categoryChart : 發表文章類型 KeywordGraph (bar) with pagination
@@ -65,7 +64,7 @@ export class RecruitDetailsPage {
     let currentLang = this.translate.currentLang || this.translate.defaultLang
 
     // if (pagination === true) {
-
+      // not implement yet
     // }
 
     // generate data

@@ -1,5 +1,4 @@
-import { Chart } from 'chart.js'
-import ChartDataLabels from 'chartjs-plugin-datalabels'
+import * as ChartDataLabels from 'chartjs-plugin-datalabels';
 
 export const createBarChartOptions = (data) => {
 
@@ -85,7 +84,7 @@ export const createInterestChartOptions = (data) => {
 					align: 'end'
 				}
 			}
-		} // label use the plugin one
+		}
 	}
 }
 
@@ -98,10 +97,7 @@ export const createCategoryChartOptions = (data) => {
 			labels: data.labels,
 			datasets: [{
 				data: data.data,
-				backgroundColor: data.colors,
-				datalabels: {
-					color: '#fff'
-				}
+				backgroundColor: data.colors
 			}]
 		},
 		options: {

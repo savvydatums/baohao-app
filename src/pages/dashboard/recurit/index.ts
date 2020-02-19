@@ -78,7 +78,9 @@ export class RecuritPage {
 	public searchHandler (keyword, filter) {
 		if (keyword) {
 			this.recruit.filter(keyword, filter ? filter : 'both')
-		}		
+		} else {
+			this.recruit.reset()
+		}
 	}
 
 	public fetchTranslation(key) {
