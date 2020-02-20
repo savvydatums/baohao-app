@@ -48,4 +48,32 @@ recruit-details {
     .bottom-space {
         height: 50px;
     }
+
+    .chart-container {
+        position: relative;
+        width: 90%;
+        margin: 5% 5% 50px;
+    }
+
+    .chart-control {
+		position: absolute;
+        top: 0;
+        height: 100%;
+		width: 100%;
+		ion-icon {
+			font-size: 1.8rem;
+			background: rgba(0, 0, 0, 0.2);
+			padding: 3px 8px;
+			position: absolute;
+		}
+		ion-icon[name="ios-arrow-back"] {
+			left: 0px;
+            bottom: -24px;
+		}
+		ion-icon[name="ios-arrow-forward"] {
+            right: 0;
+            bottom: -24px;
+		}
+	}
+
 }

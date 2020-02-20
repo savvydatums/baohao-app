@@ -74,7 +74,6 @@ export class RecruitDetailsPage {
     }
 
     ranked.sort ((a, b) => (b.amount - a.amount))
-    console.log ('ranked', ranked)
 
     if (pagination === true) {
       this.rankedCategoryData = ranked;
