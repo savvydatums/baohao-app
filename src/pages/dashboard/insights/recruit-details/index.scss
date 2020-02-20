@@ -57,9 +57,9 @@ recruit-details {
 
     .chart-control {
 		position: absolute;
-        top: 0;
-        height: 100%;
-		width: 100%;
+        bottom: 0;
+        width: 20%;
+        margin: 0 40%;
 		ion-icon {
 			font-size: 1.8rem;
 			background: rgba(0, 0, 0, 0.2);
