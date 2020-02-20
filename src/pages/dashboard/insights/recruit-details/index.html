@@ -5,9 +5,21 @@
   <img class="profileImg" [src]="userData.authorProfileImg">
   <h5>{{ userData.authorName }} </h5>
   <h5>{{ userData.age }} {{ 'RECRUIT.AGE'|translate }}</h5>
+
   <h5>{{ userData.attendUniversity }} {{ 'RECRUIT.UNIVERSITY'|translate }}</h5>
+
   <div class="chart-title"><h5>{{ 'RECRUIT.ARTICLES'|translate }}</h5></div>
-  <canvas #barChartView></canvas>
+  <div class="chart-container">
+    <div class="chart-control">
+      <ion-icon *ngIf="currentPage > 1" (click)="changePage(-1)" name="ios-arrow-back">
+      </ion-icon>
+      <ion-icon *ngIf="rankedCategoryData.length > (itemPerPage * currentPage)" (click)="changePage(1)"
+        name="ios-arrow-forward">
+      </ion-icon>
+    </div>
+    <canvas #barChartView></canvas>
+  </div>
+
   <div class="chart-title"><h5>{{ 'RECRUIT.INTERESTS'|translate }}</h5></div>
   <canvas #pieChartView></canvas>
   <div class="bottom-space"></div>

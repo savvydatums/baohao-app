@@ -129,7 +129,7 @@ export class UserDetailsPage {
 			}
 		})
 
-		console.log({ data, labels, colors })
+		//console.log({ data, labels, colors })
 
 		return { data, labels, colors, callback: this.chartClicked.bind(this) }
 	}
